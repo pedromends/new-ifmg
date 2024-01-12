@@ -1,5 +1,5 @@
 <template>
-  <HomePage class=""/>
+  <HomePage class="font-opensans"/>
 </template>
 
 <script>
@@ -15,5 +15,8 @@ export default {
 </script>
 
 <style>
-
+@font-face {
+  font-family: OpenSans;
+  src: url('@/assets/fonts/OpenSans-Regular.ttf');
+}
 </style>

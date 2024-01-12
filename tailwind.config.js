@@ -6,6 +6,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      borderWidth: {
+        '12': '12px',
+        '16': '16px',
+      },
       colors: {
         'maingreen': '#2F9E40',
       },
@@ -16,7 +20,12 @@ module.exports = {
       width: {
         '128': '32rem',
         '180': '45rem',
-      }
+        '192': '48rem',
+        '216': '54rem',
+      },
+      fontFamily: {
+        opensans: ['"OpenSans"', "sans-serif"],
+      },
     },
   },
   plugins: [
