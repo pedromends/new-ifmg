@@ -12,6 +12,7 @@ module.exports = {
       },
       colors: {
         'maingreen': '#2F9E40',
+        'maingray': '#4B5563',
       },
       backgroundImage: {
         'handglass': "url('@/assets/icons/hand-glass.svg')",

@@ -3,6 +3,7 @@
     <Navbar />
     <Presenter />
     <AboutUs />
+    <Advantages />
   </main>
 </template>
 
@@ -10,13 +11,15 @@
 import Navbar from "@/components/Navbar.vue";
 import Presenter from "@/sections/Presenter.vue"
 import AboutUs from "@/sections/AboutUs.vue"
+import Advantages from "@/sections/Advantages.vue"
 
 export default {
   name: 'HomePage',
   components:{
     Navbar,
     Presenter,
-    AboutUs
+    AboutUs,
+    Advantages
   },
   props: {
     msg: String

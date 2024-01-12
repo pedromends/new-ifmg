@@ -23,14 +23,14 @@
         </div>
         
         <div class="flex justify-between items-center">
-            <div class="flex gap-6 p-2 ml-20">
-                <a class="p-5">INÍCIO</a>
-                <a class="p-5">SOBRE NÓS</a>
+            <div class="flex  text-maingray gap-6 p-2 ml-20">
+                <a class="p-5 text-maingray ">INÍCIO</a>
+                <a class="p-5 text-maingray ">SOBRE NÓS</a>
                 <a class="p-5">VANTAGENS</a>
             </div>
-            <div class="flex gap-6 p-2 mr-20">
-                <a class="p-5">CAPACITAÇÃO</a>
-                <a class="p-5">TALENTOS</a>
+            <div class="flex  text-maingray gap-6 p-2 mr-20">
+                <a class="p-5 text-maingray ">CAPACITAÇÃO</a>
+                <a class="p-5 text-maingray ">TALENTOS</a>
                 <a class="p-5">NOTÍCIAS</a>
             </div>
         </div>
