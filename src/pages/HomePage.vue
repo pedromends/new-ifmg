@@ -6,6 +6,7 @@
     <Advantages />
     <PartnerCompanies />
     <Capacitation />
+    <TalentBank/>
   </main>
 </template>
 
@@ -16,6 +17,7 @@ import AboutUs from "@/sections/AboutUs.vue"
 import Advantages from "@/sections/Advantages.vue"
 import PartnerCompanies from "@/sections/PartnerCompanies.vue"
 import Capacitation from "@/sections/Capacitation.vue"
+import TalentBank from "@/sections/TalentBank.vue"
 
 export default {
   name: 'HomePage',
@@ -25,7 +27,8 @@ export default {
     AboutUs,
     Advantages,
     PartnerCompanies,
-    Capacitation
+    Capacitation,
+    TalentBank
   },
   props: {
     msg: String

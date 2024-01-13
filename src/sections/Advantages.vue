@@ -9,7 +9,7 @@
                 Creating detailed andqqq insightful questions takes a lot of time. Especially in the case of ever-popular, choice question-based online and on-site assessments. Could there be.
             </p>
         </div>
-        <div class="flex gap-16 items-center">
+        <div class="flex gap-16 justify-center items-center">
             <img v-bind:src="require('@/assets/images/people-studying.svg')" class="w-128" alt="People Studying"/>
             <div class="flex flex-col gap-5">
                 <div class="text-black flex px-16 py-6 gap-10 rounded-xl  hover:bg-maingreen transition duration-75 hover:text-white border-2 border-gray-100">
