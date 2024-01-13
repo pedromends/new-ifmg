@@ -78,7 +78,7 @@
                 <p class="rounded-full px-4 py-2 bg-white border-2 border-black">></p>
             </div>
         </div>
-        <button class="px-5 py-2 bg-white text-maingreen w-28 mx-auto rounded-lg font-bold">Ver Mais</button>
+        <button class="px-5 py-2 bg-white text-maingreen w-28 mx-auto rounded-lg font-bold hover:bg-maingreen hover:text-white transition duration-75">Ver Mais</button>
     </section>
 </template>
 <script>
