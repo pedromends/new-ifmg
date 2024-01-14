@@ -1,5 +1,5 @@
 <template lang="">
-    <nav class="w-full relative font-opensans">
+    <nav class="w-full relative font-opensans max-lg:hidden">
         <div class="bg-white absolute right-1/2 transform translate-x-1/2 rounded-b-2xl">
             <img alt="" class="h-44 w-40 px-8 my-1" v-bind:src="require('@/assets/icons/main-logo.svg')"/>
         </div>
@@ -39,7 +39,12 @@
 
 <script>
 export default {
-    
+    name: 'NavBar',
+    components:{
+    },
+    props: {
+
+    }
 }
 </script>
 
