@@ -7,13 +7,16 @@ module.exports = {
   theme: {
     extend: {
       borderWidth: {
+        '1': '1px',
         '12': '12px',
         '16': '16px',
       },
       colors: {
         'maingreen': '#2F9E40',
         'maingray': '#4B5563',
-        'lightgray': '#F6F6F6'
+        'lightgray': '#F6F6F6',
+        'fttitle': '#8E9FA6',
+        'ftlink': '#425E6A'
       },
       backgroundImage: {
         'handglass': "url('@/assets/icons/hand-glass.svg')",
