@@ -1,0 +1,125 @@
+Sema Sistemas Eletro Eletrônicos, Mecânicos e Automação
+Nome do Projeto: Semáforo Inteligente para Controle de Fluxo Mediante Detecção de Presença
+Coordenador: Niltom Vieira Junior (Campus Arcos)
+Situação: Concluído
+Resumo: Desenvolvimento um sistema inteligente para controle semafórico, para que na inexistência de veículos em rota de colisão, o controle de fluxo seja otimizado e sejam evitadas esperas desnecessárias.
+
+__________________________________________________________
+
+Aiko Logic
+Nome do Projeto: Escalonador Inteligente para Veículos e Ativos Móveis
+Coordenador: Manoel Pereira Júnior (Campus Formiga)
+Situação: Concluído
+Resumo: Desenvolvimento de um escalonador de tarefas inteligente para processos operacionais genéricos.
+
+__________________________________________________________
+
+Célula Tecnologia da Informação Eireli
+Nome do Projeto: Sistema Inteligente de Ponto Eletrônico e Produção Integrado à Veículo Automotor para Ambientes de Baixa Conectividade
+Coordenador: Paloma Maira de Oliveira (Campus Formiga)
+Situação: Concluído
+Resumo: Desenvolvimento de um sistema inteligente que possibilite o registro de ponto eletrônico em ambientes de baixa conectividade.
+
+__________________________________________________________
+
+Idealize
+Nome do Projeto: Carro Verde - Um Arcabouço de Coleta e Descoberta de Informação na Web – Uma Abordagem Semiautomática
+Coordenador: Bruno Ferreira (Campus Formiga)
+Situação: Concluído
+Resumo: Implementação de um sistema de coleta e descoberta de informação na Web, capaz de extrair de forma semiautomática informações relacionadas a veículos e peças automotivas.
+
+__________________________________________________________
+
+Metalúrgica HF
+Nome do Projeto: Sistema de Comunicação para Otimização de Processo de Produção de Concertina
+Coordenador: Patrick Santos de Oliveira (Campus Formiga)
+Situação: Concluído
+Resumo: Desenvolvimento de um sistema de comunicação para otimizar o processo de produção de concertinas da empresa, a partir de um computador central.
+
+__________________________________________________________
+
+Avante Soluções Digitais
+Nome do Projeto: Sistema Inteligente para Controle Financeiro de Vendedores Itinerantes
+Coordenador: Manoel Pereira Júnior (Campus Formiga)
+Situação: Concluído
+Resumo: Desenvolvimento de uma ferramenta para auxiliar vendedores itinerantes em seu controle financeiro.
+
+__________________________________________________________
+
+MV Engenharia e Automação
+Nome do Projeto: Sistema microcontrolado para monitoramento e controle com comunicação sem fio aplicável em ambientes rurais
+Coordenador: Patrick Santos de Oliveira (Campus Formiga)
+Situação:  Concluído
+Resumo: Desenvolvimento de um sistema sem fio microcontrolado para monitoramento e controle de aplicações em ambiente rural de pequeno, médio e grande porte, para assim prover maior segurança e controle sobre o ambiente, evitando perdas decorrentes da falta de automação dos sistemas atualmente empregados.
+
+__________________________________________________________
+
+IOTEW
+Nome do Projeto: Monitoramento Inteligente de Elevadores Prediais
+Coordenador: Manoel Pereira Júnior (Campus Formiga)
+Situação: Concluído
+Resumo: Desenvolvimento de componentes de uma solução tecnológica de software, destinada ao monitoramento remoto da operação de elevadores instalados em edifícios em geral.
+
+__________________________________________________________
+
+Infinite Photon
+Nome do projeto: Desenvolvimento de Sistema de Controle, Automação e Configuração de um Rastreador Solar Fotovoltaico
+Coordenador: Carlos Dias da Silva Júnior (Campus Ibirité)
+Situação: Em garantia
+Resumo: Desenvolvimento de hardware para controlador de tracker solar de um grau de liberdade, baseado em sensores ambientais e posição do Sol relativa ao painel solar.
+
+__________________________________________________________
+
+Isobloco
+Nome do projeto: Sistema de Controle de Produção Inteligente
+Coordenador: Manoel Pereira Junior (Campus Formiga)
+Situação: Em garantia
+Resumo: Controle da cadeia produtiva de kits pré-moldados e/ou concreto para construção civil da empresa Isobloco.
+
+__________________________________________________________
+
+Prumo Engenharia
+Nome do Projeto: Plataforma Prumo de Inteligência Operacional
+Coordenador: Manoel Pereira Junior (Campus Formiga)
+Situação: Em andamento
+Resumo: Construção de um sistema que permitirá que a empresa possa identificar oportunidades de negócio de forma automatizada, que uma vez fechado um contrato, possa realizar toda a mobilização necessária para início da obra e que possa rastrear equipamentos de interesse em campo.]
+
+__________________________________________________________
+
+Prumo Engenharia
+Nome do Projeto: Plataforma Prumo de Inteligência Operacional
+Coordenador: Manoel Pereira Junior (Campus Formiga)
+Situação: Em andamento
+Resumo: Construção de um sistema que permitirá que a empresa possa identificar oportunidades de negócio de forma automatizada, que uma vez fechado um contrato, possa realizar toda a mobilização necessária para início da obra e que possa rastrear equipamentos de interesse em campo.
+
+__________________________________________________________
+
+Aratu
+Nome do Projeto: Sistema inteligente para análise de dados e tomada de decisão em modelagem Euleriana e Lagrangeana
+Coordenador: Ivan Reinaldo Meneghini (Campus Ibirité)
+Situação: Em andamento
+Resumo: Desenvolvimento de um sistema para análise de dados, previsão e tomada de decisão relativo a fator de emissão de material particulado.
+
+__________________________________________________________
+
+Reachr
+Nome do Projeto: Módulo para Geração de Job Description e de Resposta Negativa com Inteligência Artificial Generativa
+Coordenador: Moisés Henrique Ramos Pereira (Campus Ribeirão das Neves)
+Situação: Em andamento
+Resumo: Desenvolvimento de uma ferramenta para geração automática de job description e de resposta negativa baseado em inteligência artificial generativa para utilização em tempo real e de forma integrada sobre os campos de preenchimento dos dados de um sistema de recrutamento e de seleção de pessoas candidatas às vagas de emprego disponibilizadas pela empresa REACHR.
+
+__________________________________________________________
+
+Engeoil
+Nome do Projeto: Aplicação combinada de Modos e Efeitos de Falhas (FMEA) com Inteligência Artificial (IA) na Gestão da Manutenção
+Coordenador: Diego Oliveira Miranda (Campus Sabará)
+Situação: Em andamento
+Resumo: Desenvolvimento de um protótipo de uma aplicação (software) que se baseia no histórico de laudos das análises de óleos para identificar tendências/anormalidades e, com isso, identificar mais precisamente os modos de falha, contribuindo para a construção de um plano eficiente de manutenção preditiva, tendo como base a técnica de gestão da manutenção denominada Modos e Efeitos de Falhas (Failure Modes and Effects Analysis [FMEA]).
+
+__________________________________________________________
+
+NegocIA
+Nome do Projeto: Sistema Inteligente de Negociação Algorítmica (SINAL)
+Coordenador: Rodrigo Menezes Sobral Zacaroni (Campus Formiga)
+Situação: Em andamento
+Resumo: Desenvolvimento de um sistema inteligente para tomada de decisão automatizada em negociações no mercado financeiro em escala de maturidade tecnológica STRL 8 (Sistema totalmente completo, testado, qualificado e demonstrado), utilizando técnicas modernas de inteligência artificial, que leva em consideração dados de fluxo de ordens com foco no Minicontrato Futuro de Índice Bovespa que é negociado sob código WIN na bolsa de valores brasileira B3.

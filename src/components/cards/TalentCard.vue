@@ -1,0 +1,27 @@
+<template lang="">
+    <div class="transition duration-75 shadow-lg bg-white flex flex-col gap-1 rounded-3xl border-2 border-white p-3 px-5">
+        <div class="flex justify-between items-start">
+            <img :src="require(`@/assets/avatar/${ pic }.svg`)"  alt="Profile Pic"/>
+            <img :src="require('@/assets/icons/linkedin.svg')"  class="" alt="Linkedin"/>
+        </div> 
+        <div class="flex flex-col">
+            <p class="font-bold">{{ name }}</p>
+            <span class="text-sm tracking-wide">{{ profession }}</span>
+        </div>
+        <p class="mt-2 w-52 text-sm">{{ details }}</p>
+    </div>
+</template>
+<script>
+export default {
+    name: 'TalentCard',
+    props: {
+        pic: String,
+        name: String,
+        profession: String,
+        details: String
+    }
+}
+</script>
+<style lang="">
+    
+</style>

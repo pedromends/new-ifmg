@@ -18,20 +18,24 @@
                     <img alt="Youtube" class="h-8" v-bind:src="require('@/assets/icons/youtube.svg')"/>
                 </div>
                 <input type="text" class="bg-handglass bg-maingreen bg-no-repeat pl-10 w-28 rounded-xl"/>
-                <button class="bg-white mr-16 p-4 text-maingreen tracking-wide text-sm">ENTRAR EM CONTATO</button>
+                <button class="bg-white mr-16 p-4 text-maingreen tracking-wide text-sm">ACESSO P/ADM</button>
             </div>        
         </div>
         
         <div class="flex justify-between items-center">
             <div class="flex text-sm text-maingray gap-14 p-4 ml-20 max-lg:p-0">
                 <a class="">INÍCIO</a>
-                <a class="">SOBRE NÓS</a>
+                <a class="">QUEM SOMOS</a>
                 <a class="">VANTAGENS</a>
+                <a class="">NOTÍCIAS</a>
+                <a class="">NOSSOS CURSOS</a>
             </div>
             <div class="flex text-sm text-maingray gap-14 p-2 mr-20 max-lg:p-0">
+                <a class="">PESQUISADORES</a>
+                <a class="">EDITAIS</a>
+                <a class="">DOCUMENTOS</a>
                 <a class="">CAPACITAÇÃO</a>
-                <a class="">TALENTOS</a>
-                <a class="">NOTÍCIAS</a>
+                <a class="">CONTATO</a>
             </div>
         </div>
     </nav>

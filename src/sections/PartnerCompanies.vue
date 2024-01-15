@@ -2,9 +2,9 @@
     <section class="flex justify-center items-center bg-lightgray p-32">
         <div class="flex flex-col justify-center items-center gap-12">
             <div class="flex flex-col justify-center items-center gap-5">
-                <h1 class="text-4xl font-extrabold tracking-wide">Empresas Parceiras</h1>
+                <h1 class="text-4xl font-extrabold tracking-wide">Nossos Clientes</h1>
                 <p class="text-sm">
-                    Essas são empresas que confiam em nossos projetos para trazer inovação ao mercado.
+                    Empresas que fizeram ou fazem projetos com o Polo de Inovação IFMG.
                 </p>
             </div>
             <div class="bg-whitecircle bg-no-repeat bg-center">

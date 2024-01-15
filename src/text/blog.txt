@@ -1,0 +1,8 @@
+A estruturação do blog segue o seguinte esqueleto:
+    - Título
+    - Data
+    - Imagem
+    - Texto
+    - Links
+
+Tudo isso pode ser dinamizado via banco de dados

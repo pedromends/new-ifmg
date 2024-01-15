@@ -1,12 +1,12 @@
 <template lang="">
     <section class="flex flex-col px-32 py-36 gap-32 max-lg:px-5 max-md:py-10">
-        <div class="flex max-lg:flex-col justify-center items-center max-md:gap-5">
+        <div class="flex max-lg:flex-col justify-center items-center max-lg:gap-5">
             <h1 class="text-4xl w-128 max-lg:w-auto max-lg:text-2xl font-extrabold tracking-wide">
-                Desenvolvemos projetos relacionados Mobilidade e Sistemas Inteligentes
+                Somos especialistas em projetos relacionados a Mobilidade e Sistemas Inteligentes
             </h1>
             <div class="w-1 border-2 border-maingreen bg-maingreen h-32 max-lg:hidden"/>
             <p class="text-base w-128 max-lg:w-auto ml-16 max-lg:ml-auto text-maingray">
-                Creating detailed and insightful questions takes a lot of time. Especially in the case of ever-popular, choice question-based online and on-site assessments. Could there be.
+                Venha inovar conosco, temos a solução que seu empreendimento precisa
             </p>
         </div>
         <div class="flex max-lg:flex-col gap-16 justify-center items-center">
