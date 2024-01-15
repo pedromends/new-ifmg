@@ -58,7 +58,7 @@
                 <a class="hover:text-black hover:underline transition duration-75">Engenharia Elétrica</a>
             </div>
         </div>
-        <div class="flex max-lg:text-xs gap-10 text-sm">
+        <div class="flex max-lg:text-xs gap-10 text-sm max-lg:gap-2 max-lg:justify-start">
             <p class="text-fttitle">Copyright © Instituto Federal | 2023</p>
             <p class="text-fttitle">Política de Privacidade</p>
             <p class="text-fttitle">Termos e Condições</p>

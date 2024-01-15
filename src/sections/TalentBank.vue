@@ -5,7 +5,7 @@
             <p>Lorem ipsum dolor amet, consectetur adipiscing elit. Mattis et sed nam sem tellus erat.</p>
         </div>
         
-        <div class="flex max-lg:flex-col justify-center gap-5 text-black relative">
+        <div class="flex max-lg:flex-col overflow-auto justify-center gap-5 text-black relative">
 
             <!-- 1 -->
             <div class="transition duration-75 shadow-lg bg-white flex flex-col gap-1 rounded-3xl border-2 border-white p-3 px-5">

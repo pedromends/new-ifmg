@@ -1,5 +1,5 @@
 <template lang="">
-    <section class="flex flex-col px-32 py-36 gap-32 max-md:px-5">
+    <section class="flex flex-col px-32 py-36 gap-32 max-lg:px-5 max-md:py-10">
         <div class="flex max-lg:flex-col justify-center items-center max-md:gap-5">
             <h1 class="text-4xl w-128 max-lg:w-auto max-lg:text-2xl font-extrabold tracking-wide">
                 Desenvolvemos projetos relacionados Mobilidade e Sistemas Inteligentes
