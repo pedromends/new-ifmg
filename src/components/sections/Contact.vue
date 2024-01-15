@@ -7,15 +7,15 @@
                 <div class="flex flex-col gap-8 mt-10">
                     <div class="flex gap-3">
                         <img :src="require('@/assets/icons/phone.svg')" alt="Phone"/>
-                        <p class="text-sm">+55 (51) 9.8453-4500</p>
+                        <p class="text-sm">+55(37) 9.9863-5940 / 37 3322-8529</p>
                     </div>
                     <div class="flex gap-3">
                         <img :src="require('@/assets/icons/email.svg')" alt="Email"/>
-                        <p class="text-sm">contato@namidsgn.com</p>
+                        <p class="text-sm">diretoria.polo@ifmg.edu.br</p>
                     </div>
                     <div class="flex gap-3">
                         <img :src="require('@/assets/icons/location.svg')" alt="Location"/>
-                        <p class="text-sm">Rua Papa João XXIII, 1100 - Cachoeirinha - RS</p>
+                        <p class="text-sm">Rua Padre Alberico, nº 440 - São Luiz, Formiga/MG - CEP: 35.577-020</p>
                     </div>
                 </div>
             </div>
@@ -36,10 +36,6 @@
                         </div>
                         <div class="flex flex-col w-96 max-lg:w-auto">
                             <label class="text-maingray text-sm">Área de Atuação da Empresa</label>
-                            <input type="text" class="rounded-lg border-1 border-gray-1 max-lg:h-8">
-                        </div>
-                        <div class="flex flex-col w-96 max-lg:w-auto">
-                            <label class="text-maingray text-sm">Qual seu cargo ?</label>
                             <input type="text" class="rounded-lg border-1 border-gray-1 max-lg:h-8">
                         </div>
                         <div class="flex flex-col w-96 max-lg:w-auto">

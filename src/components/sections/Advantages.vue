@@ -1,7 +1,7 @@
 <template lang="">
     <section class="flex flex-col px-32 py-36 gap-32 max-lg:px-5 max-md:py-10">
         <div class="flex max-lg:flex-col justify-center items-center max-lg:gap-5">
-            <h1 class="text-4xl w-128 max-lg:w-auto max-lg:text-2xl font-extrabold tracking-wide">
+            <h1 class="text-3xl w-128 max-lg:w-auto max-lg:text-2xl font-extrabold tracking-wide">
                 Somos especialistas em projetos relacionados a Mobilidade e Sistemas Inteligentes
             </h1>
             <div class="w-1 border-2 border-maingreen bg-maingreen h-32 max-lg:hidden"/>

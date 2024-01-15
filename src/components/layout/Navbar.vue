@@ -1,7 +1,7 @@
 <template lang="">
     <nav class="w-full relative font-opensans max-lg:hidden">
         <div class="bg-white absolute right-1/2 transform translate-x-1/2 rounded-b-2xl">
-            <img alt="" class="h-40 w-32 px-6" v-bind:src="require('@/assets/icons/main-logo.svg')"/>
+            <img alt="" class="h-40 w-32 px-6" :src="require('@/assets/icons/main-logo.svg')"/>
         </div>
 
         <div class="flex justify-between bg-maingreen">
@@ -13,29 +13,35 @@
 
             <div class="flex justify-between items-center gap-5">
                 <div class="flex items-center gap-3 px-5">
-                    <img alt="Instagram" class="h-8" v-bind:src="require('@/assets/icons/insta.svg')"/>
-                    <img alt="Twitter" class="h-8" v-bind:src="require('@/assets/icons/twitter.svg')"/>
-                    <img alt="Youtube" class="h-8" v-bind:src="require('@/assets/icons/youtube.svg')"/>
+                    <a href="https://www.instagram.com/poloifmg/" target="_blank">
+                        <img alt="Instagram" class="h-8" :src="require('@/assets/icons/insta.svg')"/>
+                    </a>
+                    <a href="" target="_blank">
+                        <img alt="Twitter" class="h-8" :src="require('@/assets/icons/twitter.svg')"/>
+                    </a>
+                    <a href="" target="_blank">
+                        <img alt="Youtube" class="h-8" :src="require('@/assets/icons/youtube.svg')"/>
+                    </a>
                 </div>
-                <input type="text" class="bg-handglass bg-maingreen bg-no-repeat pl-10 w-28 rounded-xl"/>
+                <input type="text" class="bg-handglass bg-maingreen bg-no-repeat pl-10 w-44 rounded-xl border-white"/>
                 <button class="bg-white mr-16 p-4 text-maingreen tracking-wide text-sm">ACESSO P/ADM</button>
             </div>        
         </div>
         
         <div class="flex justify-between items-center">
-            <div class="flex text-sm text-maingray gap-14 p-4 ml-20 max-lg:p-0">
-                <a class="">INÍCIO</a>
-                <a class="">QUEM SOMOS</a>
-                <a class="">VANTAGENS</a>
-                <a class="">NOTÍCIAS</a>
-                <a class="">NOSSOS CURSOS</a>
+            <div class="flex text-sm text-maingray gap-5 p-4 ml-14 max-lg:p-0">
+                <a href="#">INÍCIO</a>
+                <a href="#">QUEM SOMOS</a>
+                <a href="#">VANTAGENS</a>
+                <a href="#">NOTÍCIAS</a>
+                <a href="#">NOSSOS CURSOS</a>
             </div>
-            <div class="flex text-sm text-maingray gap-14 p-2 mr-20 max-lg:p-0">
-                <a class="">PESQUISADORES</a>
-                <a class="">EDITAIS</a>
-                <a class="">DOCUMENTOS</a>
-                <a class="">CAPACITAÇÃO</a>
-                <a class="">CONTATO</a>
+            <div class="flex text-sm text-maingray gap-5 p-2 mr-14 max-lg:p-0">
+                <a href="#">PESQUISADORES</a>
+                <a href="#">EDITAIS</a>
+                <a href="#">DOCUMENTOS</a>
+                <a href="#">CAPACITAÇÃO</a>
+                <a href="#">CONTATO</a>
             </div>
         </div>
     </nav>

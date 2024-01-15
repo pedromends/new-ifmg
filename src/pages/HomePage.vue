@@ -13,14 +13,14 @@
 
 <script>
 
-import Presenter from "@/sections/Presenter.vue"
-import AboutUs from "@/sections/AboutUs.vue"
-import Advantages from "@/sections/Advantages.vue"
-import PartnerCompanies from "@/sections/PartnerCompanies.vue"
-import Capacitation from "@/sections/Capacitation.vue"
-import TalentBank from "@/sections/TalentBank.vue"
-import News from "@/sections/News.vue"
-import Contact from "@/sections/Contact.vue"
+import Presenter from "@/components/sections/Presenter.vue"
+import AboutUs from "@/components/sections/AboutUs.vue"
+import Advantages from "@/components/sections/Advantages.vue"
+import PartnerCompanies from "@/components/sections/PartnerCompanies.vue"
+import Capacitation from "@/components/sections/Capacitation.vue"
+import TalentBank from "@/components/sections/TalentBank.vue"
+import News from "@/components/sections/News.vue"
+import Contact from "@/components/sections/Contact.vue"
 
 export default {
   name: 'HomePage',

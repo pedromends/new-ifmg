@@ -2,7 +2,7 @@
     <!-- TODO: Atualizar papel de parede via ADM -->
     <section class="bg-campus bg-cover bg-no-repeat bg-center h-[65rem]">
         <div class=" flex flex-col justify-center items-center p-10 gap-96 rounded-b-3xl relative">
-            <div class="flex flex-col justify-center gap-10 py-32">
+            <div class="flex flex-col justify-center gap-10 py-16">
                 <h1 class="text-5xl text-center text-white w-216 mx-auto font-bold tracking-wide max-lg:w-auto max-lg:text-2xl">Bem-vindo ao Polo de Inovação IFMG do Campus Formiga</h1>
                 <p class="text-center text-white text-xl w-192 max-lg:w-auto max-lg:text-sm">O Polo de Inovação IFMG atua na aproximação das empresas com o setor acadêmico,
                     desenvolvendo projetos relacionados à diversas áreas do mercado.</p>
