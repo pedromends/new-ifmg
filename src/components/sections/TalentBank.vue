@@ -1,7 +1,7 @@
 <template lang="">
     <section class="flex flex-col px-16 py-36 gap-16 bg-lightgray">
         <div class="flex flex-col self-center text-center max-lg:w-auto w-180 gap-5">
-            <h1 class="text-4xl font-bold tracking-wide">Conheça nossos Pesquisadores</h1>
+            <h1 class="text-4xl font-semibold">Conheça nossos Pesquisadores</h1>
             <p>Lorem ipsum dolor amet, consectetur adipiscing elit. Mattis et sed nam sem tellus erat.</p>
         </div>
         
@@ -22,7 +22,7 @@
             </div>
         </div>
         <p class="mx-auto text-maingray">Nosso time de pesquisadores, mestre e doutores são especializados nas mais distintas áreas, conheça um pouco mais:</p>
-        <button class="px-5 py-2 bg-white text-maingreen w-28 mx-auto rounded-lg font-bold hover:bg-maingreen hover:text-white transition duration-75">Ver Mais</button>
+        <button class="px-5 py-2 bg-white text-maingreen w-36 mx-auto rounded-lg font-bold border-2 border-maingreen hover:bg-maingreen hover:text-white transition duration-75">Ver Mais</button>
     </section>
 </template>
 <script>

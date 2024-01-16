@@ -1,7 +1,20 @@
 <template lang="">
     <nav class="w-full relative font-opensans max-lg:hidden">
         <div class="bg-white absolute right-1/2 transform translate-x-1/2 rounded-b-2xl">
-            <img alt="" class="h-40 w-32 px-6" :src="require('@/assets/icons/main-logo.svg')"/>
+            <img alt="" class="h-40 w-32 px-5 py-4" :src="require('@/assets/icons/main-logo.jpg')"/>
+        </div>
+
+        <div class="bg-govblue flex justify-between items-center py-1 text-lightgray font-raleway font-bold uppercase">
+            <div class="flex justify-end items-center w-124 gap-10 text-xs">
+                <img :src="require('@/assets/icons/govbr.svg')" alt=""/>
+                <a class="border-r-2 border-white pr-2" href="">COMUNICA BR</a>
+                <a class="border-r-2 border-white pr-2" href="">LEGISLAÇÃO</a>
+            </div>
+            <div class="flex justify-center items-center gap-3 text-xs pr-20">
+                <a class="border-l-2 border-white pl-3" href="">PARTICIPE</a>
+                <a class="border-l-2 border-white pl-3" href=""> ACESSO À INFORMAÇÃO</a>
+                <a class="border-l-2 border-white pl-3" href="">ÓRGÃOS DO GOVERNO</a>
+            </div>
         </div>
 
         <div class="flex justify-between bg-maingreen">
@@ -59,5 +72,5 @@ export default {
 </script>
 
 <style lang="">
-    
+
 </style>

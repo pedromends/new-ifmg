@@ -1,6 +1,6 @@
 <template>
   <Navbar />
-  <HomePage class="font-opensans"/>
+  <HomePage />
   <Footer />
 </template>
 
@@ -23,6 +23,16 @@ export default {
 <style>
 @font-face {
   font-family: OpenSans;
-  src: url('@/assets/fonts/OpenSans-Regular.ttf');
+  src: url('@/assets/fonts/OpenSans-Italic.ttf')
+}
+
+@font-face {
+  font-family: OpenSans;
+  src: url('@/assets/fonts/OpenSans.ttf')
+}
+
+@font-face {
+  font-family: Raleway;
+  src: url('@/assets/fonts/Raleway.ttf')
 }
 </style>

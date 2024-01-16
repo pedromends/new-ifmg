@@ -1,5 +1,5 @@
 <template>
-  <main class="hello">
+  <main class="font-opensans style">
     <Presenter />
     <AboutUs />
     <Advantages />
@@ -41,5 +41,8 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style>
+.style{
+  font-feature-settings: 'liga' off;
+}
 </style>

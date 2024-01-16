@@ -1,7 +1,7 @@
 <template lang="">
     <footer class="flex flex-col gap-5 p-20">
         <div class="flex max-lg:flex-col justify-start gap-10 items-center">
-            <img :src="require('@/assets/icons/ifmg.svg')" alt="">
+            <img :src="require('@/assets/icons/ifmg.jpg')" alt="IFMG" class="w-40">
             <p class="text-sm text-maingray">Início</p>
             <p class="text-sm text-maingray">Institucional</p>
             <p class="text-sm text-maingray">Portfólio de Projetos</p>
@@ -12,50 +12,50 @@
         <div class="grid grid-cols-4 max-lg:grid-cols-1 gap-12 text-sm">
             <div class="flex flex-col gap-2 text-ftlink">
                 <h1 class="text-fttitle">A INSTITUIÇÃO</h1>
-                <a class="hover:text-black hover:underline transition duration-75">Sobre a instituição</a>
-                <a class="hover:text-black hover:underline transition duration-75">Conselho Acadêmico</a>
-                <a class="hover:text-black hover:underline transition duration-75">Diretoria de Ensino</a>
-                <a class="hover:text-black hover:underline transition duration-75">Estágio</a>
-                <a class="hover:text-black hover:underline transition duration-75">Oportunidades de Estágio e Emprego</a>
-                <a class="hover:text-black hover:underline transition duration-75">Comissão Própria de Avaliação (CPA)</a>
-                <a class="hover:text-black hover:underline transition duration-75">Egressos</a>
-                <a class="hover:text-black hover:underline transition duration-75">Plano de Desenvolvimento Institucional (PDI)</a>
-                <a class="hover:text-black hover:underline transition duration-75">Polo de Inovação Formiga</a>
+                <FooterLink :href="''" :text="'Sobre a instituição'"/>
+                <FooterLink :href="''" :text="'Conselho Acadêmico'"/>
+                <FooterLink :href="''" :text="'Diretoria de Ensino'"/>
+                <FooterLink :href="''" :text="'Estágio'"/>
+                <FooterLink :href="''" :text="'Oportunidades de Estágio e Emprego'"/>
+                <FooterLink :href="''" :text="'Comissão Própria de Avaliação (CPA)'"/>
+                <FooterLink :href="''" :text="'Egressos'"/>
+                <FooterLink :href="''" :text="'Plano de Desenvolvimento Institucional (PDI)'"/>
+                <FooterLink :href="''" :text="'Polo de Inovação Formiga'"/>
             </div>
 
             <div class="flex flex-col gap-5">
                 <div class="flex flex-col gap-2 text-ftlink">
                     <h1 class="text-fttitle">PROJETOS</h1>
-                    <a class="hover:text-black hover:underline transition duration-75">Institucional</a>
-                    <a class="hover:text-black hover:underline transition duration-75">Ações e Programas</a>
-                    <a class="hover:text-black hover:underline transition duration-75">Auditoria</a>
-                    <a class="hover:text-black hover:underline transition duration-75">Convênios e transferências</a>
-                    <a class="hover:text-black hover:underline transition duration-75">Receitas e despesas</a>
+                    <FooterLink :href="''" :text="'Institucional'"/>
+                    <FooterLink :href="''" :text="'Ações e Programas'"/>
+                    <FooterLink :href="''" :text="'Auditoria'"/>
+                    <FooterLink :href="''" :text="'Convênios e transferências'"/>
+                    <FooterLink :href="''" :text="'Receitas e despesas'"/>
                 </div>
                 <div class="flex flex-col gap-2 text-ftlink">
                     <h1 class="text-fttitle">ACESSO RÁPIDO</h1>
-                    <a class="hover:text-black hover:underline transition duration-75">Regimento Disciplinar</a>
-                    <a class="hover:text-black hover:underline transition duration-75">Calendário 2024</a>
+                    <FooterLink :href="''" :text="'Regimento Disciplinar'"/>
+                    <FooterLink :href="''" :text="'Calendário 2024'"/>
                 </div>
             </div>
 
             <div class="flex flex-col gap-2 text-ftlink">
                 <h1 class="text-fttitle">NOSSAS UNIDADES</h1>
-                <a class="hover:text-black hover:underline transition duration-75">Bambuí</a>
-                <a class="hover:text-black hover:underline transition duration-75">Betim</a>
-                <a class="hover:text-black hover:underline transition duration-75">Congonhas</a>
-                <a class="hover:text-black hover:underline transition duration-75">Formiga</a>
-                <a class="hover:text-black hover:underline transition duration-75">Conselheiro Lafaiete</a>
-                <a class="hover:text-black hover:underline transition duration-75">Ipatinga</a>
-                <a class="hover:text-black hover:underline transition duration-75">Itabirito</a>
+                <FooterLink :href="''" :text="'Bambuí'"/>
+                <FooterLink :href="''" :text="'Betim'"/>
+                <FooterLink :href="''" :text="'Congonhas'"/>
+                <FooterLink :href="''" :text="'Formiga'"/>
+                <FooterLink :href="''" :text="'Conselheiro Lafaiete'"/> 
+                <FooterLink :href="''" :text="'Ipatinga'"/>
+                <FooterLink :href="''" :text="'Itabirito'"/>
             </div>
 
             <div class="flex flex-col gap-2 text-ftlink">
                 <h1 class="text-fttitle">NOSSOS CURSOS</h1>
-                <a class="hover:text-black hover:underline transition duration-75">Graduação</a>
-                <a class="hover:text-black hover:underline transition duration-75">Administração</a>
-                <a class="hover:text-black hover:underline transition duration-75">Ciência da Computação</a>
-                <a class="hover:text-black hover:underline transition duration-75">Engenharia Elétrica</a>
+                <FooterLink :href="''" :text="'Graduação'"/>
+                <FooterLink :href="''" :text="'Administração'"/>
+                <FooterLink :href="''" :text="'Ciência da Computação'"/>
+                <FooterLink :href="''" :text="'Engenharia Elétrica'"/>
             </div>
         </div>
         <div class="flex max-lg:text-xs gap-10 text-sm max-lg:gap-2 max-lg:justify-start">
@@ -66,9 +66,12 @@
     </footer>
 </template>
 <script>
+import FooterLink from '@/components/html/FooterLink.vue';
+
 export default {
     name: 'FooTer',
     components:{
+        FooterLink
     },
     props: {
     }
