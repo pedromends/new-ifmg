@@ -1,7 +1,5 @@
 <template lang="">
-    <div>
-        <a :href="link" target="_blank" class="hover:text-black hover:underline transition duration-75">{{ text }}</a>
-    </div>
+    <a :href="link" target="_blank" class="hover:text-black hover:underline transition duration-75">{{ text }}</a>
 </template>
 <script>
 export default {

@@ -10,6 +10,13 @@ import Footer from "@/components/layout/Footer.vue";
 import HomePage from './pages/HomePage.vue'
 import './index.css'
 
+import { onMounted } from 'vue'
+import { initFlowbite } from 'flowbite'
+
+onMounted(() => {
+    initFlowbite();
+})
+
 export default {
   name: 'App',
   components: {
