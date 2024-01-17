@@ -3,12 +3,12 @@
     <section class="bg-campus bg-cover bg-no-repeat bg-center h-[65rem]">
         <div class=" flex flex-col justify-center items-center p-10 gap-96 rounded-b-3xl relative">
             <div class="flex flex-col justify-center gap-10 py-24">
-                <h1 class="text-5xl text-center text-white w-196 mx-auto font-semibold max-lg:w-auto max-lg:text-2xl">Bem-vindo ao Polo de Inovação IFMG do Campus Formiga</h1>
+                <h1 class="text-5xl text-center text-white w-196 mx-auto font-semibold max-lg:w-auto max-lg:text-3xl">Bem-vindo ao Polo de Inovação IFMG do Campus Formiga</h1>
                 <p class="text-center text-white text-xl w-192 max-lg:w-auto max-lg:text-sm">O Polo de Inovação IFMG atua na aproximação das empresas com o setor acadêmico,
                     desenvolvendo projetos relacionados à diversas áreas do mercado.</p>
-                <div class="flex justify-center gap-10 max-lg:gap-3 text-white"> 
-                    <button class="bg-white text-maingreen px-6 py-3 rounded-md max-lg:px-3 font-semibold">Começar Projeto</button>
-                    <div class="flex justify-center items-center gap-1">
+                <div class="flex justify-center gap-5 max-lg:gap-3 text-white"> 
+                    <button class="bg-white text-maingreen px-6 py-3 rounded-3xl max-lg:px-3 font-semibold hover:bg-maingreen hover:text-white border hover:border-white transition duration-200">Começar Projeto</button>
+                    <div class="flex justify-center items-center gap-1 hover:bg-maingray hover:text-white border border-white px-2 rounded-3xl transition duration-200">
                         <img alt="Play" :src="require('@/assets/icons/play.svg')"/>
                         <button>Vídeo Institucional</button>
                     </div>

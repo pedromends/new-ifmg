@@ -21,6 +21,7 @@ module.exports = {
       },
       backgroundImage: {
         'handglass': "url('@/assets/icons/hand-glass.svg')",
+        'handglass-blue': "url('@/assets/icons/handglass-govblue.svg')",
         'campus': "url('@/assets/images/campus-ifmg.svg')",
         'whitecircle': "url('@/assets/images/whitecircle.svg')",
       },

@@ -1,17 +1,17 @@
 <template lang="">
     <section class="flex flex-col px-32 py-36 gap-32 max-lg:px-5 max-md:py-10">
         <div class="flex max-lg:flex-col justify-center items-center max-lg:gap-5">
-            <h1 class="text-3xl w-128 max-lg:w-auto max-lg:text-2xl font-semibold">
+            <h1 class="text-3xl w-128 max-lg:px-6 max-lg:w-auto max-lg:text-2xl font-semibold">
                 Somos especialistas em projetos relacionados a Mobilidade e Sistemas Inteligentes
             </h1>
             <div class="w-1 border-2 border-maingreen bg-maingreen h-32 max-lg:hidden"/>
-            <p class="text-base w-112 max-lg:w-auto ml-16 max-lg:ml-auto text-maingray">
+            <p class="text-base w-112 max-lg:px-6 max-lg:w-auto ml-16 max-lg:ml-auto text-maingray">
                 Venha inovar conosco, temos a solução que seu empreendimento precisa
             </p>
         </div>
         <div class="flex max-lg:flex-col gap-16 justify-center items-center">
-            <img v-bind:src="require('@/assets/images/people-studying.svg')" class="w-128" alt="People Studying"/>
-            <div class="flex flex-col gap-11">
+            <img v-bind:src="require('@/assets/images/people-studying.svg')" class="w-128 max-lg:px-6 max-lg:w-auto ml-16 max-lg:ml-auto" alt="People Studying"/>
+            <div class="flex flex-col gap-11 max-lg:px-7">
                 <AdvantagesCard :dif="'DIFERENCIAL 01'" :text="'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Phasellus tincidunt a libero non vestibulum.'"/>
                 <AdvantagesCard :dif="'DIFERENCIAL 02'" :text="'Praesent auctor, felis in finibus eleifend, mi placerat eros, ut efficitur elit arcu quis mauris. Mauris cursus eu magna sed varius. Etiam rutrum ut mi sed interdum.'"/>
                 <AdvantagesCard :dif="'DIFERENCIAL 03'" :text="'Vivamus eu tincidunt lorem. Maecenas rhoncus porta tortor, a dictum metus tristique in. Mauris tincidunt ipsum sagittis, efficitur felis vitae, consectetur orci.'"/>
