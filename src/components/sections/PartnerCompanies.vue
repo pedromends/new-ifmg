@@ -10,25 +10,54 @@
             <div class="bg-whitecircle bg-no-repeat bg-center">
                 <div class="grid max-lg:grid-rows-1 grid-rows-3 gap-5 items-center py-24">
                     <div class="flex max-lg:flex-col justify-center gap-3 items-center">
-                        <!-- <img :src="require('@/assets/icons/reachr.svg')" class="px-8 py-5 rounded-xl bg-white shadow-lg" alt="Reachr"/> -->
-                        <CompanyModal :img="'reachr'" :modalname="'modal-reacher'" :company="'Reachr'"/>
-                        <CompanyModal :img="'prumo'" :modalname="'modal-prumo'" :company="'Prumo Engenharia'"/>
-                        <CompanyModal :img="'isobloco'" :modalname="'modal-isobloco'" :company="'Isobloco'"/>
+                        <CompanyModal :img="'reachr'" :headName="'head-reachr'" :headBody="'heading-reachr'"
+                        :modalname="'modal-reacher'" :company="'Reachr'"
+                        :resume="'reachr'" :accID="'accordion-reachr'" />
+
+                        <CompanyModal :img="'prumo'" :headName="'head-prumo'" :headBody="'heading-prumo'"
+                        :modalname="'modal-prumo'" :company="'Prumo Engenharia'"
+                        :resume="'prumo'" :accID="'accordion-prumo'" />
+
+                        <CompanyModal :img="'isobloco'" :headName="'head-isobloco'" :headBody="'heading-isobloco'"
+                        :modalname="'modal-isobloco'" :company="'Isobloco'"
+                        :resume="'teste'" :accID="'accordion-isobloco'" />
                     </div>
+
                     <div class="flex max-lg:flex-col justify-center gap-3 items-center">
-                        <CompanyModal :img="'hf'" :modalname="'modal-hf'" :company="'HF'"/>
-                        <CompanyModal :img="'avante'" :modalname="'modal-avante'" :company="'Avante Soluções Digitais'"/>
-                        <CompanyModal :img="'iotew'" :modalname="'modal-iotew'" :company="'IoteW'"/>
-                        <CompanyModal :img="'infinite'" :modalname="'modal-infinite'" :company="'Infinite'"/>
+                        <CompanyModal :img="'hf'" :headName="'head-hf'" :headBody="'heading-hf'" 
+                        :modalname="'modal-hf'" :company="'HF'" :resume="'hf'"
+                        :accID="'accordion-hf'" />
+
+                        <CompanyModal :img="'avante'" :headName="'head-avante'" :headBody="'heading-avante'" 
+                        :modalname="'modal-avante'" :company="'Avante Soluções Digitais'"
+                        :resume="'avante'" :accID="'accordion-avante'" />
+
+                        <CompanyModal :img="'iotew'" :headName="'head-iotew'" :headBody="'heading-iotew'" 
+                        modalname="'modal-iotew'" :company="'IoteW'" :resume="'iotew'"
+                        :accID="'accordion-iotew'" />
+
+                        <CompanyModal :img="'infinite'" :headName="'head-infinite'" :headBody="'heading-infinite'"
+                        :modalname="'modal-infinite'" :company="'Infinite'"
+                        :resume="'teste'" :accID="'accordion-infinite'" />
                     </div>
+
                     <div class="flex max-lg:flex-col justify-center gap-3 items-center">
-                        <CompanyModal :img="'aiko'" :modalname="'modal-aiko'" :company="'Aiko'"/>
-                        <CompanyModal :img="'google'" :modalname="'modal-google'" :company="'Google'"/>
-                        <CompanyModal :img="'celulaweb'" :modalname="'modal-celulaweb'" :company="'Celula Web'"/>
+                        <CompanyModal :img="'aiko'" :headName="'head-aiko'" :headBody="'heading-aiko'"
+                        :modalname="'modal-aiko'" :company="'Aiko'"
+                        :resume="'aiko'" :accID="'accordion-aiko'" />
+
+                        <CompanyModal :img="'google'" :headName="'head-google'" :headBody="'heading-google'"
+                        :modalname="'modal-google'" :company="'Google'"
+                        :resume="'google'" :accID="'accordion-google'" />
+
+                        <CompanyModal :img="'celulaweb'" :headName="'head-celula'" :headBody="'heading-celula'"
+                        :modalname="'modal-celulaweb'" :company="'Celula Web'"
+                        :resume="'celula'" :accID="'accordion-celula'" />
                     </div>
                 </div>
             </div>
         </div>
+        
     </section>
 </template>
 <script>
@@ -36,7 +65,7 @@ import CompanyModal from '@/components/modal/CompanyModal.vue';
 
 export default {
     name: 'PartnerCompanies',
-    components:{
+    components: {
         CompanyModal
     },
     props: {

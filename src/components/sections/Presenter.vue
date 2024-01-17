@@ -12,6 +12,7 @@
                         <img alt="Play" :src="require('@/assets/icons/play.svg')"/>
                         <button>Vídeo Institucional</button>
                     </div>
+                    
                 </div>
             </div>
 

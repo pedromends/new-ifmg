@@ -10,11 +10,14 @@
                     
                     <!-- Ir para página explicando tudo sobre o polo -->
                     <a href="#" target="_blank" class="bg-maingreen text-white w-40 py-3 rounded-lg border-2 border-white font-semibold hover:border-maingreen hover:bg-white hover:text-maingreen transition duration-100 text-center">Saiba Mais</a>
+    
                 </div>
                 <div>
                     <img v-bind:src="require('@/assets/images/virtualglass.svg')" class="w-160" alt="Class with Virtual Glasses"/>
                 </div>
+                
             </div>
+
         </div>
     </section>
 </template>

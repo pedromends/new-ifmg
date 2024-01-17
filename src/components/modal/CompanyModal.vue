@@ -19,12 +19,31 @@
                         </button>
                     </div>
                     <div class="p-4 md:p-5 space-y-4">
-                        <p class="text-base leading-relaxed text-maingray dark:text-gray-400">
-                            With less than a month to go before the European Union enacts new consumer privacy laws for its citizens, companies around the world are updating their terms of service agreements to comply.
+                        <div :id="accID" data-accordion="collapse" data-active-classes="bg-blue-100 dark:bg-gray-800 text-blue-600 dark:text-white">
+                            <h2 :id="headName">
+                                <button type="button" class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 rounded-t-xl hover:bg-blue-100 gap-3" :data-accordion-target="`#${headBody}`" aria-expanded="true" :aria-controls="headBody">
+                                <span>What is Flowbite?</span>
+                                <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+                                </svg>
+                                </button>
+                            </h2>
+                            <div :id="headBody" class="hidden" :aria-labelledby="headName">
+                                <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
+                                    <p class="mb-2 text-gray-500 dark:text-gray-400">{{ resume }}</p>
+                                    <p class="text-gray-500 dark:text-gray-400">Check out this guide to learn how to <a href="/docs/getting-started/introduction/" class="text-blue-600 dark:text-blue-500 hover:underline">get started</a> and start developing websites even faster with components on top of Tailwind CSS.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <p class="text-base leading-relaxed text-maingray dark:text-gray-400">
+                            With less than a month to go before the European Union enacts new consumer privacy laws for its citizens,
+                            companies around the world are updating their terms of service agreements to comply.
                         </p>
                         <p class="text-base leading-relaxed text-maingray dark:text-gray-400">
-                            The European Union’s General Data Protection Regulation (G.D.P.R.) goes into effect on May 25 and is meant to ensure a common set of data rights in the European Union. It requires organizations to notify users as soon as possible of high-risk data breaches that could personally affect them.
-                        </p>
+                            The European Union’s General Data Protection Regulation (G.D.P.R.) goes into effect on May 25 and is meant
+                            to ensure a common set of data rights in the European Union. It requires organizations to notify users as
+                            soon as possible of high-risk data breaches that could personally affect them.
+                        </p> -->
                     </div>
                     <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b">
                         <button :data-modal-hide="modalname" type="button" class="text-white bg-maingreen border-2 border-maingreen hover:bg-white hover:text-maingreen font-medium rounded-lg text-sm px-5 py-2.5 text-center">Saiba Mais!</button>
@@ -41,9 +60,13 @@ export default {
     components:{
     },
     props: {
-        img: String,
-        company: String,
-        modalname: String,
+        img: String, //imagem a ser utilizada
+        company: String, // nome da empresa
+        modalname: String, // nome do modal
+        accID: String, // nome do accordion
+        headName: String, // heading do accordion
+        headBody: String, // corpo do accordion
+        resume: String // texto resumo do projeto
     }
 }
 </script>
