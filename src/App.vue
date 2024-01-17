@@ -1,4 +1,5 @@
 <template>
+  <!-- Não entra sem as manha, xóven -->
   <Navbar />
   <HomePage />
   <Footer />
@@ -12,30 +13,19 @@ import './index.css'
 
 import { onMounted } from 'vue'
 import { initFlowbite, initAccordions, 
-    initCarousels, 
-    initCollapses, 
-    initDials, 
-    initDismisses, 
-    initDrawers, 
-    initDropdowns, 
-    initModals, 
-    initPopovers, 
-    initTabs, 
-    initTooltips } from 'flowbite'
+    initCarousels, initCollapses, 
+    initDials, initDismisses, 
+    initDrawers, initDropdowns, 
+    initModals, initPopovers, 
+    initTabs, initTooltips } from 'flowbite'
 
 onMounted(() => {
-    initFlowbite();
-    initAccordions();
-    initCarousels();
-    initCollapses();
-    initDials();
-    initDismisses();
-    initDrawers();
-    initDropdowns();
-    initModals();
-    initPopovers();
-    initTabs();
-    initTooltips();
+    initFlowbite(); initAccordions();
+    initCarousels(); initCollapses();
+    initDials(); initDismisses();
+    initDrawers(); initDropdowns();
+    initModals(); initPopovers();
+    initTabs(); initTooltips();
 })
 </script>
 

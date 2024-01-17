@@ -19,9 +19,9 @@
 
         <section class="flex justify-between bg-maingreen">
             <div class="flex justify-between items-center gap-8 px-20">
-                <a class="text-white text-sm">INGRESSO</a>
-                <a class="text-white text-sm">NOSSOS CURSOS</a>
-                <a class="text-white text-sm">ACESSO À INFORMAÇÃO</a>
+                <a class="text-white text-sm hover:underline">INGRESSO</a>
+                <a class="text-white text-sm hover:underline">NOSSOS CURSOS</a>
+                <a class="text-white text-sm hover:underline">ACESSO À INFORMAÇÃO</a>
             </div>
 
             <div class="flex justify-between items-center gap-5">
@@ -37,7 +37,7 @@
                     </a>
                 </div>
                 <input type="text" class="bg-handglass bg-maingreen bg-no-repeat bg-contain pl-10 h-8 w-44 rounded-xl border-white text-white"/>
-                <button class="bg-white mr-16 p-4 text-maingreen tracking-wide text-sm">ACESSO P/ADM</button>
+                <button class="bg-white mr-16 p-4 text-maingreen tracking-wide text-sm hover:underline">ACESSO P/ADM</button>
             </div>        
         </section>
         

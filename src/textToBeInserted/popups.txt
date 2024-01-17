@@ -82,7 +82,7 @@ Prumo Engenharia
 Nome do Projeto: Plataforma Prumo de Inteligência Operacional
 Coordenador: Manoel Pereira Junior (Campus Formiga)
 Situação: Em andamento
-Resumo: Construção de um sistema que permitirá que a empresa possa identificar oportunidades de negócio de forma automatizada, que uma vez fechado um contrato, possa realizar toda a mobilização necessária para início da obra e que possa rastrear equipamentos de interesse em campo.]
+Resumo: Construção de um sistema que permitirá que a empresa possa identificar oportunidades de negócio de forma automatizada, que uma vez fechado um contrato, possa realizar toda a mobilização necessária para início da obra e que possa rastrear equipamentos de interesse em campo.
 
 __________________________________________________________
 
