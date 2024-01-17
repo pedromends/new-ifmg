@@ -1,7 +1,7 @@
 <template lang="">
-    <div class="transition duration-300 shadow-lg bg-white flex flex-col gap-1 rounded-3xl border-2 border-white p-3 px-5">
+    <div class="transition duration-300 shadow-lg bg-white flex flex-col gap-3 rounded-3xl border-2 border-white p-3 px-5 hover:shadow-2xl hover:shadow-maingreen">
         <div class="flex justify-between items-start">
-            <img :src="require(`@/assets/avatar/${ pic }.svg`)"  alt="Profile Pic"/>
+            <img :src="require(`@/assets/avatar/${ pic }.svg`)" class="w-1/3" alt="Profile Pic"/>
             <img :src="require('@/assets/icons/linkedin.svg')"  class="" alt="Linkedin"/>
         </div> 
         <div class="flex flex-col">

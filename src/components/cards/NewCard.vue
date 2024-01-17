@@ -1,9 +1,11 @@
 <template lang="">
-    <div class="flex flex-col gap-3 hover:bg-lightgray rounded-xl">
-        <img :src="require(`@/assets/images/${ img }.svg`)" alt="" class="h-52 self-start"/>
-        <div class="px-2 flex flex-col gap-2">
-            <span class="border-2 border-maingreen rounded-lg w-48 text-center text-sm text-maingray">{{ tip }}</span>
-            <h1 class="w-72 text-base font-semibold mt-2">{{ title }}</h1>
+    <div class="flex flex-col justify-center gap-3 hover:bg-gray-300 rounded-xl transition duration-300">
+        <img :src="require(`@/assets/images/${ img }.svg`)" alt="" class="h-52 p-2"/>
+        <div class="px-8 flex flex-col justify-start gap-2">
+            <div class="flex items-center self-start">
+                <span class="border-2 border-maingreen rounded-lg text-start text-sm text-maingray px-10">{{ tip }}</span>
+            </div>
+            <h1 class="text-base font-semibold mt-2">{{ title }}</h1>
             <p class="text-sm">{{ date }} | {{ read }} leitura</p>
         </div>
     </div>

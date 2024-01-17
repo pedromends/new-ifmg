@@ -11,7 +11,7 @@
             <CapacitationCard :title="'Medição de Grandezas'" :subtitle="'Lorem ipsum dolor amet, consectetur adipiscing elit. Mattis et sed nam sem tellus erat.'" :icon="'plug'" />
             <CapacitationCard :title="'Desenvolvimento de Automação'" :subtitle="'Lorem ipsum dolor amet, consectetur adipiscing elit. Mattis et sed nam sem tellus erat.'" :icon="'house'" />
         </div>
-        <button class="px-5 py-2 bg-white border-2 border-white text-maingreen w-36 mx-auto rounded-lg font-bold hover:bg-maingreen hover:text-white transition duration-300">Ver Mais</button>
+        <button class="px-5 py-2 bg-white border-2 border-white text-maingreen w-36 mx-auto rounded-lg font-bold hover:bg-govblue hover:text-white transition duration-300">Ver Mais</button>
     </section>
 </template>
 <script>

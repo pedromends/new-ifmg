@@ -29,7 +29,7 @@
 
                     <div class="flex max-lg:flex-col justify-center gap-3 items-center">
                         <CompanyModal :img="'hf'" :headName="'head-hf'" :headBody="'heading-hf'" 
-                        :modalname="'modal-hf'" :company="'HF'"
+                        :modalname="'modal-hf'" :company="'Metalúrgica HF'"
                         :accID="'accordion-hf'"
                         :resume="'Desenvolvimento de um sistema de comunicação para otimizar o processo de produção de concertinas da empresa, a partir de um computador central.'" />
 

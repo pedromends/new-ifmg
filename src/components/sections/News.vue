@@ -7,7 +7,7 @@
         'Paloma Maira de Oliveira Lima, e do diretor-geral do campus, Patrick Santos de Oliveira.'"
         :img="'paloma'"/>
         
-        <div class="flex max-lg:flex-col justify-center gap-5">    
+        <div class="flex max-lg:flex-col justify-center gap-2">    
             <NewCard :tip="'Novidade'" :title="'Polo IFMG marca presença no Encontro Anual de Unidades Embrapii'" :date="'14 de Dezembro'" :read="'3 min'" :img="'meeting'"/>
             <NewCard :tip="'Nova Gestão'" :title="'Polo IFMG inicia processo de transição com nova diretora-geral'" :date="'14 de Dezembro'" :read="'3 min'" :img="'teachers'"/>
             <NewCard :tip="'Pesquisa Acadêmica'" :title="'PD&I promove pesquisa acadêmica e impulsiona o avanço tecnológico'" :date="'14 de Dezembro'" :read="'3 min'" :img="'lab'"/>
@@ -18,7 +18,7 @@
                 <EventCard :month="'Fev'" :day="28" :title="'Início das Aulas'" :hour="'16h30'" :local="'Campus Formiga'" />
             </div>
         </div>
-        <button class="px-5 py-2 bg-maingreen text-white w-56 mx-auto rounded-lg font-bold hover:bg-white hover:text-maingreen transition duration-300 border-2 border-maingreen">Ver Notícias e Eventos</button>
+        <button class="px-5 py-2 bg-maingreen text-white mx-auto rounded-lg font-bold hover:bg-white hover:text-maingreen transition duration-300 border-2 border-maingreen">Ver Notícias e Eventos</button>
     </section>
 </template>
 

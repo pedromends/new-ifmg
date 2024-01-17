@@ -27,7 +27,7 @@
                         <div :id="accID" data-accordion="collapse" data-active-classes="bg-blue-100 dark:bg-gray-800 text-blue-600 dark:text-white">
 
                             <!-- Accordion Fechado -->
-                            <h2 :id="headName">
+                            <h2 :id="headName" class="text-maingray">
                                 <button type="button" :data-accordion-target="`#${headBody}`" aria-expanded="false" :aria-controls="headBody"
                                 class="flex items-center justify-between w-full p-5 font-medium rtl:text-right border border-maingreen rounded-t-xl hover:bg-blue-100 gap-3">
                                 <span>Sobre o projeto</span> <!-- "resumo" -->
@@ -70,8 +70,8 @@
                         </p> -->
                     </div>
                     <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b">
-                        <button :data-modal-hide="modalname" type="button" class="text-white bg-maingreen border-2 border-maingreen hover:bg-white hover:text-maingreen transition duration-300 rounded-lg text-sm px-5 py-2.5">Saiba Mais!</button>
-                        <button :data-modal-hide="modalname" type="button" class="ms-3 text-maingray bg-white hover:bg-gray-100 rounded-lg border border-gray-200 text-sm transition duration-300 px-5 py-2.5 hover:text-gray-900 ">Fechar</button>
+                        <button :data-modal-hide="modalname" type="button" class="text-white bg-maingreen border-2 border-maingreen hover:bg-white hover:text-maingray transition duration-300 rounded-lg text-sm px-5 py-2.5">Saiba Mais!</button>
+                        <button :data-modal-hide="modalname" type="button" class="ms-3 text-maingray bg-white rounded-lg border border-gray-200 text-sm transition duration-300 px-5 py-2.5 hover:bg-maingray hover:text-white ">Fechar</button>
                     </div>
                 </div>
             </div>
