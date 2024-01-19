@@ -20,7 +20,7 @@
                 </div>
             </div>
             <div class="w-128 max-lg:w-auto h-auto relative">
-                <div class="shadow-2xl bg-white p-5 rounded-lg text-black flex justify-start gap-10 absolute -top-28">
+                <div class="shadow-2xl bg-white p-5 rounded-lg text-black flex justify-start gap-10 absolute -top-28 max-lg:top-0">
                     <form class="flex flex-col gap-5 p-5 max-lg:gap-3">
                         <div class="flex flex-col w-96 max-lg:w-auto">
                             <label class="text-maingray text-sm">Nome</label>

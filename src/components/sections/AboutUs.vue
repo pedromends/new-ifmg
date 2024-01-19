@@ -1,8 +1,8 @@
 <template lang="">
-    <section class="px-12 py-24 mt-48 max-md:px-4">
-        <div class="flex justify-center px-12 max-md:px-8">
+    <section class="px-12 py-24 mt-48 max-lg:px-4 ">
+        <div class="flex justify-center px-12 max-lg:px-8">
             <div class="flex max-lg:flex-col gap-24">
-                <div class="flex flex-col w-140 max-lg:w-auto gap-8">
+                <div class="flex flex-col w-140 max-lg:w-auto gap-8 max-lg:mt-10">
                     <span class="text-maingreen font-bold text-sm">QUEM SOMOS</span>
                     <h1 class="font-bold text-4xl w-96 max-lg:w-auto">Somos um centro de inovação e pesquisa</h1>
                     <p class="w-full text-maingray">O Polo de Inovação IFMG é um centro de Pesquisa, Desenvolvimento e Inovação (PD&I), credenciado pela EMBRAPII (Empresa Brasileira de Pesquisa e Inovação Industrial) que valoriza e incentiva o desenvolvimento de projetos inovadores sob demanda das empresas.</p>
