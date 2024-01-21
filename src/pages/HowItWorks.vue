@@ -14,29 +14,29 @@
                     </div>
                     <img alt="Laboratório de sistemas automotivos IFMG - Campus Formiga" class="w-124 self-start" :src="require('@/assets/banners/participacao.jpg')" />
                 </div>
-                <p>Para que a empresa consiga contratar um projeto pelo modelo de negócios EMBRAPII, algumas características e requisitos devem ser
-                            atendidos:
-                            Características
-                        </p>
-                        <p>
-                            Execução por equipe de pesquisadores do IFMG;
-                                Execução sob acordo de confidencialidade;
-                                Negociação direta com o Polo de Inovação IFMG, sem editais ou autorizações governamentais;
-                                Gestão dos recursos financeiros feita pela FUNARBE;
-                                Propriedade intelectual definida em contrato, com o auxílio do NIT.
-                               
-                        </p>
-                <p>
-                    Requisitos
 
-A empresa parceira deve possuir CNAE industrial nas faixas 5 a 33, 62.01-5 e 62.03-1 (ou adequá-lo no decorrer do desenvolvimento
-do projeto).
-Como participar?
+                <p>Para que a empresa consiga contratar um projeto pelo modelo de negócios EMBRAPII, algumas características e requisitos devem ser atendidos:</p>
 
-Entre em contato com a equipe do Polo de Inovação IFMG:
-: prospeccao.polo@ifmg.edu.br
-: 37 3322-8529
-                </p>
+                <ul>
+                    <p class="font-semibold">Características</p>
+                    <li class="list-disc">Execução por equipe de pesquisadores do IFMG;</li>
+                    <li class="list-disc">Execução sob acordo de confidencialidade;</li>
+                    <li class="list-disc">Negociação direta com o Polo de Inovação IFMG, sem editais ou autorizações governamentais;</li>
+                    <li class="list-disc">Gestão dos recursos financeiros feita pela FUNARBE;</li>
+                    <li class="list-disc">Propriedade intelectual definida em contrato, com o auxílio do NIT.</li>
+                </ul>
+
+                <ul>
+                    <p class="font-semibold">Requisitos</p>
+                    <li class="list-disc">A empresa parceira deve possuir CNAE industrial nas faixas 5 a 33, 62.01-5 e 62.03-1 (ou adequá-lo no decorrer do desenvolvimento do projeto).</li>
+                </ul>
+
+                <div>
+                    <h1 class="font-semibold">Como participar?</h1>
+                    <p>Entre em contato com a equipe do Polo de Inovação IFMG:</p>
+                    <p>prospeccao.polo@ifmg.edu.br</p>
+                    <p>37 3322-8529</p>
+                </div>
             </div>
         </div>
     </section>
