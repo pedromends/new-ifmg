@@ -1,5 +1,5 @@
 <template lang="">
-    <nav>
+    <nav class="flex flex-col justify-between">
         <section class="bg-lightgray w-full hidden max-lg:inline max-lg:fixed z-10">
             <button class="rounded-lg text-sm px-5 py-2.5 flex justify-start" type="button" data-drawer-target="drawer-navigation" data-drawer-show="drawer-navigation" aria-controls="drawer-navigation">
                 <img :src="require('@/assets/icons/if.png')" class="w-10" alt="logo"/>
@@ -18,55 +18,34 @@
             <div class="py-4 overflow-y-auto">
                 <ul class="space-y-2 font-base">
                     <li class="flex flex-col gap-3">
-                        <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg">
-                            <img class="w-5" :src="require('@/assets/icons/homepage.svg')" alt="">
-                            <span class="ms-3 text-white">Início</span>
-                        </a>
-                        <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg">
-                            <img class="w-5" :src="require('@/assets/icons/people.svg')" alt="">
-                            <span class="ms-3 text-white">Quem somos</span>
-                        </a>
-                        <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg">
-                            <img class="w-5" :src="require('@/assets/icons/up-arrow.svg')" alt="">
-                            <span class="ms-3 text-white">Vantagens</span>
-                        </a>
-                        <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg">
-                            <img class="w-5" :src="require('@/assets/icons/news.svg')" alt="">
-                            <span class="ms-3 text-white">Notícias</span>
-                        </a>
-                        <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg">
-                            <img class="w-5" :src="require('@/assets/icons/book-search.svg')" alt="">
-                            <span class="ms-3 text-white">Nossos Cursos</span>
-                        </a>
-                        <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg">
-                            <img class="w-5" :src="require('@/assets/icons/research.svg')" alt="">
-                            <span class="ms-3 text-white">Pesquisadores</span>
-                        </a>
-                        <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg">
-                            <img class="w-5" :src="require('@/assets/icons/annotate.svg')" alt="">
-                            <span class="ms-3 text-white">Editais</span>
-                        </a>
-                        <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg">
-                            <img class="w-5" :src="require('@/assets/icons/doc.svg')" alt="">
-                            <span class="ms-3 text-white">Documentos</span>
-                        </a>
-                        <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg">
-                            <img class="w-5" :src="require('@/assets/icons/book.svg')" alt="">
-                            <span class="ms-3 text-white">Capacitação</span>
-                        </a>
-                        <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg">
-                            <img class="w-5" :src="require('@/assets/icons/phone.svg')" alt="">
-                            <span class="ms-3 text-white">Contato</span>
-                        </a>
+                        <SidebarLink :link="'/'" :text="'Início'" :icon="'homepage'"/>
+                        <SidebarLink :link="''" :text="'Quem somos'" :icon="'people'"/>
+                        <SidebarLink :link="''" :text="'Vantagens'" :icon="'up-arrow'"/>
+                        <SidebarLink :link="'/news'" :text="'Notícias'" :icon="'news'"/>
+                        <SidebarLink :link="''" :text="'Nossos Cursos'" :icon="'book-search'"/>
+                        <SidebarLink :link="''" :text="'Pesquisadores'" :icon="'research'"/>
+                        <SidebarLink :link="'/edicts'" :text="'Editais'" :icon="'annotate'"/>
+                        <SidebarLink :link="'/docs'" :text="'Documentos'" :icon="'doc'"/>
+                        <SidebarLink :link="'/capacitation'" :text="'Capacitação'" :icon="'book'"/>
+                        <SidebarLink :link="'/contact'" :text="'Contato'" :icon="'phone'"/>
                     </li>
                 </ul>
             </div>
         </section>
     </nav>
 </template>
+
 <script>
+import SidebarLink from '@/components/html/SidebarLink.vue';
 export default {
-    name: 'SideBar'
+    name: 'SideBar',
+    components:{
+        SidebarLink
+    },
+    props: {
+        link: String,
+        text: String
+    }
 }
 </script>
 <style lang="">

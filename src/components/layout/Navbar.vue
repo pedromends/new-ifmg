@@ -43,27 +43,29 @@
         
         <section class="flex justify-between items-center">
             <div class="flex text-sm text-maingray gap-5 p-4 ml-14 max-lg:p-0">
-                <router-link class="hover:text-red-600 hover:underline hover:decoration-red-600" to="/">INÍCIO</router-link>
-                <router-link class="hover:text-red-600 hover:underline hover:decoration-red-600" to="">QUEM SOMOS</router-link>
-                <router-link class="hover:text-red-600 hover:underline hover:decoration-red-600" to="">VANTAGENS</router-link>
-                <router-link class="hover:text-red-600 hover:underline hover:decoration-red-600" to="/news">NOTÍCIAS</router-link>
-                <router-link class="hover:text-red-600 hover:underline hover:decoration-red-600" to="">NOSSOS CURSOS</router-link>
+                <NavbarLink :link="'/'" :text="'INÍCIO'" />
+                <NavbarLink :link="'/'" :text="'QUEM SOMOS'" />
+                <NavbarLink :link="'/'" :text="'VANTAGENS'" />
+                <NavbarLink :link="'/news'" :text="'NOTÍCIAS'" />
+                <NavbarLink :link="'/'" :text="'NOSSOS CURSOS'" />
             </div>
             <div class="flex text-sm text-maingray gap-5 p-2 mr-14 max-lg:p-0">
-                <router-link class="hover:text-red-600 hover:underline hover:decoration-red-600" to="">PESQUISADORES</router-link>
-                <router-link class="hover:text-red-600 hover:underline hover:decoration-red-600" to="/edicts">EDITAIS</router-link>
-                <router-link class="hover:text-red-600 hover:underline hover:decoration-red-600" to="/docs">DOCUMENTOS</router-link>
-                <router-link class="hover:text-red-600 hover:underline hover:decoration-red-600" to="/capacitation">CAPACITAÇÃO</router-link>
-                <router-link class="hover:text-red-600 hover:underline hover:decoration-red-600" to="">CONTATO</router-link>
+                <NavbarLink :link="'/'" :text="'PESQUISADORES'" />
+                <NavbarLink :link="'/edicts'" :text="'EDITAIS'" />
+                <NavbarLink :link="'/docs'" :text="'DOCUMENTOS'" />
+                <NavbarLink :link="'/capacitation'" :text="'CAPACITAÇÃO'" />
+                <NavbarLink :link="'/contact'" :text="'CONTATO'" />
             </div>
         </section>
     </nav>
 </template>
 
 <script>
+import NavbarLink from '@/components/html/NavbarLink.vue'
 export default {
     name: 'NavBar',
     components:{
+        NavbarLink
     },
     props: {
 

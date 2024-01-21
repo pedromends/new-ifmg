@@ -8,6 +8,7 @@ import NewsPage from "@/pages/NewsPage.vue";
 import Edicts from "@/pages/Edicts.vue";
 import Capacitation from "@/pages/Capacitation.vue";
 import Documents from "@/pages/Documents.vue";
+import Contact from "@/pages/ContactPage.vue";
 
 const routes = [
   {
@@ -45,6 +46,10 @@ const routes = [
   {
     path: '/docs',
     component: Documents
+  },
+  {
+    path: '/contact',
+    component: Contact
   }
 ];
 

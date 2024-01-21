@@ -10,7 +10,7 @@
         </div>
         <hr />
         <div class="grid grid-cols-4 max-lg:grid-cols-1 gap-12 text-sm">
-            <div class="flex flex-col gap-2 text-ftlink">
+            <div class="flex flex-col gap-2 text-ftlink max-lg:text-center">
                 <h1 class="text-fttitle">A INSTITUIÇÃO</h1>
                 <FooterLink :href="''" :text="'Sobre a instituição'"/>
                 <FooterLink :href="''" :text="'Conselho Acadêmico'"/>
@@ -24,7 +24,7 @@
             </div>
 
             <div class="flex flex-col gap-5">
-                <div class="flex flex-col gap-2 text-ftlink">
+                <div class="flex flex-col gap-2 text-ftlink max-lg:text-center">
                     <h1 class="text-fttitle">PROJETOS</h1>
                     <FooterLink :href="''" :text="'Institucional'"/>
                     <FooterLink :href="''" :text="'Ações e Programas'"/>
@@ -32,14 +32,14 @@
                     <FooterLink :href="''" :text="'Convênios e transferências'"/>
                     <FooterLink :href="''" :text="'Receitas e despesas'"/>
                 </div>
-                <div class="flex flex-col gap-2 text-ftlink">
+                <div class="flex flex-col gap-2 text-ftlink max-lg:text-center">
                     <h1 class="text-fttitle">ACESSO RÁPIDO</h1>
                     <FooterLink :href="''" :text="'Regimento Disciplinar'"/>
                     <FooterLink :href="''" :text="'Calendário 2024'"/>
                 </div>
             </div>
 
-            <div class="flex flex-col gap-2 text-ftlink">
+            <div class="flex flex-col gap-2 text-ftlink max-lg:text-center">
                 <h1 class="text-fttitle">NOSSAS UNIDADES</h1>
                 <FooterLink :href="''" :text="'Bambuí'"/>
                 <FooterLink :href="''" :text="'Betim'"/>
@@ -50,7 +50,7 @@
                 <FooterLink :href="''" :text="'Itabirito'"/>
             </div>
 
-            <div class="flex flex-col gap-2 text-ftlink">
+            <div class="flex flex-col gap-2 text-ftlink max-lg:text-center">
                 <h1 class="text-fttitle">NOSSOS CURSOS</h1>
                 <FooterLink :href="''" :text="'Graduação'"/>
                 <FooterLink :href="''" :text="'Administração'"/>
