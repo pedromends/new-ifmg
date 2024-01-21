@@ -1,5 +1,5 @@
 <template lang="">
-    <section class="flex flex-col px-10 py-36 gap-16 ">
+    <section id="news" class="flex flex-col px-10 py-36 gap-16 ">
         <h1 class="text-4xl font-semibold self-center">Notícias e Eventos</h1>
         
         <MainNew :tip="'Posse da Diretoria'" :title="'Em cerimônia simbólica, diretora do Polo IFMG toma posse'"

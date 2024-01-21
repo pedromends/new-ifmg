@@ -1,6 +1,6 @@
 <template lang="">
     <!-- TODO: Atualizar papel de parede via ADM -->
-    <section class="bg-campus bg-cover bg-no-repeat bg-center h-[65rem]">
+    <section id="home" class="bg-campus bg-cover bg-no-repeat bg-center h-[65rem]">
         <div class=" flex flex-col justify-center items-center p-10 gap-96 rounded-b-3xl relative">
             <div class="flex flex-col justify-center gap-10 py-24">
                 <h1 class="text-5xl text-center text-white w-196 mx-auto font-semibold max-lg:w-auto max-lg:text-3xl">Bem-vindo ao Polo de Inovação IFMG do Campus Formiga</h1>

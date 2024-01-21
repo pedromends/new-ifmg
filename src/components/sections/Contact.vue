@@ -1,5 +1,5 @@
 <template lang="">
-    <section class="flex justify-center items-center text-white p-20 mb-56">
+    <section id="contact" class="flex justify-center items-center text-white p-20 mb-56">
         <div class="bg-maingreen flex max-lg:flex-col p-10 max-lg:p-14 rounded-3xl relative">
             <div class="flex flex-col gap-4">
                 <h1 class="text-3xl w-112 max-lg:w-auto font-semibold">Vamos conversar sobre as oportunidades de inovação da sua empresa.</h1>

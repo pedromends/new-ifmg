@@ -1,5 +1,5 @@
 <template lang="">
-    <section class="flex flex-col px-16 py-36 gap-16 bg-lightgray">
+    <section id="researchers" class="flex flex-col px-16 py-36 gap-16 bg-lightgray">
         <div class="flex flex-col self-center text-center max-lg:w-auto w-180 gap-5">
             <h1 class="text-4xl font-semibold">Conheça nossos Pesquisadores</h1>
             <p>Lorem ipsum dolor amet, consectetur adipiscing elit. Mattis et sed nam sem tellus erat.</p>

@@ -1,7 +1,0 @@
-Deve ser possível o cadastro de editais condento os seguinte campos
-    - título do edital
-    - Numero - ano
-    - breve descrição
-    - link p/ inscrição
-    - arquivo em pdf
-    - imagem pra divulgação

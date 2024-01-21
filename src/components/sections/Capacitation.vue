@@ -1,5 +1,5 @@
 <template lang="">
-    <section class="flex flex-col px-16 py-36 gap-16 bg-maingreen">
+    <section id="capacitation" class="flex flex-col px-16 py-36 gap-16 bg-maingreen">
         <div class="flex flex-col max-lg:w-auto self-center text-center text-white w-160 gap-5">
             <span class="text-xs font-semibold">CAPACITAÇÃO CREDENCIADA PELA EMBRAPII</span>
             <h1 class="text-4xl max-lg:text-xl font-semibold">A inovação está ao seu alcance!</h1>

@@ -1,0 +1,19 @@
+Estruturação da páginas de notícias:
+
+    - Título
+    - Data
+    - Imagem
+    - Texto
+
+Layout: IFCE
+
+Exemplo: Nova parceria do Polo: assinado contrato de mais de R$ 1 milhão com as empresas AvanteTech e Total Apoio
+ Criado: Quinta, 18 Janeiro 2024 17:50
+
+ O ano mal começou e o Polo de Inovação IFMG já conseguiu firmar uma nova parceria. É o segundo contrato assinado somente em janeiro. Dessa vez, os novos parceiros são as empresas formiguenses AvanteTech e Total Apoio, que irão desenvolver com o Polo um projeto orçado em R$ 1.044.056,00. A associação entre as duas empresas, além de trazer benefícios mútuos, caracteriza Encadeamento Tecnológico (ET). Já é o 19º contrato assinado pelo Polo IFMG.
+
+O projeto recebeu o nome de “Sistema Inteligente de Recebíveis”, cujo objetivo é o desenvolvimento de uma tecnologia testada para ambiente real - (TRL 8 - Tecnologia testada e qualificada para ambiente real, estando pronta para ser implementada em um sistema ou tecnologia já existente) de um sistema inteligente que permitirá que as empresas dos mais diferentes ramos emitam títulos bancários recebíveis.
+
+Com duração de dois anos, o projeto será desenvolvido pelos pesquisadores Manoel Pereira Junior (coordenador), Carlos Bernardes Rosa Júnior, Fernando Paim Lima e Roger Santos Ferreira. Haverá também a participação de quatro alunos.
+
+É a primeira vez que o Polo de Inovação IFMG desenvolve projeto com a participação de duas empresas. A modalidade chamada de Encadeamento Tecnológico é passível de apoio pelo Sebrae (Serviço Brasileiro de Apoio às Micro e Pequenas Empresas), que é um dos parceiros do Polo e que financiou parte do valor do projeto. O restante do valor foi dividido da seguinte forma: um terço dos recursos é feito com financiamento não reembolsável pela Associação Brasileira de Pesquisa e Inovação Industrial (Embrapii), órgão ao qual o Polo é credenciado, e outros dois terços foram divididos com o Polo IFMG e as empresas.

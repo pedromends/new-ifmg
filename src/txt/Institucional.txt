@@ -1,11 +1,3 @@
-Polo de Inovação IFMG
- Criado: Sexta, 29 Mai 2020 18:40
-O Polo de Inovação IFMG é um centro de Pesquisa, Desenvolvimento e Inovação (PD&I), credenciado pela EMBRAPII (Empresa Brasileira de Pesquisa e Inovação Industrial) que valoriza e incentiva o desenvolvimento de projetos inovadores sob demanda das empresas, promovendo o desenvolvimento da indústria nacional.
-
-O modelo de negócios EMBRAPII oferece a oportunidade de compartilhamento financeiro para projetos de PD&I. O valor do projeto é dividido entre a EMBRAPII (recursos não-reembolsáveis), a empresa e o Polo de Inovação IFMG, reduzindo assim os recursos a serem aportados pelas empresas parceiras.
-
-O Polo de Inovação IFMG atua na aproximação das empresas com o setor acadêmico, desenvolvendo projetos relacionados a área de Mobilidade e Sistemas Inteligentes, assim como em diversas subáreas, sendo algumas delas: gestão de ativos móveis, otimização de processos, transporte e sistemas automotivos.
-
 Institucional
 Em 2014 o IFMG firmou convênio de cooperação com a hoje, Fiat Chrysler Automobiles para desenvolvimento de projeto de pesquisa e desenvolvimento de soluções técnicas para sistemas embarcados e softwares de autodiagnóstico e rede. Um dos resultados desta parceria foi o laboratório de sistemas automotivos localizado no IFMG Campus Formiga, que pode após desenvolvimento do projeto ser empregado em outras pesquisas, assim como aulas.
 

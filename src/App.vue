@@ -1,14 +1,13 @@
 <template>
   <!-- Não entra sem as manha, xóven -->
   <Navbar />
-  <HomePage />
+  <router-view />
   <Footer />
 </template>
 
 <script setup>
 import Navbar from "@/components/layout/Navbar.vue";
 import Footer from "@/components/layout/Footer.vue";
-import HomePage from './pages/HomePage.vue'
 import './index.css'
 
 import { onMounted } from 'vue'
