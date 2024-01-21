@@ -1,8 +1,8 @@
 <template lang="">
     <nav class="w-full relative font-opensans max-lg:hidden">
-        <section class="bg-white absolute right-1/2 transform translate-x-1/2 rounded-b-2xl">
+        <router-link to="/" class="bg-white absolute right-1/2 transform translate-x-1/2 rounded-b-2xl">
             <img alt="" class="h-40 w-32 px-5 py-4" :src="require('@/assets/icons/main-logo.jpg')"/>
-        </section>
+        </router-link>
 
         <section class="bg-govblue flex justify-between items-center py-1 text-lightgray font-raleway font-bold uppercase">
             <div class="flex justify-end items-center text-center gap-5 text-xs ml-36">
@@ -26,15 +26,15 @@
 
             <div class="flex justify-between items-center gap-5">
                 <div class="flex items-center gap-3 px-5">
-                    <router-link to="https://www.instagram.com/poloifmg/" class="hover:bg-govblue rounded-2xl transition duration-200" target="_blank">
+                    <a href="https://www.instagram.com/ifmgnarede/" class="hover:bg-govblue rounded-2xl transition duration-200" target="_blank">
                         <img alt="Instagram" class="h-8" :src="require('@/assets/icons/insta.svg')"/>
-                    </router-link>
-                    <router-link to="" class="hover:bg-govblue rounded-2xl transition duration-200" target="_blank">
+                    </a>
+                    <a href="https://twitter.com/ifmgnarede" class="hover:bg-govblue rounded-2xl transition duration-200" target="_blank">
                         <img alt="Twitter" class="h-8" :src="require('@/assets/icons/twitter.svg')"/>
-                    </router-link>
-                    <router-link to="" class="hover:bg-govblue rounded-2xl transition duration-200" target="_blank">
+                    </a>
+                    <a href="https://www.youtube.com/comunicacaoifmg" class="hover:bg-govblue rounded-2xl transition duration-200" target="_blank">
                         <img alt="Youtube" class="h-8" :src="require('@/assets/icons/youtube.svg')"/>
-                    </router-link>
+                    </a>
                 </div>
                 <input type="text" class="bg-handglass hover:bg-handglass-blue bg-maingreen bg-no-repeat bg-contain pl-10 h-8 w-44 rounded-xl border-white text-white hover:border-govblue transition duration-200"/>
                 <button class="bg-white mr-16 p-4 text-maingreen tracking-wide text-sm hover:underline hover:text-red-600">ACESSO P/ADM</button>
@@ -44,17 +44,17 @@
         <section class="flex justify-between items-center">
             <div class="flex text-sm text-maingray gap-5 p-4 ml-14 max-lg:p-0">
                 <router-link class="hover:text-red-600 hover:underline hover:decoration-red-600" to="/">INÍCIO</router-link>
-                <router-link class="hover:text-red-600 hover:underline hover:decoration-red-600" to="/#aboutus">QUEM SOMOS</router-link>
-                <router-link class="hover:text-red-600 hover:underline hover:decoration-red-600" to="#advantages">VANTAGENS</router-link>
-                <router-link class="hover:text-red-600 hover:underline hover:decoration-red-600" to="#news">NOTÍCIAS</router-link>
-                <router-link class="hover:text-red-600 hover:underline hover:decoration-red-600" to="#courses">NOSSOS CURSOS</router-link>
+                <router-link class="hover:text-red-600 hover:underline hover:decoration-red-600" to="">QUEM SOMOS</router-link>
+                <router-link class="hover:text-red-600 hover:underline hover:decoration-red-600" to="">VANTAGENS</router-link>
+                <router-link class="hover:text-red-600 hover:underline hover:decoration-red-600" to="">NOTÍCIAS</router-link>
+                <router-link class="hover:text-red-600 hover:underline hover:decoration-red-600" to="">NOSSOS CURSOS</router-link>
             </div>
             <div class="flex text-sm text-maingray gap-5 p-2 mr-14 max-lg:p-0">
-                <router-link class="hover:text-red-600 hover:underline hover:decoration-red-600" to="#researchers">PESQUISADORES</router-link>
-                <router-link class="hover:text-red-600 hover:underline hover:decoration-red-600" to="#edicts">EDITAIS</router-link>
-                <router-link class="hover:text-red-600 hover:underline hover:decoration-red-600" to="#docs">DOCUMENTOS</router-link>
-                <router-link class="hover:text-red-600 hover:underline hover:decoration-red-600" to="#capacitation">CAPACITAÇÃO</router-link>
-                <router-link class="hover:text-red-600 hover:underline hover:decoration-red-600" to="#contact">CONTATO</router-link>
+                <router-link class="hover:text-red-600 hover:underline hover:decoration-red-600" to="">PESQUISADORES</router-link>
+                <router-link class="hover:text-red-600 hover:underline hover:decoration-red-600" to="">EDITAIS</router-link>
+                <router-link class="hover:text-red-600 hover:underline hover:decoration-red-600" to="">DOCUMENTOS</router-link>
+                <router-link class="hover:text-red-600 hover:underline hover:decoration-red-600" to="">CAPACITAÇÃO</router-link>
+                <router-link class="hover:text-red-600 hover:underline hover:decoration-red-600" to="">CONTATO</router-link>
             </div>
         </section>
     </nav>

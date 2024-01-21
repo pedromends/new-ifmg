@@ -27,7 +27,7 @@
                     citar que o Polo de Inovação IFMG está presente em todos os 18 campis do Instituto Federal de Minas Gerais, sendo assim um ente institucional e capaz de ramificar sua atuação
                     em diversas macro regiões do estado.
                 </p>
-                <img alt="Imagem" class="self-center" :src="require('@/assets/banners/mapa.jpeg')" />
+                <img alt="Relação dos Campi do Instituto Federal de Minas Gerais" class="self-center" :src="require('@/assets/banners/mapa.jpeg')" />
             </div>
         </div>
     </section>
