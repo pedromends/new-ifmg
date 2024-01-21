@@ -3,6 +3,7 @@ import HomePage from "@/pages/HomePage.vue";
 import Institutional from "@/pages/Institutional.vue";
 import MobSys from "@/pages/MobSys.vue";
 import HowItWorks from "@/pages/HowItWorks.vue";
+import Embrapii from "@/pages/Embrapii.vue";
 
 const routes = [
   {
@@ -20,6 +21,10 @@ const routes = [
   {
     path: '/how-it-works',
     component: HowItWorks
+  },
+  {
+    path: '/embrapii',
+    component: Embrapii
   }
 ];
 

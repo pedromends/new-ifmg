@@ -3,7 +3,7 @@
         <div class="flex justify-center px-12 max-lg:px-8">
             <div class="flex max-lg:flex-col gap-24">
                 <div class="flex flex-col w-140 max-lg:w-auto gap-8 max-lg:mt-10">
-                    <span class="text-maingreen font-bold text-sm">QUEM SOMOS</span>
+                    <span class="text-maingreen font-bold text-sm underline decoration-red-600 decoration-2">QUEM SOMOS</span>
                     <h1 class="font-bold text-4xl w-96 max-lg:w-auto">Somos um centro de inovação e pesquisa</h1>
                     <p class="w-full text-maingray">O Polo de Inovação IFMG é um centro de Pesquisa, Desenvolvimento e Inovação (PD&I), credenciado pela EMBRAPII (Empresa Brasileira de Pesquisa e Inovação Industrial) que valoriza e incentiva o desenvolvimento de projetos inovadores sob demanda das empresas.</p>
                     <p class="w-full text-maingray">O modelo de negócios EMBRAPII oferece a oportunidade de compartilhamento financeiro para projetos de PD&I. O valor do projeto é dividido entre a EMBRAPII (recursos não-reembolsáveis), a empresa e o Polo de Inovação IFMG, reduzindo assim os recursos a serem aportados pelas empresas parceiras.</p>

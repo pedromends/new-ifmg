@@ -1,6 +1,6 @@
 <template lang="">
     <section>
-        <button :data-modal-target="modalname" :data-modal-toggle="modalname" type="button" class="hover:shadow-2xl hover:shadow-maingreen transition duration-300">
+        <button :data-modal-target="modalname" :data-modal-toggle="modalname" type="button" class="hover:shadow-2xl hover:shadow-red-600 transition duration-300">
             <img :src="require(`@/assets/icons/${img}.svg`)" class="px-8 py-5 rounded-xl bg-white shadow-lg" alt="Prumo"/>
         </button>
 
@@ -45,7 +45,7 @@
                             </div>
                         </div>
 
-                        <div class="flex flex-col px-2 text-sm gap-1"> <!-- Lista toda-->
+                        <div class="flex flex-col px-2 text-sm gap-1">
                             <div class="flex gap-2 items-center">
                                 <p>Nome:</p>
                                 <p>texto</p>
@@ -59,15 +59,6 @@
                                 <p>texto</p>
                             </div>
                         </div>
-                        <!-- <p class="text-base leading-relaxed text-maingray dark:text-gray-400">
-                            With less than a month to go before the European Union enacts new consumer privacy laws for its citizens,
-                            companies around the world are updating their terms of service agreements to comply.
-                        </p>
-                        <p class="text-base leading-relaxed text-maingray dark:text-gray-400">
-                            The European Union’s General Data Protection Regulation (G.D.P.R.) goes into effect on May 25 and is meant
-                            to ensure a common set of data rights in the European Union. It requires organizations to notify users as
-                            soon as possible of high-risk data breaches that could personally affect them.
-                        </p> -->
                     </div>
                     <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b">
                         <button :data-modal-hide="modalname" type="button" class="text-white bg-maingreen border-2 border-maingreen hover:bg-white hover:text-maingray transition duration-300 rounded-lg text-sm px-5 py-2.5">Saiba Mais!</button>

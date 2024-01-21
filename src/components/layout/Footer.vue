@@ -5,7 +5,7 @@
             <p class="text-sm text-maingray">Início</p>
             <p class="text-sm text-maingray">Institucional</p>
             <p class="text-sm text-maingray">Portfólio de Projetos</p>
-            <p class="text-sm text-maingray">EMBRAPII</p>
+            <router-link to="/embrapii" class="text-sm text-maingray">EMBRAPII</router-link>
             <p class="text-sm text-maingray">Capacitação</p>
         </div>
         <hr />

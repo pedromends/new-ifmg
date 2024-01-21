@@ -1,6 +1,6 @@
 <template lang="">
-    <section class="flex justify-center items-center p-16">
-        <div class="flex flex-col gap-10 px-48">
+    <section class="flex justify-center items-center p-10">
+        <div class="flex flex-col gap-10 px-20">
             <h1 class="text-4xl text-black font-semibold underline underline-offset-2 decoration-8 decoration-maingreen">Institucional</h1>
             <hr class="bg-red-600 h-1"/>
             <div class="flex flex-col gap-5 text-maingray">
@@ -14,13 +14,13 @@
                             o ambiente necessário para o credenciamento do Polo de Inovação IFMG no âmbito da chamada pública 02/2014 da EMBRAPII (Empresa Brasileira de Pesquisa e Inovação Industrial),
                             inicialmente com área de atuação em "Sistemas Automotivos Inteligentes".
                         </p>
-                        <p>
-                            Já no final de 2018, o Polo de Inovação IFMG adequou sua área de atuação para "Mobilidade e Sistemas Inteligentes", passando a atuar em diversas sublinhas, mas com destaque
-                            para: “Gestão de Ativos Móveis”, "Sistemas Automotivos e Transportes", assim como "Otimização de processos".
-                        </p>
                     </div>
-                    <img alt="Laboratório de sistemas automotivos IFMG - Campus Formiga" class="w-128 self-center" :src="require('@/assets/banners/laboratorio-fiat.jpeg')" />
+                    <img alt="Laboratório de sistemas automotivos IFMG - Campus Formiga" class="w-116 self-start" :src="require('@/assets/banners/laboratorio-fiat.jpeg')" />
                 </div>
+                <p>
+                    Já no final de 2018, o Polo de Inovação IFMG adequou sua área de atuação para "Mobilidade e Sistemas Inteligentes", passando a atuar em diversas sublinhas, mas com destaque
+                    para: “Gestão de Ativos Móveis”, "Sistemas Automotivos e Transportes", assim como "Otimização de processos".
+                </p>
                 <p>
                     Credenciado pela EMBRAPII o Polo de Inovação IFMG é um centro de Pesquisa, Desenvolvimento e Inovação (PD&I). Com o principal objetivo de desenvolver projetos que explorem
                     a união entre o meio acadêmico e o setor produtivo. Criando soluções inovadoras capazes de solucionar problemas e aumentar a competitividade das empresas nacionais. Importante
