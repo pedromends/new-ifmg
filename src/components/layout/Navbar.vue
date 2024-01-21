@@ -21,7 +21,7 @@
             <div class="flex justify-between items-center gap-8 px-20 text-lightgray text-sm">
                 <router-link class="hover:underline" to="#">INGRESSO</router-link>
                 <router-link class="hover:underline" to="#">NOSSOS CURSOS</router-link>
-                <router-link class="hover:underline" to="#">ACESSO À INFORMAÇÃO</router-link>
+                <router-link to="/embrapii" class="hover:underline">EMBRAPII</router-link>
             </div>
 
             <div class="flex justify-between items-center gap-5">
@@ -46,14 +46,14 @@
                 <router-link class="hover:text-red-600 hover:underline hover:decoration-red-600" to="/">INÍCIO</router-link>
                 <router-link class="hover:text-red-600 hover:underline hover:decoration-red-600" to="">QUEM SOMOS</router-link>
                 <router-link class="hover:text-red-600 hover:underline hover:decoration-red-600" to="">VANTAGENS</router-link>
-                <router-link class="hover:text-red-600 hover:underline hover:decoration-red-600" to="">NOTÍCIAS</router-link>
+                <router-link class="hover:text-red-600 hover:underline hover:decoration-red-600" to="/news">NOTÍCIAS</router-link>
                 <router-link class="hover:text-red-600 hover:underline hover:decoration-red-600" to="">NOSSOS CURSOS</router-link>
             </div>
             <div class="flex text-sm text-maingray gap-5 p-2 mr-14 max-lg:p-0">
                 <router-link class="hover:text-red-600 hover:underline hover:decoration-red-600" to="">PESQUISADORES</router-link>
-                <router-link class="hover:text-red-600 hover:underline hover:decoration-red-600" to="">EDITAIS</router-link>
-                <router-link class="hover:text-red-600 hover:underline hover:decoration-red-600" to="">DOCUMENTOS</router-link>
-                <router-link class="hover:text-red-600 hover:underline hover:decoration-red-600" to="">CAPACITAÇÃO</router-link>
+                <router-link class="hover:text-red-600 hover:underline hover:decoration-red-600" to="/edicts">EDITAIS</router-link>
+                <router-link class="hover:text-red-600 hover:underline hover:decoration-red-600" to="/docs">DOCUMENTOS</router-link>
+                <router-link class="hover:text-red-600 hover:underline hover:decoration-red-600" to="/capacitation">CAPACITAÇÃO</router-link>
                 <router-link class="hover:text-red-600 hover:underline hover:decoration-red-600" to="">CONTATO</router-link>
             </div>
         </section>

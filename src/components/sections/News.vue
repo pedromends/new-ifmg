@@ -18,7 +18,7 @@
                 <EventCard :month="'Fev'" :day="28" :title="'Início das Aulas'" :hour="'16h30'" :local="'Campus Formiga'" />
             </div>
         </div>
-        <button class="px-5 py-2 bg-maingreen text-white mx-auto rounded-lg font-bold hover:bg-white hover:text-maingreen transition duration-300 border-2 border-maingreen">Ver Notícias e Eventos</button>
+        <router-link to="/news" class="px-5 py-2 bg-maingreen text-white mx-auto rounded-lg font-bold hover:bg-white hover:text-maingreen transition duration-300 border-2 border-maingreen">Ver Notícias e Eventos</router-link>
     </section>
 </template>
 
