@@ -35,7 +35,6 @@ export default {
     Contact
   },
   props: {
-    msg: String
   }
 }
 </script>

@@ -1,5 +1,5 @@
 <template lang="">
-    <section class="flex justify-center items-center p-16">
+    <main class="flex justify-center items-center p-16">
         <div class="flex flex-col gap-10 px-20">
             <div class="flex flex-col gap-5">
                 <h1 class="text-4xl text-black font-semibold underline underline-offset-2 decoration-8 decoration-maingreen">Blog do Polo</h1>
@@ -15,7 +15,7 @@
                 <NewCard :tip="'Pesquisa Acadêmica'" :title="'PD&I promove pesquisa acadêmica e impulsiona o avanço tecnológico'" :date="'14 de Dezembro'" :read="'3 min'" :img="'lab'"/>
             </div>
         </div>
-    </section>
+    </main>
 </template>
 
 <script>

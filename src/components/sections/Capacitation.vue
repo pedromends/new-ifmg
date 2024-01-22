@@ -11,7 +11,10 @@
             <CapacitationCard :title="'Medição de Grandezas'" :subtitle="'Lorem ipsum dolor amet, consectetur adipiscing elit. Mattis et sed nam sem tellus erat.'" :icon="'plug'" />
             <CapacitationCard :title="'Desenvolvimento de Automação'" :subtitle="'Lorem ipsum dolor amet, consectetur adipiscing elit. Mattis et sed nam sem tellus erat.'" :icon="'house'" />
         </div>
-        <router-link to="/how-it-works" class="px-5 py-2 bg-white text-center border-2 border-white text-maingreen w-36 mx-auto rounded-lg font-bold hover:bg-govblue hover:text-white transition duration-300">Ver Mais</router-link>
+        <router-link class="px-5 py-2 bg-white text-center border-2 border-white text-maingreen w-36 mx-auto rounded-lg font-bold hover:bg-govblue hover:text-white transition duration-300"
+            to="/how-it-works">
+            Ver Mais
+        </router-link>
     </section>
 </template>
 <script>

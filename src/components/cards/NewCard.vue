@@ -1,5 +1,5 @@
 <template lang="">
-    <div class="flex flex-col justify-center gap-3 hover:bg-gray-300 rounded-xl transition duration-300">
+    <div class="flex flex-col justify-center gap-3 hover:bg-gray-200 rounded-xl transition duration-300">
         <img :src="require(`@/assets/images/${ img }.svg`)" alt="" class="w-64 mx-auto mt-3"/>
         <div class="px-8 flex flex-col justify-start gap-2">
             <div class="flex items-center self-start">

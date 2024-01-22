@@ -1,5 +1,5 @@
 <template lang="">
-    <section class="flex justify-center items-center p-16">
+    <main class="flex justify-center items-center p-16">
         <div class="flex flex-col gap-10 px-20">
             <h1 class="text-4xl text-black font-semibold underline underline-offset-2 decoration-8 decoration-maingreen">EMBRAPII</h1>
             <hr class="bg-red-600 h-1"/>
@@ -30,7 +30,7 @@
                 <img alt="Laboratório de sistemas automotivos IFMG - Campus Formiga" class="w-192 self-center" :src="require('@/assets/banners/embrapii-investimento.png')" />
             </div>
         </div>
-    </section>
+    </main>
 </template>
 <script>
 export default {
