@@ -1,11 +1,11 @@
 <template lang="">
-    <main class="flex justify-center items-center p-16">
+    <main class="flex justify-center items-center p-16 max-lg:p-2 max-lg:mt-24">
         <div class="flex flex-col gap-10 px-20">
             <h1 class="text-4xl text-black font-semibold underline underline-offset-2 decoration-8 decoration-maingreen">EMBRAPII</h1>
             <hr class="bg-red-600 h-1"/>
             <div class="flex flex-col gap-5 text-maingray">
-                <div class="flex gap-10">
-                    <div class="w-3/4 flex flex-col gap-10">
+                <div class="flex gap-10 max-lg:flex-col">
+                    <div class="w-3/4 flex flex-col gap-10 max-lg:w-auto">
                         <p>A EMBRAPII (Associação Brasileira de Pesquisa e Inovação Industrial) é uma Organização Social qualificada pelo Poder Público Federal que, desde 2013,
                             apoia instituições de pesquisa tecnológica fomentando a inovação na indústria brasileira. 
                         </p>
@@ -15,7 +15,7 @@
                             intensidade tecnológica para, assim, potencializar a força competitiva das empresas tanto no mercado interno como no mercado internacional.
                         </p>
                     </div>
-                    <iframe width="640" height="360" src="https://www.youtube.com/embed/4l0wF_L7kR8?si=5_nT1GoEBx_tbbaK" title="YouTube video player"
+                    <iframe width="640" height="360" src="https://www.youtube.com/embed/4l0wF_L7kR8?si=5_nT1GoEBx_tbbaK" title="YouTube video player" class="max-lg:w-auto max-lg:h-auto"
                         frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
                     </iframe>
                 </div>

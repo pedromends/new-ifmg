@@ -1,11 +1,11 @@
 <template lang="">
     <nav class="w-full relative font-opensans max-lg:hidden">
-        <router-link to="/" class="bg-white absolute right-1/2 transform translate-x-1/2 rounded-b-2xl">
+        <router-link to="/" class="bg-white absolute right-1/2 transform translate-x-1/2 rounded-b-2xl hover:shadow-2xl transition duration-300">
             <img alt="" class="h-40 w-32 px-5 py-4" :src="require('@/assets/icons/main-logo.jpg')"/>
         </router-link>
 
         <section class="bg-govblue flex justify-between items-center py-1 text-lightgray font-raleway font-bold uppercase">
-            <div class="flex justify-end items-center text-center gap-5 text-xs ml-36 ">
+            <div class="flex justify-end items-center text-center gap-5 text-xs ml-40">
                 <img :src="require('@/assets/icons/govbr.svg')" alt=""/>
                 <router-link class="pr-2 hover:text-red-600" to="">COMUNICA BR</router-link>
                 <router-link class="pr-2 hover:text-red-600" to="">LEGISLAÇÃO</router-link>
@@ -18,7 +18,7 @@
         </section>
 
         <section class="flex justify-between bg-maingreen">
-            <div class="flex justify-between items-center gap-8 px-20 text-lightgray text-sm">
+            <div class="flex justify-between items-center gap-10 px-32 text-lightgray text-sm">
                 <router-link class="hover:underline" to="#">INGRESSO</router-link>
                 <router-link class="hover:underline" to="#">NOSSOS CURSOS</router-link>
                 <router-link to="/embrapii" class="hover:underline">EMBRAPII</router-link>

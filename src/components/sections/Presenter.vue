@@ -10,7 +10,7 @@
                     <button class="bg-white text-maingreen px-6 py-3 rounded-3xl max-lg:px-3 font-semibold hover:bg-maingreen hover:text-white border hover:border-white transition duration-200">Começar Projeto</button>
                     <div class="flex justify-center items-center gap-1 hover:bg-maingray hover:text-white border border-white px-2 rounded-3xl transition duration-200 max-lg:py-2">
                         <img alt="Play" :src="require('@/assets/icons/play.svg')"/>
-                        <button>Vídeo Institucional</button>
+                        <a href="https://www.youtube.com/watch?v=tCPe3D92C_E&ab_channel=IFMGPlay" target="_blank">Vídeo Institucional</a>
                     </div>
                     
                 </div>
