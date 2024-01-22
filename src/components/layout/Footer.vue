@@ -1,5 +1,5 @@
 <template lang="">
-    <footer class="flex flex-col gap-5 p-20 max-lg:mt-80">
+    <footer class="flex flex-col gap-5 p-20 max-lg:mt-80 max-lg:font-raleway">
         <div class="flex max-lg:flex-col justify-start gap-10 items-center">
             <img :src="require('@/assets/icons/ifmg.jpg')" alt="IFMG" class="w-40">
             <p class="text-sm text-maingray">Início</p>

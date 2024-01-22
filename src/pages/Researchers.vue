@@ -1,5 +1,5 @@
 <template lang="">
-   <main class="flex justify-center items-center p-10 max-lg:mt-14 max-lg:p-3">
+   <main class="flex justify-center items-center p-10 max-lg:mt-20 max-lg:p-3">
         <section class="flex flex-col gap-10 px-20 w-full max-lg:px-5">
             <h1 class="text-4xl text-black font-semibold underline underline-offset-2 decoration-8 decoration-maingreen">Pesquisadores</h1>
             <hr class="bg-red-600 h-1"/>

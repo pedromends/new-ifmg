@@ -27,7 +27,7 @@
                         <SidebarLink :link="''" :text="'Vantagens'" :icon="'up-arrow'"/>
                         <SidebarLink :link="'/news'" :text="'Notícias'" :icon="'news'"/>
                         <SidebarLink :link="''" :text="'Nossos Cursos'" :icon="'book-search'"/>
-                        <SidebarLink :link="''" :text="'Pesquisadores'" :icon="'research'"/>
+                        <SidebarLink :link="'/researchers'" :text="'Pesquisadores'" :icon="'research'"/>
                         <SidebarLink :link="'/edicts'" :text="'Editais'" :icon="'annotate'"/>
                         <SidebarLink :link="'/docs'" :text="'Documentos'" :icon="'doc'"/>
                         <SidebarLink :link="'/capacitation'" :text="'Capacitação'" :icon="'book'"/>
