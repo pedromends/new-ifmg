@@ -27,13 +27,13 @@
                         <div :id="accID" data-accordion="collapse" data-active-classes="bg-blue-100 dark:bg-gray-800 text-blue-600 dark:text-white">
 
                             <!-- Accordion Fechado -->
-                            <h2 :id="headName" class="text-maingray">
+                            <h2 :id="headName" class="text-maingray ">
                                 <button type="button" :data-accordion-target="`#${headBody}`" aria-expanded="false" :aria-controls="headBody"
-                                class="flex items-center justify-between w-full p-5 font-medium rtl:text-right border border-maingreen rounded-t-xl hover:bg-blue-100 gap-3 transition duration-200">
-                                <span>Sobre o projeto</span> <!-- "resumo" -->
-                                <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
-                                </svg>
+                                    class="flex items-center justify-between w-full p-5 font-medium rtl:text-right border border-maingreen rounded-t-xl hover:bg-blue-100 gap-3 transition duration-200">
+                                    <span >Sobre o projeto</span> <!-- "resumo" -->
+                                    <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+                                    </svg>
                                 </button>
                             </h2>
 
@@ -46,15 +46,15 @@
                         </div>
 
                         <div class="flex flex-col px-2 text-sm gap-1">
-                            <div class="flex gap-2 items-center">
+                            <div class="flex gap-2 items-center max-lg:text-sm">
                                 <p>Nome:</p>
                                 <p>texto</p>
                             </div>
-                            <div class="flex gap-2 items-center">
+                            <div class="flex gap-2 items-center max-lg:text-sm">
                                 <p>Coordenador:</p>
                                 <p>texto</p>
                             </div>
-                            <div class="flex gap-2 items-center">
+                            <div class="flex gap-2 items-center max-lg:text-sm">
                                 <p>Situação:</p>
                                 <p>texto</p>
                             </div>

@@ -18,6 +18,10 @@
             <div class="py-4 overflow-y-auto">
                 <ul class="space-y-2 font-base">
                     <li class="flex flex-col gap-3">
+                        <div class="flex items-center gap-1">
+                            <input type="text" placeholder="Pesquisar..." class="w-full rounded-xl text-xs h-8"/>
+                            <img alt="Pesquisar" class=" bg-white w-10 h-7 px-3 py-1 rounded-xl" :src="require('@/assets/icons/hand-glass-green.svg')" />
+                        </div>
                         <SidebarLink :link="'/'" :text="'Início'" :icon="'homepage'"/>
                         <SidebarLink :link="''" :text="'Quem somos'" :icon="'people'"/>
                         <SidebarLink :link="''" :text="'Vantagens'" :icon="'up-arrow'"/>
