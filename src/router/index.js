@@ -9,6 +9,7 @@ import Edicts from "@/pages/Edicts.vue";
 import Capacitation from "@/pages/Capacitation.vue";
 import Documents from "@/pages/Documents.vue";
 import Contact from "@/pages/ContactPage.vue";
+import Researchers from "@/pages/Researchers.vue";
 
 const routes = [
   {
@@ -50,6 +51,10 @@ const routes = [
   {
     path: '/contact',
     component: Contact
+  },
+  {
+    path: '/researchers',
+    component: Researchers
   }
 ];
 

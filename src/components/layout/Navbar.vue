@@ -44,13 +44,19 @@
         <section class="flex justify-between items-center">
             <div class="flex text-sm text-maingray gap-5 p-4 ml-14 max-lg:p-0">
                 <NavbarLink :link="'/'" :text="'INÍCIO'" />
+
+                <!-- Criar página -->
                 <NavbarLink :link="'/'" :text="'QUEM SOMOS'" />
+
+                <!-- Criar página -->
                 <NavbarLink :link="'/'" :text="'VANTAGENS'" />
                 <NavbarLink :link="'/news'" :text="'NOTÍCIAS'" />
+
+                <!-- Criar página -->
                 <NavbarLink :link="'/'" :text="'NOSSOS CURSOS'" />
             </div>
             <div class="flex text-sm text-maingray gap-5 p-2 mr-14 max-lg:p-0">
-                <NavbarLink :link="'/'" :text="'PESQUISADORES'" />
+                <NavbarLink :link="'/researchers'" :text="'PESQUISADORES'" />
                 <NavbarLink :link="'/edicts'" :text="'EDITAIS'" />
                 <NavbarLink :link="'/docs'" :text="'DOCUMENTOS'" />
                 <NavbarLink :link="'/capacitation'" :text="'CAPACITAÇÃO'" />
