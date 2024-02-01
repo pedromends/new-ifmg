@@ -1,6 +1,6 @@
 <template lang="">
     <section>
-        <button :data-modal-target="modalname" :data-modal-toggle="modalname" type="button" class="hover:shadow-2xl hover:shadow-red-600 transition duration-300">
+        <button :data-modal-target="modalname" :data-modal-toggle="modalname" type="button" class="hover:shadow-md hover:shadow-maingray transition duration-300">
             <img :src="require(`@/assets/icons/${img}.svg`)" class="px-8 py-5 rounded-xl bg-white shadow-lg" alt="Prumo"/>
         </button>
 
