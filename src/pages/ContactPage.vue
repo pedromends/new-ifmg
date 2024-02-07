@@ -5,14 +5,18 @@
             <hr class="bg-red-600 h-1"/>
         </section>
         <Contact />
+        <BackToTop />
     </main>
 </template>
 <script>
 import Contact from '@/components/sections/Contact.vue';
+import BackToTop  from '@/components/buttons/BackToTop.vue';
+
 export default {
     name: 'ContactPage',
     components: {
-        Contact
+        Contact,
+        BackToTop
     }
 }
 </script>

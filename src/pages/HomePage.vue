@@ -8,6 +8,7 @@
     <TalentBank/>
     <News />
     <Contact />
+    <BackToTop />
   </main>
 </template>
 
@@ -21,6 +22,7 @@ import Capacitation from "@/components/sections/Capacitation.vue"
 import TalentBank from "@/components/sections/TalentBank.vue"
 import News from "@/components/sections/News.vue"
 import Contact from "@/components/sections/Contact.vue"
+import BackToTop from "@/components/buttons/BackToTop.vue"
 
 export default {
   name: 'HomePage',
@@ -32,14 +34,15 @@ export default {
     Capacitation,
     TalentBank,
     News,
-    Contact
+    Contact,
+    BackToTop
   },
   props: {
-  }
+  },
+  
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
 .style{
   font-feature-settings: 'liga' off;

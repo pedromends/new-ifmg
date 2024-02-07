@@ -15,16 +15,19 @@
                 <NewCard :tip="'Pesquisa Acadêmica'" :title="'PD&I promove pesquisa acadêmica e impulsiona o avanço tecnológico'" :date="'14 de Dezembro'" :read="'3 min'" :img="'lab'"/>
             </div>
         </div>
+        <BackToTop />
     </main>
 </template>
 
 <script>
 import NewCard from '@/components/cards/NewCard.vue';
+import BackToTop  from '@/components/buttons/BackToTop.vue';
 
 export default {
     name: 'NewsSection',
     components:{
         NewCard,
+        BackToTop
     },
     props: {
     }

@@ -51,7 +51,7 @@
             </div>
 
             <div class="flex flex-col gap-2 text-ftlink max-lg:text-center">
-                <h1 class="text-fttitle">NOSSOS CURSOS</h1>
+                <h1 class="text-fttitle">NOSSOS CLIENTES</h1>
                 <FooterLink :href="''" :text="'Graduação'"/>
                 <FooterLink :href="''" :text="'Administração'"/>
                 <FooterLink :href="''" :text="'Ciência da Computação'"/>

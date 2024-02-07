@@ -37,7 +37,7 @@ export default {
     },
     data() {
         return {
-            scrollPerClick: 300,
+            scrollPerClick: 450,
             scrollAmount: 0
         }
     },
@@ -47,7 +47,7 @@ export default {
             sliders.scrollTo({
                 top: 0,
                 left: (this.scrollAmount -= this.scrollPerClick),
-                behavior: 'smooth',
+                behavior: 'smooth'
             })
 
             if(this.scrollAmount < 0) {
@@ -60,7 +60,7 @@ export default {
                 sliders.scrollTo({
                     top:0,
                     left: (this.scrollAmount += this.scrollPerClick),
-                    behavior: 'smooth',
+                    behavior: 'smooth'
                 })
             }
         }

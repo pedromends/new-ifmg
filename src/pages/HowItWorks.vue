@@ -39,11 +39,17 @@
                 </div>
             </div>
         </div>
+        <BackToTop />
     </main>
 </template>
+
 <script>
+import BackToTop  from '@/components/buttons/BackToTop.vue';
 export default {
-    name:'HowItWorks'
+    name:'HowItWorks',
+    components:{
+        BackToTop
+    }
 }
 </script>
 <style lang="">

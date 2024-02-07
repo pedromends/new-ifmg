@@ -25,21 +25,13 @@ module.exports = {
         'campus': "url('@/assets/images/campus-ifmg.svg')",
         'whitecircle': "url('@/assets/images/whitecircle.svg')",
       },
-      width: {
-        '76': '19rem',
-        '88': '22rem',
-        '100': '25rem',
-        '112': '28rem',
-        '116': '29rem',
-        '124': '31rem',
-        '128': '32rem',
-        '132': '33rem',
-        '140': '35rem',
-        '160': '40rem',
-        '180': '45rem',
-        '192': '48rem',
-        '196': '49rem',
-        '216': '54rem',
+      fontFamily: {
+        opensans: [
+          '"OpenSans"', "sans-serif",
+        ],
+        raleway: [
+          '"Raleway"', "sans-serif",
+        ],
       },
       height: {
         '88': '22rem',
@@ -55,13 +47,26 @@ module.exports = {
         '196': '49rem',
         '216': '54rem',
       },
-      fontFamily: {
-        opensans: [
-          '"OpenSans"', "sans-serif",
-        ],
-        raleway: [
-          '"Raleway"', "sans-serif",
-        ],
+      spacing: {
+        '100': '25rem',
+        '112': '28rem',
+        '116': '29rem',
+      },
+      width: {
+        '76': '19rem',
+        '88': '22rem',
+        '100': '25rem',
+        '112': '28rem',
+        '116': '29rem',
+        '124': '31rem',
+        '128': '32rem',
+        '132': '33rem',
+        '140': '35rem',
+        '160': '40rem',
+        '180': '45rem',
+        '192': '48rem',
+        '196': '49rem',
+        '216': '54rem',
       },
     },
   },

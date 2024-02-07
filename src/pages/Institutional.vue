@@ -30,11 +30,18 @@
                 <img alt="Relação dos Campi do Instituto Federal de Minas Gerais" class="self-center" :src="require('@/assets/banners/mapa.jpeg')" />
             </div>
         </div>
+        <BackToTop />
     </main>
 </template>
+
 <script>
+import BackToTop  from '@/components/buttons/BackToTop.vue';
+
 export default {
-    name:'InstituTional'
+    name:'InstituTional',
+    components:{
+        BackToTop
+    }
 }
 </script>
 <style lang="">

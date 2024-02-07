@@ -7,12 +7,17 @@
                 <!-- Seção p/ divulgar nossas capacitações de RH -->
             </div>
         </div>
+        <BackToTop />
     </main>
 </template>
+
 <script>
+import BackToTop  from '@/components/buttons/BackToTop.vue';
+
 export default {
     name: 'CapacitationPage',
     components: {
+        BackToTop
     },
     props: {
     }

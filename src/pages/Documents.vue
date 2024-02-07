@@ -13,12 +13,17 @@
                 <!-- Arquivo Modelo -->
             </div>
         </div>
+        <BackToTop />
     </main>
 </template>
+
 <script>
+import BackToTop  from '@/components/buttons/BackToTop.vue';
+
 export default {
     name: 'DocumentsPage',
     components:{
+        BackToTop
     },
     props: {
     }

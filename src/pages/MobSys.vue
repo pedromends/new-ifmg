@@ -46,11 +46,18 @@
                 </div>
             </div>
         </div>
+        <BackToTop />
     </main>
 </template>
+
 <script>
+import BackToTop  from '@/components/buttons/BackToTop.vue';
+
 export default {
-    name:'MobilitySmartSystems'
+    name:'MobilitySmartSystems',
+    components: {
+        BackToTop
+    }
 }
 </script>
 <style lang="">
