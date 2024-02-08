@@ -47,16 +47,16 @@
 
                         <div class="flex flex-col px-2 text-sm gap-1">
                             <div class="flex gap-2 items-center max-lg:text-sm">
-                                <p>Nome:</p>
-                                <p>texto</p>
+                                <p>Nome: </p>
+                                <p>{{ projName}}</p>
                             </div>
                             <div class="flex gap-2 items-center max-lg:text-sm">
-                                <p>Coordenador:</p>
-                                <p>texto</p>
+                                <p>Coordenador: </p>
+                                <p>{{ coorName}}</p>
                             </div>
                             <div class="flex gap-2 items-center max-lg:text-sm">
-                                <p>Situação:</p>
-                                <p>texto</p>
+                                <p>Situação :</p>
+                                <p>{{ situ }}</p>
                             </div>
                         </div>
                     </div>
@@ -83,7 +83,10 @@ export default {
         headName: String, // heading do accordion
         headBody: String, // corpo do accordion
         resume: String, // texto resumo do projeto
-        extraClass: String // CSS extra
+        extraClass: String, // CSS extra
+        coorName: String,
+        situ: String,
+        projName: String
     }
 }
 </script>
