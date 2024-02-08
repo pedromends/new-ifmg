@@ -6,13 +6,13 @@
 
 - seta pra cima, pop up, voltar na direita inferior - FEITO
 
+- preencher imagens, informações das empresas, e valores - FEITO
+
 - flag noticia principal - IMPLEMENTADO COM TAREFA BACK-END
 
 - nome, campus, area, serão os termos de pesquisa - IMPLEMENTADO COM TAREFA BACK-END
 
 - trocar imagem principal da sessão Presenter (sessão de apresentação) - SERÁ DEFINDO POSTERIORMENTE
-
-- preencher imagens e informações das empresas
 
 
 6 dias
