@@ -1,5 +1,5 @@
 <template lang="">
-    <section id="advantages" class="flex flex-col px-16 py-36 gap-32 max-lg:px-5 max-md:py-10">
+    <section id="advantages" class="flex flex-col px-16 py-10 gap-32 max-lg:px-5 max-md:py-10">
         <div class="flex max-lg:flex-col justify-center items-center max-lg:gap-5">
             <h1 class="text-3xl w-128 max-lg:px-6 max-lg:w-auto max-lg:text-2xl font-semibold">
                 Somos especialistas em projetos relacionados a Mobilidade e Sistemas Inteligentes

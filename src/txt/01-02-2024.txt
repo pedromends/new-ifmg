@@ -1,16 +1,18 @@
 - Quadrado de 4 cards, subir ele, diminuir margin e padding, diminuir altura e subir como um todo - FEITO
 
-- nome, campus, area, serão os termos de pesquisa - IMPLEMENTADO COM TAREFA BACK-END
-
-- trocar imagem principal da sessão Presenter (sessão de apresentação) - SERÁ DEFINDO POSTERIORMENTE
-
 - inserir componente de pesquisa na pagina pesquisadores - FEITO
 
-- scrollar até 'quem somos'
+- scrollar até 'quem somos' - FEITO
 
 - seta pra cima, pop up, voltar na direita inferior - FEITO
 
 - flag noticia principal - IMPLEMENTADO COM TAREFA BACK-END
+
+- nome, campus, area, serão os termos de pesquisa - IMPLEMENTADO COM TAREFA BACK-END
+
+- trocar imagem principal da sessão Presenter (sessão de apresentação) - SERÁ DEFINDO POSTERIORMENTE
+
+- preencher imagens e informações das empresas
 
 
 6 dias

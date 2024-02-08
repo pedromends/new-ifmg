@@ -1,5 +1,5 @@
 <template lang="">
-    <section id="aboutus" class="px-12 py-24 mt-48 max-lg:px-4 ">
+    <section id="aboutus" class="px-12 py-24 mt-16 max-lg:px-4 ">
         <div class="flex justify-center px-12 max-lg:px-8">
             <div class="flex max-lg:flex-col gap-24">
                 <div class="flex flex-col w-140 max-lg:w-auto gap-8 max-lg:mt-10">
@@ -20,7 +20,7 @@
                         Saiba Mais
                     </router-link>
                 </div>
-                <div>
+                <div class="flex items-center">
                     <img v-bind:src="require('@/assets/images/virtualglass.svg')" class="w-160" alt="Class with Virtual Glasses"/>
                 </div>
             </div>

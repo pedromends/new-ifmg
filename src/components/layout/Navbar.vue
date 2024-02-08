@@ -44,16 +44,13 @@
         <section class="flex justify-between items-center">
             <div class="flex text-sm text-maingray gap-5 p-4 ml-14 max-lg:p-0">
                 <NavbarLink :link="'/'" :text="'INÍCIO'" />
-
-                <!-- Criar página -->
                 <NavbarLink :func="aboutUs" :link="'/'" :text="'QUEM SOMOS'" />
 
                 <!-- Criar página -->
                 <NavbarLink :link="'/'" :text="'VANTAGENS'" />
-                <NavbarLink :link="'/news'" :text="'NOTÍCIAS'" />
 
-                <!-- Criar página -->
-                <NavbarLink :link="'/'" :text="'NOSSOS CLIENTES'" />
+                <NavbarLink :link="'/news'" :text="'NOTÍCIAS'" />
+                <NavbarLink :func="ourClients" :link="'/'" :text="'NOSSOS CLIENTES'" />
             </div>
             <div class="flex text-sm text-maingray gap-5 p-2 mr-14 max-lg:p-0">
                 <NavbarLink :link="'/researchers'" :text="'PESQUISADORES'" />
@@ -81,12 +78,15 @@ export default {
                     var element = document.getElementById("aboutus");
                     element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
                 });   
+            },
+            ourClients: () => {
+                this.$router.push({ path: '/' }).then(() => {
+                    var element = document.getElementById("ourclients");
+                    element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                });   
             }
         }  
     },
-    methods: {
-
-    }
 }
 </script>
 

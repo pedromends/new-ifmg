@@ -1,7 +1,7 @@
 <template lang="">
     <section>
-        <button :data-modal-target="modalname" :data-modal-toggle="modalname" type="button" class="hover:shadow-md hover:shadow-maingray transition duration-300">
-            <img :src="require(`@/assets/icons/${img}.svg`)" class="px-8 py-5 rounded-xl bg-white shadow-lg" alt="Prumo"/>
+        <button :data-modal-target="modalname" :data-modal-toggle="modalname" type="button" class="hover:shadow-md rounded-xl hover:shadow-maingray transition duration-300">
+            <img :src="require(`@/assets/${path}`)" class="px-8 py-5 rounded-xl bg-white shadow-lg" :class="extraClass" alt="Prumo"/>
         </button>
 
         <section :id="modalname" tabindex="-1" aria-hidden="true" 
@@ -76,13 +76,14 @@ export default {
     components:{
     },
     props: {
-        img: String, //imagem a ser utilizada
+        path: String, //imagem a ser utilizada
         company: String, // nome da empresa
         modalname: String, // nome do modal
         accID: String, // nome do accordion
         headName: String, // heading do accordion
         headBody: String, // corpo do accordion
-        resume: String // texto resumo do projeto
+        resume: String, // texto resumo do projeto
+        extraClass: String // CSS extra
     }
 }
 </script>
