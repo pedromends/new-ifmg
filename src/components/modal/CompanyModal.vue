@@ -90,10 +90,10 @@ export default {
         headBody: String, // corpo do accordion
         resume: String, // texto resumo do projeto
         extraClass: String, // CSS extra
-        coorName: String,
-        situ: String,
-        projName: String,
-        value: String
+        coorName: String, // NOme do Coordenador do projeto
+        situ: String, // Situação do Projeto
+        projName: String, // Nome do projeto
+        value: String // Valor do projeto
     }
 }
 </script>

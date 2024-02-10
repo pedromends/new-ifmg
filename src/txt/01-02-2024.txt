@@ -14,5 +14,22 @@
 
 - trocar imagem principal da sessão Presenter (sessão de apresentação) - SERÁ DEFINDO POSTERIORMENTE
 
-
 6 dias
+
+UP NEXT
+
+- avatar do pesquisador - FEITO
+
+- nome, formação, encaminhar para lattes - FEITO
+
+- situação nome da empresa valor, pesquisa em empresas - TAREFA DE BACK-END
+
+- caixa de pesquiisa enm nossos clients - FEITO
+
+- grid de 6 cards, overflow - FEITO
+
+- modelar banco, dtinicio, dtfim, tempo garantia entidade: projetos
+
+- igualar tamanho de todas as imagens dos clientes  - FEITO
+
+(cards)
