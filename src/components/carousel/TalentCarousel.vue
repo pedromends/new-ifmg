@@ -29,6 +29,7 @@
 
 <script>
 import TalentCard from '@/components/cards/TalentCard.vue'
+import { listTalent } from '@/services/TalentService';
 
 export default {
     name: 'CarouselOne',
@@ -40,6 +41,16 @@ export default {
             scrollPerClick: 450,
             scrollAmount: 0
         }
+    },
+    mounted(){
+        listTalent().then((response) => {
+            console.log(response.data)
+        }).catch((error) => {
+            console.log(error)
+        })
+        // .finally(() => {
+        //     this.$router.push('/');
+        // });
     },
     methods: {  
         scrollLeft(){

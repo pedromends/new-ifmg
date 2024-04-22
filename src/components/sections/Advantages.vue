@@ -22,6 +22,8 @@
 
 <script>
 import AdvantagesCard from '../cards/AdvantagesCard.vue';
+import { listAdvantages } from '@/services/AdvantagesService';
+
 
 export default {
     name: 'AdvantagesSection',
@@ -30,6 +32,16 @@ export default {
     },
     props: {
         msg: String
+    },
+    mounted(){
+        listAdvantages().then((response) => {
+            console.log(response.data)
+        }).catch((error) => {
+            console.log(error)
+        })
+        // .finally(() => {
+        //     this.$router.push('/');
+        // });
     }
 }
 </script>

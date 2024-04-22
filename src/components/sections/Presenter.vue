@@ -28,13 +28,25 @@
 
 <script>
 import PresenterCard from '@/components/cards/PresenterCard.vue';
+import { listCards } from '@/services/PresenterCardService';
 
 export default {
     name: 'MainPresenter',
     components:{
         PresenterCard
     },
-    props: {
+    methods:{
+        
+    },
+    mounted(){
+       listCards().then((response) => {
+        console.log(response.data)
+        }).catch((error) => {
+            console.log(error)
+        })
+        // .finally(() => {
+        //     this.$router.push('/');
+        // });
     }
 }
 </script>

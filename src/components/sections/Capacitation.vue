@@ -17,8 +17,10 @@
         </router-link>
     </section>
 </template>
+
 <script>
 import CapacitationCard from '../cards/CapacitationCard.vue';
+import { listCapacitation } from '@/services/CapacitationService';
 
 export default {
     name: 'CapacitationSection',
@@ -26,6 +28,16 @@ export default {
         CapacitationCard
     },
     props: {
+    },
+    mounted(){
+        listCapacitation().then((response) => {
+            console.log(response.data)
+        }).catch((error) => {
+            console.log(error)
+        })
+        // .finally(() => {
+        //     this.$router.push('/');
+        // });
     }
 }
 </script>

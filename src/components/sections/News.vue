@@ -29,6 +29,9 @@
 import MainNew from '@/components/cards/MainNew.vue';
 import NewCard from '@/components/cards/NewCard.vue';
 import EventCard from '@/components/cards/EventCard.vue';
+import { listMainNews } from '@/services/MainNewService';
+import { listNewsCard } from '@/services/NewsCardService';
+
 
 export default {
     name: 'NewsSection',
@@ -38,7 +41,26 @@ export default {
         EventCard
     },
     props: {
-    }
+    },
+    mounted(){
+        listMainNews().then((response) => {
+            console.log(response.data)
+        }).catch((error) => {
+            console.log(error)
+        })
+        // .finally(() => {
+        //     this.$router.push('/');
+        // });
+
+        listNewsCard().then((response) => {
+            console.log(response.data)
+        }).catch((error) => {
+            console.log(error)
+        })
+        // .finally(() => {
+        //     this.$router.push('/');
+        // });
+    },
 }
 </script>
 <style lang="">

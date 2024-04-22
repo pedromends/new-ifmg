@@ -27,6 +27,8 @@ onMounted(() => {
     initDrawers(); initDropdowns();
     initModals(); initPopovers();
     initTabs(); initTooltips();
+
+    console.log('chamou')
 })
 </script>
 

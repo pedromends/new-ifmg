@@ -187,6 +187,7 @@
 </template>
 <script>
 import CompanyModal from '@/components/modal/CompanyModal.vue';
+import { listCompanies } from '@/services/CompanyService';
 
 export default {
     name: 'PartnerCompanies',
@@ -194,6 +195,16 @@ export default {
         CompanyModal
     },
     props: {
+    },
+    mounted(){
+        listCompanies().then((response) => {
+            console.log(response.data)
+        }).catch((error) => {
+            console.log(error)
+        })
+        // .finally(() => {
+        //     this.$router.push('/');
+        // });
     }
 }
 </script>
