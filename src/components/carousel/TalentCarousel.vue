@@ -13,16 +13,8 @@
             </button>
         </div>
         <div id="carousel" class="flex gap-5 overflow-scroll overflow-x-hidden overflow-y-hidden px-12 py-2">
-            <TalentCard :pic="'gabriel'" :name="'Gabriel Tomacheski'" :profession="'Estudante de Design'" :details="'Lorem ipsum dolor sit elit'"/>
-            <TalentCard :pic="'renata'" :name="'Renata Jager'" :profession="'Estudante de Design'" :details="'Lorem ipsum dolor sit elit'"/>
-            <TalentCard :pic="'joaopedro'" :name="'João Pedro'" :profession="'Estudante de TI'" :details="'Lorem ipsum dolor sit elit'"/>
-            <TalentCard :pic="'martina'" :name="'Martina Lorena'" :profession="'Estudante de Publicidade'" :details="'Lorem ipsum dolor sit elit'"/>
-            <TalentCard :pic="'marcos'" :name="'Marcos Lutre'" :profession="'Estudante de Publicidade'" :details="'Lorem ipsum dolor sit elit'"/>
-            <TalentCard :pic="'gabriel'" :name="'Gabriel Tomacheski'" :profession="'Estudante de Design'" :details="'Lorem ipsum dolor sit elit'"/>
-            <TalentCard :pic="'renata'" :name="'Renata Jager'" :profession="'Estudante de Design'" :details="'Lorem ipsum dolor sit elit'"/>
-            <TalentCard :pic="'joaopedro'" :name="'João Pedro'" :profession="'Estudante de TI'" :details="'Lorem ipsum dolor sit elit'"/>
-            <TalentCard :pic="'martina'" :name="'Martina Lorena'" :profession="'Estudante de Publicidade'" :details="'Lorem ipsum dolor sit elit'"/>
-            <TalentCard :pic="'marcos'" :name="'Marcos Lutre'" :profession="'Estudante de Publicidade'" :details="'Lorem ipsum dolor sit elit'"/>
+            <TalentCard  v-for="(talent, i) in talents" :key="i" :pic="'marcos'" :name="talent.name" :profession="talent.profession" :details="talent.details"/>
+            <TalentCard  v-for="(talent, i) in talents" :key="i" :pic="'marcos'" :name="talent.name" :profession="talent.profession" :details="talent.details"/>
         </div>
     </section>
 </template>
@@ -38,19 +30,17 @@ export default {
     },
     data() {
         return {
+            talents: undefined,
             scrollPerClick: 450,
             scrollAmount: 0
         }
     },
     mounted(){
         listTalent().then((response) => {
-            console.log(response.data)
+            this.talents = response.data
         }).catch((error) => {
             console.log(error)
         })
-        // .finally(() => {
-        //     this.$router.push('/');
-        // });
     },
     methods: {  
         scrollLeft(){

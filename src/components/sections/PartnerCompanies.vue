@@ -194,11 +194,17 @@ export default {
     components: {
         CompanyModal
     },
+    data(){
+        return {
+            companies: undefined
+        }
+    },
     props: {
     },
     mounted(){
         listCompanies().then((response) => {
             console.log(response.data)
+            this.companies = response.data
         }).catch((error) => {
             console.log(error)
         })
