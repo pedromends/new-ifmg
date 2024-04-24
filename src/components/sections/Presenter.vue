@@ -17,7 +17,9 @@
                 </div>
             </div>
             <div class="flex max-lg:flex-col gap-4 p-10 bg-gray-200 border-16 max-lg:border-0 border-white rounded-3xl absolute top-84 max-lg:top-[33rem] max-lg:px-10">
-                <PresenterCard v-for="(presenter, i) in presenters" :key="i" :num="presenter.num" :text="presenter.text" />
+                <div v-if="presenters" class="flex gap-4">
+                    <PresenterCard v-for="(presenter, i) in presenters" :key="i" :num="presenter.num" :text="presenter.text" />
+                </div>
             </div>
         </div>
     </section>

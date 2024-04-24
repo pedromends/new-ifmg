@@ -4,16 +4,10 @@
             <div class="flex max-lg:flex-col gap-24">
                 <div class="flex flex-col w-140 max-lg:w-auto gap-8 max-lg:mt-10">
                     <span class="text-maingreen font-bold text-sm underline decoration-red-600 decoration-2">QUEM SOMOS</span>
-                    <h1 class="font-bold text-4xl w-96 max-lg:w-auto">Somos um centro de inovação e pesquisa</h1>
-                    <p class="w-full text-maingray">O Polo de Inovação IFMG é um centro de Pesquisa, Desenvolvimento e Inovação (PD&I), credenciado pela EMBRAPII (Empresa Brasileira de Pesquisa e Inovação Industrial)
-                        que valoriza e incentiva o desenvolvimento de projetos inovadores sob demanda das empresas.
-                    </p>
-                    <p class="w-full text-maingray">O modelo de negócios EMBRAPII oferece a oportunidade de compartilhamento financeiro para projetos de PD&I. O valor do projeto é dividido entre a EMBRAPII
-                        (recursos não-reembolsáveis), a empresa e o Polo de Inovação IFMG, reduzindo assim os recursos a serem aportados pelas empresas parceiras.
-                    </p>
-                    <p class="w-full text-maingray">O Polo de Inovação IFMG atua na aproximação das empresas com o setor acadêmico, desenvolvendo projetos relacionados a área de Mobilidade e Sistemas Inteligentes,
-                        assim como em diversas subáreas, sendo algumas delas: gestão de ativos móveis, otimização de processos, transporte e sistemas automotivos.
-                    </p>
+                    <div v-if="maintext" class="flex flex-col gap-3">
+                        <h1 class="font-bold text-4xl w-96 max-lg:w-auto">{{ maintext.title}}</h1>
+                        <p class="w-full text-maingray">{{ maintext.parag }}</p>
+                    </div>
                     <!-- Ir para página explicando tudo sobre o polo -->
                     <router-link class="bg-maingreen text-white w-40 py-3 rounded-lg border-2 border-white font-semibold hover:border-maingreen hover:bg-white hover:text-maingreen transition duration-300 text-center"
                         to="/institutional">
@@ -27,15 +21,35 @@
         </div>
     </section>
 </template>
+
 <script>
+import { getWhoWeAre } from '@/services/WhoWeAreService'
+
 export default {
     name: 'AboutUs',
     props: {
         num: Number,
         text: String
+    },
+    data(){
+        return {
+            maintext: undefined
+        }
+    },
+    methods:{
+        
+    },
+    beforeMount(){
+        getWhoWeAre().then((response) => {
+            console.log(response.data)
+            this.maintext = response.data
+        }).catch((error) => {
+            console.log(error)
+        })
     }
 }
 </script>
+
 <style lang="">
     
 </style>

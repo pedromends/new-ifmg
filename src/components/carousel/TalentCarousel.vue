@@ -13,8 +13,10 @@
             </button>
         </div>
         <div id="carousel" class="flex gap-5 overflow-scroll overflow-x-hidden overflow-y-hidden px-12 py-2">
-            <TalentCard  v-for="(talent, i) in talents" :key="i" :image="talent.image" :name="talent.name" :profession="talent.profession" :details="talent.details"/>
-            <TalentCard  v-for="(talent, i) in talents" :key="i" :image="talent.image" :name="talent.name" :profession="talent.profession" :details="talent.details"/>
+            <div v-if="talents" class="flex gap-4">    
+                <TalentCard  v-for="(talent, i) in talents" :key="i" :image="talent.image" :name="talent.name" :profession="talent.profession" :details="talent.details"/>
+                <TalentCard  v-for="(talent, i) in talents" :key="i" :image="talent.image" :name="talent.name" :profession="talent.profession" :details="talent.details"/>
+            </div>
         </div>
     </section>
 </template>
@@ -38,7 +40,6 @@ export default {
     mounted(){
         listTalent().then((response) => {
             this.talents = response.data
-            console.log(this.talents)
         }).catch((error) => {
             console.log(error)
         })

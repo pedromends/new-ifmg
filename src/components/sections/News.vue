@@ -46,7 +46,6 @@ export default {
     created(){
         listMainNews().then((response)=> {
             this.mainnew = response.data
-            console.log(this.mainnew)
         }).catch((error) => {
             console.log(error)
         })
