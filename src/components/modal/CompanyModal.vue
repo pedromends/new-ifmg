@@ -1,7 +1,7 @@
 <template lang="">
-    <section>
+    <section class="flex justify-center">
         <button :data-modal-target="modalname" :data-modal-toggle="modalname" type="button" class="hover:shadow-md rounded-xl hover:shadow-maingray transition duration-300">
-            <img :src="require(`@/assets/${path}`)" class="px-8 py-5 rounded-xl bg-white shadow-lg" :class="extraClass" alt="Prumo"/>
+            <img :src="img" class="px-8 py-5 rounded-xl bg-white shadow-lg" :class="extraClass" alt="Prumo"/>
         </button>
 
         <section :id="modalname" tabindex="-1" aria-hidden="true" 
@@ -82,7 +82,7 @@ export default {
     components:{
     },
     props: {
-        path: String, //imagem a ser utilizada
+        img: String, //imagem a ser utilizada
         company: String, // nome da empresa
         modalname: String, // nome do modal
         accID: String, // nome do accordion

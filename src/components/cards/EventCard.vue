@@ -17,7 +17,7 @@ export default {
     },
     props: {
         month: String,
-        day: Number,
+        day: String,
         title: String,
         hour: String,
         local: String

@@ -1,12 +1,8 @@
 <template lang="">
     <section id="news" class="flex flex-col px-10 py-36 gap-16 max-lg:px-2">
         <h1 class="text-4xl font-semibold self-center">Notícias e Eventos</h1>
-        
-        <MainNew :tip="'Posse da Diretoria'" :title="'Em cerimônia simbólica, diretora do Polo IFMG toma posse'"
-        :parag="'Na noite desta quinta-feira, dia 30 foi realizada uma cerimônia simbólica no IFMG Campus Formiga para celebrar a posse da diretora-geral do Polo de Inovação IFMG,' +
-        'Paloma Maira de Oliveira Lima, e do diretor-geral do campus, Patrick Santos de Oliveira.'"
-        :img="'paloma'"/>
-        
+        <!-- <MainNew :tip="mainnew.tip" :title="mainnew.title" :parag="mainnew.parag" :img="mainnew.image"/> -->
+
         <div class="grid grid-cols-4 gap-2 max-lg:grid-cols-1">
             <NewCard v-for="(smallnew, i) in smallnews" :key="i" :tip="smallnew.tip" :title="smallnew.title" :date="smallnew.date" :read="smallnew.read" :img="'meeting'" />
             <div>
@@ -21,20 +17,20 @@
 </template>
 
 <script>
-import MainNew from '@/components/cards/MainNew.vue';
+import { listMainNews } from '@/services/MainNewService';
 import NewCard from '@/components/cards/NewCard.vue';
 import EventCard from '@/components/cards/EventCard.vue';
-import { listMainNews } from '@/services/MainNewService';
 import { listNewsCard } from '@/services/NewsCardService';
 import { listEvents }  from '@/services/EventService';
+// import MainNew from '../cards/MainNew.vue';
 
 
 export default {
     name: 'NewsSection',
     components:{
-        MainNew,
         NewCard,
-        EventCard
+        EventCard,
+        // MainNew
     },
     data() {
         return {
@@ -45,24 +41,23 @@ export default {
     },
     props: {
     },
-    mounted(){
+    beforeMount(){
         listMainNews().then((response) => {
-            this.mainnew = response.data[0]
-            console.log(response.data)
+            this.mainnew = Object.assign(this.mainnew, response.data)
+            console.log(this.mainnew)
         }).catch((error) => {
             console.log(error)
         })
-
+    },  
+    mounted(){
         listNewsCard().then((response) => {
             this.smallnews = response.data
-            console.log(response.data)
         }).catch((error) => {
             console.log(error)
         })
 
         listEvents().then((response) => {
             this.events = response.data
-            console.log(response.data)
         }).catch((error) => {
             console.log(error)
         })

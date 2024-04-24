@@ -7,20 +7,30 @@
                 <p class="w-116 max-lg:w-auto text-maingray text-sm">{{ parag }}</p>
                 <a href="#" class="text-xs text-maingreen hover:underline">Ler Mais -></a>
             </div>
-            <img class="h-80" :src="require(`@/assets/images/${ img }.svg`)"/>
+            <!-- <img class="h-80" :src="require(`@/assets/images/${ img }.svg`)"/> -->
         </a>
     </section>
 </template>
 <script>
+
+
 export default {
     name: 'MainNew',
     components:{
+    },
+    data() {
+        return {
+            mainnew: undefined,
+        }
     },
     props: {
         tip: String,
         title: String,
         parag: String,
         img: String
+    },
+    mounted(){
+
     }
 }
 </script>

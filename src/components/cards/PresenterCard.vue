@@ -8,7 +8,7 @@
 export default {
     name: 'PresenterCard',
     props: {
-        num: Number,
+        num: String,
         text: String
     }
 }
