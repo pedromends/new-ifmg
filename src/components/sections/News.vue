@@ -6,7 +6,7 @@
         </div>
 
         <div class="grid grid-cols-4 gap-2 max-lg:grid-cols-1">
-            <NewCard v-for="(smallnew, i) in smallnews" :key="i" :tip="smallnew.tip" :title="smallnew.title" :date="smallnew.date" :read="smallnew.read" :img="'meeting'" />
+            <NewCard v-for="(smallnew, i) in smallnews" :key="i" :tip="smallnew.tip" :title="smallnew.title" :date="smallnew.date" :read="smallnew.read" :img="smallnew.image" />
             <div>
                 <EventCard v-for="(event, i) in events" :key="i" :month="event.month" :day="event.day" :title="event.title" :hour="event.hour" :local="event.local" :img="''"/>
             </div>
