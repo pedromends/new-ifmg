@@ -7,7 +7,7 @@
                 <p class="w-116 max-lg:w-auto text-maingray text-sm">{{ parag }}</p>
                 <a href="#" class="text-xs text-maingreen hover:underline">Ler Mais -></a>
             </div>
-            <!-- <img class="h-80" :src="require(`@/assets/images/${ img }.svg`)"/> -->
+            <img class="h-80" :src="img"/>
         </a>
     </section>
 </template>

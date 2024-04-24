@@ -1,7 +1,9 @@
 <template lang="">
     <section id="news" class="flex flex-col px-10 py-36 gap-16 max-lg:px-2">
         <h1 class="text-4xl font-semibold self-center">Notícias e Eventos</h1>
-        <!-- <MainNew :tip="mainnew.tip" :title="mainnew.title" :parag="mainnew.parag" :img="mainnew.image"/> -->
+        <div v-if="mainnew">
+            <MainNew :tip="mainnew.tip" :title="mainnew.title" :parag="mainnew.parag" :img="mainnew.image"/>
+        </div>
 
         <div class="grid grid-cols-4 gap-2 max-lg:grid-cols-1">
             <NewCard v-for="(smallnew, i) in smallnews" :key="i" :tip="smallnew.tip" :title="smallnew.title" :date="smallnew.date" :read="smallnew.read" :img="'meeting'" />
@@ -22,7 +24,7 @@ import NewCard from '@/components/cards/NewCard.vue';
 import EventCard from '@/components/cards/EventCard.vue';
 import { listNewsCard } from '@/services/NewsCardService';
 import { listEvents }  from '@/services/EventService';
-// import MainNew from '../cards/MainNew.vue';
+import MainNew from '../cards/MainNew.vue';
 
 
 export default {
@@ -30,7 +32,7 @@ export default {
     components:{
         NewCard,
         EventCard,
-        // MainNew
+        MainNew
     },
     data() {
         return {
@@ -41,9 +43,9 @@ export default {
     },
     props: {
     },
-    beforeMount(){
-        listMainNews().then((response) => {
-            this.mainnew = Object.assign(this.mainnew, response.data)
+    created(){
+        listMainNews().then((response)=> {
+            this.mainnew = response.data
             console.log(this.mainnew)
         }).catch((error) => {
             console.log(error)
