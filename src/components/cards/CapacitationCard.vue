@@ -1,6 +1,6 @@
 <template lang="">
     <div class="transition duration-200 hover:text-black hover:bg-white flex flex-col gap-3 px-8 py-8 rounded-3xl border-2 border-white effect">
-        <img :src="require(`@/assets/icons/${icon}.svg`)" class="bg-white p-3 rounded-xl w-12" alt=""/>
+        <img :src="icon" class="bg-white p-3 rounded-xl w-12" alt=""/>
         <h1 class="text-xl font-semibold w-40">{{ title }}</h1>
         <p class="text-sm text-lightgray">{{ subtitle }}</p>
         <a class="text-xs flex items-center gap-2 font-semibold bg-no-repeat hover:underline" href="#">Explorar <div class="w-5 h-5"/></a>
