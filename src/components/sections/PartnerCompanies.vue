@@ -26,7 +26,7 @@
                             :accID="company.accordionId"
                             :value="company.value"
                             :resume="company.resume"
-                            :extraClass="'h-20'"
+                            :extraClass="'h-24'"
                         />
                     </div>
                 </div>
@@ -51,7 +51,7 @@ export default {
     },
     props: {
     },
-    mounted(){
+    created(){
         listCompanies().then((response) => {
             this.companies = response.data
         }).catch((error) => {

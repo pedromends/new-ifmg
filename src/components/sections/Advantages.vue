@@ -38,7 +38,6 @@ export default {
     mounted(){
         listAdvantages().then((response) => {
             this.advantages = response.data
-            console.log(response.data)
         }).catch((error) => {
             console.log(error)
         })
@@ -48,6 +47,7 @@ export default {
     }
 }
 </script>
+
 <style lang="">
     
 </style>

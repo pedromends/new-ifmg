@@ -1,7 +1,10 @@
 <template lang="">
-    <div class="bg-white border-b-4 border-maingreen flex flex-col text-center px-2 py-6 hover:shadow-2xl transition duration-200">
-        <h1 class="text-maingreen font-bold text-4xl px-20 py-1">{{ num }}</h1>
-        <p>{{ text }}</p>
+    <div class="bg-white border-b-4 border-maingreen flex flex-col text-center items-center px-2 py-6 hover:shadow-2xl transition duration-400 relative hover:bg-maingray edit z-20">
+        <img :src="require('@/assets/icons/pencil-edit.svg')" alt="#" class="h-10 mx-24 mt-5 z-20"/>
+        <div class="absolute z-20">
+            <h1 class="text-maingreen font-bold text-4xl px-20 py-1 ">{{ num }}</h1>
+            <p class="">{{ text }}</p>
+        </div>
     </div>
 </template>
 <script>
@@ -13,6 +16,19 @@ export default {
     }
 }
 </script>
-<style lang="">
-    
+
+<style scoped>
+.edit:hover > div {
+    color: rgb(75,85,99);
+    z-index: 10;
+    pointer-events: none;
+}
+
+.edit:hover > img {
+    z-index: 20;
+}
+
+.edit:hover > div > h1 {
+    color: rgb(75,85,99);
+}
 </style>
