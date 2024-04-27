@@ -10,6 +10,15 @@ import Capacitation from "@/pages/Capacitation.vue";
 import Documents from "@/pages/Documents.vue";
 import Contact from "@/pages/ContactPage.vue";
 import Researchers from "@/pages/Researchers.vue";
+import MainEdition from "@/pages/MainEdition.vue";
+import EditPresenterCard from "@/components/edition/EditPresenterCard.vue";
+import EditEventCard from "@/components/edition/EditEventCard.vue";
+import EditMainNewCard from "@/components/edition/EditMainNewCard.vue";
+import EditNewCard from "@/components/edition/EditNewCard.vue";
+import EditResearcherCard from "@/components/edition/EditResearcherCard.vue";
+import EditTalentCard from "@/components/edition/EditTalentCard.vue";
+import EditAdvantagesCard from "@/components/edition/EditAdvantagesCard.vue";
+import EditCompanyModal from "@/components/edition/EditCompanyModal.vue";
 
 const routes = [
   {
@@ -55,6 +64,52 @@ const routes = [
   {
     path: '/researchers',
     component: Researchers
+  },
+  {
+    path: '/edit',
+    component: MainEdition,
+    children: [
+      {
+        path: "/edit/presenter-card",
+        name: 'EditPresenterCard',
+        component: EditPresenterCard
+      },
+      {
+        path: "/edit/event-card",
+        name: 'EditEventCard',
+        component: EditEventCard
+      },
+      {
+        path: "/edit/main-new",
+        name: 'EditMainNewCard',
+        component: EditMainNewCard
+      },
+      {
+        path: "/edit/news-card",
+        name: 'EditNewCard',
+        component: EditNewCard
+      },
+      {
+        path: "/edit/researcher",
+        name: 'EditResearcherCard',
+        component: EditResearcherCard
+      },
+      {
+        path: "/edit/talent-card",
+        name: 'EditTalentCard',
+        component: EditTalentCard
+      },
+      {
+        path: "/edit/advantages-card",
+        name: 'EditAdvantagesCard',
+        component: EditAdvantagesCard
+      },
+      {
+        path: "/edit/company-modal",
+        name: 'EditCompanyModal',
+        component: EditCompanyModal
+      },
+    ]
   }
 ];
 

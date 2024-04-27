@@ -64,7 +64,7 @@
 </template>
 
 <script>
-import NavbarLink from '@/components/html/NavbarLink.vue';
+import NavbarLink from '@/components/links/NavbarLink.vue';
 
 export default {
     name: 'NavBar',
