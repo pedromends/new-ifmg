@@ -1,6 +1,6 @@
 <template lang="">
-    <main class="px-16">
-        <div class="flex flex-col gap-4 p-4">
+    <main class="px-16 pt-6">
+        <div class="flex flex-col gap-10 p-4">
             <h1 class="text-3xl font-semibold">Edição de Componentes</h1>
             <div class="flex gap-5 w-full  rounded-lg">
                 <div class="flex flex-col">

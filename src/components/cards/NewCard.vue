@@ -6,7 +6,7 @@
                 <span class="border-2 border-maingreen rounded-lg text-start text-sm text-maingray px-10">{{ tip }}</span>
             </div>
             <h1 class="text-base font-semibold mt-2">{{ title }}</h1>
-            <p class="text-sm">{{ date }} | {{ read }} leitura</p>
+            <p class="text-sm">{{ date }} | {{ read }}</p>
             <a href="#" class="text-xs text-maingreen hover:underline mb-5">Ler Mais -></a>
         </div>
     </div>
