@@ -1,5 +1,5 @@
 <template lang="">
-    <nav class="w-full relative font-opensans max-lg:hidden">
+    <nav class="w-full relative font-opensans max-lg:hidden" id="navbar">
         <router-link to="/" class="bg-white absolute right-1/2 transform translate-x-1/2 rounded-b-2xl hover:shadow-2xl transition duration-300">
             <img alt="" class="h-40 w-32 px-5 py-4" :src="require('@/assets/icons/main-logo.jpg')"/>
         </router-link>
@@ -65,6 +65,7 @@
 
 <script>
 import NavbarLink from '@/components/links/NavbarLink.vue';
+import router from '@/router/index.js'
 
 export default {
     name: 'NavBar',
@@ -74,13 +75,13 @@ export default {
     data() {
         return {
             aboutUs: () => {
-                this.$router.push({ path: '/' }).then(() => {
+                router.push({ path: '/' }).then(() => {
                     var element = document.getElementById("aboutus");
                     element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
                 });   
             },
             ourClients: () => {
-                this.$router.push({ path: '/' }).then(() => {
+                router.push({ path: '/' }).then(() => {
                     var element = document.getElementById("ourclients");
                     element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
                 });   

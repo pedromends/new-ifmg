@@ -1,5 +1,5 @@
 <template lang="">
-    <div class="flex flex-col justify-center gap-3 hover:bg-gray-200 rounded-xl transition duration-300">
+    <div class="flex flex-col justify-center gap-3 hover:bg-gray-200 rounded-xl transition duration-300 pb-3">
         <img :src="img" alt="" class="w-64 mx-auto mt-3"/>
         <div class="px-8 flex flex-col justify-start gap-2">
             <div class="flex items-center self-start">
@@ -7,11 +7,19 @@
             </div>
             <h1 class="text-base font-semibold mt-2">{{ title }}</h1>
             <p class="text-sm">{{ date }} | {{ read }}</p>
-            <a href="#" class="text-xs text-maingreen hover:underline mb-5">Ler Mais -></a>
+            <div class="flex items-center justify-between">
+                <a href="#" class="text-xs text-maingreen hover:underline">Ler Mais -></a>
+                <button @click="editNewCard()" class="self-end">
+                    <img :src="require('@/assets/icons/pencil-edit-maingreen.svg')" alt="#" class="h-8"/>
+                </button>
+            </div>
         </div>
     </div>
 </template>
+
 <script>
+import router from '@/router/index.js'
+
 export default {
     name: 'NewCard',
     components:{
@@ -22,6 +30,14 @@ export default {
         date: String,
         read: String,
         img: String
+    },
+    methods:{
+        editNewCard(){
+            router.push('/edit/news-card').then(() => {
+                var element = document.getElementById("navbar");
+                element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+            }); 
+        }
     }
 }
 </script>
