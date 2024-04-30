@@ -1,5 +1,5 @@
 <template lang="">
-    <section class="flex justify-center bg-lightgray">
+    <section class="flex flex-col justify-center bg-lightgray gap-10">
         <div role="status" class="animate-pulse">
             <section class="flex justify-center items-center gap-20">
                 <div data-modal-target="modalname" data-modal-toggle="modalname" type="button" class="hover:shadow-md rounded-xl hover:shadow-maingray transition duration-300">
@@ -77,6 +77,44 @@
                 </section>
             </section>
         </div>
+        <form class="bg-white p-10 rounded-lg">
+            <div class="grid gap-6 mb-6 grid-cols-2">
+                <div>
+                    <label for="company_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nome da Empresa</label>
+                    <input type="text" id="company_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="John" required />
+                </div>
+                <div>
+                    <label for="project_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nome do Projeto</label>
+                    <input type="text" id="project_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Doe" required />
+                </div>  
+                <div>
+                    <label for="coor_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nome do Coordenador</label>
+                    <input type="tel" id="coor_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="123-45-678" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required />
+                </div>
+                <div>
+                    <label for="situation" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Situação</label>
+                    <input type="url" id="situation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="flowbite.com" required />
+                </div>
+                <div>
+                    <label for="value" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Valor</label>
+                    <input type="number" id="value" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="" required />
+                </div>
+                <div>
+                    <label for="link" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Link</label>
+                    <input type="number" id="link" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="" required />
+                </div>
+                <div>
+                    <label for="project_resume" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Sobre o projeto</label>
+                    <textarea id="project_resume" rows="10" cols="50" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Escreva sobre o projeto aqui..."></textarea>
+                </div> 
+                <div>
+                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Imagem do Card</label>
+                    <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none" aria-describedby="file_input_help" id="file_input" type="file">
+                    <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG, JPG or GIF (MAX. 800x400px).</p>
+                </div>
+            </div>
+            <button type="submit" class="text-white bg-maingreen hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Salvar</button>
+        </form>
     </section>
 </template>
 

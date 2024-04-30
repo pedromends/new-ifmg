@@ -1,6 +1,6 @@
 <template lang="">
-    <section class="flex justify-center bg-lightgray">
-        <div role="status" class="animate-pulse">
+    <section class="flex flex-col justify-center bg-lightgray gap-10">
+        <div role="status" class="animate-pulseq px-84">
             <div class="transition duration-300 shadow-lg bg-white flex flex-col gap-5 rounded-3xl border-2 border-white p-3 px-10 hover:shadow-md hover:shadow-govblue z-20">
                 <div class="flex justify-between items-start gap-24">
                     <div alt="Polo IFMG" class="h-16 rounded-lg border border-maingreen flex items-center px-5">
@@ -17,6 +17,32 @@
                 <div class="h-1.5 bg-black rounded-full w-28"></div>
             </div>
         </div>
+        <form class="bg-white p-10 rounded-lg">
+            <div class="grid gap-6 mb-6 md:grid-cols-2">
+                <div>
+                    <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nome</label>
+                    <input type="text" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Paloma..." required />
+                </div>
+                <div>
+                    <label for="profession" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Profissão</label>
+                    <input type="text" id="profession" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Professora...." required />
+                </div>
+                <div>
+                    <label for="phrase" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Frase</label>
+                    <input type="text" id="phrase" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Lorem ipsum...." required />
+                </div>
+                <div>
+                    <label for="lattes_link" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Link Portfólio</label>
+                    <input type="tel" id="lattes_link" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Portfólio" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required />
+                </div>
+                <div>
+                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Imagem de Perfil</label>
+                    <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none" aria-describedby="file_input_help" id="file_input" type="file">
+                    <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG, JPG or GIF (MAX. 800x400px).</p>
+                </div>
+            </div>
+            <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Salvar</button>          
+        </form>
     </section>
 </template>
 
