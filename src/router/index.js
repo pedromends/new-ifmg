@@ -20,6 +20,7 @@ import EditTalentCard from "@/components/edition/EditTalentCard.vue";
 import EditAdvantagesCard from "@/components/edition/EditAdvantagesCard.vue";
 import EditCompanyModal from "@/components/edition/EditCompanyModal.vue";
 import EditCapacitationCard from "@/components/edition/EditCapacitationCard.vue";
+import EditAboutUs from "@/components/edition/EditAboutUs.vue";
 
 const routes = [
   {
@@ -114,6 +115,11 @@ const routes = [
         path: "/edit/capacitation-card",
         name: 'EditCapacitationCard',
         component: EditCapacitationCard
+      },
+      {
+        path: "/edit/about-us",
+        name: 'EditAboutUs',
+        component: EditAboutUs
       },
     ]
   }

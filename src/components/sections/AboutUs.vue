@@ -5,10 +5,12 @@
                 <div class="flex flex-col w-140 max-lg:w-auto gap-8 max-lg:mt-10">
                     <div class="flex items-center w-full justify-between edit transition duration-300 h-10">
                         <span class="text-maingreen font-bold text-sm underline decoration-red-600 decoration-2">QUEM SOMOS</span>
-                        <img :src="require('@/assets/icons/pencil-edit-maingreen.svg')" alt="#" class="h-10 hidden"/>
+                        <button @click="editAboutUs()">
+                            <img :src="require('@/assets/icons/pencil-edit-maingreen.svg')" alt="#" class="h-10 hidden"/>
+                        </button>
                     </div>
                     <div v-if="maintext" class="flex flex-col gap-3">
-                        <h1 class="font-bold text-4xl w-96 max-lg:w-auto">{{ maintext.title}}</h1>
+                        <h1 class="font-bold text-4xl w-96 max-lg:w-auto">{{ maintext.title }}</h1>
                         <p class="w-full text-maingray">{{ maintext.parag }}</p>
                     </div>
                     <!-- Ir para página explicando tudo sobre o polo -->
@@ -17,7 +19,7 @@
                         Saiba Mais
                     </router-link>
                 </div>
-                <div class="flex items-center">
+                <div  class="flex items-center">
                     <img v-bind:src="require('@/assets/images/virtualglass.svg')" class="w-160" alt="Class with Virtual Glasses"/>
                 </div>
             </div>
@@ -26,6 +28,7 @@
 </template>
 
 <script>
+import router from '@/router/index.js'
 import { getWhoWeAre } from '@/services/WhoWeAreService'
 
 export default {
@@ -40,7 +43,12 @@ export default {
         }
     },
     methods:{
-        
+        editAboutUs(){
+            router.push('/edit/about-us').then(() => {
+                var element = document.getElementById("navbar");
+                element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+            }); 
+        }
     },
     beforeMount(){
         getWhoWeAre().then((response) => {
@@ -48,12 +56,13 @@ export default {
         }).catch((error) => {
             console.log(error)
         })
-    }
+    },
+
 }
 </script>
 
 <style scoped>
-    .edit:hover > img{
+    .edit:hover > button > img{
         display: inline;
     }
 </style>

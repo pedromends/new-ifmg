@@ -19,9 +19,9 @@
 
         <section class="flex justify-between bg-maingreen">
             <div class="flex justify-between items-center gap-10 px-32 text-lightgray text-sm">
+                <router-link class="hover:underline" to="#">CONTATO</router-link>
                 <router-link class="hover:underline" to="#">INGRESSO</router-link>
                 <router-link class="hover:underline" to="#">NOSSOS CURSOS</router-link>
-                <router-link to="/embrapii" class="hover:underline">EMBRAPII</router-link>
             </div>
 
             <div class="flex justify-between items-center gap-5">
@@ -45,19 +45,18 @@
             <div class="flex text-sm text-maingray gap-5 p-4 ml-14 max-lg:p-0">
                 <NavbarLink :link="'/'" :text="'INÍCIO'" />
                 <NavbarLink :func="aboutUs" :link="'/'" :text="'QUEM SOMOS'" />
-
-                <!-- Criar página -->
-                <NavbarLink :link="'/'" :text="'VANTAGENS'" />
-
+                <NavbarLink :func="advantages" :link="'/'" :text="'VANTAGENS'" />
                 <NavbarLink :link="'/news'" :text="'NOTÍCIAS'" />
-                <NavbarLink :func="ourClients" :link="'/'" :text="'NOSSOS CLIENTES'" />
+                <NavbarLink :func="ourClients" :link="'/'" :text="'PORTFÓLIO DE PROJETOS'" />
             </div>
-            <div class="flex text-sm text-maingray gap-5 p-2 mr-14 max-lg:p-0">
+            <div class="flex text-sm text-maingray gap-5  mr-14 max-lg:p-0 items-center">
                 <NavbarLink :link="'/researchers'" :text="'PESQUISADORES'" />
                 <NavbarLink :link="'/edicts'" :text="'EDITAIS'" />
                 <NavbarLink :link="'/docs'" :text="'DOCUMENTOS'" />
                 <NavbarLink :link="'/capacitation'" :text="'CAPACITAÇÃO'" />
-                <NavbarLink :link="'/contact'" :text="'CONTATO'" />
+                <router-link to="/embrapii" class="hover:underline">
+                    <img :src="require('@/assets/icons/embrapii.png')" class="w-16" alt="">
+                </router-link>
             </div>
         </section>
     </nav>
@@ -83,6 +82,12 @@ export default {
             ourClients: () => {
                 router.push({ path: '/' }).then(() => {
                     var element = document.getElementById("ourclients");
+                    element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                });   
+            },
+            advantages: () => {
+                router.push({ path: '/' }).then(() => {
+                    var element = document.getElementById("advantages");
                     element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
                 });   
             }

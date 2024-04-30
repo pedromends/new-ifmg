@@ -51,6 +51,14 @@
                                 <p>{{ coorName }}</p>
                             </div>
                             <div class="flex gap-2 items-center max-lg:text-sm">
+                                <p class="font-bold text-maingray">Pesquisador(es): </p>
+                                <p>Nome e Campus</p>
+                            </div>
+                            <div class="flex gap-2 items-center max-lg:text-sm">
+                                <p class="font-bold text-maingray">Aluno(s): </p>
+                                <p>Nome e Curso</p>
+                            </div>
+                            <div class="flex gap-2 items-center max-lg:text-sm">
                                 <p class="font-bold text-maingray">Situação: </p>
                                 <p>{{ situ }}</p>
                             </div>
