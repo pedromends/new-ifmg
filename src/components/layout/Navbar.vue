@@ -53,7 +53,7 @@
                 <NavbarLink :link="'/researchers'" :text="'PESQUISADORES'" />
                 <NavbarLink :link="'/edicts'" :text="'EDITAIS'" />
                 <NavbarLink :link="'/docs'" :text="'DOCUMENTOS'" />
-                <NavbarLink :link="'/capacitation'" :text="'CAPACITAÇÃO'" />
+                <NavbarLink :func="capacitation" :link="'/capacitation'" :text="'CAPACITAÇÃO'" />
                 <router-link to="/embrapii" class="hover:underline">
                     <img :src="require('@/assets/icons/embrapii.png')" class="w-16" alt="">
                 </router-link>
@@ -88,6 +88,12 @@ export default {
             advantages: () => {
                 router.push({ path: '/' }).then(() => {
                     var element = document.getElementById("advantages");
+                    element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                });   
+            },
+            capacitation: () => {
+                router.push({ path: '/' }).then(() => {
+                    var element = document.getElementById("capacitation");
                     element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
                 });   
             }

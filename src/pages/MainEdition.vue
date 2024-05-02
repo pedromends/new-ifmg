@@ -1,5 +1,5 @@
 <template lang="">
-    <main class="px-16 pt-6" id="main-edition">
+    <main class="px-16 pt-6" id="main-edition">  
         <div class="flex flex-col gap-10 p-4">
             <h1 class="text-3xl font-semibold">Edição de Componentes</h1>
             <div class="flex gap-5 ssrounded-lg">

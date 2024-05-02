@@ -9,7 +9,7 @@
             <CapacitationCard  v-for="(capacitationInfo, i) in capacitationInfos" :key="i" :title="capacitationInfo.title" :subtitle="capacitationInfo.subtitle" :icon="capacitationInfo.img"/>
         </div>
         <router-link class="px-5 py-2 bg-white text-center border-2 border-white text-maingreen w-36 mx-auto rounded-lg font-bold hover:bg-govblue hover:text-white transition duration-300"
-            to="/how-it-works">
+            to="/capacitation">
             Ver Mais
         </router-link>
     </section>

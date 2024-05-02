@@ -4,7 +4,10 @@
             <img :src="require('@/assets/icons/pencil-edit.svg')" alt="#" class="h-10 mx-24 mt-5 z-20"/>
         </button>
         <div class="absolute z-30">
-            <h1 class="text-maingreen font-bold text-4xl px-20 py-1 ">{{ num }}</h1>
+            <div class="flex items-center text-maingreen font-bold text-4xl justify-center">
+                <AnimatedCounter :value="parseInt(num)" :duration="800" class="py-1"/>
+                <p>+</p>
+            </div>
             <p class="">{{ text }}</p>
         </div>
     </div>
@@ -16,7 +19,7 @@ import router from '@/router/index.js'
 export default {
     name: 'PresenterCard',
     props: {
-        num: String,
+        num: Number,
         text: String
     },
     methods:{
@@ -41,7 +44,7 @@ export default {
     z-index: 40;
 }
 
-.edit:hover > div > h1 {
+.edit:hover > div > div {
     color: rgb(75,85,99);
 }
 </style>

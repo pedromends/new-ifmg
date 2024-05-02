@@ -1,10 +1,37 @@
 <template lang="">
     <section class="flex flex-col justify-center bg-lightgray gap-10">
-        <div class="px-16">
-            <div class="bg-white border-b-4 border-maingreen flex flex-col text-center items-center px-2 py-6 hover:shadow-2xl transition duration-400 relative z-20">
-                <div role="status" class="max-w-sm animate-pulse flex flex-col pt-4 px-14 gap-4">
-                    <h1 @mouseover="onOffEffect('number-div')" @mouseleave="onOffEffect('number-div')" class="h-8 bg-maingreen rounded-full w-24 self-center border-4 border-transparent hover:border-red-700"></h1>
-                    <p  @mouseover="onOffEffect('name-div')" @mouseleave="onOffEffect('name-div')" class="h-2 bg-black rounded-full w-36 mb-2.5 border-2 border-transparent hover:border-red-700"></p>
+        
+        <div class="flex items-center">
+            <div class="px-5">
+                <div class="bg-white border-b-4 border-maingreen flex flex-col text-center items-center px-2 py-6 hover:shadow-2xl transition duration-400 relative z-20">
+                    <div role="status" class="max-w-sm animate-pulse flex flex-col pt-4 px-14 gap-4">
+                        <h1 @mouseover="onOffEffect('number-div')" @mouseleave="onOffEffect('number-div')" class="h-8 bg-maingreen rounded-full w-24 self-center border-4 border-transparent hover:border-red-700"></h1>
+                        <p  @mouseover="onOffEffect('name-div')" @mouseleave="onOffEffect('name-div')" class="h-2 bg-black rounded-full w-36 mb-2.5 border-2 border-transparent hover:border-red-700"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="px-5">
+                <div class="bg-white border-b-4 border-maingreen flex flex-col text-center items-center px-2 py-6 hover:shadow-2xl transition duration-400 relative z-20">
+                    <div role="status" class="max-w-sm animate-pulse flex flex-col pt-4 px-14 gap-4">
+                        <h1 @mouseover="onOffEffect('number-div')" @mouseleave="onOffEffect('number-div')" class="h-8 bg-maingreen rounded-full w-24 self-center border-4 border-transparent hover:border-red-700"></h1>
+                        <p  @mouseover="onOffEffect('name-div')" @mouseleave="onOffEffect('name-div')" class="h-2 bg-black rounded-full w-36 mb-2.5 border-2 border-transparent hover:border-red-700"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="px-5">
+                <div class="bg-white border-b-4 border-maingreen flex flex-col text-center items-center px-2 py-6 hover:shadow-2xl transition duration-400 relative z-20">
+                    <div role="status" class="max-w-sm animate-pulse flex flex-col pt-4 px-14 gap-4">
+                        <h1 @mouseover="onOffEffect('number-div')" @mouseleave="onOffEffect('number-div')" class="h-8 bg-maingreen rounded-full w-24 self-center border-4 border-transparent hover:border-red-700"></h1>
+                        <p  @mouseover="onOffEffect('name-div')" @mouseleave="onOffEffect('name-div')" class="h-2 bg-black rounded-full w-36 mb-2.5 border-2 border-transparent hover:border-red-700"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="px-5">
+                <div class="bg-white border-b-4 border-maingreen flex flex-col text-center items-center px-2 py-6 hover:shadow-2xl transition duration-400 relative z-20">
+                    <div role="status" class="max-w-sm animate-pulse flex flex-col pt-4 px-14 gap-4">
+                        <h1 @mouseover="onOffEffect('number-div')" @mouseleave="onOffEffect('number-div')" class="h-8 bg-maingreen rounded-full w-24 self-center border-4 border-transparent hover:border-red-700"></h1>
+                        <p  @mouseover="onOffEffect('name-div')" @mouseleave="onOffEffect('name-div')" class="h-2 bg-black rounded-full w-36 mb-2.5 border-2 border-transparent hover:border-red-700"></p>
+                    </div>
                 </div>
             </div>
         </div>

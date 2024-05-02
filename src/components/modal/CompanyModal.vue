@@ -1,7 +1,7 @@
 <template lang="">
-    <section class="flex justify-center">
-        <button :data-modal-target="modalname" :data-modal-toggle="modalname" type="button" class="hover:shadow-md rounded-xl hover:shadow-maingray transition duration-300">
-            <img :src="img" class="px-8 py-5 rounded-xl bg-white shadow-lg" :class="extraClass" alt="Prumo"/>
+    
+        <button :data-modal-target="modalname" :data-modal-toggle="modalname" type="button" class="hover:shadow-md rounded-xl hover:shadow-maingray transition duration-300 w-full">
+            <img :src="img" class="px-8 py-5 rounded-xl bg-white shadow-lg" :class="extraClass"/>
         </button>
 
         <section :id="modalname" tabindex="-1" aria-hidden="true" 
@@ -81,7 +81,7 @@
                 </div>
             </div>
         </section>
-    </section>
+    
 </template>
 
 <script>
