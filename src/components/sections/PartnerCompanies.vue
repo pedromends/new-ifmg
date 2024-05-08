@@ -13,7 +13,7 @@
             </div>
             <div class="bg-whitecircle bg-no-repeat bg-center">
                 <div class="flex items-center justify-center h-132 overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen mx-48">
-                    <div class="grid grid-cols-6 justify-center gap-3 items-center overflow-y-auto">
+                    <div class="grid grid-cols-6 justify-center gap-3 items-center overflow-y-auto my-10">
                         <CompanyModal v-for="(company, i) in companies" :key="i"
                             :img="company.image"
                             :headName="company.headerName"

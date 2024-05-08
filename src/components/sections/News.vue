@@ -2,11 +2,11 @@
     <section id="news" class="flex flex-col px-10 py-36 gap-16 max-lg:px-2">
         <h1 class="text-4xl font-semibold self-center">Notícias e Eventos</h1>
         <div v-if="mainnew">
-            <MainNew :tip="mainnew.tip" :title="mainnew.title" :parag="mainnew.parag" :img="mainnew.image"/>
+            <MainNew :tip="mainnew.tip" :title="mainnew.title" :parag="mainnew.paragraph" :img="mainnew.image.code"/>
         </div>
 
         <div class="grid grid-cols-4 gap-2 max-lg:grid-cols-1 items-center">
-            <NewCard v-for="(smallnew, i) in smallnews" :key="i" :tip="smallnew.tip" :title="smallnew.title" :date="smallnew.date" :read="smallnew.read" :img="smallnew.image" />
+            <NewCard v-for="(smallnew, i) in smallnews" :key="i" :tip="smallnew.tip" :title="smallnew.title" :date="smallnew.date" :read="smallnew.read" :img="smallnew.img.code" />
             <div class="flex flex-col gap-4">
                 <EventCard v-for="(event, i) in events" :key="i" :month="event.month" :day="event.day" :title="event.title" :hour="event.hour" :local="event.local" :img="''"/>
             </div>
@@ -45,6 +45,7 @@ export default {
     },
     created(){
         listMainNews().then((response)=> {
+            console.log(response.data)
             this.mainnew = response.data
         }).catch((error) => {
             console.log(error)

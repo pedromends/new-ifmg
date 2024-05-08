@@ -77,8 +77,4 @@ export default {
 </script>
 
 <style scoped>
-
-    #number-div {
-
-    }
 </style>

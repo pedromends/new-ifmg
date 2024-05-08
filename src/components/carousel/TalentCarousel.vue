@@ -14,8 +14,8 @@
         </div>
         <div id="carousel" class="flex gap-5 overflow-scroll overflow-x-hidden overflow-y-hidden px-12 py-2 pt-10">
             <div v-if="talents" class="flex gap-4">    
-                <TalentCard  v-for="(talent, i) in talents" :key="i" :image="talent.image" :name="talent.name" :profession="talent.profession" :details="talent.details" :id="i"/>
-                <TalentCard  v-for="(talent, i) in talents" :key="i" :image="talent.image" :name="talent.name" :profession="talent.profession" :details="talent.details" :id="i"/>
+                <TalentCard  v-for="(talent, i) in talents" :key="i" :image="talent.img.code" :name="talent.name" :profession="talent.profession" :details="talent.details" :id="i"/>
+                <TalentCard  v-for="(talent, i) in talents" :key="i" :image="talent.img.code" :name="talent.name" :profession="talent.profession" :details="talent.details" :id="i"/>
             </div>
         </div>
     </section>

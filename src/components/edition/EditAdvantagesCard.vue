@@ -1,8 +1,13 @@
 <template lang="">
     <section class="flex flex-col justify-center bg-lightgray gap-10">
-        <div role="status" class="animate-pulse px-96 flex gap-10">
+        <div role="status" class="animate-pulse flex items-center gap-64 bg-white rounded-xl">
+            <div @mouseover="onOffEffect('image-div')" @mouseleave="onOffEffect('image-div')"  class="border-2 border-transparent p-2 hover:border-red-700 mx-10">
+                <svg class="w-32 h-32 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
+                    <path d="M18 0H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm4.376 10.481A1 1 0 0 1 16 15H4a1 1 0 0 1-.895-1.447l3.5-7A1 1 0 0 1 7.468 6a.965.965 0 0 1 .9.5l2.775 4.757 1.546-1.887a1 1 0 0 1 1.618.1l2.541 4a1 1 0 0 1 .028 1.011Z"/>
+                </svg>                    
+            </div>
             <a class="text-black flex max-md:flex-col items-center px-16 py-6 gap-10 rounded-xl  hover:bg-maingreen transition duration-300 hover:text-white bg-white border-gray-100 max-lg:w-auto max-lg:px-0">
-                <div @mouseover="onOffEffect('image-div')" @mouseleave="onOffEffect('image-div')" class="border-2 border-transparent p-2 hover:border-red-700">
+                <div @mouseover="onOffEffect('icon-div')" @mouseleave="onOffEffect('icon-div')" class="border-2 border-transparent p-2 hover:border-red-700">
                     <svg class="w-8 h-8 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
                         <path d="M18 0H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm4.376 10.481A1 1 0 0 1 16 15H4a1 1 0 0 1-.895-1.447l3.5-7A1 1 0 0 1 7.468 6a.965.965 0 0 1 .9.5l2.775 4.757 1.546-1.887a1 1 0 0 1 1.618.1l2.541 4a1 1 0 0 1 .028 1.011Z"/>
                     </svg>                    
@@ -11,7 +16,7 @@
                     <div class="flex flex-col gap-2">
                         <div @mouseover="onOffEffect('title-div')" @mouseleave="onOffEffect('title-div')" class="flex flex-col gap-2 mb-4 border-2 border-transparent p-2 hover:border-red-700">
                             <div class="ml-4 h-2.5 bg-black rounded-full w-56"></div>
-                            <div class="ml-4 h-2.5 bg-black rounded-full w-48"></div>
+                            <div class="ml-4 h-2.5 bg-black rounded-full w,,-48"></div>
                         </div>
                         <div @mouseover="onOffEffect('resume-div')" @mouseleave="onOffEffect('resume-div')" class="flex flex-col gap-1 border-2 border-transparent p-2 hover:border-red-700">    
                             <div class="ml-4 h-1 bg-black rounded-full w-48"></div>
@@ -35,6 +40,11 @@
                 </div>
                 <div id="image-div" class="border-2 border-transparent p-2">
                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Imagem de Capa</label>
+                    <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none" aria-describedby="file_input_help" id="file_input" type="file">
+                    <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG, JPG or GIF (MAX. 800x400px).</p>
+                </div>
+                <div id="icon-div" class="border-2 border-transparent p-2">
+                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Ícone do Card</label>
                     <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none" aria-describedby="file_input_help" id="file_input" type="file">
                     <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG, JPG or GIF (MAX. 800x400px).</p>
                 </div>
