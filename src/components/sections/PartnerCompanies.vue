@@ -19,7 +19,7 @@
                             :headName="project.headerName"
                             :headBody="project.headerBody"
                             :modalname="project.modalName"
-                            :project="project.name"
+                            :company="project.company.name"
                             :projName="project.name"
                             :coorName="project.coordinator"
                             :situ="project.situation"    
@@ -58,9 +58,6 @@ export default {
         }).catch((error) => {
             console.log(error)
         })
-        // .finally(() => {
-        //     this.$router.push('/');
-        // });
     }
 }
 </script>
