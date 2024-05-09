@@ -1,5 +1,5 @@
 <template lang="">
-    <button title="button" :data-modal-target="modalname" :data-modal-toggle="modalname" type="button" class="">
+    <button title="button" :data-modal-target="modalname" :data-modal-toggle="modalname" type="button" class="flex items-center">
         <img :src="img" class="py-5 rounded-xl bg-white shadow-lg self-center px-10 hover:shadow-md hover:shadow-maingray transition duration-300 mx-auto" alt="#" :class="extraClass"/>
     </button>
 

@@ -37,7 +37,6 @@ export default {
     },
     mounted(){
         listAdvantages().then((response) => {
-            console.log(response.data)
             this.advantages = response.data
         }).catch((error) => {
             console.log(error)

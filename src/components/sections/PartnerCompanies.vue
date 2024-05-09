@@ -14,18 +14,18 @@
             <div class="bg-whitecircle bg-no-repeat bg-center">
                 <div class="flex items-center justify-center h-132 overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen mx-48">
                     <div class="grid grid-cols-6 justify-center gap-3 items-center overflow-y-auto my-10">
-                        <CompanyModal v-for="(company, i) in companies" :key="i"
-                            :img="company.image"
-                            :headName="company.headerName"
-                            :headBody="company.headerBody"
-                            :modalname="company.modalName"
-                            :company="company.companyName"
-                            :projName="company.projName"
-                            :coorName="company.coorName"
-                            :situ="company.situation"    
-                            :accID="company.accordionId"
-                            :value="company.value"
-                            :resume="company.resume"
+                        <CompanyModal v-for="(project, i) in projects" :key="i"
+                            :img="project.company.img.code"
+                            :headName="project.headerName"
+                            :headBody="project.headerBody"
+                            :modalname="project.modalName"
+                            :project="project.name"
+                            :projName="project.name"
+                            :coorName="project.coordinator"
+                            :situ="project.situation"    
+                            :accID="project.accordionId"
+                            :value="project.value"
+                            :resume="project.resume"
                             :extraClass="'h-24'"
                         />
                     </div>
@@ -37,7 +37,7 @@
 
 <script>
 import CompanyModal from '@/components/modal/CompanyModal.vue';
-import { listCompanies } from '@/services/CompanyService';
+import { listProjects } from '@/services/ProjectService';
 
 export default {
     name: 'PartnerCompanies',
@@ -46,14 +46,15 @@ export default {
     },
     data(){
         return {
-            companies: undefined
+            projects: undefined
         }
     },
     props: {
     },
     created(){
-        listCompanies().then((response) => {
-            this.companies = response.data
+        listProjects().then((response) => {
+            console.log(response.data)
+            this.projects = response.data
         }).catch((error) => {
             console.log(error)
         })
