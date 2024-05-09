@@ -53,7 +53,6 @@ export default {
     },
     created(){
         listProjects().then((response) => {
-            console.log(response.data)
             this.projects = response.data
         }).catch((error) => {
             console.log(error)

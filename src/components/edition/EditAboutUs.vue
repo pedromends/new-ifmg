@@ -71,6 +71,9 @@
 </template>
 
 <script>
+import router from '@/router/index.js'
+import { createWhoWeAre } from '@/services/WhoWeAreService.js'
+
 export default {
     name: 'EditAboutUs',
     data(){
@@ -78,7 +81,12 @@ export default {
             bool: false,
             newTitle: null,
             newImage: undefined,
-            newParag: null
+            newParag: null,
+            newAboutUs:{
+                id: 1,
+                text: '',
+                img: undefined
+            }
         }
     },
     methods: {
@@ -87,12 +95,22 @@ export default {
             this.bool ? target.style.borderColor = 'transparent' : target.style.borderColor = 'red'
             this.bool = !this.bool
         },
-        updateAboutUs(){
-            console.log('')
-        },
         onFileChanged(event){
             console.log(event)
-        }
+            const asciiStringEncoded = btoa(event);
+            console.log(`Encoded string: [${asciiStringEncoded}]`);
+        },
+        updateAboutUs(){
+            this.newAboutUs.id = this.cardToUpdate
+            createWhoWeAre(this.newAboutUs).then((response) => {
+                console.log(response)
+            }).finally(() => {
+                router.push('/').then(() => {
+                    var element = document.getElementById("navbar");
+                    element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                }); 
+            })
+        },
     },
 }
 </script>

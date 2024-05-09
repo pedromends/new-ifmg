@@ -44,7 +44,6 @@ export default {
     },
     beforeMount(){
        listCards().then((response) => {
-        console.log(response.data)
             this.presenters = response.data
         }).catch((error) => {
             console.log(error)

@@ -5,7 +5,7 @@ export const createWhoWeAre = (form) => api.request({
     'Content-Type': 'multipart/form-data',
   },
   method: 'post',
-  url: '/who-we-are/criar',
+  url: '/who-we-are/create',
   data: form,
 });
 

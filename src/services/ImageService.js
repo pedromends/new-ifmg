@@ -5,8 +5,16 @@ export const createPokemon = (form) => api.request({
     'Content-Type': 'multipart/form-data',
   },
   method: 'post',
-  url: '/pokedex/criar',
+  url: '/image/criar',
   data: form,
+});
+
+export const getOneImage = (id) => api.request({
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  method: 'get',
+  url: `/image/get-one/${id}`,
 });
 
 export const listPokemons = () => api.request({
@@ -14,7 +22,7 @@ export const listPokemons = () => api.request({
     'Content-Type': 'application/json',
   },
   method: 'get',
-  url: '/pokedex/listar',
+  url: '/image/listar',
 });
 
 export const updatePokemon = (form) => api.request({
@@ -23,7 +31,7 @@ export const updatePokemon = (form) => api.request({
     'Access-Control-Allow-Origin': '*',
   },
   method: 'put',
-  url: '/pokedex/atualizar',
+  url: '/image/atualizar',
   data: form,
 });
 
@@ -32,5 +40,5 @@ export const deletePokemon = (id) => api.request({
     'Content-Type': 'application/json',
   },
   method: 'delete',
-  url: `/pokedex/deletar/${id}`,
+  url: `/image/deletar/${id}`,
 });
