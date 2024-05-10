@@ -38,7 +38,7 @@ export default {
         msg: String
     },
     mounted(){
-        getOneImage(36).then((response) => {
+        getOneImage(35).then((response) => {
             this.img_obj = response.data
         })
         // .finally(() => {

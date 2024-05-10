@@ -83,7 +83,6 @@ export default {
             newTitle: null,
             newImage: {
                 id: 36,
-                name: 'teste',
                 code: undefined
             },
             newAboutUs: {
@@ -113,7 +112,6 @@ export default {
                     console.log(response)
                 })
             }
-            
             if(this.newImage.code !== undefined){
                 console.log(this.newImage)
                 createImage(this.newImage).then((response) => {
