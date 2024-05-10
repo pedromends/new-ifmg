@@ -55,7 +55,6 @@ export default {
         })
 
         listEvents().then((response) => {
-            console.log(response.data)
             this.events = response.data
         }).catch((error) => {
             console.log(error)
