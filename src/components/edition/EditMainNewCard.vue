@@ -106,6 +106,7 @@ export default {
                     router.push('/').then(() => {
                         var element = document.getElementById("navbar");
                         element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                        window.location.reload();
                     }); 
                 })
             }

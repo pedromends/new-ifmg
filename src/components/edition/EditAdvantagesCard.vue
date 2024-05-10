@@ -74,7 +74,7 @@
                 </div>
             </div>
             <form class="bg-white p-10 rounded-lg">
-                <p class="font-bold text-lg">Card {{ currentForm }}</p>
+                <p class="font-bold text-lg underline underline-offset-2 decoration-4 decoration-maingreen">Card {{ currentForm }}</p>
                 <div class="grid gap-6 mb-6 md:grid-cols-3">
                     <div id="title-div" class="border-2 border-transparent p-2">
                         <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Título</label>
