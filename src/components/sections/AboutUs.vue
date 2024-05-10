@@ -20,7 +20,7 @@
                     </router-link>
                 </div>
                 <div class="flex items-center">
-                    <img v-if="maintext" :src="maintext.image.code" class="w-160" alt="Class with Virtual Glasses"/>
+                    <img v-if="maintext" :src="image.code" class="w-160" alt="Class with Virtual Glasses"/>
                 </div>
             </div>
         </div>
@@ -30,17 +30,18 @@
 <script>
 import router from '@/router/index.js'
 import { getWhoWeAre } from '@/services/WhoWeAreService'
+import { getOneImage } from '@/services/ImageService';
 
 export default {
     name: 'AboutUs',
     props: {
-        image: String,
         num: Number,
         text: String
     },
     data(){
         return {
-            maintext: undefined
+            maintext: undefined,
+            image: ''
         }
     },
     methods:{
@@ -52,9 +53,11 @@ export default {
         }
     },
     created(){
+        getOneImage(36).then((response) => {
+            this.image = response.data
+        })
         getWhoWeAre().then((response) => {
             this.maintext = response.data
-            console.log(response.data)
         }).catch((error) => {
             console.log(error)
         })

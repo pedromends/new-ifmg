@@ -51,7 +51,7 @@
                 <div id="title-div" class="border border-transparent rounded-lg p-1">
                     <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Título</label>
                     <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                        type="text" id="title" placeholder="Somos um centro de inovação e pesquisa..." required v-model="newTitle"/>
+                        type="text" id="title" placeholder="Somos um centro de inovação e pesquisa..." required v-model="newAboutUs.title"/>
                 </div>
                 <div id="image-div" class="border border-transparent rounded-lg p-1">
                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Imagem de Capa</label>
@@ -62,10 +62,10 @@
                 <div id="parag-div" class="border border-transparent rounded-lg p-1">
                     <label for="parag" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Parágrafo</label>
                     <textarea class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Escreva sobre o Polo de Inovação..."
-                        id="parag" rows="10" cols="20" v-model="newParag"></textarea>
+                        id="parag" rows="10" cols="20" v-model="newAboutUs.parag"></textarea>
                 </div>
             </div>  
-            <button type="submit" @click="updateAboutUs()" class="text-white bg-maingreen hover:bg-govblue focus:ring-2 focus:outline-none focus:ring-red-600 font-medium rounded-lg text-sm w-full sm:w-auto px-20 py-2.5 text-center">Salvar</button>
+            <button type="submit" @click.prevent="updateAboutUs()" class="text-white bg-maingreen hover:bg-govblue focus:ring-2 focus:outline-none focus:ring-red-600 font-medium rounded-lg text-sm w-full sm:w-auto px-20 py-2.5 text-center">Salvar</button>
         </form>
     </section>
 </template>
@@ -73,6 +73,7 @@
 <script>
 import router from '@/router/index.js'
 import { createWhoWeAre } from '@/services/WhoWeAreService.js'
+import { createImage } from '@/services/ImageService.js'
 
 export default {
     name: 'EditAboutUs',
@@ -80,12 +81,15 @@ export default {
         return {
             bool: false,
             newTitle: null,
-            newImage: undefined,
-            newParag: null,
-            newAboutUs:{
+            newImage: {
+                id: 36,
+                name: 'teste',
+                code: undefined
+            },
+            newAboutUs: {
                 id: 1,
-                text: '',
-                img: undefined
+                title: '',
+                parag: ''
             }
         }
     },
@@ -95,21 +99,32 @@ export default {
             this.bool ? target.style.borderColor = 'transparent' : target.style.borderColor = 'red'
             this.bool = !this.bool
         },
-        onFileChanged(event){
-            console.log(event)
-            const asciiStringEncoded = btoa(event);
-            console.log(`Encoded string: [${asciiStringEncoded}]`);
+        onFileChanged(e){
+            const image = e.target.files[0];
+            const reader = new FileReader();
+            reader.readAsDataURL(image);
+            reader.onload = e =>{
+                this.newImage.code = e.target.result;
+            };
         },
         updateAboutUs(){
-            this.newAboutUs.id = this.cardToUpdate
-            createWhoWeAre(this.newAboutUs).then((response) => {
-                console.log(response)
-            }).finally(() => {
-                router.push('/').then(() => {
-                    var element = document.getElementById("navbar");
-                    element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
-                }); 
-            })
+            if(this.newAboutUs.title !== '' && this.newAboutUs.parag !== ''){
+                createWhoWeAre(this.newAboutUs).then((response) => {
+                    console.log(response)
+                })
+            }
+            
+            if(this.newImage.code !== undefined){
+                console.log(this.newImage)
+                createImage(this.newImage).then((response) => {
+                    console.log(response)
+                }).finally(() => {
+                    router.push('/').then(() => {
+                        var element = document.getElementById("navbar");
+                        element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                    }); 
+                })
+            }
         },
     },
 }

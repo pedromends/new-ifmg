@@ -1,5 +1,5 @@
 <template lang="">
-    <button title="button" :data-modal-target="modalname" :data-modal-toggle="modalname" type="button" class="flex items-center">
+    <button title="Company Button" :data-modal-target="modalname" :data-modal-toggle="modalname" type="button" class="flex items-center">
         <img :src="img" class="py-5 rounded-xl bg-white shadow-lg self-center px-10 hover:shadow-md hover:shadow-maingray transition duration-300 mx-auto" alt="#" :class="extraClass"/>
     </button>
 
@@ -67,14 +67,19 @@
                         </div>
                     </div>
                 </div>
-                <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b">
-                    <button class="text-white bg-maingreen border-2 border-maingreen hover:bg-white hover:text-maingray transition duration-300 rounded-lg text-sm px-5 py-2.5"
-                        :data-modal-hide="modalname" type="button">
-                        Saiba Mais!
-                    </button>
-                    <button class="ms-3 text-maingray bg-white rounded-lg border border-gray-200 text-sm transition duration-300 px-5 py-2.5 hover:bg-maingray hover:text-white"
-                        :data-modal-hide="modalname" type="button">
-                        Fechar
+                <div class="flex justify-between items-center p-4 md:p-5 border-t border-gray-200 rounded-b">
+                    <div class="flex gap-5">
+                        <button class="text-white bg-maingreen border-2 border-maingreen hover:bg-white hover:text-maingray transition duration-300 rounded-lg text-sm px-5 py-2.5"
+                            :data-modal-hide="modalname" type="button">
+                            Saiba Mais!
+                        </button>
+                        <button class="ms-3 text-maingray bg-white rounded-lg border border-gray-200 text-sm transition duration-300 px-5 py-2.5 hover:bg-maingray hover:text-white"
+                            :data-modal-hide="modalname" type="button">
+                            Fechar
+                        </button>
+                    </div>
+                    <button @click="editModal()" class="">
+                        <img :src="require('@/assets/icons/pencil-edit-maingreen.svg')" alt="#" class="h-10"/>
                     </button>
                 </div>
             </div>
@@ -83,6 +88,8 @@
 </template>
 
 <script>
+import router from '@/router/index.js'
+
 export default {
     name: 'CompanyModal',
     components:{
@@ -100,7 +107,17 @@ export default {
         situ: String, // Situação do Projeto
         projName: String, // Nome do projeto
         value: String // Valor do projeto
-    }
+    },
+    methods: {
+        editModal(){
+            router.push('/edit/company-modal').then(() => {
+                var element = document.getElementById("navbar");
+                element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+            }).finally(() => {
+                window.location.reload();
+            });
+        }
+    },
 }
 </script>
 

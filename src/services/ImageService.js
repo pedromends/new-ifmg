@@ -1,11 +1,11 @@
 import api from '@/services/api';
 
-export const createPokemon = (form) => api.request({
+export const createImage = (form) => api.request({
   headers: {
-    'Content-Type': 'multipart/form-data',
+    'Content-Type': 'application/json',
   },
   method: 'post',
-  url: '/image/criar',
+  url: '/image/create',
   data: form,
 });
 
@@ -31,7 +31,7 @@ export const updatePokemon = (form) => api.request({
     'Access-Control-Allow-Origin': '*',
   },
   method: 'put',
-  url: '/image/atualizar',
+  url: '/image/update',
   data: form,
 });
 
@@ -40,5 +40,5 @@ export const deletePokemon = (id) => api.request({
     'Content-Type': 'application/json',
   },
   method: 'delete',
-  url: `/image/deletar/${id}`,
+  url: `/image/deleta/${id}`,
 });

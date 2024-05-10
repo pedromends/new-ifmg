@@ -39,7 +39,6 @@ export default {
     },
     mounted(){
         getOneImage(36).then((response) => {
-            console.log(response.data)
             this.img_obj = response.data
         })
         // .finally(() => {

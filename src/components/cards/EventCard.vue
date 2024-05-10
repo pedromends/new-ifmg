@@ -3,10 +3,10 @@
         <a href="#" target="_blank" class="flex items-center gap-5">
             <div class="flex flex-col justify-center text-lg items-center">
                 <span>{{ month }}</span>
-                <p class="text-2xl">{{ day }}</p>
+                <p class="text-xl">{{ day }}</p>
             </div>
             <div>
-                <p class="text-maingreen text-lg font-bold">{{ title }}</p>
+                <p class="text-maingreen  font-bold">{{ title }}</p>
                 <span class="italic">{{ hour }} | {{ local }}</span>
             </div>
         </a>
