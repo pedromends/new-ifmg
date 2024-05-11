@@ -48,7 +48,8 @@ export default {
         editTalent(){
             router.push('/edit/talent-card').then(() => {
                 var element = document.getElementById("navbar");
-                element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                window.location.reload();
+                element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });4
             }); 
         }
     },

@@ -23,7 +23,7 @@
 
 <script>
 import TalentCard from '@/components/cards/TalentCard.vue'
-import { listTalent } from '@/services/TalentService';
+import { getTalents } from '@/services/TalentService';
 
 export default {
     name: 'CarouselOne',
@@ -38,7 +38,7 @@ export default {
         }
     },
     mounted(){
-        listTalent().then((response) => {
+        getTalents().then((response) => {
             this.talents = response.data
         }).catch((error) => {
             console.log(error)
