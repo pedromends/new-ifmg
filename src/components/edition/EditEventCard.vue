@@ -55,7 +55,7 @@
             </div>
         </div>
         <form class="bg-white p-10 rounded-lg">
-            <p class="font-bold text-lg">Card {{ cardToUpdate }}</p>
+            <p class="font-bold text-lg underline underline-offset-2 decoration-4 decoration-maingreen self-start mb-10">Card {{ cardToUpdate }}</p>
             <div class="grid gap-6 mb-6 md:grid-cols-2">
                 <div id="day-div" class="border-2 border-transparent p-2 rounded-lg">
                     <label for="day" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Dia:</label>

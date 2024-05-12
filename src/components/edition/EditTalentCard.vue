@@ -76,7 +76,7 @@ export default {
             talents: null,
             inEdition:{
                 id: null,
-                name: 'Selecione um Pesquisador',
+                name: 'Selecione um aluno',
                 id_img: null
             },
             newTalent: {
@@ -93,7 +93,6 @@ export default {
     },
     created(){
         getTalents().then((response) => {
-            console.log(response.data)
             this.talents = response.data
         })
     },
@@ -107,7 +106,6 @@ export default {
             this.inEdition.id = id
             this.inEdition.name = name,
             this.inEdition.id_img = id_img
-            console.log(this.inEdition)
         },
         onImageChange(e){
             const image = e.target.files[0];
@@ -119,9 +117,10 @@ export default {
         },
         updateCard(){
             if(this.newTalent.name !== '' && this.newTalent.profession !== ''){
-                console.log(this.newTalent)
+
                 this.newTalent.id = this.inEdition.id
                 this.newTalent.img.id = this.inEdition.id_img
+
                 createTalent(this.newTalent).then((response) => {
                     console.log(response)
                 }).finally(() => {
