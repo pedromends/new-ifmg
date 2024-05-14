@@ -106,7 +106,7 @@
 </template>
 
 <script>
-// import router from '@/router/index.js'
+import router from '@/router/index.js'
 import { createResearcher, listResearchers } from '@/services/ResearcherService.js';
 import { listCampus } from '@/services/CampusService.js';
 
