@@ -66,7 +66,7 @@
     </footer>
 </template>
 <script>
-import FooterLink from '@/components/html/FooterLink.vue';
+import FooterLink from '@/components/links/FooterLink.vue';
 
 export default {
     name: 'FooTer',

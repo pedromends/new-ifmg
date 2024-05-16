@@ -7,11 +7,11 @@
                 <div class="flex flex-col gap-5 mt-10">
                     <div class="flex gap-3">
                         <img :src="require('@/assets/icons/phone.svg')" alt="Phone"/>
-                        <p class="text-sm">+55 (37) 99863-5940 / (37) 3322-8529</p>
+                        <p class="text-sm">(37) 3322-8529</p>
                     </div>
                     <div class="flex gap-3">
                         <img :src="require('@/assets/icons/email.svg')" alt="Email"/>
-                        <p class="text-sm">diretoria.polo@ifmg.edu.br</p>
+                        <p class="text-sm">prospeccao.polo@ifmg.edu.br</p>
                     </div>
                     <div class="flex gap-3">
                         <img :src="require('@/assets/icons/location.svg')" alt="Location"/>

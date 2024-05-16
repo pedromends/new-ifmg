@@ -2,7 +2,7 @@ import api from '@/services/api';
 
 export const createNewsCard = (form) => api.request({
   headers: {
-    'Content-Type': 'multipart/form-data',
+    'Content-Type': 'application/json',
   },
   method: 'post',
   url: '/news-card/create',

@@ -2,7 +2,7 @@ import api from '@/services/api';
 
 export const createCard = (form) => api.request({
   headers: {
-    'Content-Type': 'multipart/form-data',
+    'Content-Type': 'application/json',
   },
   method: 'post',
   url: '/presenter-card/create',
@@ -19,7 +19,7 @@ export const listCards = () => api.request({
 
 export const updateCard = (form) => api.request({
   headers: {
-    'Content-Type': 'multipart/form-data',
+    'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*',
   },
   method: 'put',

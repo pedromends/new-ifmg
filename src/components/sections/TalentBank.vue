@@ -1,5 +1,5 @@
 <template lang="">
-    <section id="researchers" class="bg-lightgray flex flex-col px-16 py-36 gap-16 max-lg:px-6">
+    <section id="talents" class="bg-lightgray flex flex-col px-16 py-36 gap-16 max-lg:px-6">
         <div class="flex flex-col self-center text-center max-lg:w-auto w-180 gap-5">
             <h1 class="text-4xl font-semibold">Conheça nossos Pesquisadores</h1>
             <div class="flex items-center gap-5">
@@ -9,9 +9,11 @@
         </div>
         <TalentCarousel />
         <p class="mx-auto text-maingray">Nosso time de pesquisadores, mestre e doutores são especializados nas mais distintas áreas, conheça um pouco mais:</p>
-        <a href="#" class="px-10 py-2 text-maingreen mx-auto rounded-lg font-bold border-2 border-maingreen hover:bg-maingreen hover:text-white transition duration-300">Ver Mais</a>
+        <router-link to="/researchers" href="#" class="px-10 py-2 text-maingreen mx-auto rounded-lg font-bold border-2 border-maingreen hover:bg-maingreen hover:text-white transition duration-300">
+            Ver Mais</router-link>
     </section>
 </template>
+
 <script>
 import TalentCarousel from '@/components/carousel/TalentCarousel.vue';
 
@@ -24,6 +26,7 @@ export default {
     }
 }
 </script>
+
 <style lang="">
     
 </style>

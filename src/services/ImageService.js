@@ -1,12 +1,20 @@
 import api from '@/services/api';
 
-export const createPokemon = (form) => api.request({
+export const createImage = (form) => api.request({
   headers: {
-    'Content-Type': 'multipart/form-data',
+    'Content-Type': 'application/json',
   },
   method: 'post',
-  url: '/pokedex/criar',
+  url: '/image/create',
   data: form,
+});
+
+export const getOneImage = (id) => api.request({
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  method: 'get',
+  url: `/image/get-one/${id}`,
 });
 
 export const listPokemons = () => api.request({
@@ -14,23 +22,23 @@ export const listPokemons = () => api.request({
     'Content-Type': 'application/json',
   },
   method: 'get',
-  url: '/pokedex/listar',
+  url: '/image/list',
 });
 
-export const updatePokemon = (form) => api.request({
+export const updateImage = (form) => api.request({
   headers: {
-    'Content-Type': 'multipart/form-data',
+    'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*',
   },
   method: 'put',
-  url: '/pokedex/atualizar',
+  url: '/image/update',
   data: form,
 });
 
-export const deletePokemon = (id) => api.request({
+export const deleteImage = (id) => api.request({
   headers: {
     'Content-Type': 'application/json',
   },
   method: 'delete',
-  url: `/pokedex/deletar/${id}`,
+  url: `/image/deleta/${id}`,
 });

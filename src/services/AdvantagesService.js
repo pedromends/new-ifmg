@@ -2,7 +2,7 @@ import api from '@/services/api';
 
 export const createAdvantage = (form) => api.request({
   headers: {
-    'Content-Type': 'multipart/form-data',
+    'Content-Type': 'application/json',
   },
   method: 'post',
   url: '/advantages/create',

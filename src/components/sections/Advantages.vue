@@ -9,12 +9,10 @@
                 Venha inovar conosco, temos a solução que seu empreendimento precisa
             </p>
         </div>
-        <div class="flex max-lg:flex-col gap-16 justify-center items-center">
-            <img v-bind:src="require('@/assets/images/people-studying.svg')" class="w-132 max-lg:px-6 max-lg:w-auto ml-16 max-lg:ml-auto" alt="People Studying"/>
+        <div v-if="img_obj" class="flex max-lg:flex-col gap-16 justify-center items-center">
+            <img :src="img_obj.code" class="w-132 max-lg:px-6 max-lg:w-auto ml-16 max-lg:ml-auto" alt="People Studying"/>
             <div class="flex flex-col gap-5">
-                <AdvantagesCard :dif="'Mobilidade e Sistemas Inteligentes'" :text="'O Polo de Inovação IFMG atua como Unidade EMBRAPII no desenvolvimento de projetos relacionados à Otimização de Processos e Gestão de Ativos Móveis e Sistemas Automotivos e Transportes.'"/>
-                <AdvantagesCard :dif="'Otimização de Processos e Gestão de Ativos Móveis'" :text="'Oferece capacidade para construção de soluções de software para gestão de ativos móveis.'"/>
-                <AdvantagesCard :dif="'Sistemas Automotivos e Transportes'" :text="'Desenvolvimento de tecnologias embarcadas em veículos, máquinas agrícolas e veículos utilizados em mineração, transportes e manejo florestal.'"/>
+                <AdvantagesCard  v-for="(advantage, i) in advantages" :key="i" :dif="advantage.differential" :text="advantage.description" :icon="advantage.img.code"/>
             </div>
         </div>
     </section>
@@ -23,28 +21,39 @@
 <script>
 import AdvantagesCard from '../cards/AdvantagesCard.vue';
 import { listAdvantages } from '@/services/AdvantagesService';
-
+import { getOneImage } from '@/services/ImageService';
 
 export default {
     name: 'AdvantagesSection',
     components:{
         AdvantagesCard
     },
+    data(){
+        return {
+            advantages: undefined,
+            img_obj: undefined
+        }
+    },
     props: {
         msg: String
     },
     mounted(){
-        listAdvantages().then((response) => {
-            console.log(response.data)
-        }).catch((error) => {
-            console.log(error)
+        getOneImage(35).then((response) => {
+            this.img_obj = response.data
         })
         // .finally(() => {
         //     this.$router.push('/');
         // });
+        -
+        listAdvantages().then((response) => {
+            this.advantages = response.data
+        }).catch((error) => {
+            console.log(error)
+        })
     }
 }
 </script>
+
 <style lang="">
     
 </style>
