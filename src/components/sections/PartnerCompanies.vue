@@ -21,7 +21,7 @@
                             :modalname="project.modalName"
                             :company="project.company.name"
                             :projName="project.name"
-                            :coorName="project.coordinator"
+                            :coorName="project.coordinator.firstName + ' ' + project.coordinator.lastName"
                             :situ="project.situation"    
                             :accID="project.accordionId"
                             :value="project.value"
@@ -54,6 +54,7 @@ export default {
     created(){
         listProjects().then((response) => {
             this.projects = response.data
+            console.log(this.projects)
         }).catch((error) => {
             console.log(error)
         })
