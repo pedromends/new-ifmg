@@ -1,35 +1,36 @@
 import api from '@/services/api';
 
-export const createWhoWeAre = (form) => api.request({
+export const createModality = (form) => api.request({
   headers: {
     'Content-Type': 'application/json',
   },
   method: 'post',
-  url: '/who-we-are/create',
+  url: '/modality/create',
   data: form,
 });
 
-export const getWhoWeAre = () => api.request({
+export const listModalities = () => api.request({
   headers: {
     'Content-Type': 'application/json',
   },
   method: 'get',
-  url: '/who-we-are/get',
+  url: '/modality/list',
 });
 
-export const updateWhoWeAre = (form) => api.request({
+export const updateModality = (form) => api.request({
   headers: {
     'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*',
   },
   method: 'put',
-  url: '/who-we-are/update',
+  url: '/modality/update',
   data: form,
 });
 
-export const deleteWhoWeAre = (id) => api.request({
+export const deleteModality = (id) => api.request({
   headers: {
     'Content-Type': 'application/json',
   },
   method: 'delete',
-  url: `/who-we-are/delete/${id}`,
+  url: `/modality/delete/${id}`,
 });

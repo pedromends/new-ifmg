@@ -1,13 +1,13 @@
 <template lang="">
     <section class="flex items-center justify-between hover:bg-gray-100 rounded-lg p-2 transition duration-30">
         <a href="#" target="_blank" class="flex items-center gap-5">
-            <div class="flex flex-col justify-center items-center">
+            <div class="flex flex-col justify-center text-lg items-center">
                 <span>{{ month }}</span>
                 <p class="text-xl">{{ day }}</p>
             </div>
             <div>
-                <p class="text-maingreen text-sm font-bold">{{ title }}</p>
-                <span class="text-xs italic">{{ hour }} | {{ local }}</span>
+                <p class="text-maingreen  font-bold">{{ title }}</p>
+                <span class="italic">{{ hour }} | {{ local }}</span>
             </div>
         </a>
         <button @click="editAdvantages()" class="self-end">

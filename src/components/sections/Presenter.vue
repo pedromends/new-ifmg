@@ -42,7 +42,7 @@ export default {
     methods:{
         
     },
-    mounted(){
+    beforeMount(){
        listCards().then((response) => {
             this.presenters = response.data
         }).catch((error) => {

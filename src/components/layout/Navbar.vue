@@ -43,7 +43,7 @@
         
         <section class="flex justify-between items-center">
             <div class="flex text-sm text-maingray gap-5 p-4 ml-14 max-lg:p-0">
-                <NavbarLink :link="'/'" :text="'INÍCIO'" />
+                <NavbarLink :func="goHome" :link="'/'" :text="'INÍCIO'" />
                 <NavbarLink :func="aboutUs" :link="'/'" :text="'QUEM SOMOS'" />
                 <NavbarLink :func="advantages" :link="'/'" :text="'VANTAGENS'" />
                 <NavbarLink :link="'/news'" :text="'NOTÍCIAS'" />
@@ -53,7 +53,7 @@
                 <NavbarLink :link="'/researchers'" :text="'PESQUISADORES'" />
                 <NavbarLink :link="'/edicts'" :text="'EDITAIS'" />
                 <NavbarLink :link="'/docs'" :text="'DOCUMENTOS'" />
-                <NavbarLink :link="'/capacitation'" :text="'CAPACITAÇÃO'" />
+                <NavbarLink :func="capacitation" :link="'/capacitation'" :text="'CAPACITAÇÃO'" />
                 <router-link to="/embrapii" class="hover:underline">
                     <img :src="require('@/assets/icons/embrapii.png')" class="w-16" alt="">
                 </router-link>
@@ -77,20 +77,42 @@ export default {
                 router.push({ path: '/' }).then(() => {
                     var element = document.getElementById("aboutus");
                     element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
-                });   
-            },
-            ourClients: () => {
-                router.push({ path: '/' }).then(() => {
-                    var element = document.getElementById("ourclients");
-                    element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                }).finally(() => {
+                    window.location.reload();
                 });   
             },
             advantages: () => {
                 router.push({ path: '/' }).then(() => {
                     var element = document.getElementById("advantages");
                     element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                }).finally(() => {
+                    window.location.reload();
                 });   
-            }
+            },
+            capacitation: () => {
+                router.push({ path: '/' }).then(() => {
+                    var element = document.getElementById("capacitation");
+                    element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                }).finally(() => {
+                    window.location.reload();
+                });   
+            },
+            goHome: () => {
+                router.push({ path: '/' }).then(() => {
+                    var element = document.getElementById("aboutus");
+                    element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                }).finally(() => {
+                    window.location.reload();
+                });   
+            },
+            ourClients: () => {
+                router.push({ path: '/' }).then(() => {
+                    var element = document.getElementById("ourclients");
+                    element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                }).finally(() => {
+                    window.location.reload();
+                });   
+            },
         }  
     },
 }

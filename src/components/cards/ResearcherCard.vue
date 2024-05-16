@@ -1,8 +1,8 @@
 <template lang="">
-    <section class="hover:shadow-lg transition duration-300 rounded-lg border border-gray-200">
+    <a href="https://lattes.cnpq.br/" target="_blank" class="hover:shadow-lg transition duration-300 rounded-lg border border-gray-200">
         <div class="border-t border-maingreen bg-lightgray px-4 py-5 flex items-center justify-between">
             <h1 class="font-semibold">{{ name }}</h1>
-            <img alt="Polo IFMG" class="h-16 rounded-lg border border-maingreen" :src="require('@/assets/images/joaopedro.png')"/>
+            <img alt="Polo IFMG" class="h-16 rounded-lg border border-maingreen" :src="img.code"/>
         </div>
         <div class="flex flex-col px-3 gap-3 py-3">
             <p class="font-semibold">{{ course }}</p>
@@ -15,7 +15,7 @@
                 <p class="text-sm text-maingreen">Portfólio</p>
             </a>
         </div>
-    </section>
+    </a>
 </template>
 <script>
 export default {
@@ -25,7 +25,8 @@ export default {
         name: String,
         email: String,
         link: String,
-        course: String
+        course: String,
+        img: Object
     }
 }
 </script>

@@ -1,35 +1,36 @@
 import api from '@/services/api';
 
-export const createWhoWeAre = (form) => api.request({
+export const createCompany = (form) => api.request({
   headers: {
     'Content-Type': 'application/json',
   },
   method: 'post',
-  url: '/who-we-are/create',
+  url: '/project/create',
   data: form,
 });
 
-export const getWhoWeAre = () => api.request({
+export const listProjects = () => api.request({
   headers: {
     'Content-Type': 'application/json',
   },
   method: 'get',
-  url: '/who-we-are/get',
+  url: '/project/list',
 });
 
-export const updateWhoWeAre = (form) => api.request({
+export const updateProject = (form) => api.request({
   headers: {
     'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*',
   },
   method: 'put',
-  url: '/who-we-are/update',
+  url: '/project/update',
   data: form,
 });
 
-export const deleteWhoWeAre = (id) => api.request({
+export const deleteCompany = (id) => api.request({
   headers: {
     'Content-Type': 'application/json',
   },
   method: 'delete',
-  url: `/who-we-are/delete/${id}`,
+  url: `/project/delete/${id}`,
 });

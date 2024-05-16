@@ -2,14 +2,14 @@ import api from '@/services/api';
 
 export const createTalent = (form) => api.request({
   headers: {
-    'Content-Type': 'multipart/form-data',
+    'Content-Type': 'application/json',
   },
   method: 'post',
   url: '/talent/create',
   data: form,
 });
 
-export const listTalent = () => api.request({
+export const getTalents = () => api.request({
   headers: {
     'Content-Type': 'application/json',
   },

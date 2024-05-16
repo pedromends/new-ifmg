@@ -1,35 +1,36 @@
 import api from '@/services/api';
 
-export const createWhoWeAre = (form) => api.request({
+export const createCampus = (form) => api.request({
   headers: {
     'Content-Type': 'application/json',
   },
   method: 'post',
-  url: '/who-we-are/create',
+  url: '/campus/create',
   data: form,
 });
 
-export const getWhoWeAre = () => api.request({
+export const listCampus = () => api.request({
   headers: {
     'Content-Type': 'application/json',
   },
   method: 'get',
-  url: '/who-we-are/get',
+  url: '/campus/list',
 });
 
-export const updateWhoWeAre = (form) => api.request({
+export const updateCampus = (form) => api.request({
   headers: {
     'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*',
   },
   method: 'put',
-  url: '/who-we-are/update',
+  url: '/campus/atualizar',
   data: form,
 });
 
-export const deleteWhoWeAre = (id) => api.request({
+export const deleteCampus = (id) => api.request({
   headers: {
     'Content-Type': 'application/json',
   },
   method: 'delete',
-  url: `/who-we-are/delete/${id}`,
+  url: `/campus/deletar/${id}`,
 });

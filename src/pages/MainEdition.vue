@@ -1,17 +1,17 @@
 <template lang="">
-    <main class="px-16 pt-6" id="main-edition">
+    <main class="px-16 pt-6" id="main-edition">  
         <div class="flex flex-col gap-10 p-4">
-            <h1 class="text-3xl font-semibold">Edição de Componentes</h1>
+            <h1 class="text-3xl font-semibold underline decoration-maingreen decoration-4">Edição de Componentes</h1>
             <div class="flex gap-5 ssrounded-lg">
                 <div class="flex flex-col">
-                    <ul class="flex flex-col gap-3 justify-between">
+                    <ul class="flex flex-col gap-3 justify-between border-l-2 border-red-600 px-4">
                         <router-link to="/edit/presenter-card" class="hover:bg-maingreen px-3 py-1 rounded-lg text-maingreen hover:text-white">Cards de Apresentação</router-link>
                         <router-link to="/edit/about-us" class="hover:bg-maingreen px-3 py-1 rounded-lg text-maingreen hover:text-white">Sobre Nós</router-link>
                         <router-link to="/edit/advantages-card" class="hover:bg-maingreen px-3 py-1 rounded-lg text-maingreen hover:text-white">Cards de Vantagens</router-link>
                         <router-link to="/edit/main-new" class="hover:bg-maingreen px-3 py-1 rounded-lg text-maingreen hover:text-white">Manchete</router-link>
                         <router-link to="/edit/news-card" class="hover:bg-maingreen px-3 py-1 rounded-lg text-maingreen hover:text-white">Notícias Secundárias</router-link>
                         <router-link to="/edit/event-card" class="hover:bg-maingreen px-3 py-1 rounded-lg text-maingreen hover:text-white">Cards de Eventos</router-link>
-                        <router-link to="/edit/company-modal" class="hover:bg-maingreen px-3 py-1 rounded-lg text-maingreen hover:text-white">Empresa Parceira</router-link>
+                        <router-link to="/edit/company-modal" class="hover:bg-maingreen px-3 py-1 rounded-lg text-maingreen hover:text-white">Projetos</router-link>
                         <router-link to="/edit/capacitation-card" class="hover:bg-maingreen px-3 py-1 rounded-lg text-maingreen hover:text-white">Card de Capacitação</router-link>
                         <router-link to="/edit/talent-card" class="hover:bg-maingreen px-3 py-1 rounded-lg text-maingreen hover:text-white">Cards Linked-In</router-link>
                         <router-link to="/edit/researcher" class="hover:bg-maingreen px-3 py-1 rounded-lg text-maingreen hover:text-white">Editar Pesquisador</router-link>

@@ -9,10 +9,10 @@
                 Venha inovar conosco, temos a solução que seu empreendimento precisa
             </p>
         </div>
-        <div class="flex max-lg:flex-col gap-16 justify-center items-center">
-            <img v-bind:src="require('@/assets/images/people-studying.svg')" class="w-132 max-lg:px-6 max-lg:w-auto ml-16 max-lg:ml-auto" alt="People Studying"/>
+        <div v-if="img_obj" class="flex max-lg:flex-col gap-16 justify-center items-center">
+            <img :src="img_obj.code" class="w-132 max-lg:px-6 max-lg:w-auto ml-16 max-lg:ml-auto" alt="People Studying"/>
             <div class="flex flex-col gap-5">
-                <AdvantagesCard  v-for="(advantage, i) in advantages" :key="i" :dif="advantage.differential" :text="advantage.description" :icon="advantage.img"/>
+                <AdvantagesCard  v-for="(advantage, i) in advantages" :key="i" :dif="advantage.differential" :text="advantage.description" :icon="advantage.img.code"/>
             </div>
         </div>
     </section>
@@ -21,6 +21,7 @@
 <script>
 import AdvantagesCard from '../cards/AdvantagesCard.vue';
 import { listAdvantages } from '@/services/AdvantagesService';
+import { getOneImage } from '@/services/ImageService';
 
 export default {
     name: 'AdvantagesSection',
@@ -29,21 +30,26 @@ export default {
     },
     data(){
         return {
-            advantages: undefined
+            advantages: undefined,
+            img_obj: undefined
         }
     },
     props: {
         msg: String
     },
     mounted(){
+        getOneImage(35).then((response) => {
+            this.img_obj = response.data
+        })
+        // .finally(() => {
+        //     this.$router.push('/');
+        // });
+        -
         listAdvantages().then((response) => {
             this.advantages = response.data
         }).catch((error) => {
             console.log(error)
         })
-        // .finally(() => {
-        //     this.$router.push('/');
-        // });
     }
 }
 </script>

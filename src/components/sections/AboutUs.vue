@@ -2,14 +2,14 @@
     <section id="aboutus" class="px-12 py-24 mt-16 max-lg:px-4 ">
         <div class="flex justify-center px-12 max-lg:px-8">
             <div class="flex max-lg:flex-col gap-24">
-                <div class="flex flex-col w-140 max-lg:w-auto gap-8 max-lg:mt-10">
+                <div v-if="maintext" class="flex flex-col w-140 max-lg:w-auto gap-8 max-lg:mt-10">
                     <div class="flex items-center w-full justify-between edit transition duration-300 h-10">
                         <span class="text-maingreen font-bold text-sm underline decoration-red-600 decoration-2">QUEM SOMOS</span>
                         <button @click="editAboutUs()">
                             <img :src="require('@/assets/icons/pencil-edit-maingreen.svg')" alt="#" class="h-10 hidden"/>
                         </button>
                     </div>
-                    <div v-if="maintext" class="flex flex-col gap-3">
+                    <div class="flex flex-col gap-3">
                         <h1 class="font-bold text-4xl w-96 max-lg:w-auto">{{ maintext.title }}</h1>
                         <p class="w-full text-maingray">{{ maintext.parag }}</p>
                     </div>
@@ -19,8 +19,8 @@
                         Saiba Mais
                     </router-link>
                 </div>
-                <div  class="flex items-center">
-                    <img v-bind:src="require('@/assets/images/virtualglass.svg')" class="w-160" alt="Class with Virtual Glasses"/>
+                <div class="flex items-center">
+                    <img v-if="maintext" :src="image.code" class="w-160" alt="Class with Virtual Glasses"/>
                 </div>
             </div>
         </div>
@@ -30,6 +30,7 @@
 <script>
 import router from '@/router/index.js'
 import { getWhoWeAre } from '@/services/WhoWeAreService'
+import { getOneImage } from '@/services/ImageService';
 
 export default {
     name: 'AboutUs',
@@ -39,7 +40,8 @@ export default {
     },
     data(){
         return {
-            maintext: undefined
+            maintext: undefined,
+            image: ''
         }
     },
     methods:{
@@ -50,7 +52,10 @@ export default {
             }); 
         }
     },
-    beforeMount(){
+    created(){
+        getOneImage(36).then((response) => {
+            this.image = response.data
+        })
         getWhoWeAre().then((response) => {
             this.maintext = response.data
         }).catch((error) => {
