@@ -1,7 +1,9 @@
 <template lang="">
     <section class="flex flex-col justify-center bg-lightgray gap-10">
         <div class="flex flex-col items-center gap-5">
-            <p class="font-bold text-lg underline underline-offset-2 decoration-4 decoration-maingreen self-start ml-6">Card {{ cardToUpdate }}</p>
+            <p class="font-bold text-xl underline underline-offset-2 decoration-4 decoration-maingreen self-start ml-6">Card {{ cardToUpdate }}</p>
+
+            <!-- Box dos Cards -->
             <div class="flex">
                 <div class="px-5">
                     <div @mouseover="setCard(1)" class="bg-white border-b-4 border-maingreen flex flex-col text-center items-center px-2 py-6 shadow-lg shadow-transparent hover:shadow-red-600 transition duration-400 relative z-20">
@@ -38,7 +40,7 @@
             </div>
         </div>
         <form class="bg-white p-10 rounded-lg" >
-            <div class="grid gap-6 mb-2 grid-cols-1">
+            <div class="flex flex-col gap-6 mb-2 justify-center">
                 <div>
                     <div id="number-div" class="flex flex-col gap-3 border border-transparent rounded-lg p-2">
                         <label for="number" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Número</label>
@@ -51,7 +53,9 @@
                             type="text" id="last_name" placeholder="Projetos Publicados, Empresas Parceiras....." required v-model="newCard.text"/>
                     </div>
                 </div>
-                <button type="submit" @click.prevent="updateCard()" class="text-white bg-maingreen hover:bg-govblue focus:ring-2 focus:outline-none focus:ring-red-600 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Salvar</button>
+                <div class="w-full flex justify-center">
+                    <button type="submit" @click.prevent="updateCard()" class="text-white bg-maingreen hover:bg-govblue focus:ring-2 focus:outline-none focus:ring-red-600 font-medium rounded-lg text-sm px-20 py-2.5 text-center">Salvar</button>
+                </div>
             </div>
         </form>
     </section>
@@ -59,7 +63,7 @@
 
 <script>
 import router from '@/router/index.js'
-import { createCard } from '@/services/PresenterCardService.js'
+import { updateCard } from '@/services/PresenterCardService.js'
 
 export default {
     name: 'EditPresenterCard',
@@ -73,6 +77,7 @@ export default {
             }
         }
     },
+
     methods: {
         onOffEffect(div){
             let target = document.getElementById(div);
@@ -81,7 +86,7 @@ export default {
         },
         updateCard(){
             this.newCard.id = this.cardToUpdate
-            createCard(this.newCard).then((response) => {
+            updateCard(this.newCard).then((response) => {
                 console.log(response)
             }).finally(() => {
                 router.push('/').then(() => {

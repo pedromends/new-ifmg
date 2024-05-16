@@ -1,9 +1,11 @@
 <template lang="">
     <section class="flex flex-col justify-center gap-10">
         <div role="status" class="pt-5 animate-pulse">
+
+            <!-- Esqueleto do componente -->
             <section class="px-20 max-lg:px-5">
                 <div href="#" target="_blank" class="flex bg-white max-lg:flex-col justify-between items-center gap-48 border-2 rounded-3xl border-gray-100 hover:shadow-2xl transition duration-300">
-                    <div class="flex flex-col gap-3 pl-10 max-lg:px-3">
+                    <div class="flex flex-col gap-3 pl-10 max-lg:px-3 pt-4">
                         <div @mouseover="onOffEffect('tip-div')" @mouseleave="onOffEffect('tip-div')" class="border-2 hover:border-red-700 border-maingreen rounded-lg w-40 justify-center px-2 py-1 max-lg:mt-6 4xl:mx-auto flex items-center">
                             <div class="h-2.5 bg-black rounded-full w-24 self-center"></div>
                         </div>
@@ -27,6 +29,8 @@
                 </div>
             </section>
         </div>
+
+        <!-- Formulário-->
         <form class="bg-white p-10 rounded-lg">
             <div class="flex justify-center gap-10 mb-6">
                 <div class="flex flex-col gap-5">
@@ -55,8 +59,9 @@
                     </div>  
                 </div>
             </div>
-            <button class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
-                @click.prevent="updateCard()" type="submit">Salvar</button>
+            <div class="w-full flex justify-center">
+                <button type="submit" @click.prevent="updateCard()" class="text-white bg-maingreen hover:bg-govblue focus:ring-2 focus:outline-none focus:ring-red-600 font-medium rounded-lg text-sm w-full sm:w-auto px-48 py-2.5 text-center">Salvar</button>
+            </div>
         </form>
     </section>
 </template>

@@ -22,12 +22,12 @@ export const listPokemons = () => api.request({
     'Content-Type': 'application/json',
   },
   method: 'get',
-  url: '/image/listar',
+  url: '/image/list',
 });
 
-export const updatePokemon = (form) => api.request({
+export const updateImage = (form) => api.request({
   headers: {
-    'Content-Type': 'multipart/form-data',
+    'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*',
   },
   method: 'put',
@@ -35,7 +35,7 @@ export const updatePokemon = (form) => api.request({
   data: form,
 });
 
-export const deletePokemon = (id) => api.request({
+export const deleteImage = (id) => api.request({
   headers: {
     'Content-Type': 'application/json',
   },

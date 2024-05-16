@@ -19,7 +19,7 @@ export const listCards = () => api.request({
 
 export const updateCard = (form) => api.request({
   headers: {
-    'Content-Type': 'multipart/form-data',
+    'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*',
   },
   method: 'put',

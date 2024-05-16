@@ -2,6 +2,8 @@
     <section class="flex flex-col justify-center bg-lightgray gap-10">
         <div role="status" class="animate-pulse">
             <section class="flex justify-center gap-10 items-center">
+
+                <!-- Modal -->
                 <div class="relative p-4 w-full max-w-2xl max-h-full">
                     <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                         <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t border-maingreen">
@@ -78,15 +80,10 @@
         </div>
         <form class="bg-white p-10 rounded-lg">
             <div class="grid gap-6 mb-6 grid-cols-3">
-                <label class="inline-flex items-center cursor-pointer">
-                    <input v-model="newProjectBool" type="checkbox" value="" class="sr-only peer">
-                    <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-                    <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">Novo Projeto ?</span>
-                </label>
                 <div id="company-name-div" class="border-2 border-transparent p-2 rounded-lg">
-                    <div class="flex flex-col gap-5">
+                    <div class="flex flex-col">
                         <label for="researchers" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Empresa:</label>
-                        <button class="text-maingray bg-white hover:bg-maingreen hover:text-white focus:ring-4 focus:outline-none focus:ring-red-600 font-medium rounded-lg text-sm text-center flex items-center p-4 transition duration-200" 
+                        <button class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 hover:text-white focus:border-red-600 block w-full p-2.5 hover:bg-maingreen" 
                             id="modalityButton" data-dropdown-toggle="dropdown1" type="button">
                             {{ inEditionCompany.name }}
                         </button>
@@ -95,7 +92,8 @@
                         <div id="dropdown1" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700">
                             <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="modalityButton">
                                 <li v-for="(company, i) in companies" :key="i" @click="setCompany(company.id, company.name, company.image.id)">
-                                    <input href="#" class="block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer" readonly="readonly" :value="company.name"/>
+                                    <input href="#" class="block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer "
+                                    readonly="readonly" :value="company.name"/>
                                 </li>
                             </ul>
                         </div>
@@ -103,13 +101,13 @@
                 </div>
                 <div id="project-name-div" class="border-2 border-transparent p-2 rounded-lg">
                     <label for="project_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nome do Projeto</label>
-                    <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 hover:text-white focus:border-red-600 block w-full p-2.5"
                         v-model="newProject.name" type="text" id="project_name" placeholder="Doe" required />
                 </div>  
                 <div id="coor-name-div" class="border-2 border-transparent p-2 rounded-lg">
-                    <div class="flex flex-col gap-5">
+                    <div class="flex flex-col">
                         <label for="researchers" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Coordenador:</label>
-                        <button class="text-maingray bg-white hover:bg-maingreen hover:text-white focus:ring-4 focus:outline-none focus:ring-red-600 font-medium rounded-lg text-sm text-center flex items-center p-4 transition duration-200" 
+                        <button class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 hover:text-white focus:border-red-600 block w-full p-2.5 hover:bg-maingreen" 
                             id="modalityButton" data-dropdown-toggle="dropdown2" type="button">
                             {{ inEditionCoordinator.name }}
                         </button>
@@ -126,23 +124,23 @@
                 </div>
                 <div id="situation-div" class="border-2 border-transparent p-2 rounded-lg">
                     <label for="situation" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Situação</label>
-                    <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 hover:text-white focus:border-red-600 block w-full p-2.5 hover:bg-maingreen"
                         v-model="newProject.situation" id="situation" placeholder="flowbite.com" required />
                 </div>
                 <div id="value-div" class="border-2 border-transparent p-2 rounded-lg">
                     <label for="value" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Valor</label>
-                    <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 hover:text-white focus:border-red-600 block w-full p-2.5"
                         v-model="newProject.value" type="number" id="value"  placeholder="" required />
                 </div>
                 <!-- <div id="link-div" class="border-2 border-transparent p-2 rounded-lg">
                     <label for="link" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Link</label>
-                    <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 hover:text-white focus:border-red-600 block w-full p-2.5 hover:bg-maingreen"
                         v-model="newProject.link" type="number" id="link" placeholder="" required />
                 </div> -->
                 <div id="researchers-div" class="border-2 border-transparent p-2 rounded-lg">
-                    <div class="flex flex-col gap-5">
+                    <div class="flex flex-col">
                         <label for="researchers" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Pesquisadores:</label>
-                        <button class="text-maingray bg-white hover:bg-maingreen hover:text-white focus:ring-4 focus:outline-none focus:ring-red-600 font-medium rounded-lg text-sm text-center flex items-center p-4 transition duration-200" 
+                        <button class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 hover:text-white focus:border-red-600 block w-full p-2.5 hover:bg-maingreen" 
                             id="modalityButton" data-dropdown-toggle="dropdown3" type="button">
                             {{ inEditionResearchers.name }}
                         </button>
@@ -158,9 +156,9 @@
                     </div>
                 </div>
                 <div id="students-div" class="border-2 border-transparent p-2 rounded-lg">
-                    <div class="flex flex-col gap-5">
+                    <div class="flex flex-col">
                         <label for="researchers" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Alunos:</label>
-                        <button class="text-maingray bg-white hover:bg-maingreen hover:text-white focus:ring-4 focus:outline-none focus:ring-red-600 font-medium rounded-lg text-sm text-center flex items-center p-4 transition duration-200" 
+                        <button class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 hover:text-white focus:border-red-600 block w-full p-2.5 hover:bg-maingreen" 
                             id="modalityButton" data-dropdown-toggle="dropdown4" type="button">
                             {{ inEditionStudents.name }}
                         </button>
@@ -180,25 +178,27 @@
                     <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
                     <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">Liga/Desliga 'Saiba Mais'</span>
                 </label> -->
-                <!-- <div v-if="" id="image-div" class="border-2 border-transparent p-2 rounded-lg">
-                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Imagem do Card</label>
-                    <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none"
-                        aria-describedby="file_input_help" id="file_input" type="file">
-                    <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG, JPG or GIF (MAX. 800x400px).</p>
-                </div> -->
                 <div id="about-project-div" class="border-2 border-transparent p-2 rounded-lg">
                     <label for="project_resume" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Sobre o projeto</label>
-                    <textarea id="project_resume" rows="10" cols="50" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+                    <textarea id="project_resume" rows="10" cols="50" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-red-600"
                         v-model="newProject.resume" placeholder="Escreva sobre o projeto aqui..."></textarea>
-                </div>                
+                </div>
+                <label class="flex flex-col gap-5 items-center cursor-pointer">
+                    <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">Novo Projeto ?</span>
+                    <input v-model="newProjectBool" type="checkbox" value="" class="sr-only peer">
+                    <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-maingray rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-red-600"></div>
+                </label>              
             </div>
-            <button @click.prevent="updateCard()" type="submit" class="text-white bg-maingreen hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Salvar</button>
+            <div class="w-full flex justify-center">
+                <button class="text-white bg-maingreen hover:bg-govblue focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm m:w-auto w-2/5 py-2.5 text-center"
+                    @click.prevent="updateCard()" type="submit" >Salvar</button>
+            </div>    
         </form>
     </section>
 </template>
 
 <script>
-//import router from '@/router/index.js'
+import router from '@/router/index.js'
 
 import { listModalities } from '@/services/ModalityService.js';
 import { listCompanies } from '@/services/CompanyService.js';
@@ -256,7 +256,7 @@ export default {
             },
             inEditionStudents:{
                 id: null,
-                name: 'Selecione os Pesquisadores',
+                name: 'Selecione os Alunos',
                 id_img: null
             },
         }

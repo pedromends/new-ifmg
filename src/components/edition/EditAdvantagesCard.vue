@@ -1,12 +1,17 @@
 <template lang="">
     <section class="flex flex-col justify-center bg-lightgray gap-10">
         <div role="status" class="animate-pulse flex flex-col items-center gap-10 bg-white rounded-xl py-5">
+            <p class="font-bold text-lg underline underline-offset-2 decoration-4 decoration-maingreen self-start ml-10">Card {{ currentForm }}</p>
             <div class="flex items-center gap-4">
+
+               <!-- Imagem de capa --> 
                 <div @mouseover="onOffEffect('image-div')" @mouseleave="onOffEffect('image-div')"  class="border-2 border-transparent p-2 hover:border-red-700 mx-10">
                     <svg class="w-64 h-64 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
                         <path d="M18 0H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm4.376 10.481A1 1 0 0 1 16 15H4a1 1 0 0 1-.895-1.447l3.5-7A1 1 0 0 1 7.468 6a.965.965 0 0 1 .9.5l2.775 4.757 1.546-1.887a1 1 0 0 1 1.618.1l2.541 4a1 1 0 0 1 .028 1.011Z"/>
                     </svg>                    
                 </div>
+
+                <!-- Cards verticais -->
                 <div class="flex flex-col gap-5">
                     <div @mouseover="changeForm(1)" class="text-black hover:bg-maingreen flex items-center px-6 py-6 gap-10 rounded-xl transition duration-300 hover:text-white bg-white border-gray-100 max-lg:w-auto max-lg:px-0">
                         <div @mouseover="onOffEffect('icon-div')" @mouseleave="onOffEffect('icon-div')" class="border-2 border-transparent p-2 hover:border-red-700">
@@ -73,8 +78,9 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Formulário -->
             <form class="bg-white p-10 rounded-lg">
-                <p class="font-bold text-lg underline underline-offset-2 decoration-4 decoration-maingreen">Card {{ currentForm }}</p>
                 <div class="grid gap-6 mb-6 md:grid-cols-3">
                     <div id="title-div" class="border-2 border-transparent p-2">
                         <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Título</label>
@@ -99,7 +105,9 @@
                         <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG, JPG or GIF (MAX. 800x400px).</p>
                     </div>
                 </div>  
-                <button type="submit" @click.prevent="updateCards()" class="text-white bg-maingreen hover:bg-govblue focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Salvar</button>
+                <div class="w-full flex justify-center">
+                    <button type="submit" @click.prevent="updateAboutUs()" class="text-white bg-maingreen hover:bg-govblue focus:ring-2 focus:outline-none focus:ring-red-600 font-medium rounded-lg text-sm w-full sm:w-auto px-48 py-2.5 text-center">Salvar</button>
+                </div>
             </form>
         </div>
     </section>

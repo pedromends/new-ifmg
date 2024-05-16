@@ -1,7 +1,9 @@
 <template lang="">
     <section class="flex flex-col justify-center bg-lightgray gap-10">
         <div role="status" class="animate-pulse flex bg-white py-10">
-            <div class="flex gap-24 w-full px-24">
+
+            <!-- Esqueleto do componente -->
+            <div class="flex gap-24 w-full px-4">
                 <div class="flex flex-col">
                     <span class="text-maingreen font-bold text-sm underline decoration-red-600 decoration-2 mb-10">QUEM SOMOS</span>
                     <div @mouseover="onOffEffect('title-div')" @mouseleave="onOffEffect('title-div')" class="border-2 border-transparent hover:border-red-700 p-2 rounded-lg">
@@ -46,6 +48,8 @@
                 </div>
             </div>  
         </div>
+
+        <!-- Formulário -->
         <form class="bg-white p-10 rounded-lg">
             <div class="grid gap-6 mb-6 md:grid-cols-2">
                 <div id="title-div" class="border border-transparent rounded-lg p-1">
@@ -65,15 +69,17 @@
                         id="parag" rows="10" cols="20" v-model="newAboutUs.parag"></textarea>
                 </div>
             </div>  
-            <button type="submit" @click.prevent="updateAboutUs()" class="text-white bg-maingreen hover:bg-govblue focus:ring-2 focus:outline-none focus:ring-red-600 font-medium rounded-lg text-sm w-full sm:w-auto px-20 py-2.5 text-center">Salvar</button>
+            <div class="w-full flex justify-center">
+                <button type="submit" @click.prevent="updateAboutUs()" class="text-white bg-maingreen hover:bg-govblue focus:ring-2 focus:outline-none focus:ring-red-600 font-medium rounded-lg text-sm w-full sm:w-auto px-48 py-2.5 text-center">Salvar</button>
+            </div>
         </form>
     </section>
 </template>
 
 <script>
 import router from '@/router/index.js'
-import { createWhoWeAre } from '@/services/WhoWeAreService.js'
-import { createImage } from '@/services/ImageService.js'
+import { updateWhoWeAre } from '@/services/WhoWeAreService.js'
+import { updateImage } from '@/services/ImageService.js'
 
 export default {
     name: 'EditAboutUs',
@@ -108,13 +114,12 @@ export default {
         },
         updateAboutUs(){
             if(this.newAboutUs.title !== '' && this.newAboutUs.parag !== ''){
-                createWhoWeAre(this.newAboutUs).then((response) => {
+                updateWhoWeAre(this.newAboutUs).then((response) => {
                     console.log(response)
                 })
             }
             if(this.newImage.code !== undefined){
-                console.log(this.newImage)
-                createImage(this.newImage).then((response) => {
+                updateImage(this.newImage).then((response) => {
                     console.log(response)
                 }).finally(() => {
                     router.push('/').then(() => {

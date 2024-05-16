@@ -2,6 +2,8 @@
     <section class="flex flex-col justify-center bg-lightgray gap-10">
         <div role="status" class="pt-5 ">
             <p class="font-bold text-lg underline underline-offset-2 decoration-4 decoration-maingreen mb-10">Card {{ newCard.id }}</p>
+
+            <!-- Sequência de Cards -->
             <section class="flex gap-3 animate-pulse">
                 <div @mouseover="changeForm(1, 27)" class="flex flex-col bg-white justify-between items-center shadow-xl shadow-transparent hover:shadow-red-600 border-2 rounded-3xl border-gray-100 transition duration-300">
                     <div @mouseover="onOffEffect('image-div')" @mouseleave="onOffEffect('image-div')" class="flex items-center justify-center w-full h-48 bg-maingreen sm:w-96 rounded-t-lg border-4 border-transparent hover:border-red-700">
@@ -97,7 +99,9 @@
                     <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG, JPG or GIF (MAX. 800x400px).</p>
                 </div>
             </div>
-            <button type="submit" @click.prevent="updateCards()" class="text-white bg-maingreen hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Salvar</button>        
+            <div class="w-full flex justify-center">
+                <button type="submit" @click.prevent="updateCards()" class="text-white bg-maingreen hover:bg-govblue focus:ring-2 focus:outline-none focus:ring-red-600 font-medium rounded-lg text-sm w-full sm:w-auto px-48 py-2.5 text-center">Salvar</button>
+            </div>
         </form>
     </section>
 </template>

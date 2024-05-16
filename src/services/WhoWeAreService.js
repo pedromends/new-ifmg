@@ -19,8 +19,7 @@ export const getWhoWeAre = () => api.request({
 
 export const updateWhoWeAre = (form) => api.request({
   headers: {
-    'Content-Type': 'multipart/form-data',
-    'Access-Control-Allow-Origin': '*',
+    'Content-Type': 'application/json',
   },
   method: 'put',
   url: '/who-we-are/update',

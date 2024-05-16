@@ -75,7 +75,7 @@
                 <div id="hour-div" class="border-2 border-transparent p-2 rounded-lg">
                     <label for="hour" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Horário</label>
                     <input  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main-700 focus:border-main-700 block w-full p-2.5"
-                        type="tel" id="hour" v-model="newEventCard.hour" placeholder="16h30..." pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required />
+                        type="tel" id="hour" v-model="newEventCard.hour" placeholder="16h30..." required />
                 </div>
                 <div id="local-div" class="border-2 border-transparent p-2 rounded-lg">
                     <label for="local" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Local</label>
@@ -83,7 +83,7 @@
                         type="url" id="local" v-model="newEventCard.local" placeholder="Auditório Principal..." required />
                 </div>
             </div>
-            <button class="text-white bg-maingreen hover:bg-gov-blue focus:ring-4 focus:outline-none focus:ring-main-700 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+            <button class="text-white bg-maingreen hover:bg-govblue focus:ring-4 focus:outline-none focus:ring-main-700 font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center transition duration-200"
                 type="submit" @click.prevent="updateCard()">Salvar</button>
         </form>
     </section>
