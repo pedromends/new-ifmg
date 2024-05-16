@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import SidebarLink from '@/components/html/SidebarLink.vue';
+import SidebarLink from '@/components/links/SidebarLink.vue';
 export default {
     name: 'SideBar',
     components:{

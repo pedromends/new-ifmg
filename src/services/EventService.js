@@ -1,8 +1,8 @@
 import api from '@/services/api';
 
-export const createEvents = (form) => api.request({
+export const createEvent = (form) => api.request({
   headers: {
-    'Content-Type': 'multipart/form-data',
+    'Content-Type': 'application/json',
   },
   method: 'post',
   url: '/event/create',

@@ -2,7 +2,7 @@
     <section id="ourclients" class="flex justify-center items-center bg-lightgray py-10">
         <div class="flex flex-col justify-center items-center gap-5 mt-5">
             <div class="flex flex-col justify-center items-center gap-5">
-                <h1 class="text-4xl font-semibold max-lg:text-center">Nossos Clientes</h1>
+                <h1 class="text-4xl font-semibold max-lg:text-center">Portfólio de Projetos</h1>
                 <p class="text-sm text-maingray max-lg:text-center">
                     Empresas que fizeram ou fazem projetos com o Polo de Inovação IFMG.
                 </p>
@@ -13,20 +13,20 @@
             </div>
             <div class="bg-whitecircle bg-no-repeat bg-center">
                 <div class="flex items-center justify-center h-132 overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen mx-48">
-                    <div class="grid grid-cols-6 justify-center gap-3 items-center">
-                        <CompanyModal v-for="(company, i) in companies" :key="i"
-                            :img="company.image"
-                            :headName="company.headerName"
-                            :headBody="company.headerBody"
-                            :modalname="company.modalName"
-                            :company="company.companyName"
-                            :projName="company.projName"
-                            :coorName="company.coorName"
-                            :situ="company.situation"    
-                            :accID="company.accordionId"
-                            :value="company.value"
-                            :resume="company.resume"
-                            :extraClass="'h-20'"
+                    <div class="grid grid-cols-6 justify-center gap-3 items-center overflow-y-auto my-10">
+                        <CompanyModal v-for="(project, i) in projects" :key="i"
+                            :img="project.company.img.code"
+                            :headName="project.headerName"
+                            :headBody="project.headerBody"
+                            :modalname="project.modalName"
+                            :company="project.company.name"
+                            :projName="project.name"
+                            :coorName="project.coordinator.firstName + ' ' + project.coordinator.lastName"
+                            :situ="project.situation"    
+                            :accID="project.accordionId"
+                            :value="project.value"
+                            :resume="project.resume"
+                            :extraClass="'h-24'"
                         />
                     </div>
                 </div>
@@ -37,7 +37,7 @@
 
 <script>
 import CompanyModal from '@/components/modal/CompanyModal.vue';
-import { listCompanies } from '@/services/CompanyService';
+import { listProjects } from '@/services/ProjectService';
 
 export default {
     name: 'PartnerCompanies',
@@ -46,20 +46,18 @@ export default {
     },
     data(){
         return {
-            companies: undefined
+            projects: undefined
         }
     },
     props: {
     },
-    mounted(){
-        listCompanies().then((response) => {
-            this.companies = response.data
+    created(){
+        listProjects().then((response) => {
+            this.projects = response.data
+            console.log(this.projects)
         }).catch((error) => {
             console.log(error)
         })
-        // .finally(() => {
-        //     this.$router.push('/');
-        // });
     }
 }
 </script>

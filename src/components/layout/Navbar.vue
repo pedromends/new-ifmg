@@ -1,5 +1,5 @@
 <template lang="">
-    <nav class="w-full relative font-opensans max-lg:hidden">
+    <nav class="w-full relative font-opensans max-lg:hidden" id="navbar">
         <router-link to="/" class="bg-white absolute right-1/2 transform translate-x-1/2 rounded-b-2xl hover:shadow-2xl transition duration-300">
             <img alt="" class="h-40 w-32 px-5 py-4" :src="require('@/assets/icons/main-logo.jpg')"/>
         </router-link>
@@ -19,9 +19,9 @@
 
         <section class="flex justify-between bg-maingreen">
             <div class="flex justify-between items-center gap-10 px-32 text-lightgray text-sm">
+                <router-link class="hover:underline" to="#">CONTATO</router-link>
                 <router-link class="hover:underline" to="#">INGRESSO</router-link>
                 <router-link class="hover:underline" to="#">NOSSOS CURSOS</router-link>
-                <router-link to="/embrapii" class="hover:underline">EMBRAPII</router-link>
             </div>
 
             <div class="flex justify-between items-center gap-5">
@@ -43,28 +43,28 @@
         
         <section class="flex justify-between items-center">
             <div class="flex text-sm text-maingray gap-5 p-4 ml-14 max-lg:p-0">
-                <NavbarLink :link="'/'" :text="'INÍCIO'" />
+                <NavbarLink :func="goHome" :link="'/'" :text="'INÍCIO'" />
                 <NavbarLink :func="aboutUs" :link="'/'" :text="'QUEM SOMOS'" />
-
-                <!-- Criar página -->
-                <NavbarLink :link="'/'" :text="'VANTAGENS'" />
-
+                <NavbarLink :func="advantages" :link="'/'" :text="'VANTAGENS'" />
                 <NavbarLink :link="'/news'" :text="'NOTÍCIAS'" />
-                <NavbarLink :func="ourClients" :link="'/'" :text="'NOSSOS CLIENTES'" />
+                <NavbarLink :func="ourClients" :link="'/'" :text="'PORTFÓLIO DE PROJETOS'" />
             </div>
-            <div class="flex text-sm text-maingray gap-5 p-2 mr-14 max-lg:p-0">
+            <div class="flex text-sm text-maingray gap-5  mr-14 max-lg:p-0 items-center">
                 <NavbarLink :link="'/researchers'" :text="'PESQUISADORES'" />
                 <NavbarLink :link="'/edicts'" :text="'EDITAIS'" />
                 <NavbarLink :link="'/docs'" :text="'DOCUMENTOS'" />
-                <NavbarLink :link="'/capacitation'" :text="'CAPACITAÇÃO'" />
-                <NavbarLink :link="'/contact'" :text="'CONTATO'" />
+                <NavbarLink :func="capacitation" :link="'/capacitation'" :text="'CAPACITAÇÃO'" />
+                <router-link to="/embrapii" class="hover:underline">
+                    <img :src="require('@/assets/icons/embrapii.png')" class="w-16" alt="">
+                </router-link>
             </div>
         </section>
     </nav>
 </template>
 
 <script>
-import NavbarLink from '@/components/html/NavbarLink.vue';
+import NavbarLink from '@/components/links/NavbarLink.vue';
+import router from '@/router/index.js'
 
 export default {
     name: 'NavBar',
@@ -74,17 +74,45 @@ export default {
     data() {
         return {
             aboutUs: () => {
-                this.$router.push({ path: '/' }).then(() => {
+                router.push({ path: '/' }).then(() => {
                     var element = document.getElementById("aboutus");
                     element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                }).finally(() => {
+                    window.location.reload();
+                });   
+            },
+            advantages: () => {
+                router.push({ path: '/' }).then(() => {
+                    var element = document.getElementById("advantages");
+                    element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                }).finally(() => {
+                    window.location.reload();
+                });   
+            },
+            capacitation: () => {
+                router.push({ path: '/' }).then(() => {
+                    var element = document.getElementById("capacitation");
+                    element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                }).finally(() => {
+                    window.location.reload();
+                });   
+            },
+            goHome: () => {
+                router.push({ path: '/' }).then(() => {
+                    var element = document.getElementById("aboutus");
+                    element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                }).finally(() => {
+                    window.location.reload();
                 });   
             },
             ourClients: () => {
-                this.$router.push({ path: '/' }).then(() => {
+                router.push({ path: '/' }).then(() => {
                     var element = document.getElementById("ourclients");
                     element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                }).finally(() => {
+                    window.location.reload();
                 });   
-            }
+            },
         }  
     },
 }

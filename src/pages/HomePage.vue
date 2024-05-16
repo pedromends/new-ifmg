@@ -3,10 +3,10 @@
     <Presenter />
     <AboutUs />
     <Advantages />
+    <News />
     <PartnerCompanies />
     <Capacitation />
     <TalentBank/>
-    <News />
     <Contact />
     <BackToTop />
   </main>
