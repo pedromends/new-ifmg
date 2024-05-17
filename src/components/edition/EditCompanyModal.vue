@@ -84,7 +84,7 @@
             <div class="grid gap-6 mb-6 grid-cols-3">
 
                 <!-- Projeto -->
-                <div id="coor-name-div" class="border-2 border-transparent p-2 rounded-lg">
+                <div id="project-name-div" class="border-2 border-transparent p-2 rounded-lg">
                     <div class="flex flex-col">
                         <label for="researchers" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Projeto:</label>
                         <button class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-blue-500 hover:text-white focus:border-red-600 block w-full p-2.5 hover:bg-maingreen" 
@@ -149,14 +149,14 @@
                 <!-- Situação -->
                 <div id="situation-div" class="border-2 border-transparent p-2 rounded-lg">
                     <label for="situation" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Situação</label>
-                    <input class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 hover:text-white focus:border-red-600 block w-full p-2.5"
+                    <input class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5"
                         v-model="newProject.situation" id="situation" placeholder="Em andamento/Em garantia/Concluído..." required />
                 </div>
 
                 <!-- Valor -->
                 <div id="value-div" class="border-2 border-transparent p-2 rounded-lg">
-                    <label for="value" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Valor</label>
-                    <input class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-blue-500 hover:text-white focus:border-red-600 block w-full p-2.5"
+                    <label for="value" class="mb-2 text-sm font-medium text-gray-900 dark:text-white">Valor</label>
+                    <input class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-red-600 w-full p-2.5"
                         v-model="newProject.value" type="number" id="value"  placeholder="" required />
                 </div>
 
@@ -207,7 +207,7 @@
             </div>
             <div class="w-full flex justify-center">
                 <button class="text-white bg-maingreen hover:bg-govblue focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm m:w-auto w-2/5 py-2.5 text-center"
-                    @click.prevent="updateCard()" type="submit" >Salvar</button>
+                    @click.prevent="updateCard()" type="submit">Salvar</button>
             </div>    
         </form>
     </section>
@@ -270,6 +270,9 @@ export default {
                     img: {
                         id: null
                     }
+                },
+                students: {
+                    id: null
                 },
                 researchers: {
                     id: null
@@ -338,44 +341,56 @@ export default {
                 this.inEditionResearchers.id = id
                 this.inEditionResearchers.name = name,
                 this.inEditionResearchers.id_img = id_img
+
                 console.log(this.inEditionResearchers)
             } else if (item == 'talents') {
                 this.inEditionStudents.id = id
                 this.inEditionStudents.name = name,
                 this.inEditionStudents.id_img = id_img
+
                 console.log(this.inEditionStudents)
             } else if (item == 'coordinator') {
                 this.inEditionCoordinator.id = id
                 this.inEditionCoordinator.name = name,
                 this.inEditionCoordinator.id_img = id_img
+
                 console.log(this.inEditionCoordinator)
             } else if(item == 'project') {
                 this.inEditionProject.id = id
                 this.inEditionProject.name = name,
                 this.inEditionProject.id_img = id_img
+
                 console.log(this.inEditionProject)
             } else {
                 this.inEditionCompany.id = id
                 this.inEditionCompany.name = name,
                 this.inEditionCompany.id_img = id_img
+
                 console.log(this.inEditionCompany)
             }
         },
         updateCard(){
-            this.newProject.id = this.inEditionCompany.id
-            this.newProject.company.id = this.inEditionCompany.id
-            this.newProject.company.img.id = this.inEditionCompany.id_img
-            this.newProject.coordinator.id = this.inEditionCoordinator.id
-            console.log(this.newProject)
+            if(this.boolNewProject){
+                // criar novo projeto
+            } else {
+                this.newProject.id = this.inEditionProject.id
+                this.newProject.company.id = this.inEditionCompany.id
+                this.newProject.company.img.id = this.inEditionCompany.id_img
+                this.newProject.coordinator.id = this.inEditionCoordinator.id
+                this.newProject.researchers.id = this.inEditionResearchers.id
+                this.newProject.students.id = this.inEditionStudents.id
+                this.newProject.name = this.inEditionProject.name
+                console.log(this.newProject)
 
-            updateProject(this.newProject).then((response) => {
-                console.log(response)
-            }).finally(() => {
-                router.push('/').then(() => {
-                    var element = document.getElementById("ourclients");
-                    element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
-                }); 
-            })
+                updateProject(this.newProject).then((response) => {
+                    console.log(response)
+                }).finally(() => {
+                    router.push('/').then(() => {
+                        var element = document.getElementById("ourclients");
+                        element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                    }); 
+                })
+            }
         },
     },
 }

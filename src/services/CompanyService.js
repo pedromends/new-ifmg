@@ -19,8 +19,7 @@ export const listCompanies = () => api.request({
 
 export const updateCompanies = (form) => api.request({
   headers: {
-    'Content-Type': 'multipart/form-data',
-    'Access-Control-Allow-Origin': '*',
+    'Content-Type': 'application/json',
   },
   method: 'put',
   url: '/company/update',
