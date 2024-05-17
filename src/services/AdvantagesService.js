@@ -19,8 +19,7 @@ export const listAdvantages = () => api.request({
 
 export const updateAdvantages = (form) => api.request({
   headers: {
-    'Content-Type': 'multipart/form-data',
-    'Access-Control-Allow-Origin': '*',
+    'Content-Type': 'application/json',
   },
   method: 'put',
   url: '/advantages/update',

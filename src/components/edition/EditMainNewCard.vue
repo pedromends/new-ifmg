@@ -68,7 +68,7 @@
 
 <script>
 import router from '@/router/index.js'
-import { createMainNew } from '@/services/MainNewService.js'
+import { updateMainNew } from '@/services/MainNewService.js'
 
 export default {
     name: 'EditAdvantagesCard',
@@ -105,7 +105,7 @@ export default {
         updateCard(){
             if(this.newMainCard.tip !== '' && this.newMainCard.title !== ''){
                 console.log(this.newMainCard)
-                createMainNew(this.newMainCard).then((response) => {
+                updateMainNew(this.newMainCard).then((response) => {
                     console.log(response)
                 }).finally(() => {
                     router.push('/').then(() => {

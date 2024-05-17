@@ -106,7 +106,7 @@
                     </div>
                 </div>  
                 <div class="w-full flex justify-center">
-                    <button type="submit" @click.prevent="updateAboutUs()" class="text-white bg-maingreen hover:bg-govblue focus:ring-2 focus:outline-none focus:ring-red-600 font-medium rounded-lg text-sm w-full sm:w-auto px-48 py-2.5 text-center">Salvar</button>
+                    <button type="submit" @click.prevent="updateCards()" class="text-white bg-maingreen hover:bg-govblue focus:ring-2 focus:outline-none focus:ring-red-600 font-medium rounded-lg text-sm w-full sm:w-auto px-48 py-2.5 text-center">Salvar</button>
                 </div>
             </form>
         </div>
@@ -115,7 +115,7 @@
 
 <script>
 import router from '@/router/index.js'
-import { createAdvantage } from '@/services/AdvantagesService.js'
+import { updateAdvantages } from '@/services/AdvantagesService.js'
 import { createImage } from '@/services/ImageService.js'
 
 export default {
@@ -130,8 +130,8 @@ export default {
                 description: '',
                 img: {
                     id: null,
-                    code: null
-                }
+                    code: ''
+                } 
             },
             newImage: {
                 id: 35,
@@ -168,7 +168,8 @@ export default {
             if(this.newAdvantages.differential !== '' && this.newAdvantages.description !== ''){
                 this.newAdvantages.id = this.currentForm
                 this.newAdvantages.img.id = this.currentForm
-                createAdvantage(this.newAdvantages).then((response) => {
+                console.log(this.newAdvantages)
+                updateAdvantages(this.newAdvantages).then((response) => {
                     console.log(response)
                     if(this.newImage.code !== undefined){
                         console.log(this.newImage)

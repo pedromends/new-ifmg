@@ -108,16 +108,15 @@
 
 <script>
 import router from '@/router/index.js'
-import { createNewsCard } from '@/services/NewsCardService.js'
+import { updateNewsCard } from '@/services/NewsCardService.js'
 
 export default {
     name: 'EditNewCard',
     data(){
         return {
             bool: false,
-            currentForm: 1,
             newCard: {
-                id: 1,
+                id: null,
                 tip: '',
                 title: '',
                 date: '',
@@ -150,10 +149,7 @@ export default {
         updateCards(){
             if(this.newCard.title !== '' && this.newCard.paragraph !== ''){
 
-                console.log(this.newCard)
-                this.newCard.id = this.currentForm
-
-                createNewsCard(this.newCard).then((response) => {
+                updateNewsCard(this.newCard).then((response) => {
                     console.log(response)
                 }).finally(() => {
                     router.push('/').then(() => {

@@ -103,7 +103,7 @@
 
 <script>
 import router from '@/router/index.js'
-import { createCapacitation } from '@/services/CapacitationService.js';
+import { updateCapacitation } from '@/services/CapacitationService.js';
 
 export default {
     name: 'EditCapacitation',
@@ -129,7 +129,7 @@ export default {
             this.bool = !this.bool
         },
         changeForm(id, id_img){
-            this.currentForm = id
+            this.capacitationCard.id = id
             this.capacitationCard.img.id = id_img
         },
         onImageChange(e){
@@ -143,7 +143,7 @@ export default {
         updateCard(){
             if(this.capacitationCard.title !== '' && this.capacitationCard.subtitle !== ''){
                 console.log(this.capacitationCard)
-                createCapacitation(this.capacitationCard).then((response) => {
+                updateCapacitation(this.capacitationCard).then((response) => {
                     console.log(response)
                 }).finally(() => {
                     router.push('/').then(() => {

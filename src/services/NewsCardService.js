@@ -19,8 +19,7 @@ export const listNewsCard = () => api.request({
 
 export const updateNewsCard = (form) => api.request({
   headers: {
-    'Content-Type': 'multipart/form-data',
-    'Access-Control-Allow-Origin': '*',
+    'Content-Type': 'application/json',
   },
   method: 'put',
   url: '/news-card/update',

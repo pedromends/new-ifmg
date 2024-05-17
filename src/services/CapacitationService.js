@@ -19,8 +19,7 @@ export const listCapacitation = () => api.request({
 
 export const updateCapacitation = (form) => api.request({
   headers: {
-    'Content-Type': 'multipart/form-data',
-    'Access-Control-Allow-Origin': '*',
+    'Content-Type': 'application/json',
   },
   method: 'put',
   url: '/capacitation/update',

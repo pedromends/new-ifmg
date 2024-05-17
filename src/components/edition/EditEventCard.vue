@@ -91,7 +91,7 @@
 
 <script>
 import router from '@/router/index.js';
-import { createEvent } from '@/services/EventService.js';
+import { updateEvent } from '@/services/EventService.js';
 
 export default {
     name: 'EditNewCard',
@@ -116,7 +116,7 @@ export default {
         },
         updateCard(){
             this.newEventCard.id = this.cardToUpdate
-            createEvent(this.newEventCard).then((response) => {
+            updateEvent(this.newEventCard).then((response) => {
                 console.log(response)
             }).finally(() => {
                 router.push('/').then(() => {

@@ -19,8 +19,7 @@ export const listEvents = () => api.request({
 
 export const updateEvent = (form) => api.request({
   headers: {
-    'Content-Type': 'multipart/form-data',
-    'Access-Control-Allow-Origin': '*',
+    'Content-Type': 'application/json',
   },
   method: 'put',
   url: '/event/update',

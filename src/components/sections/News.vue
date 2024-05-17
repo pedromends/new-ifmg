@@ -50,6 +50,7 @@ export default {
     mounted(){
         listNewsCard().then((response) => {
             this.smallnews = response.data
+            console.log(response.data)
         }).catch((error) => {
             console.log(error)
         })

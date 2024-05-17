@@ -78,116 +78,132 @@
                 </div>
             </section>
         </div>
+
+        <!-- Formulário -->
         <form class="bg-white p-10 rounded-lg">
             <div class="grid gap-6 mb-6 grid-cols-3">
-                <div id="company-name-div" class="border-2 border-transparent p-2 rounded-lg">
+
+                <!-- Projeto -->
+                <div id="coor-name-div" class="border-2 border-transparent p-2 rounded-lg">
                     <div class="flex flex-col">
-                        <label for="researchers" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Empresa:</label>
-                        <button class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 hover:text-white focus:border-red-600 block w-full p-2.5 hover:bg-maingreen" 
-                            id="modalityButton" data-dropdown-toggle="dropdown1" type="button">
-                            {{ inEditionCompany.name }}
+                        <label for="researchers" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Projeto:</label>
+                        <button class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-blue-500 hover:text-white focus:border-red-600 block w-full p-2.5 hover:bg-maingreen" 
+                            id="modalityButton" data-dropdown-toggle="dropdown5" type="button">
+                            {{ inEditionProject.name }}
                         </button>
                             
-                        <!-- Dropdown menu -->
-                        <div id="dropdown1" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700">
+                        <div id="dropdown5" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden">
                             <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="modalityButton">
-                                <li v-for="(company, i) in companies" :key="i" @click="setCompany(company.id, company.name, company.image.id)">
-                                    <input href="#" class="block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer "
-                                    readonly="readonly" :value="company.name"/>
+                                <li @click="boolNewProject == true">
+                                    <input href="#" class="w-84 block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer"
+                                        readonly="readonly" value="-- Novo --"/>
+                                </li>
+                                <li v-for="(project, i) in projects" :key="i" @click="setItem('project', project.id, project.name, project.company.img.id)">
+                                    <input href="#" class="w-84 block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer"
+                                        readonly="readonly" :value="project.name "/>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
-                <div id="project-name-div" class="border-2 border-transparent p-2 rounded-lg">
-                    <label for="project_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nome do Projeto</label>
-                    <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 hover:text-white focus:border-red-600 block w-full p-2.5"
-                        v-model="newProject.name" type="text" id="project_name" placeholder="Doe" required />
-                </div>  
+                
+                <!-- Empresa-->
+                <div id="company-name-div" class="border-2 border-transparent p-2 rounded-lg">
+                    <div class="flex flex-col">
+                        <label for="researchers" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Empresa:</label>
+                        <button class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-blue-500 hover:text-white focus:border-red-600 block w-full p-2.5 hover:bg-maingreen" 
+                            id="modalityButton" data-dropdown-toggle="dropdown1" type="button">
+                            {{ inEditionCompany.name }}
+                        </button>
+
+                        <div id="dropdown1" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden">
+                            <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="modalityButton">
+                                <li v-for="(company, i) in companies" :key="i" @click="setItem('company', company.id, company.name, company.image.id)">
+                                    <input href="#" class="w-84 block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer "
+                                        readonly="readonly" :value="company.name"/>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Coordenador -->
                 <div id="coor-name-div" class="border-2 border-transparent p-2 rounded-lg">
                     <div class="flex flex-col">
                         <label for="researchers" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Coordenador:</label>
-                        <button class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 hover:text-white focus:border-red-600 block w-full p-2.5 hover:bg-maingreen" 
+                        <button class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-blue-500 hover:text-white focus:border-red-600 block w-full p-2.5 hover:bg-maingreen" 
                             id="modalityButton" data-dropdown-toggle="dropdown2" type="button">
                             {{ inEditionCoordinator.name }}
                         </button>
                             
-                        <!-- Dropdown menu -->
-                        <div id="dropdown2" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700">
+                        <div id="dropdown2" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden">
                             <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="modalityButton">
-                                <li v-for="(researcher, i) in researchers" :key="i" @click="setCurrentCoordinator(researcher.id, researcher.firstName + ' ' + researcher.lastName, researcher.img.id)">
-                                    <input href="#" class="block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer" readonly="readonly" :value="researcher.firstName + ' ' + researcher.lastName "/>
+                                <li v-for="(researcher, i) in researchers" :key="i" @click="setItem('coordinator', researcher.id, researcher.firstName + ' ' + researcher.lastName, researcher.img.id)">
+                                    <input href="#" class="w-84 block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer" readonly="readonly" :value="researcher.firstName + ' ' + researcher.lastName "/>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
+
+                <!-- Situação -->
                 <div id="situation-div" class="border-2 border-transparent p-2 rounded-lg">
                     <label for="situation" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Situação</label>
-                    <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 hover:text-white focus:border-red-600 block w-full p-2.5 hover:bg-maingreen"
-                        v-model="newProject.situation" id="situation" placeholder="flowbite.com" required />
+                    <input class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 hover:text-white focus:border-red-600 block w-full p-2.5"
+                        v-model="newProject.situation" id="situation" placeholder="Em andamento/Em garantia/Concluído..." required />
                 </div>
+
+                <!-- Valor -->
                 <div id="value-div" class="border-2 border-transparent p-2 rounded-lg">
                     <label for="value" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Valor</label>
-                    <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 hover:text-white focus:border-red-600 block w-full p-2.5"
+                    <input class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-blue-500 hover:text-white focus:border-red-600 block w-full p-2.5"
                         v-model="newProject.value" type="number" id="value"  placeholder="" required />
                 </div>
-                <!-- <div id="link-div" class="border-2 border-transparent p-2 rounded-lg">
-                    <label for="link" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Link</label>
-                    <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 hover:text-white focus:border-red-600 block w-full p-2.5 hover:bg-maingreen"
-                        v-model="newProject.link" type="number" id="link" placeholder="" required />
-                </div> -->
+
+                <!-- Pesquisadores -->
                 <div id="researchers-div" class="border-2 border-transparent p-2 rounded-lg">
                     <div class="flex flex-col">
                         <label for="researchers" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Pesquisadores:</label>
-                        <button class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 hover:text-white focus:border-red-600 block w-full p-2.5 hover:bg-maingreen" 
+                        <button class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-blue-500 hover:text-white focus:border-red-600 block w-full p-2.5 hover:bg-maingreen" 
                             id="modalityButton" data-dropdown-toggle="dropdown3" type="button">
                             {{ inEditionResearchers.name }}
                         </button>
                             
-                        <!-- Dropdown menu -->
-                        <div id="dropdown3" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700">
+                        <div id="dropdown3" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden">
                             <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="modalityButton">
-                                <li v-for="(researcher, i) in researchers" :key="i" @click="setCurrentResearchers(researcher.id, researcher.firstName + ' ' + researcher.lastName, researcher.img.id)">
-                                    <input href="#" class="block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer" readonly="readonly" :value="researcher.firstName + ' ' + researcher.lastName "/>
+                                <li v-for="(researcher, i) in researchers" :key="i" @click="setItem('researcher', researcher.id, researcher.firstName + ' ' + researcher.lastName, researcher.img.id)">
+                                    <input href="#" class="w-84 block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer" readonly="readonly" :value="researcher.firstName + ' ' + researcher.lastName "/>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
+
+                <!-- Alunos -->
                 <div id="students-div" class="border-2 border-transparent p-2 rounded-lg">
                     <div class="flex flex-col">
                         <label for="researchers" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Alunos:</label>
-                        <button class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 hover:text-white focus:border-red-600 block w-full p-2.5 hover:bg-maingreen" 
+                        <button class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-blue-500 hover:text-white focus:border-red-600 block w-full p-2.5 hover:bg-maingreen" 
                             id="modalityButton" data-dropdown-toggle="dropdown4" type="button">
                             {{ inEditionStudents.name }}
                         </button>
                             
-                        <!-- Dropdown menu -->
-                        <div id="dropdown4" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700">
+                        <div id="dropdown4" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden">
                             <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="modalityButton">
-                                <li v-for="(talent, i) in talents" :key="i" @click="setTalents(talent.id, talent.name, talent.img.id)">
-                                    <input href="#" class="block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer" readonly="readonly" :value="talent.name"/>
+                                <li v-for="(talent, i) in talents" :key="i" @click="setItem('talents', talent.id, talent.name, talent.img.id)">
+                                    <input href="#" class="w-84 block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer" readonly="readonly" :value="talent.name"/>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
-                <!-- <label class="inline-flex items-center cursor-pointer">
-                    <input v-model="boolSaibaMais" type="checkbox" value="" class="sr-only peer">
-                    <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-                    <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">Liga/Desliga 'Saiba Mais'</span>
-                </label> -->
+
+                <!-- Sobre o Projeto -->
                 <div id="about-project-div" class="border-2 border-transparent p-2 rounded-lg">
                     <label for="project_resume" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Sobre o projeto</label>
-                    <textarea id="project_resume" rows="10" cols="50" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-red-600"
+                    <textarea id="project_resume" rows="10" cols="50" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border focus:ring-blue-500 focus:border-red-600"
                         v-model="newProject.resume" placeholder="Escreva sobre o projeto aqui..."></textarea>
-                </div>
-                <label class="flex flex-col gap-5 items-center cursor-pointer">
-                    <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">Novo Projeto ?</span>
-                    <input v-model="newProjectBool" type="checkbox" value="" class="sr-only peer">
-                    <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-maingray rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-red-600"></div>
-                </label>              
+                </div>           
             </div>
             <div class="w-full flex justify-center">
                 <button class="text-white bg-maingreen hover:bg-govblue focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm m:w-auto w-2/5 py-2.5 text-center"
@@ -210,7 +226,7 @@ export default {
     name: 'EditNewCard',
     data(){
         return {
-            newProjectBool: false,
+            boolNewProject: false,
             bool: false,
             boolSaibaMais: true,
             companies: null,
@@ -218,27 +234,6 @@ export default {
             modalities: null,
             researchers: null,
             projects: null,
-            newProject: {
-                modality:{
-                    id:1
-                },
-                coordinator: {
-                    id: null
-                },
-                company: {
-                    id: null,
-                    img: {
-                        id: null
-                    }
-                },
-                name: '',
-                resume: '',
-                situation: '',
-                value: '',
-                researchers: {
-                    id: null
-                }
-            },
             inEditionCompany:{
                 id: null,
                 name: 'Selecione uma Empresa',
@@ -259,30 +254,68 @@ export default {
                 name: 'Selecione os Alunos',
                 id_img: null
             },
+            inEditionProject:{
+                id: null,
+                name: 'Selecione o Projeto',
+            },
+            newProject: {
+                modality:{
+                    id: 1
+                },
+                coordinator: {
+                    id: null
+                },
+                company: {
+                    id: null,
+                    img: {
+                        id: null
+                    }
+                },
+                researchers: {
+                    id: null
+                },
+                name: '',
+                resume: '',
+                situation: '',
+                value: ''
+            }
         }
     },
     created(){
         listCompanies().then((response) => {
             this.companies = response.data
-            listModalities().then((response)=>{
+            console.log(this.companies)
+            
+            listModalities().then((response) => {
                 this.modalities = response.data
-            }).then(() => {
-                listResearchers().then((response)=>{
+                console.log(this.modalities)
+
+                listResearchers().then((response) => {
                     this.researchers = response.data
                     console.log(this.researchers)
+
                     listProjects().then((response) => {
                         this.projects = response.data
+                        console.log(this.projects)
+
                         getTalents().then((response) => {
                             this.talents = response.data
                             console.log(this.talents)
+
                         }).catch((error) => {
                             console.log(error)
                         })
                     }).catch((error) => {
                         console.log(error)
                     })
+                }).catch((error) => {
+                    console.log(error)
                 })
+            }).catch((error) => {
+                console.log(error)
             })
+        }).catch((error) => {
+            console.log(error)
         })
     },
     methods: {
@@ -290,12 +323,6 @@ export default {
             let target = document.getElementById(div);
             this.bool ? target.style.borderColor = 'transparent' : target.style.borderColor = 'red'
             this.bool = !this.bool
-        },
-        setCurrentCoordinator(id, name, id_img){
-            this.inEditionCoordinator.id = id
-            this.inEditionCoordinator.name = name,
-            this.inEditionCoordinator.id_img = id_img
-            console.log(this.inEditionCoordinator)
         },
         onImageChange(e){
             const image = e.target.files[0];
@@ -305,36 +332,45 @@ export default {
                 this.newResearcher.img.code = e.target.result;
             };
         },
-        setCurrentResearchers(id, name, id_img){
-            this.inEditionResearchers.id = id
-            this.inEditionResearchers.name = name,
-            this.inEditionResearchers.id_img = id_img
-            console.log(this.inEditionResearchers)
-        },
-        setTalents(id, name, id_img){
-            this.inEditionStudents.id = id
-            this.inEditionStudents.name = name,
-            this.inEditionStudents.id_img = id_img
-            console.log(this.inEditionStudents)
-        },
-        setCompany(id, name, id_img){
-            this.inEditionCompany.id = id
-            this.inEditionCompany.name = name,
-            this.inEditionCompany.id_img = id_img
-            console.log(this.inEditionCompany)
+        setItem(item, id, name, id_img){
+
+            if (item == 'researcher') {
+                this.inEditionResearchers.id = id
+                this.inEditionResearchers.name = name,
+                this.inEditionResearchers.id_img = id_img
+                console.log(this.inEditionResearchers)
+            } else if (item == 'talents') {
+                this.inEditionStudents.id = id
+                this.inEditionStudents.name = name,
+                this.inEditionStudents.id_img = id_img
+                console.log(this.inEditionStudents)
+            } else if (item == 'coordinator') {
+                this.inEditionCoordinator.id = id
+                this.inEditionCoordinator.name = name,
+                this.inEditionCoordinator.id_img = id_img
+                console.log(this.inEditionCoordinator)
+            } else if(item == 'project') {
+                this.inEditionProject.id = id
+                this.inEditionProject.name = name,
+                this.inEditionProject.id_img = id_img
+                console.log(this.inEditionProject)
+            } else {
+                this.inEditionCompany.id = id
+                this.inEditionCompany.name = name,
+                this.inEditionCompany.id_img = id_img
+                console.log(this.inEditionCompany)
+            }
         },
         updateCard(){
             this.newProject.id = this.inEditionCompany.id
             this.newProject.company.id = this.inEditionCompany.id
             this.newProject.company.img.id = this.inEditionCompany.id_img
-
             this.newProject.coordinator.id = this.inEditionCoordinator.id
-
             console.log(this.newProject)
+
             updateProject(this.newProject).then((response) => {
                 console.log(response)
-            })
-            .finally(() => {
+            }).finally(() => {
                 router.push('/').then(() => {
                     var element = document.getElementById("ourclients");
                     element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
