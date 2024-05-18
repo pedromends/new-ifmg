@@ -19,8 +19,7 @@ export const getTalents = () => api.request({
 
 export const updateTalent = (form) => api.request({
   headers: {
-    'Content-Type': 'multipart/form-data',
-    'Access-Control-Allow-Origin': '*',
+    'Content-Type': 'application/json',
   },
   method: 'put',
   url: '/talent/update',

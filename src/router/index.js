@@ -18,7 +18,7 @@ import EditNewCard from "@/components/edition/EditNewCard.vue";
 import EditResearcherCard from "@/components/edition/EditResearcherCard.vue";
 import EditTalentCard from "@/components/edition/EditTalentCard.vue";
 import EditAdvantagesCard from "@/components/edition/EditAdvantagesCard.vue";
-import EditCompanyModal from "@/components/edition/EditCompanyModal.vue";
+import EditProjectModal from "@/components/edition/EditProjectModal.vue";
 import EditCapacitationCard from "@/components/edition/EditCapacitationCard.vue";
 import EditAboutUs from "@/components/edition/EditAboutUs.vue";
 import EditCompany from "@/components/edition/EditCompany.vue";
@@ -108,9 +108,9 @@ const routes = [
         component: EditAdvantagesCard
       },
       {
-        path: "/edit/company-modal",
-        name: 'EditCompanyModal',
-        component: EditCompanyModal
+        path: "/edit/project-modal",
+        name: 'EditProjectModal',
+        component: EditProjectModal
       },
       {
         path: "/edit/capacitation-card",

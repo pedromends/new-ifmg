@@ -1,8 +1,8 @@
 <template lang="">
     <section class="flex flex-col justify-center bg-lightgray gap-10">
-        <div role="status" class="flex gap-24 relative justify-center items-center">
+        <div role="status" class="flex gap-24 relative justify-center items-center mt-10">
             <div class="absolute left-4 flex flex-col gap-5">
-                <p>Em edição:</p>
+                <p class="font-bold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen self-start mt-5 mb-10">Em edição:</p>
                 <button class="text-maingray bg-white hover:bg-maingreen hover:text-white focus:ring-4 focus:outline-none focus:ring-red-600 font-medium rounded-lg text-sm text-center flex items-center p-4 transition duration-200" 
                     id="dropdownDefaultButton" data-dropdown-toggle="dropdown" type="button">
                     {{ inEdition.name }}
@@ -34,7 +34,9 @@
                 <div @mouseover="onOffEffect('phrase-div')" @mouseleave="onOffEffect('phrase-div')" class="h-1.5 bg-black rounded-full w-28 border border-transparent hover:border-red-700"></div>
             </div>
         </div>
-        <form class="bg-white p-10 rounded-lg">
+
+        <!-- Formulário -->
+        <form class="bg-white p-10 rounded-lg mb-10">
             <div class="grid gap-6 mb-6 md:grid-cols-2">
                 <div id="name-div" class="border-2 border-transparent p-2 rounded-lg">
                     <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nome</label>
@@ -58,15 +60,15 @@
                     <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG, JPG or GIF (MAX. 800x400px).</p>
                 </div>
             </div>
-            <button class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
-                type="submit" @click.prevent="updateCard()">Salvar</button>          
+            <button class="text-white bg-maingreen hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-36 py-2.5 text-center"
+                @click.prevent="updateCard()" type="submit">Salvar</button>       
         </form>
     </section>
 </template>
 
 <script>
 import router from '@/router/index.js'
-import { createTalent, getTalents } from '@/services/TalentService.js';
+import { updateTalent, getTalents } from '@/services/TalentService.js';
 
 export default {
     name: 'EditnewTalent',
@@ -106,6 +108,7 @@ export default {
             this.inEdition.id = id
             this.inEdition.name = name,
             this.inEdition.id_img = id_img
+            console.log(this.inEdition)
         },
         onImageChange(e){
             const image = e.target.files[0];
@@ -120,8 +123,9 @@ export default {
 
                 this.newTalent.id = this.inEdition.id
                 this.newTalent.img.id = this.inEdition.id_img
+                console.log(this.newTalent)
 
-                createTalent(this.newTalent).then((response) => {
+                updateTalent(this.newTalent).then((response) => {
                     console.log(response)
                 }).finally(() => {
                     router.push('/').then(() => {

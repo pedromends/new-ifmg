@@ -1,5 +1,6 @@
 <template lang="">
-    <section class="flex flex-col justify-center gap-10">
+    <section class="flex flex-col justify-center gap-4">
+        <p class="font-bold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen self-start mt-5">Notícia Principal</p>
         <div role="status" class="pt-5 animate-pulse">
 
             <!-- Esqueleto do componente -->
@@ -31,7 +32,7 @@
         </div>
 
         <!-- Formulário-->
-        <form class="bg-white p-10 rounded-lg">
+        <form class="bg-white p-10 rounded-lg mb-10">
             <div class="flex justify-center gap-10 mb-6">
                 <div class="flex flex-col gap-5">
                     <div id="tip-div" class="border-2 border-transparent p-2 rounded-lg">

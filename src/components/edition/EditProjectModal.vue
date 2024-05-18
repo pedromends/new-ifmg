@@ -1,7 +1,7 @@
 <template lang="">
     <section class="flex flex-col justify-center bg-lightgray gap-10">
         <div role="status" class="animate-pulse">
-            <section class="flex justify-center gap-10 items-center">
+            <section class="flex justify-center gap-10 items-center mt-10">
 
                 <!-- Modal -->
                 <div class="relative p-4 w-full max-w-2xl max-h-full">
@@ -80,7 +80,7 @@
         </div>
 
         <!-- Formulário -->
-        <form class="bg-white p-10 rounded-lg">
+        <form class="bg-white p-10 rounded-lg mb-10">
             <div class="grid gap-6 mb-6 grid-cols-3">
 
                 <!-- Projeto -->
@@ -199,7 +199,7 @@
                 </div>
 
                 <!-- Sobre o Projeto -->
-                <div id="about-project-div" class="border-2 border-transparent p-2 rounded-lg">
+                <div id="about-project-div" class="border-2 border-transparent p-2 rounded-lg col-span-2">
                     <label for="project_resume" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Sobre o projeto</label>
                     <textarea id="project_resume" rows="10" cols="50" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border focus:ring-blue-500 focus:border-red-600"
                         v-model="newProject.resume" placeholder="Escreva sobre o projeto aqui..."></textarea>
@@ -223,7 +223,7 @@ import { listProjects, updateProject } from '@/services/ProjectService';
 import { getTalents } from '@/services/TalentService.js'
 
 export default {
-    name: 'EditNewCard',
+    name: 'EditProjectModal',
     data(){
         return {
             boolNewProject: false,

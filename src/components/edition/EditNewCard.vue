@@ -1,7 +1,7 @@
 <template lang="">
-    <section class="flex flex-col justify-center bg-lightgray gap-10">
-        <div role="status" class="pt-5 ">
-            <p class="font-bold text-lg underline underline-offset-2 decoration-4 decoration-maingreen mb-10">Card {{ newCard.id }}</p>
+    <section class="flex flex-col justify-center bg-lightgray gap-10 mb-10">
+        <div role="status" class="pt-5">
+            <p class="font-bold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen self-start mt-5 mb-10">Notícias Secundárias</p>
 
             <!-- Sequência de Cards -->
             <section class="flex gap-3 animate-pulse">
@@ -73,27 +73,27 @@
         <form class="bg-white p-10 rounded-lg">
             <div class="grid gap-6 mb-6 grid-cols-3">
                 <div id="tip-div" class="border-2 border-transparent p-2">
-                    <label for="tip" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Dica</label>
+                    <label for="tip" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Dica {{ currentCard }}</label>
                     <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" 
                         type="text" id="tip" placeholder="Ex: Posse da Diretoria..." v-model="newCard.tip" required />
                 </div>
                 <div id="title-div" class="border-2 border-transparent p-2">
-                    <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Título</label>
+                    <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Título {{ currentCard }}</label>
                     <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" 
                         type="text" id="title" placeholder="Ex: Polo IFMG inicia nova direção..." v-model="newCard.title" required />
                 </div>
                 <div id="date-div" class="border-2 border-transparent p-2">
-                    <label for="date" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Data</label>
+                    <label for="date" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Data Card {{ currentCard }}</label>
                     <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" 
                         type="text" id="date" placeholder="14 de Dezembro..." v-model="newCard.date" required />
                 </div>  
                 <div id="readtime-div" class="border-2 border-transparent p-2">
-                    <label for="read_time" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tempo de Leitura</label>
+                    <label for="read_time" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tempo de Leitura {{ currentCard }}</label>
                     <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" 
                         type="tel" id="read_time" placeholder="3 minutos..." v-model="newCard.read" required />
                 </div>
                 <div id="image-div" class="border-2 border-transparent p-2">
-                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Imagem de Capa</label>
+                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Imagem do Card {{ currentCard }}</label>
                     <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none"
                         aria-describedby="file_input_help" id="file_input" type="file" @change="onImageChange($event)"/>
                     <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG, JPG or GIF (MAX. 800x400px).</p>
@@ -115,6 +115,7 @@ export default {
     data(){
         return {
             bool: false,
+            currentCard: null,
             newCard: {
                 id: null,
                 tip: '',
@@ -137,6 +138,7 @@ export default {
         changeForm(id, id_img){
             this.newCard.id = id
             this.newCard.img.id = id_img
+            this.currentCard = id
         },
         onImageChange(e){
             const image = e.target.files[0];

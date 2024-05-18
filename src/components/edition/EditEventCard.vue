@@ -1,5 +1,5 @@
 <template lang="">
-    <section class="flex justify-center bg-lightgray gap-10">
+    <section class="flex justify-center bg-lightgray gap-10 my-10">
         <div role="status" class="max-w-sm animate-pulse self-center flex flex-col gap-3">
             <div @mouseover="setCard(1)" class="flex justify-between shadow-lg shadow-transparent hover:shadow-red-600 items-center gap-5 rounded-lg px-3 py-2 transition duration-300 bg-white pt-5">
                 <div class="flex flex-col justify-center items-center">
@@ -54,8 +54,9 @@
                 </div>
             </div>
         </div>
-        <form class="bg-white p-10 rounded-lg">
-            <p class="font-bold text-lg underline underline-offset-2 decoration-4 decoration-maingreen self-start mb-10">Card {{ cardToUpdate }}</p>
+        <form class="bg-white px-10 rounded-lg">
+            <p class="font-bold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen self-start mt-8 mb-5">Cards de Eventos</p>
+            <p class="font-bold text-lg underline underline-offset-2 decoration-2 decoration-maingreen self-start mt-8 mb-5">Card {{ cardToUpdate }}</p>
             <div class="grid gap-6 mb-6 md:grid-cols-2">
                 <div id="day-div" class="border-2 border-transparent p-2 rounded-lg">
                     <label for="day" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Dia:</label>
@@ -83,7 +84,7 @@
                         type="url" id="local" v-model="newEventCard.local" placeholder="Auditório Principal..." required />
                 </div>
             </div>
-            <button class="text-white bg-maingreen hover:bg-govblue focus:ring-4 focus:outline-none focus:ring-main-700 font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center transition duration-200"
+            <button class="text-white bg-maingreen hover:bg-govblue focus:ring-4 focus:outline-none focus:ring-main-700 font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center transition duration-200 mb-10"
                 type="submit" @click.prevent="updateCard()">Salvar</button>
         </form>
     </section>

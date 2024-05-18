@@ -8,10 +8,10 @@
                         <router-link to="/edit/presenter-card" class="transition duration-200 hover:bg-maingreen px-3 py-1 rounded-lg text-maingreen hover:text-white">Cards de Apresentação</router-link>
                         <router-link to="/edit/about-us" class="transition duration-200 hover:bg-maingreen px-3 py-1 rounded-lg text-maingreen hover:text-white">Sobre Nós</router-link>
                         <router-link to="/edit/advantages-card" class="transition duration-200 hover:bg-maingreen px-3 py-1 rounded-lg text-maingreen hover:text-white">Cards de Vantagens</router-link>
-                        <router-link to="/edit/main-new" class="transition duration-200 hover:bg-maingreen px-3 py-1 rounded-lg text-maingreen hover:text-white">Manchete</router-link>
+                        <router-link to="/edit/main-new" class="transition duration-200 hover:bg-maingreen px-3 py-1 rounded-lg text-maingreen hover:text-white">Notícia Principal</router-link>
                         <router-link to="/edit/news-card" class="transition duration-200 hover:bg-maingreen px-3 py-1 rounded-lg text-maingreen hover:text-white">Notícias Secundárias</router-link>
                         <router-link to="/edit/event-card" class="transition duration-200 hover:bg-maingreen px-3 py-1 rounded-lg text-maingreen hover:text-white">Cards de Eventos</router-link>
-                        <router-link to="/edit/company-modal" class="transition duration-200 hover:bg-maingreen px-3 py-1 rounded-lg text-maingreen hover:text-white">Projetos</router-link>
+                        <router-link to="/edit/project-modal" class="transition duration-200 hover:bg-maingreen px-3 py-1 rounded-lg text-maingreen hover:text-white">Projetos</router-link>
                         <router-link to="/edit/capacitation-card" class="transition duration-200 hover:bg-maingreen px-3 py-1 rounded-lg text-maingreen hover:text-white">Card de Capacitação</router-link>
                         <router-link to="/edit/talent-card" class="transition duration-200 hover:bg-maingreen px-3 py-1 rounded-lg text-maingreen hover:text-white">Cards Linked-In</router-link>
                         <router-link to="/edit/researcher" class="transition duration-200 hover:bg-maingreen px-3 py-1 rounded-lg text-maingreen hover:text-white">Editar Pesquisador</router-link>

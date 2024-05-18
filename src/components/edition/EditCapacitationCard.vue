@@ -1,7 +1,9 @@
 <template lang="">
-    <section class="flex flex-col justify-center bg-lightgray gap-10">
-        <p class="font-bold text-lg underline underline-offset-2 decoration-4 decoration-maingreen self-start ml-6">Card {{ currentForm }}</p>
-        <div role="status" class="animate-pulse flex gap-5">
+    <section class="flex flex-col justify-center bg-lightgray gap-10 my-10">
+        <p class="font-bold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen self-start ml-6">Cards de Capacitação</p>
+
+        <!-- Box dos Cards-->
+        <div role="status" class="animate-pulse flex gap-1">
             <div @mouseover="changeForm(1, 4)" class="shadow-lg shadow-transparent hover:shadow-red-600 transition duration-200 hover:text-black hover:bg-white flex flex-col gap-3 px-8 py-8 rounded-3xl border-2 border-white bg-maingreen">
                 <div @mouseover="onOffEffect('image-div')" @mouseleave="onOffEffect('image-div')" class="flex justify-between items-center ">
                     <svg class="w-8 h-8 text-gray-200 effect-1 border border-transparent hover:border-red-700 rounded-lg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
@@ -71,6 +73,8 @@
                 <a class="text-xs flex items-center gap-2 font-semibold bg-no-repeat hover:underline text-white effect-1" href="#">Explorar -> <div class="w-5 h-5"/></a>
             </div>
         </div>
+
+        <!-- Formulário -->
         <form class="bg-white p-10 rounded-lg">
             <div class="grid gap-6 mb-6 grid-cols-2">
                 <div id="title-div" class="border-2 border-transparent p-2 rounded-lg">
