@@ -2,8 +2,8 @@
     <section class="flex flex-col justify-center bg-lightgray gap-10">
         <div role="status" class="flex gap-24 relative justify-center items-center mt-10">
             <div class="absolute left-4 flex flex-col gap-5">
-                <p class="font-bold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen self-start mt-5 mb-10">Editar Talentos</p>
-                <button class="text-maingray bg-white hover:bg-maingreen hover:text-white focus:ring-4 focus:outline-none focus:ring-red-600 font-medium rounded-lg text-sm text-center flex items-center p-4 transition duration-200" 
+                <p class="font-bold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen self-start mt-5 mb-10">Cards de Talentos</p>
+                <button class="text-maingray bg-white hover:bg-maingreen hover:text-white focus:ring-4 focus:outline-none focus:ring-red-600 font-medium rounded-xl text-sm text-center py-3 transition duration-200" 
                     id="dropdownDefaultButton" data-dropdown-toggle="dropdown" type="button">
                     {{ inEdition.name }}
                 </button>
@@ -17,7 +17,8 @@
                     </ul>
                 </div>
             </div>
-    
+            
+            <!-- Esqueleto do Card -->
             <div class="transition duration-300 shadow-lg bg-white flex flex-col gap-5 rounded-3xl border-2 border-white p-3 px-10 hover:shadow-md hover:shadow-red-600 z-20 animate-pulse">
                 <div class="flex justify-between items-start gap-24">
                     <div @mouseover="onOffEffect('image-div')" @mouseleave="onOffEffect('image-div')" alt="Polo IFMG" class="h-16 rounded-lg border border-maingreen flex items-center px-5 border-transparent hover:border-red-700">
@@ -40,17 +41,17 @@
             <div class="grid gap-6 mb-6 md:grid-cols-2">
                 <div id="name-div" class="border-2 border-transparent p-2 rounded-lg">
                     <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nome</label>
-                    <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" 
+                    <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5" 
                         v-model="newTalent.name" type="text" id="name" placeholder="Paloma..." required />
                 </div>
                 <div id="profession-div" class="border-2 border-transparent p-2 rounded-lg">
                     <label for="profession" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Profissão</label>
-                    <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" 
+                    <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5" 
                         v-model="newTalent.profession" type="text" id="profession" placeholder="Professora...." required />
                 </div>
                 <div id="phrase-div" class="border-2 border-transparent p-2 rounded-lg">
                     <label for="phrase" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Detalhes</label>
-                    <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5"
                         v-model="newTalent.details" type="text" id="phrase" placeholder="Lorem ipsum...." required />
                 </div>
                 <div id="image-div" class="border-2 border-transparent p-2 rounded-lg">
@@ -60,8 +61,10 @@
                     <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG, JPG or GIF (MAX. 800x400px).</p>
                 </div>
             </div>
-            <button class="text-white bg-maingreen hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-36 py-2.5 text-center"
-                @click.prevent="updateCard()" type="submit">Salvar</button>       
+            <div class="w-full flex justify-center">
+                <button class="text-white bg-maingreen hover:bg-govblue focus:ring-4 focus:outline-none focus:ring-main-700 font-medium rounded-lg text-sm w-2/5 px-5 py-2.5 text-center transition duration-200"
+                type="submit" @click.prevent="updateCard()">Salvar</button>
+            </div>    
         </form>
     </section>
 </template>

@@ -45,7 +45,7 @@
                             type="number" id="number" placeholder="45+, 10+, 20+ etc..." required v-model="newCard.num"/>
                     </div>
                     <div id="name-div" class="border border-transparent rounded-lg p-2">
-                        <label for="last_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Característica Card {{ cardToUpdate }}</label>
+                        <label for="last_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Texto Card {{ cardToUpdate }}</label>
                         <input class="bg-gray-50 border border-gray-300 text-gray-900 focus:ring-red-600 focus:ring-2 text-sm rounded-lg w-full p-2.5"
                             type="text" id="last_name" placeholder="Projetos Publicados, Empresas Parceiras....." required v-model="newCard.text"/>
                     </div>

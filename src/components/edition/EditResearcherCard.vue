@@ -1,7 +1,7 @@
 <template lang="">
     <section class="flex justify-center bg-lightgray gap-10 my-10 mx-5">
         <div role="status" class="flex flex-col items-center gap-10">
-            <p class="font-bold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen self-start mt-5 mb-10">Editar Pesquisador</p>
+            <p class="font-bold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen self-start mt-5 mb-10">Editar Pesquisadores</p>
 
             <!-- Card Modelo -->
             <section class="hover:shadow-lg transition duration-300 rounded-lg border border-gray-200 bg-white">
@@ -43,39 +43,40 @@
                 </div>
             </div>
         </div>
-        <form class="bg-white p-10 rounded-lg">
+        <form class="bg-white p-10 rounded-2xl">
             <div class="grid gap-6 mb-6 md:grid-cols-2">
 
                 <!-- Nome -->
                 <div id="name-div" class="border-2 border-transparent p-2 rounded-lg">
                     <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nome</label>
-                    <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5"
                         v-model="newResearcher.firstName" type="text" id="name" required />
                 </div>
 
                 <!-- Sobrenome -->
                 <div id="lastname-div" class="border-2 border-transparent p-2 rounded-lg">
                     <label for="lastname" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Sobrenome</label>
-                    <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5"
                         v-model="newResearcher.lastName" type="text" id="lastname" required />
                 </div>
 
                 <!-- Curso -->
                 <div id="course-div" class="border-2 border-transparent p-2 rounded-lg">
                     <label for="course" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Curso</label>
-                    <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required
+                    <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5" required
                         v-model="newResearcher.course" type="text" id="course" />
                 </div>
 
                 <!-- Email -->
                 <div id="email-div" class="border-2 border-transparent p-2 rounded-lg">
                     <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
-                    <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5"
                         v-model="newResearcher.email" type="text" id="email" required />
                 </div>
 
                 <!-- Campus -->
                 <div id="campus-div" class="border-2 border-transparent p-2 rounded-lg">
+                    <label for="campus" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Campus</label>
                     <button class="text-maingray bg-white hover:bg-maingreen hover:text-white focus:ring-4 focus:outline-none focus:ring-red-600 font-medium rounded-lg text-sm text-center flex items-center p-4 transition duration-200 border-2 border-maingreen"
                         id="dropdownDefaultButton" data-dropdown-toggle="campuses" type="button">
                         {{ inEditionCampus.name }}
@@ -84,7 +85,7 @@
                     <div id="campuses" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow">
                         <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
                             <li v-for="(campus, i) in campuses" :key="i" @click="setItem('campus', campus.id, campus.name)">
-                                <input class="block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer w-80" readonly="readonly" :value="campus.name"/>
+                                <input id="campus" class="block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer w-80" readonly="readonly" :value="campus.name"/>
                             </li>
                         </ul>
                     </div>
@@ -93,21 +94,21 @@
                 <!-- Titulação -->
                 <div id="level-div" class="border-2 border-transparent p-2 rounded-lg">
                     <label for="level" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Titulação</label>
-                    <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" 
+                    <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5" 
                         v-model="newResearcher.level" type="text" id="level" required />
                 </div>
 
                 <!-- Sexo -->
                 <div id="sex-div" class="border-2 border-transparent p-2 rounded-lg">
                     <label for="sex_link" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Sexo:</label>
-                    <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5"
                         v-model="newResearcher.sex" type="tel" id="sex_link" required />
                 </div>
 
                 <!-- Portfólio -->
                 <div id="lattes-div" class="border-2 border-transparent p-2 rounded-lg">
                     <label for="lattes_link" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Portfólio</label>
-                    <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" 
+                    <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5" 
                         v-model="newResearcher.name" type="tel" id="lattes_link" required />
                 </div>
 
@@ -119,8 +120,10 @@
                     <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG, JPG or GIF (MAX. 800x400px).</p>
                 </div>
             </div>
-            <button class="text-white bg-maingreen hover:bg-red-200 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+            <div class="w-full flex justify-center">
+                <button class="text-white bg-maingreen hover:bg-govblue focus:ring-4 focus:outline-none focus:ring-main-700 font-medium rounded-lg text-sm w-4/5 px-5 py-2.5 text-center transition duration-200 mb-10"
                 type="submit" @click.prevent="updateResearcher()">Salvar</button>
+            </div>
         </form>
     </section>
 </template>

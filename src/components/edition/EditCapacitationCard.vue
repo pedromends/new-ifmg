@@ -75,20 +75,20 @@
         </div>
 
         <!-- Formulário -->
-        <form class="bg-white p-10 rounded-lg">
+        <form class="bg-white flex flex-col p-10 rounded-lg">
             <div class="grid gap-6 mb-6 grid-cols-2">
                 <div id="title-div" class="border-2 border-transparent p-2 rounded-lg">
-                    <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Título</label>
+                    <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Título Card {{ currentForm }}</label>
                     <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" 
                         type="text" id="title" placeholder="John" v-model="capacitationCard.title" required />
                 </div>
                 <div id="resume-div" class="border-2 border-transparent p-2 rounded-lg">
-                    <label for="resume" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Resumo</label>
+                    <label for="resume" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Resumo Card {{ currentForm }}</label>
                     <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                         type="text" id="resume" placeholder="Doe" v-model="capacitationCard.subtitle" required />
                 </div>
                 <div id="link-div" class="border-2 border-transparent p-2 rounded-lg">
-                    <label for="lattes_link" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Link</label>
+                    <label for="lattes_link" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Link Card {{ currentForm }}</label>
                     <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                         type="tel" id="lattes_link" placeholder="Link" required />
                 </div>
@@ -99,8 +99,10 @@
                     <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG, JPG or GIF (MAX. 800x400px).</p>
                 </div>
             </div>
-            <button @click.prevent="updateCard()" class="text-white bg-maingreen hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
-                type="submit">Salvar</button>
+            <div class="w-full flex justify-center">
+                <button class="text-white bg-maingreen hover:bg-govblue focus:ring-4 focus:outline-none focus:ring-main-700 font-medium rounded-lg text-sm w-2/5 px-5 py-2.5 text-center transition duration-200 mb-10"
+                type="submit" @click.prevent="updateCard()">Salvar</button>
+            </div>
         </form>
     </section>
 </template>
@@ -133,7 +135,7 @@ export default {
             this.bool = !this.bool
         },
         changeForm(id, id_img){
-            this.capacitationCard.id = id
+            this.currentForm = this.capacitationCard.id = id
             this.capacitationCard.img.id = id_img
         },
         onImageChange(e){

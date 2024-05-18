@@ -1,8 +1,8 @@
 <template lang="">
     <section class="flex flex-col justify-center bg-lightgray gap-10">
         <div role="status" class="">
-            <p class="font-bold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen self-start mt-8 mb-5">Modal de Projetos</p>
-            <section class="flex justify-center gap-10 items-center mt-10 animate-pulse">
+            <p class="font-bold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen self-start mt-10 ml-36">Modal de Projetos</p>
+            <section class="flex justify-center gap-10 items-center mt-5 animate-pulse">
 
                 <!-- Modal -->
                 <div class="relative p-4 w-full max-w-2xl max-h-full">
@@ -89,12 +89,12 @@
                     <div id="project-name-div" class="border-2 border-transparent p-2 rounded-lg">
                         <div class="flex flex-col">
                             <label for="researchers" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Projeto:</label>
-                            <button class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 hover:text-white focus:border-red-600 block w-full p-2.5 hover:bg-maingreen" 
+                            <button class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 hover:text-white focus:border-red-600 block w-full p-2.5 hover:bg-maingreen transition duration-200" 
                                 id="modalityButton" data-dropdown-toggle="dropdown5" type="button">
-                                {{ inEditionProject.name }}
+                                {{ editProject.name }}
                             </button>
                                 
-                            <div id="dropdown5" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden">
+                            <div id="dropdown5" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen">
                                 <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="modalityButton">
                                     <li @click="boolNewProject == true">
                                         <input href="#" class="w-84 block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer"
@@ -120,12 +120,12 @@
                     <div id="company-name-div" class="border-2 border-transparent p-2 rounded-lg">
                         <div class="flex flex-col">
                             <label for="researchers" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Empresa:</label>
-                            <button class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 hover:text-white focus:border-red-600 block w-full p-2.5 hover:bg-maingreen" 
+                            <button class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 hover:text-white focus:border-red-600 block w-full p-2.5 hover:bg-maingreen transition duration-200" 
                                 id="modalityButton" data-dropdown-toggle="dropdown1" type="button">
-                                {{ inEditionCompany.name }}
+                                {{ editCompany.name }}
                             </button>
 
-                            <div id="dropdown1" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden">
+                            <div id="dropdown1" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen">
                                 <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="modalityButton">
                                     <li v-for="(company, i) in companies" :key="i" @click="setItem('company', company.id, company.name, company.image.id)">
                                         <input href="#" class="w-84 block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer "
@@ -140,12 +140,12 @@
                     <div id="coor-name-div" class="border-2 border-transparent p-2 rounded-lg">
                         <div class="flex flex-col">
                             <label for="researchers" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Coordenador:</label>
-                            <button class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 hover:text-white focus:border-red-600 block w-full p-2.5 hover:bg-maingreen" 
+                            <button class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 hover:text-white focus:border-red-600 block w-full p-2.5 hover:bg-maingreen transition duration-200 " 
                                 id="modalityButton" data-dropdown-toggle="dropdown2" type="button">
-                                {{ inEditionCoordinator.name }}
+                                {{ editCoordinator.name }}
                             </button>
                                 
-                            <div id="dropdown2" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden">
+                            <div id="dropdown2" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen">
                                 <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="modalityButton">
                                     <li v-for="(researcher, i) in researchers" :key="i" @click="setItem('coordinator', researcher.id, researcher.firstName + ' ' + researcher.lastName, researcher.img.id)">
                                         <input href="#" class="w-84 block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer" readonly="readonly" :value="researcher.firstName + ' ' + researcher.lastName "/>
@@ -177,12 +177,12 @@
                         <div id="researchers-div" class="border-2 border-transparent p-2 rounded-lg">
                             <div class="flex flex-col">
                                 <label for="researchers" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Pesquisadores:</label>
-                                <button class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 hover:text-white focus:border-red-600 block w-full p-2.5 hover:bg-maingreen" 
+                                <button class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 hover:text-white focus:border-red-600 block w-full p-2.5 hover:bg-maingreen transition duration-200" 
                                     id="modalityButton" data-dropdown-toggle="dropdown3" type="button">
-                                    {{ inEditionResearchers.name }}
+                                    {{ editResearchers.name }}
                                 </button>
                                     
-                                <div id="dropdown3" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden">
+                                <div id="dropdown3" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen">
                                     <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="modalityButton">
                                         <li v-for="(researcher, i) in researchers" :key="i" @click="setItem('researcher', researcher.id, researcher.firstName + ' ' + researcher.lastName, researcher.img.id)">
                                             <input href="#" class="w-84 block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer" readonly="readonly" :value="researcher.firstName + ' ' + researcher.lastName "/>
@@ -196,12 +196,12 @@
                         <div id="students-div" class="border-2 border-transparent p-2 rounded-lg">
                             <div class="flex flex-col">
                                 <label for="researchers" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Alunos:</label>
-                                <button class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 hover:text-white focus:border-red-600 block w-full p-2.5 hover:bg-maingreen" 
+                                <button class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 hover:text-white focus:border-red-600 block w-full p-2.5 hover:bg-maingreen transition duration-200" 
                                     id="modalityButton" data-dropdown-toggle="dropdown4" type="button">
-                                    {{ inEditionStudents.name }}
+                                    {{ editStudents.name }}
                                 </button>
                                     
-                                <div id="dropdown4" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden">
+                                <div id="dropdown4" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll overflow-x-hidden overflow-y-hidden">
                                     <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="modalityButton">
                                         <li v-for="(talent, i) in talents" :key="i" @click="setItem('talents', talent.id, talent.name, talent.img.id)">
                                             <input href="#" class="w-84 block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer" readonly="readonly" :value="talent.name"/>
@@ -250,27 +250,27 @@ export default {
             modalities: null,
             researchers: null,
             projects: null,
-            inEditionCompany:{
+            editCompany:{
                 id: null,
                 name: 'Selecione uma Empresa',
                 id_img: null
             },
-            inEditionCoordinator:{
+            editCoordinator:{
                 id: null,
                 name: 'Selecione um Coordenador',
                 id_img: null
             },
-            inEditionResearchers:{
+            editResearchers:{
                 id: null,
                 name: 'Selecione os Pesquisadores',
                 id_img: null
             },
-            inEditionStudents:{
+            editStudents:{
                 id: null,
                 name: 'Selecione os Alunos',
                 id_img: null
             },
-            inEditionProject:{
+            editProject:{
                 id: null,
                 name: 'Selecione o Projeto',
             },
@@ -354,48 +354,48 @@ export default {
         setItem(item, id, name, id_img){
 
             if (item == 'researcher') {
-                this.inEditionResearchers.id = id
-                this.inEditionResearchers.name = name,
-                this.inEditionResearchers.id_img = id_img
+                this.editResearchers.id = id
+                this.editResearchers.name = name,
+                this.editResearchers.id_img = id_img
 
-                console.log(this.inEditionResearchers)
+                console.log(this.editResearchers)
             } else if (item == 'talents') {
-                this.inEditionStudents.id = id
-                this.inEditionStudents.name = name,
-                this.inEditionStudents.id_img = id_img
+                this.editStudents.id = id
+                this.editStudents.name = name,
+                this.editStudents.id_img = id_img
 
-                console.log(this.inEditionStudents)
+                console.log(this.editStudents)
             } else if (item == 'coordinator') {
-                this.inEditionCoordinator.id = id
-                this.inEditionCoordinator.name = name,
-                this.inEditionCoordinator.id_img = id_img
+                this.editCoordinator.id = id
+                this.editCoordinator.name = name,
+                this.editCoordinator.id_img = id_img
 
-                console.log(this.inEditionCoordinator)
+                console.log(this.editCoordinator)
             } else if(item == 'project') {
-                this.inEditionProject.id = id
-                this.inEditionProject.name = name,
-                this.inEditionProject.id_img = id_img
+                this.editProject.id = id
+                this.editProject.name = name,
+                this.editProject.id_img = id_img
 
-                console.log(this.inEditionProject)
+                console.log(this.editProject)
             } else {
-                this.inEditionCompany.id = id
-                this.inEditionCompany.name = name,
-                this.inEditionCompany.id_img = id_img
+                this.editCompany.id = id
+                this.editCompany.name = name,
+                this.editCompany.id_img = id_img
 
-                console.log(this.inEditionCompany)
+                console.log(this.editCompany)
             }
         },
         updateCard(){
             if(this.boolNewProject){
                 // criar novo projeto
             } else {
-                this.newProject.id = this.inEditionProject.id
-                this.newProject.company.id = this.inEditionCompany.id
-                this.newProject.company.img.id = this.inEditionCompany.id_img
-                this.newProject.coordinator.id = this.inEditionCoordinator.id
-                this.newProject.researchers.id = this.inEditionResearchers.id
-                this.newProject.students.id = this.inEditionStudents.id
-                this.newProject.name = this.inEditionProject.name
+                this.newProject.id = this.editProject.id
+                this.newProject.company.id = this.editCompany.id
+                this.newProject.company.img.id = this.editCompany.id_img
+                this.newProject.coordinator.id = this.editCoordinator.id
+                this.newProject.researchers.id = this.editResearchers.id
+                this.newProject.students.id = this.editStudents.id
+                this.newProject.name = this.editProject.name
                 console.log(this.newProject)
 
                 updateProject(this.newProject).then((response) => {

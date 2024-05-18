@@ -1,9 +1,11 @@
 <template>
   <!-- Não entra sem as manha, xóven -->
-  <Navbar />
-  <Sidebar />
-  <router-view />
-  <Footer />
+  <main>
+    <Navbar />
+    <Sidebar />
+    <router-view />
+    <Footer />
+  </main>
 </template>
 
 <script setup>

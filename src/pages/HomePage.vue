@@ -1,5 +1,5 @@
 <template>
-  <main class="font-opensans style">
+  <section>
     <Presenter />
     <AboutUs />
     <Advantages />
@@ -9,7 +9,7 @@
     <TalentBank/>
     <Contact />
     <BackToTop />
-  </main>
+  </section>
 </template>
 
 <script>
