@@ -88,7 +88,7 @@
                         type="text" id="date" placeholder="14 de Dezembro..." v-model="newCard.date" required />
                 </div>  
                 <div id="readtime-div" class="border-2 border-transparent p-2">
-                    <label for="read_time" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tempo de Leitura {{ currentCard }}</label>
+                    <label for="read_time" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tempo de Leitura Card {{ currentCard }}</label>
                     <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" 
                         type="tel" id="read_time" placeholder="3 minutos..." v-model="newCard.read" required />
                 </div>
@@ -98,9 +98,10 @@
                         aria-describedby="file_input_help" id="file_input" type="file" @change="onImageChange($event)"/>
                     <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG, JPG or GIF (MAX. 800x400px).</p>
                 </div>
-            </div>
-            <div class="w-full flex justify-center">
-                <button type="submit" @click.prevent="updateCards()" class="text-white bg-maingreen hover:bg-govblue focus:ring-2 focus:outline-none focus:ring-red-600 font-medium rounded-lg text-sm w-full sm:w-auto px-48 py-2.5 text-center">Salvar</button>
+                <div class="flex justify-center items-center">
+                    <button class="text-white bg-maingreen hover:bg-govblue focus:ring-2 focus:outline-none focus:ring-red-600 font-medium rounded-lg text-sm w-full sm:w-auto px-36 py-3 text-center transition duration-200"
+                        type="submit" @click.prevent="updateCards()">Salvar</button>
+                </div>
             </div>
         </form>
     </section>

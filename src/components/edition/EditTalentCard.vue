@@ -2,7 +2,7 @@
     <section class="flex flex-col justify-center bg-lightgray gap-10">
         <div role="status" class="flex gap-24 relative justify-center items-center mt-10">
             <div class="absolute left-4 flex flex-col gap-5">
-                <p class="font-bold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen self-start mt-5 mb-10">Em edição:</p>
+                <p class="font-bold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen self-start mt-5 mb-10">Editar Talentos</p>
                 <button class="text-maingray bg-white hover:bg-maingreen hover:text-white focus:ring-4 focus:outline-none focus:ring-red-600 font-medium rounded-lg text-sm text-center flex items-center p-4 transition duration-200" 
                     id="dropdownDefaultButton" data-dropdown-toggle="dropdown" type="button">
                     {{ inEdition.name }}

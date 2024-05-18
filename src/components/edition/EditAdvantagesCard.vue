@@ -1,6 +1,6 @@
 <template lang="">
     <section class="flex flex-col justify-center bg-lightgray gap-10 pt-10">
-        <div role="status" class="animate-pulse flex flex-col items-center gap-10 bg-white rounded-xl py-5 mb-10">
+        <div role="status" class="flex flex-col items-center gap-10 bg-white rounded-xl py-5 mb-10">
             <p class="font-bold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen self-start ml-10 mt-10">Cards de Vantagens</p>
             <div class="flex items-center gap-4">
 
@@ -12,7 +12,7 @@
                 </div>
 
                 <!-- Cards verticais -->
-                <div class="flex flex-col gap-5">
+                <div class="animate-pulse flex flex-col gap-5">
                     <div @mouseover="changeForm(1)" class="text-black hover:bg-maingreen flex items-center px-6 py-6 gap-10 rounded-xl transition duration-300 hover:text-white bg-white border-gray-100 max-lg:w-auto max-lg:px-0">
                         <div class="border-2 border-transparent p-2 hover:border-red-700">
                             <svg class="w-20 h-20 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
@@ -104,10 +104,11 @@
                             aria-describedby="file_input_help" id="file_input" type="file" @change="onBannerChange($event)" accept="image/*">
                         <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG, JPG or GIF (MAX. 800x400px).</p>
                     </div>
+                    <div class="flex items-center w-full">
+                        <button class="text-white bg-maingreen hover:bg-govblue focus:ring-2 focus:outline-none focus:ring-red-600 font-medium rounded-xl text-sm px-36 py-2 sm:w-auto text-center transition duration-200"
+                            type="submit" @click.prevent="updateCards()">Salvar</button>
+                    </div>
                 </div>  
-                <div class="w-full flex justify-center">
-                    <button type="submit" @click.prevent="updateCards()" class="text-white bg-maingreen hover:bg-govblue focus:ring-2 focus:outline-none focus:ring-red-600 font-medium rounded-lg text-sm w-full sm:w-auto px-48 py-2.5 text-center">Salvar</button>
-                </div>
             </form>
         </div>
     </section>

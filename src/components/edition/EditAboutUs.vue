@@ -73,7 +73,7 @@
                 </div>
             </div>  
             <div class="w-full flex justify-center">
-                <button class="text-white bg-maingreen hover:bg-govblue focus:ring-2 focus:outline-none focus:ring-red-600 font-medium rounded-lg text-sm w-full sm:w-auto px-48 py-2.5 text-center"
+                <button class="text-white bg-maingreen hover:bg-govblue focus:ring-2 focus:outline-none focus:ring-red-600 font-medium rounded-lg text-sm w-full sm:w-auto px-48 py-2.5 text-center transition duration-200"
                     type="submit" @click.prevent="updateAboutUs()" >Salvar</button>
             </div>
         </form>

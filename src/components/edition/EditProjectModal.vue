@@ -1,7 +1,8 @@
 <template lang="">
     <section class="flex flex-col justify-center bg-lightgray gap-10">
-        <div role="status" class="animate-pulse">
-            <section class="flex justify-center gap-10 items-center mt-10">
+        <div role="status" class="">
+            <p class="font-bold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen self-start mt-8 mb-5">Modal de Projetos</p>
+            <section class="flex justify-center gap-10 items-center mt-10 animate-pulse">
 
                 <!-- Modal -->
                 <div class="relative p-4 w-full max-w-2xl max-h-full">
@@ -80,135 +81,150 @@
         </div>
 
         <!-- Formulário -->
-        <form class="bg-white p-10 rounded-lg mb-10">
-            <div class="grid gap-6 mb-6 grid-cols-3">
+        <form class="bg-white p-10  rounded-lg mb-10">
+            <div class="flex flex-col gap-6 mb-6">
+                <div class="grid grid-cols-4">
 
-                <!-- Projeto -->
-                <div id="project-name-div" class="border-2 border-transparent p-2 rounded-lg">
-                    <div class="flex flex-col">
-                        <label for="researchers" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Projeto:</label>
-                        <button class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-blue-500 hover:text-white focus:border-red-600 block w-full p-2.5 hover:bg-maingreen" 
-                            id="modalityButton" data-dropdown-toggle="dropdown5" type="button">
-                            {{ inEditionProject.name }}
-                        </button>
-                            
-                        <div id="dropdown5" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden">
-                            <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="modalityButton">
-                                <li @click="boolNewProject == true">
-                                    <input href="#" class="w-84 block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer"
-                                        readonly="readonly" value="-- Novo --"/>
-                                </li>
-                                <li v-for="(project, i) in projects" :key="i" @click="setItem('project', project.id, project.name, project.company.img.id)">
-                                    <input href="#" class="w-84 block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer"
-                                        readonly="readonly" :value="project.name "/>
-                                </li>
-                            </ul>
+                    <!-- Projeto -->
+                    <div id="project-name-div" class="border-2 border-transparent p-2 rounded-lg">
+                        <div class="flex flex-col">
+                            <label for="researchers" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Projeto:</label>
+                            <button class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 hover:text-white focus:border-red-600 block w-full p-2.5 hover:bg-maingreen" 
+                                id="modalityButton" data-dropdown-toggle="dropdown5" type="button">
+                                {{ inEditionProject.name }}
+                            </button>
+                                
+                            <div id="dropdown5" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden">
+                                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="modalityButton">
+                                    <li @click="boolNewProject == true">
+                                        <input href="#" class="w-84 block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer"
+                                            readonly="readonly" value="-- Novo --"/>
+                                    </li>
+                                    <li v-for="(project, i) in projects" :key="i" @click="setItem('project', project.id, project.name, project.company.img.id)">
+                                        <input href="#" class="w-84 block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer"
+                                            readonly="readonly" :value="project.name "/>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>
-                
-                <!-- Empresa-->
-                <div id="company-name-div" class="border-2 border-transparent p-2 rounded-lg">
-                    <div class="flex flex-col">
-                        <label for="researchers" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Empresa:</label>
-                        <button class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-blue-500 hover:text-white focus:border-red-600 block w-full p-2.5 hover:bg-maingreen" 
-                            id="modalityButton" data-dropdown-toggle="dropdown1" type="button">
-                            {{ inEditionCompany.name }}
-                        </button>
 
-                        <div id="dropdown1" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden">
-                            <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="modalityButton">
-                                <li v-for="(company, i) in companies" :key="i" @click="setItem('company', company.id, company.name, company.image.id)">
-                                    <input href="#" class="w-84 block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer "
-                                        readonly="readonly" :value="company.name"/>
-                                </li>
-                            </ul>
+                    <!-- Nome -->
+                    <div id="name-div" class="border-2 border-transparent p-2 rounded-lg">
+                        <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nome</label>
+                        <input class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5"
+                            v-model="newProject.name" id="name" placeholder="Nome do Projeto..." required />
+                    </div>
+
+                    <!-- Empresa-->
+                    <div id="company-name-div" class="border-2 border-transparent p-2 rounded-lg">
+                        <div class="flex flex-col">
+                            <label for="researchers" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Empresa:</label>
+                            <button class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 hover:text-white focus:border-red-600 block w-full p-2.5 hover:bg-maingreen" 
+                                id="modalityButton" data-dropdown-toggle="dropdown1" type="button">
+                                {{ inEditionCompany.name }}
+                            </button>
+
+                            <div id="dropdown1" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden">
+                                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="modalityButton">
+                                    <li v-for="(company, i) in companies" :key="i" @click="setItem('company', company.id, company.name, company.image.id)">
+                                        <input href="#" class="w-84 block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer "
+                                            readonly="readonly" :value="company.name"/>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Coordenador -->
-                <div id="coor-name-div" class="border-2 border-transparent p-2 rounded-lg">
-                    <div class="flex flex-col">
-                        <label for="researchers" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Coordenador:</label>
-                        <button class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-blue-500 hover:text-white focus:border-red-600 block w-full p-2.5 hover:bg-maingreen" 
-                            id="modalityButton" data-dropdown-toggle="dropdown2" type="button">
-                            {{ inEditionCoordinator.name }}
-                        </button>
-                            
-                        <div id="dropdown2" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden">
-                            <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="modalityButton">
-                                <li v-for="(researcher, i) in researchers" :key="i" @click="setItem('coordinator', researcher.id, researcher.firstName + ' ' + researcher.lastName, researcher.img.id)">
-                                    <input href="#" class="w-84 block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer" readonly="readonly" :value="researcher.firstName + ' ' + researcher.lastName "/>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Situação -->
-                <div id="situation-div" class="border-2 border-transparent p-2 rounded-lg">
-                    <label for="situation" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Situação</label>
-                    <input class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5"
-                        v-model="newProject.situation" id="situation" placeholder="Em andamento/Em garantia/Concluído..." required />
-                </div>
-
-                <!-- Valor -->
-                <div id="value-div" class="border-2 border-transparent p-2 rounded-lg">
-                    <label for="value" class="mb-2 text-sm font-medium text-gray-900 dark:text-white">Valor</label>
-                    <input class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-red-600 w-full p-2.5"
-                        v-model="newProject.value" type="number" id="value"  placeholder="" required />
-                </div>
-
-                <!-- Pesquisadores -->
-                <div id="researchers-div" class="border-2 border-transparent p-2 rounded-lg">
-                    <div class="flex flex-col">
-                        <label for="researchers" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Pesquisadores:</label>
-                        <button class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-blue-500 hover:text-white focus:border-red-600 block w-full p-2.5 hover:bg-maingreen" 
-                            id="modalityButton" data-dropdown-toggle="dropdown3" type="button">
-                            {{ inEditionResearchers.name }}
-                        </button>
-                            
-                        <div id="dropdown3" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden">
-                            <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="modalityButton">
-                                <li v-for="(researcher, i) in researchers" :key="i" @click="setItem('researcher', researcher.id, researcher.firstName + ' ' + researcher.lastName, researcher.img.id)">
-                                    <input href="#" class="w-84 block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer" readonly="readonly" :value="researcher.firstName + ' ' + researcher.lastName "/>
-                                </li>
-                            </ul>
+                    <!-- Coordenador -->
+                    <div id="coor-name-div" class="border-2 border-transparent p-2 rounded-lg">
+                        <div class="flex flex-col">
+                            <label for="researchers" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Coordenador:</label>
+                            <button class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 hover:text-white focus:border-red-600 block w-full p-2.5 hover:bg-maingreen" 
+                                id="modalityButton" data-dropdown-toggle="dropdown2" type="button">
+                                {{ inEditionCoordinator.name }}
+                            </button>
+                                
+                            <div id="dropdown2" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden">
+                                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="modalityButton">
+                                    <li v-for="(researcher, i) in researchers" :key="i" @click="setItem('coordinator', researcher.id, researcher.firstName + ' ' + researcher.lastName, researcher.img.id)">
+                                        <input href="#" class="w-84 block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer" readonly="readonly" :value="researcher.firstName + ' ' + researcher.lastName "/>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Alunos -->
-                <div id="students-div" class="border-2 border-transparent p-2 rounded-lg">
-                    <div class="flex flex-col">
-                        <label for="researchers" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Alunos:</label>
-                        <button class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-blue-500 hover:text-white focus:border-red-600 block w-full p-2.5 hover:bg-maingreen" 
-                            id="modalityButton" data-dropdown-toggle="dropdown4" type="button">
-                            {{ inEditionStudents.name }}
-                        </button>
-                            
-                        <div id="dropdown4" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden">
-                            <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="modalityButton">
-                                <li v-for="(talent, i) in talents" :key="i" @click="setItem('talents', talent.id, talent.name, talent.img.id)">
-                                    <input href="#" class="w-84 block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer" readonly="readonly" :value="talent.name"/>
-                                </li>
-                            </ul>
+                <div class="flex">
+                    <div class="grid grid-cols-2">
+
+                        <!-- Situação -->
+                        <div id="situation-div" class="border-2 border-transparent p-2 rounded-lg">
+                            <label for="situation" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Situação</label>
+                            <input class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5"
+                                v-model="newProject.situation" id="situation" placeholder="Em andamento/Em garantia/Concluído..." required />
                         </div>
+    
+                        <!-- Valor -->
+                        <div id="value-div" class="border-2 border-transparent p-2 rounded-lg">
+                            <label for="value" class="mb-2 text-sm font-medium text-gray-900 dark:text-white">Valor</label>
+                            <input class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 w-full p-2.5"
+                                v-model="newProject.value" type="number" id="value"  placeholder="" required />
+                        </div>
+    
+                        <!-- Pesquisadores -->
+                        <div id="researchers-div" class="border-2 border-transparent p-2 rounded-lg">
+                            <div class="flex flex-col">
+                                <label for="researchers" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Pesquisadores:</label>
+                                <button class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 hover:text-white focus:border-red-600 block w-full p-2.5 hover:bg-maingreen" 
+                                    id="modalityButton" data-dropdown-toggle="dropdown3" type="button">
+                                    {{ inEditionResearchers.name }}
+                                </button>
+                                    
+                                <div id="dropdown3" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden">
+                                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="modalityButton">
+                                        <li v-for="(researcher, i) in researchers" :key="i" @click="setItem('researcher', researcher.id, researcher.firstName + ' ' + researcher.lastName, researcher.img.id)">
+                                            <input href="#" class="w-84 block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer" readonly="readonly" :value="researcher.firstName + ' ' + researcher.lastName "/>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <!-- Alunos -->
+                        <div id="students-div" class="border-2 border-transparent p-2 rounded-lg">
+                            <div class="flex flex-col">
+                                <label for="researchers" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Alunos:</label>
+                                <button class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 hover:text-white focus:border-red-600 block w-full p-2.5 hover:bg-maingreen" 
+                                    id="modalityButton" data-dropdown-toggle="dropdown4" type="button">
+                                    {{ inEditionStudents.name }}
+                                </button>
+                                    
+                                <div id="dropdown4" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden">
+                                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="modalityButton">
+                                        <li v-for="(talent, i) in talents" :key="i" @click="setItem('talents', talent.id, talent.name, talent.img.id)">
+                                            <input href="#" class="w-84 block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer" readonly="readonly" :value="talent.name"/>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sobre o Projeto -->
+                    <div id="about-project-div" class="border-2 border-transparent p-2 rounded-lg col-span-2">
+                        <label for="project_resume" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Sobre o projeto</label>
+                        <textarea id="project_resume" rows="10" cols="50" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border focus:ring-red-600 focus:border-red-600"
+                            v-model="newProject.resume" placeholder="Escreva sobre o projeto aqui..."></textarea>
                     </div>
                 </div>
 
-                <!-- Sobre o Projeto -->
-                <div id="about-project-div" class="border-2 border-transparent p-2 rounded-lg col-span-2">
-                    <label for="project_resume" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Sobre o projeto</label>
-                    <textarea id="project_resume" rows="10" cols="50" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border focus:ring-blue-500 focus:border-red-600"
-                        v-model="newProject.resume" placeholder="Escreva sobre o projeto aqui..."></textarea>
-                </div>           
-            </div>
-            <div class="w-full flex justify-center">
-                <button class="text-white bg-maingreen hover:bg-govblue focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm m:w-auto w-2/5 py-2.5 text-center"
-                    @click.prevent="updateCard()" type="submit">Salvar</button>
-            </div>    
+                <div class="w-full flex justify-center">
+                    <button class="text-white bg-maingreen hover:bg-govblue focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm text-center px-36 py-3 transition duration-200"
+                        @click.prevent="updateCard()" type="submit">Salvar</button>
+                </div> 
+            </div>  
         </form>
     </section>
 </template>

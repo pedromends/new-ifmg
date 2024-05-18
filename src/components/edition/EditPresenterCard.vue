@@ -51,7 +51,8 @@
                     </div>
                 </div>
                 <div class="w-full flex justify-center">
-                    <button type="submit" @click.prevent="updateCard()" class="text-white bg-maingreen hover:bg-govblue focus:ring-2 focus:outline-none focus:ring-red-600 font-medium rounded-lg text-sm px-20 py-2.5 text-center">Salvar</button>
+                    <button class="text-white bg-maingreen hover:bg-govblue focus:ring-2 focus:outline-none focus:ring-red-600 font-medium rounded-lg text-sm px-20 py-2.5 text-center transition duration-200"
+                        type="submit" @click.prevent="updateCard()">Salvar</button>
                 </div>
             </div>
         </form>

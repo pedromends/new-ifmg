@@ -20,10 +20,9 @@ export const listResearchers = () => api.request({
 export const updateResearcher = (form) => api.request({
   headers: {
     'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': '*',
   },
   method: 'put',
-  url: '/researcher/atualizar',
+  url: '/researcher/update',
   data: form,
 });
 
@@ -32,5 +31,5 @@ export const deleteResearcher = (id) => api.request({
     'Content-Type': 'application/json',
   },
   method: 'delete',
-  url: `/researcher/deletar/${id}`,
+  url: `/researcher/delete/${id}`,
 });
