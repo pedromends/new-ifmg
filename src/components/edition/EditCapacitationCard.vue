@@ -79,17 +79,17 @@
             <div class="grid gap-6 mb-6 grid-cols-2">
                 <div id="title-div" class="border-2 border-transparent p-2 rounded-lg">
                     <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Título Card {{ currentForm }}</label>
-                    <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" 
+                    <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5" 
                         type="text" id="title" placeholder="John" v-model="capacitationCard.title" required />
                 </div>
                 <div id="resume-div" class="border-2 border-transparent p-2 rounded-lg">
                     <label for="resume" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Resumo Card {{ currentForm }}</label>
-                    <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5"
                         type="text" id="resume" placeholder="Doe" v-model="capacitationCard.subtitle" required />
                 </div>
                 <div id="link-div" class="border-2 border-transparent p-2 rounded-lg">
                     <label for="lattes_link" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Link Card {{ currentForm }}</label>
-                    <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5"
                         type="tel" id="lattes_link" placeholder="Link" required />
                 </div>
                 <div id="image-div" class="border-2 border-transparent p-2 rounded-lg">
