@@ -4,7 +4,7 @@
 
 
 
-Aplicativo desenvolvido em Vue como meu Trabalho de Conclusão de Curso para o Instituto Federal de Minas Gerais, minha proposta foi de criarmos um site onde os textos dos componentes assim como as imagens sejam plenamente editáveis, neste projeto foram aplicados `Javascript`, `TailwindCSS`, `Vue.js`, também usei bastante uma biblioteca de componentes chamada `FlowbiteUI`, que consome `TailwindCSS` pra construções dos componentes, a aplicação também é `responsiva` com uma série de requisições assíncronas via `Axios` construída em cima de `componentes acessíveis`, `manipulação de DOM` e consumo de `REST API Java Spring`.
+Aplicativo desenvolvido em Vue como meu Trabalho de Conclusão de Curso para curso de Ciência da Computação pelo Instituto Federal de Minas Gerais, minha proposta foi de criarmos um site onde os textos dos componentes assim como as imagens sejam plenamente editáveis, neste projeto foram aplicados `Javascript`, `TailwindCSS`, `Vue.js`, também usei bastante uma biblioteca de componentes chamada `FlowbiteUI`, que consome `TailwindCSS` pra construções dos componentes, a aplicação também é `responsiva` com uma série de requisições assíncronas via `Axios` construída em cima de `componentes acessíveis`, `manipulação de DOM` e consumo de `REST API Java Spring`.
 
 *Caso tenha interesse em verificar a API deste APP feita em Spring, acesse [esse link](https://github.com/pedromends/api-polo).*
 

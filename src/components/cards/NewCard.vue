@@ -1,5 +1,5 @@
 <template lang="">
-    <div class="flex flex-col justify-center gap-3 hover:bg-gray-200 rounded-xl transition duration-300 pb-3">
+    <div @click.prevent="openNew()" class="flex flex-col justify-center gap-3 hover:bg-gray-200 rounded-xl transition duration-300 pb-3">
         <div class="w-full flex justify-center px-3">
             <img :src="img" alt="" class="mt-3"/>
         </div>
@@ -29,6 +29,7 @@ export default {
     props: {
         tip: String,
         title: String,
+        newId: String,
         date: String,
         read: String,
         img: String
@@ -36,6 +37,12 @@ export default {
     methods:{
         editNewCard(){
             router.push('/edit/news-card').then(() => {
+                var element = document.getElementById("navbar");
+                element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+            }); 
+        },
+        openNew(){
+            router.push('/open-new/' + this.newId).then(() => {
                 var element = document.getElementById("navbar");
                 element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
             }); 

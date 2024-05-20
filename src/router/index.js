@@ -6,11 +6,13 @@ import HowItWorks from "@/pages/HowItWorks.vue";
 import Embrapii from "@/pages/Embrapii.vue";
 import NewsPage from "@/pages/NewsPage.vue";
 import Edicts from "@/pages/Edicts.vue";
+import NewsCreate from "@/pages/NewsCreate.vue";
 import Capacitation from "@/pages/Capacitation.vue";
 import Documents from "@/pages/Documents.vue";
 import Contact from "@/pages/ContactPage.vue";
 import Researchers from "@/pages/Researchers.vue";
 import MainEdition from "@/pages/MainEdition.vue";
+import OpenedNew from "@/pages/OpenedNew.vue";
 import EditPresenterCard from "@/components/edition/EditPresenterCard.vue";
 import EditEventCard from "@/components/edition/EditEventCard.vue";
 import EditMainNewCard from "@/components/edition/EditMainNewCard.vue";
@@ -47,6 +49,14 @@ const routes = [
   {
     path: '/news',
     component: NewsPage
+  },
+  {
+    path: '/news/create',
+    component: NewsCreate
+  },
+  {
+    path: '/open-new/:id',
+    component: OpenedNew
   },
   {
     path: '/edicts',

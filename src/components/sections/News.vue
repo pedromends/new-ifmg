@@ -43,6 +43,7 @@ export default {
     created(){
         listMainNews().then((response)=> {
             this.mainnew = response.data
+            console.log(this.mainnew)
         }).catch((error) => {
             console.log(error)
         })
@@ -50,6 +51,7 @@ export default {
     mounted(){
         listNewsCard().then((response) => {
             this.smallnews = response.data
+            console.log(this.smallnews)
         }).catch((error) => {
             console.log(error)
         })
