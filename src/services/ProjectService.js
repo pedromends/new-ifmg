@@ -20,14 +20,13 @@ export const listProjects = () => api.request({
 export const updateProject = (form) => api.request({
   headers: {
     'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': '*',
   },
   method: 'put',
   url: '/project/update',
   data: form,
 });
 
-export const deleteCompany = (id) => api.request({
+export const deleteProject = (id) => api.request({
   headers: {
     'Content-Type': 'application/json',
   },

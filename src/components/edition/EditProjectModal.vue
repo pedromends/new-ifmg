@@ -83,7 +83,7 @@
         <!-- Formulário -->
         <form class="bg-white p-10  rounded-lg mb-10">
             <div class="flex flex-col gap-6 mb-6">
-                <div class="grid grid-cols-4">
+                <div class="grid grid-cols-3">
 
                     <!-- Projeto -->
                     <div id="project-name-div" class="border-2 border-transparent p-2 rounded-lg">
@@ -154,25 +154,25 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Situação -->
+                    <div id="situation-div" class="border-2 border-transparent p-2 rounded-lg">
+                        <label for="situation" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Situação</label>
+                        <input class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5"
+                            v-model="newProject.situation" id="situation" placeholder="Em andamento/Em garantia/Concluído..." required />
+                    </div>
+
+                    <!-- Valor -->
+                    <div id="value-div" class="border-2 border-transparent p-2 rounded-lg">
+                        <label for="value" class="mb-2 text-sm font-medium text-gray-900 dark:text-white">Valor</label>
+                        <input class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 w-full p-2.5"
+                            v-model="newProject.value" type="number" id="value"  placeholder="" required />
+                    </div>
                 </div>
 
                 <div class="flex">
-                    <div class="grid grid-cols-2">
+                    <div class="flex flex-col">
 
-                        <!-- Situação -->
-                        <div id="situation-div" class="border-2 border-transparent p-2 rounded-lg">
-                            <label for="situation" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Situação</label>
-                            <input class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5"
-                                v-model="newProject.situation" id="situation" placeholder="Em andamento/Em garantia/Concluído..." required />
-                        </div>
-    
-                        <!-- Valor -->
-                        <div id="value-div" class="border-2 border-transparent p-2 rounded-lg">
-                            <label for="value" class="mb-2 text-sm font-medium text-gray-900 dark:text-white">Valor</label>
-                            <input class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 w-full p-2.5"
-                                v-model="newProject.value" type="number" id="value"  placeholder="" required />
-                        </div>
-    
                         <!-- Pesquisadores -->
                         <div id="researchers-div" class="border-2 border-transparent p-2 rounded-lg">
                             <div class="flex flex-col">
@@ -213,16 +213,18 @@
                     </div>
 
                     <!-- Sobre o Projeto -->
-                    <div id="about-project-div" class="border-2 border-transparent p-2 rounded-lg col-span-2">
+                    <div id="about-project-div" class="border-2 border-transparent p-2 rounded-lg col-span-2 w-full">
                         <label for="project_resume" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Sobre o projeto</label>
                         <textarea id="project_resume" rows="10" cols="50" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border focus:ring-red-600 focus:border-red-600"
                             v-model="newProject.resume" placeholder="Escreva sobre o projeto aqui..."></textarea>
                     </div>
                 </div>
 
-                <div class="w-full flex justify-center">
+                <div class="w-full flex justify-center gap-10">
                     <button class="text-white bg-maingreen hover:bg-govblue focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm text-center px-36 py-3 transition duration-200"
                         @click.prevent="updateCard()" type="submit">Salvar</button>
+                    <button class="text-white bg-red-600 hover:bg-maingray focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm text-center px-36 py-3 transition duration-200"
+                    @click.prevent="deleteProject()" type="submit">Excluir</button>
                 </div> 
             </div>  
         </form>
@@ -235,7 +237,7 @@ import router from '@/router/index.js'
 import { listModalities } from '@/services/ModalityService.js';
 import { listCompanies } from '@/services/CompanyService.js';
 import { listResearchers } from '@/services/ResearcherService.js';
-import { listProjects, updateProject } from '@/services/ProjectService';
+import { listProjects, updateProject, deleteProject } from '@/services/ProjectService';
 import { getTalents } from '@/services/TalentService.js'
 
 export default {
@@ -320,7 +322,6 @@ export default {
                         getTalents().then((response) => {
                             this.talents = response.data
                             console.log(this.talents)
-
                         }).catch((error) => {
                             console.log(error)
                         })
@@ -357,32 +358,22 @@ export default {
                 this.editResearchers.id = id
                 this.editResearchers.name = name,
                 this.editResearchers.id_img = id_img
-
-                console.log(this.editResearchers)
             } else if (item == 'talents') {
                 this.editStudents.id = id
                 this.editStudents.name = name,
                 this.editStudents.id_img = id_img
-
-                console.log(this.editStudents)
             } else if (item == 'coordinator') {
                 this.editCoordinator.id = id
                 this.editCoordinator.name = name,
                 this.editCoordinator.id_img = id_img
-
-                console.log(this.editCoordinator)
             } else if(item == 'project') {
                 this.editProject.id = id
                 this.editProject.name = name,
                 this.editProject.id_img = id_img
-
-                console.log(this.editProject)
             } else {
                 this.editCompany.id = id
                 this.editCompany.name = name,
                 this.editCompany.id_img = id_img
-
-                console.log(this.editCompany)
             }
         },
         updateCard(){
@@ -408,6 +399,17 @@ export default {
                 })
             }
         },
+        deleteProject(){
+            deleteProject(this.editProject.id).then((response) => {
+                console.log(response)
+            }).finally(() => {
+                router.push('/').then(() => {
+                    var element = document.getElementById("ourclients");
+                    element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                    alert('Deletado com sucesso')
+                }); 
+            })
+        }
     },
 }
 </script>

@@ -1,6 +1,6 @@
 <template lang="">
-    <button title="Company Button" :data-modal-target="modalname" :data-modal-toggle="modalname" type="button" class="flex items-center">
-        <img :src="img" class="py-5 rounded-xl bg-white shadow-lg self-center px-10 hover:shadow-md hover:shadow-maingray transition duration-300 mx-auto" alt="#" :class="extraClass"/>
+    <button title="Abrir Modal" :data-modal-target="modalname" :data-modal-toggle="modalname" type="button" class="flex items-center">
+        <img :src="img" class="py-5 rounded-xl bg-white shadow-lg self-center px-10 hover:shadow-md hover:shadow-maingray transition duration-300 mx-auto brea" alt="#" :class="extraClass"/>
     </button>
 
     <section :id="modalname" tabindex="-1" aria-hidden="true" 
@@ -110,7 +110,7 @@ export default {
     },
     methods: {
         editModal(){
-            router.push('/edit/company-modal').then(() => {
+            router.push('/edit/project-modal').then(() => {
                 var element = document.getElementById("navbar");
                 element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
             }).finally(() => {

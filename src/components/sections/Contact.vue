@@ -40,7 +40,7 @@
                         </div>
                         <div class="flex flex-col w-96 max-lg:w-auto">
                             <label class="text-maingray text-sm">Mensagem</label>
-                            <input type="text" class="rounded-lg border-1 border-gray-1 max-lg:h-8">
+                            <textarea rows="5" type="text" class="rounded-lg border-1 border-gray-1 max-lg:h-8"></textarea>
                         </div>
                         <button class="px-5 py-2 bg-maingreen text-white w-48 rounded-md font-semibold border-2 border-maingreen transition duration-300 hover:text-maingreen hover:bg-white">Enviar Mensagem</button>
                     </form>

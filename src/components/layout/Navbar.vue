@@ -77,33 +77,26 @@ export default {
                 router.push({ path: '/' }).then(() => {
                     var element = document.getElementById("aboutus");
                     element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
-                }).finally(() => {
-                    window.location.reload();
-                });   
+                })
             },
             advantages: () => {
                 router.push({ path: '/' }).then(() => {
                     var element = document.getElementById("advantages");
                     element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
-                }).finally(() => {
-                    window.location.reload();
-                });   
+                })
             },
             capacitation: () => {
                 router.push({ path: '/' }).then(() => {
                     var element = document.getElementById("capacitation");
                     element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
-                }).finally(() => {
-                    window.location.reload();
-                });   
+                })
             },
             goHome: () => {
                 router.push({ path: '/' }).then(() => {
                     var element = document.getElementById("aboutus");
                     element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
-                }).finally(() => {
                     window.location.reload();
-                });   
+                })
             },
             ourClients: () => {
                 router.push({ path: '/' }).then(() => {
@@ -111,7 +104,7 @@ export default {
                     element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
                 }).finally(() => {
                     window.location.reload();
-                });   
+                })
             },
         }  
     },
