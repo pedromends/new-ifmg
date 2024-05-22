@@ -32,7 +32,8 @@ export default {
         newId: String,
         date: String,
         read: String,
-        img: String
+        img: String,
+        newId: Number
     },
     methods:{
         editNewCard(){

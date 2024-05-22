@@ -5,7 +5,8 @@
             <MainNew :tip="mainnew.tip" :title="mainnew.title" :parag="mainnew.paragraph" :img="mainnew.image.code"/>
         </div>
         <div class="grid grid-cols-4 gap-2 max-lg:grid-cols-1 items-center">
-            <NewCard v-for="(smallnew, i) in smallnews" :key="i" :tip="smallnew.tip" :title="smallnew.title" :date="smallnew.date" :read="smallnew.read" :img="smallnew.img.code" />
+            <NewCard  v-for="(newNew, i) in news" :key="i"
+                :tip="'Novidade'" :title="newNew.title" :date="newNew.date" :read="'3 min de Leitura'" :img="newNew.img1.code" :newId="newNew.id"/>
             <div class="flex flex-col gap-4">
                 <EventCard v-for="(event, i) in events" :key="i" :month="event.month" :day="event.day" :title="event.title" :hour="event.hour" :local="event.local"/>
             </div>
@@ -21,6 +22,7 @@
 import { listMainNews } from '@/services/MainNewService';
 import { listNewsCard } from '@/services/NewsCardService';
 import { listEvents }  from '@/services/EventService';
+import { listThreeNews }  from '@/services/NewService';
 import NewCard from '@/components/cards/NewCard.vue';
 import EventCard from '@/components/cards/EventCard.vue';
 import MainNew from '../cards/MainNew.vue';
@@ -37,7 +39,8 @@ export default {
         return {
             mainnew: undefined,
             smallnews: undefined,
-            events: undefined
+            events: undefined,
+            news: undefined
         }
     },
     created(){
@@ -46,6 +49,11 @@ export default {
             console.log(this.mainnew)
         }).catch((error) => {
             console.log(error)
+        })
+
+        listThreeNews(this.newNew).then((response) => {
+            this.news = response.data
+            console.log(this.news)
         })
     },  
     mounted(){

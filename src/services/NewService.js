@@ -17,6 +17,14 @@ export const createNew = (form) => api.request({
     url: '/new/list',
   });
 
+  export const listThreeNews = () => api.request({
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    method: 'get',
+    url: '/new/get-three',
+  });
+
   export const showOne = (obj) => api.request({
     headers: {
       'Content-Type': 'application/json',

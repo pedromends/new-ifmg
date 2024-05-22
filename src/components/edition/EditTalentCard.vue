@@ -11,6 +11,10 @@
                 <!-- Dropdown menu -->
                 <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
                     <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+                        <li @click="setCurrentTalent(0, 'Novo', null)">
+                            <input href="#" class="w-84 block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer"
+                                readonly="readonly" value="-- Novo --"/>
+                        </li>
                         <li v-for="(talent, i) in talents" :key="i" @click="setCurrentTalent(talent.id, talent.name, talent.img.id)">
                             <input href="#" class="block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer" readonly="readonly" :value="talent.name"/>
                         </li>
@@ -61,9 +65,17 @@
                     <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG, JPG or GIF (MAX. 800x400px).</p>
                 </div>
             </div>
-            <div class="w-full flex justify-center">
-                <button class="text-white bg-maingreen hover:bg-govblue focus:ring-4 focus:outline-none focus:ring-main-700 font-medium rounded-lg text-sm w-2/5 px-5 py-2.5 text-center transition duration-200"
-                type="submit" @click.prevent="updateCard()">Salvar</button>
+            <div class="w-full flex justify-center gap-10">
+                <button class="text-white bg-maingreen hover:bg-govblue focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm text-center px-36 py-3 transition duration-200"
+                    @click.prevent="updateCard()" type="submit">Salvar</button>
+                
+                <div class="flex items-center bg-red-600 hover:bg-maingray focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg transition duration-200"
+                    @click.prevent="deleteTalent()" type="submit">
+                    <div class="flex w-full justify-start gap-3 items-center text-white px-32">
+                        <img class="w-5" :src="require('@/assets/icons/trash.svg')" alt="">
+                        <p class="font-medium">Excluir</p>
+                    </div>
+                </div>
             </div>    
         </form>
     </section>
@@ -71,7 +83,7 @@
 
 <script>
 import router from '@/router/index.js'
-import { updateTalent, getTalents } from '@/services/TalentService.js';
+import { createTalent, updateTalent, getTalents, deleteTalent } from '@/services/TalentService.js';
 
 export default {
     name: 'EditnewTalent',
@@ -85,7 +97,7 @@ export default {
                 id_img: null
             },
             newTalent: {
-                id: 1,
+                id: null,
                 name: '',
                 profession: '',
                 details: '',
@@ -109,8 +121,10 @@ export default {
         },
         setCurrentTalent(id, name, id_img){
             this.inEdition.id = id
-            this.inEdition.name = name,
-            this.inEdition.id_img = id_img
+            this.inEdition.name = name
+            if(id_img != null){
+                this.inEdition.id_img = id_img
+            }
             console.log(this.inEdition)
         },
         onImageChange(e){
@@ -125,20 +139,48 @@ export default {
             if(this.newTalent.name !== '' && this.newTalent.profession !== ''){
 
                 this.newTalent.id = this.inEdition.id
-                this.newTalent.img.id = this.inEdition.id_img
-                console.log(this.newTalent)
 
-                updateTalent(this.newTalent).then((response) => {
+                if(this.newTalent.id == 0){
+                    console.log(this.newTalent)
+                    createTalent(this.newTalent).then((response) => {
+                        console.log(response)
+                    })
+                    // .finally(() => {
+                    //     router.push('/').then(() => {
+                    //         var element = document.getElementById("talents");
+                    //         window.location.reload();
+                    //         element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                    //     }); 
+                    // })
+                } else {
+                    this.newTalent.img.id = this.inEdition.id_img
+                    updateTalent(this.newTalent).then((response) => {
+                        console.log(response)
+                    }).finally(() => {
+                        router.push('/').then(() => {
+                            var element = document.getElementById("talents");
+                            window.location.reload();
+                            element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                        }); 
+                    })
+                }
+            }
+        },
+        deleteTalent(){
+            if(this.newTalent.id == null){
+                alert('selecione um aluno primeiro')
+            }else{
+                deleteTalent(this.inEdition.id).then((response) => {
                     console.log(response)
                 }).finally(() => {
                     router.push('/').then(() => {
-                        var element = document.getElementById("talents");
-                        window.location.reload();
+                        var element = document.getElementById("ourclients");
                         element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                        alert('Deletado com sucesso')
                     }); 
                 })
             }
-        },
+        }
     },
 }
 </script>

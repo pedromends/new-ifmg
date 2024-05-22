@@ -223,8 +223,14 @@
                 <div class="w-full flex justify-center gap-10">
                     <button class="text-white bg-maingreen hover:bg-govblue focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm text-center px-36 py-3 transition duration-200"
                         @click.prevent="updateCard()" type="submit">Salvar</button>
-                    <button class="text-white bg-red-600 hover:bg-maingray focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm text-center px-36 py-3 transition duration-200"
-                    @click.prevent="deleteProject()" type="submit">Excluir</button>
+                    
+                    <div class="flex items-center bg-red-600 hover:bg-maingray focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg transition duration-200"
+                        @click.prevent="deleteProject()" type="submit">
+                        <div class="flex w-full justify-start gap-3 items-center text-white px-32">
+                            <img class="w-5" :src="require('@/assets/icons/trash.svg')" alt="">
+                            <p class="font-medium">Excluir</p>
+                        </div>
+                    </div>
                 </div> 
             </div>  
         </form>

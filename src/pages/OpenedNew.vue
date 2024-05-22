@@ -22,23 +22,48 @@
 <script>
 import { useRoute } from "vue-router";
 import { showOne } from '@/services/NewService.js';
+import { listMainNews } from '@/services/MainNewService.js';
 
 export default {
     name:'OpenedNew',
     data(){
         return {
             id: null,
-            newBody: null
+            newBody: {
+                id: undefined,
+                title: '',
+                paragraph1: undefined,
+                img1:{
+                    id: null,
+                    code: 0,
+                    name: null
+                },
+                img2:{
+                    id: null,
+                    code: 0,
+                    name: null
+                }
+            }
         }
     },
     beforeCreate() {
         const route = useRoute();
         const id = route.params.id;
 
-        showOne({ id:id }).then((response) => {
-            this.newBody = response.data
-            console.log(this.newBody)
-        })
+        if(id != 0){
+            showOne({ id:id }).then((response) => {
+                this.newBody = response.data
+                console.log(this.newBody)
+            })
+        }else{
+            listMainNews().then((response) => {
+                let res = response.data
+                this.newBody.title = res.title
+                this.newBody.img1.code = res.image.code
+                this.newBody.paragraph1 = res.paragraph
+            })
+        }
+        
     }
 }
 </script>
