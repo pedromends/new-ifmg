@@ -137,21 +137,19 @@ export default {
         },
         updateCard(){
             if(this.newTalent.name !== '' && this.newTalent.profession !== ''){
-
                 this.newTalent.id = this.inEdition.id
 
                 if(this.newTalent.id == 0){
                     console.log(this.newTalent)
                     createTalent(this.newTalent).then((response) => {
                         console.log(response)
+                    }).finally(() => {
+                        router.push('/').then(() => {
+                            var element = document.getElementById("talents");
+                            window.location.reload();
+                            element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                        }); 
                     })
-                    // .finally(() => {
-                    //     router.push('/').then(() => {
-                    //         var element = document.getElementById("talents");
-                    //         window.location.reload();
-                    //         element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
-                    //     }); 
-                    // })
                 } else {
                     this.newTalent.img.id = this.inEdition.id_img
                     updateTalent(this.newTalent).then((response) => {
@@ -167,7 +165,8 @@ export default {
             }
         },
         deleteTalent(){
-            if(this.newTalent.id == null){
+            console.log(this.newTalent)
+            if(this.newTalent.id == 0){
                 alert('selecione um aluno primeiro')
             }else{
                 deleteTalent(this.inEdition.id).then((response) => {

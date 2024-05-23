@@ -36,6 +36,10 @@
 
                 <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow">
                     <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+                        <li @click="setItem('researcher', 0, 'Novo', null)">
+                            <input href="#" class="w-84 block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer"
+                                readonly="readonly" value="-- Novo --"/>
+                        </li>
                         <li v-for="(researcher, i) in researchers" :key="i" @click="setItem('researcher', researcher.id, researcher.firstName + ' ' + researcher.lastName, researcher.img.id)">
                             <input href="#" class="block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer w-80" readonly="readonly" :value="researcher.firstName + ' ' + researcher.lastName"/>
                         </li>
@@ -120,17 +124,25 @@
                     <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG, JPG or GIF (MAX. 800x400px).</p>
                 </div>
             </div>
-            <div class="w-full flex justify-center">
-                <button class="text-white bg-maingreen hover:bg-govblue focus:ring-4 focus:outline-none focus:ring-main-700 font-medium rounded-lg text-sm w-4/5 px-5 py-2.5 text-center transition duration-200 mb-10"
-                type="submit" @click.prevent="updateResearcher()">Salvar</button>
-            </div>
+            <div class="w-full flex justify-center gap-10">
+                <button class="text-white bg-maingreen hover:bg-govblue focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm text-center px-36 py-3 transition duration-200"
+                    @click.prevent="updateResearcher()" type="submit">Salvar</button>
+                
+                <div class="flex items-center bg-red-600 hover:bg-maingray focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg transition duration-200"
+                    @click.prevent="deleteResearcher()" type="submit">
+                    <div class="flex w-full justify-start gap-3 items-center text-white px-32">
+                        <img class="w-5" :src="require('@/assets/icons/trash.svg')" alt="">
+                        <p class="font-medium">Excluir</p>
+                    </div>
+                </div>
+            </div> 
         </form>
     </section>
 </template>
 
 <script>
 import router from '@/router/index.js'
-import { updateResearcher, listResearchers } from '@/services/ResearcherService.js';
+import { createResearcher, updateResearcher, listResearchers, deleteResearcher } from '@/services/ResearcherService.js';
 import { listCampus } from '@/services/CampusService.js';
 
 export default {
@@ -187,8 +199,10 @@ export default {
         setItem(item, id, name, id_img){
             if(item == 'researcher'){
                 this.inEditionResearcher.id = id
-                this.inEditionResearcher.name = name,
-                this.inEditionResearcher.id_img = id_img
+                this.inEditionResearcher.name = name
+                if(id_img != null){
+                    this.inEditionResearcher.id_img = id_img
+                }
                 
             }else if(item == 'campus'){
                 this.inEditionCampus.id = id
@@ -206,25 +220,45 @@ export default {
         },
         updateResearcher(){
             if(this.newResearcher.firstName !== '' && this.newResearcher.lastName !== ''){
-
                 this.newResearcher.id = this.inEditionResearcher.id
-                this.newResearcher.img.id = this.inEditionResearcher.id_img
                 this.newResearcher.campus.id = this.inEditionCampus.id
+                this.newResearcher.campus.name = this.inEditionCampus.name
+                
+                if(this.newResearcher.id == 0){
+                    createResearcher(this.newResearcher).then((response) => {
+                        console.log(response)
+                    }).finally(() => {
+                        router.push('/researchers').then(() => {
+                            window.location.reload();
+                        }); 
+                    })
+                } else {
+                    this.newResearcher.img.id = this.inEditionResearcher.id_img
 
-                console.log(this.newResearcher)
-
-                updateResearcher(this.newResearcher).then((response) => {
+                    updateResearcher(this.newResearcher).then((response) => {
+                        console.log(response)
+                    }).finally(() => {
+                        router.push('/researchers').then(() => {
+                            window.location.reload();
+                        }); 
+                    })
+                }
+            }
+        },
+        deleteResearcher(){
+            if(this.newResearcher.id == 0){
+                alert('selecione um aluno primeiro')
+            }else{
+                deleteResearcher(this.newResearcher.id).then((response) => {
                     console.log(response)
-                })
-                .finally(() => {
-                    router.push('/').then(() => {
-                        var element = document.getElementById("researcher");
+                }).finally(() => {
+                    router.push('/researchers').then(() => {
+                        alert('Deletado com sucesso')
                         window.location.reload();
-                        element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
                     }); 
                 })
             }
-        },
+        }
     },
 }
 </script>

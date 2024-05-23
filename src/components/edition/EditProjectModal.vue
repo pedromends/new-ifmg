@@ -219,7 +219,6 @@
                             v-model="newProject.resume" placeholder="Escreva sobre o projeto aqui..."></textarea>
                     </div>
                 </div>
-
                 <div class="w-full flex justify-center gap-10">
                     <button class="text-white bg-maingreen hover:bg-govblue focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm text-center px-36 py-3 transition duration-200"
                         @click.prevent="updateCard()" type="submit">Salvar</button>

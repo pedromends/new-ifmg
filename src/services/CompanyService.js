@@ -2,7 +2,7 @@ import api from '@/services/api';
 
 export const createCompany = (form) => api.request({
   headers: {
-    'Content-Type': 'multipart/form-data',
+    'Content-Type': 'application/json',
   },
   method: 'post',
   url: '/company/create',
@@ -17,7 +17,7 @@ export const listCompanies = () => api.request({
   url: '/company/list',
 });
 
-export const updateCompanies = (form) => api.request({
+export const updateCompany = (form) => api.request({
   headers: {
     'Content-Type': 'application/json',
   },

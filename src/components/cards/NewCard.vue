@@ -1,7 +1,7 @@
 <template lang="">
     <div @click.prevent="openNew()" class="flex flex-col justify-center gap-3 hover:bg-gray-200 rounded-xl transition duration-300 pb-3">
         <div class="w-full flex justify-center px-3">
-            <img :src="img" alt="" class="mt-3"/>
+            <img :src="img" alt="" class="mt-3 w-3/4"/>
         </div>
         <div class="px-8 flex flex-col justify-start gap-2">
             <div class="flex items-center self-start">
@@ -29,7 +29,6 @@ export default {
     props: {
         tip: String,
         title: String,
-        newId: String,
         date: String,
         read: String,
         img: String,

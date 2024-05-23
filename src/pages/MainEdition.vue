@@ -9,7 +9,7 @@
                         <router-link to="/edit/about-us" :class="linkCss">Sobre Nós</router-link>
                         <router-link to="/edit/advantages-card" :class="linkCss">Cards de Vantagens</router-link>
                         <router-link to="/edit/main-new" :class="linkCss">Notícia Principal</router-link>
-                        <router-link to="/edit/news-card" :class="linkCss">Notícias Secundárias</router-link>
+                        <!-- <router-link to="/edit/news-card" :class="linkCss">Notícias Secundárias</router-link> -->
                         <router-link to="/edit/event-card" :class="linkCss">Cards de Eventos</router-link>
                         <router-link to="/edit/project-modal" :class="linkCss">Modal de Projetos</router-link>
                         <router-link to="/edit/capacitation-card" :class="linkCss">Cards de Capacitação</router-link>

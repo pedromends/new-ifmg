@@ -18,11 +18,11 @@
 
                             <div id="dropdown1" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen">
                                 <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="modalityButton">
-                                    <li @click="boolNewProject == true">
+                                    <li @click="setItem(0, 'Novo', null)">
                                         <input href="#" class="w-84 block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer"
                                             readonly="readonly" value="-- Novo --"/>
                                     </li>
-                                    <li v-for="(company, i) in companies" :key="i" @click="setItem('company', company.id, company.name, company.image.id)">
+                                    <li v-for="(company, i) in companies" :key="i" @click="setItem(company.id, company.name, company.image.id)">
                                         <input href="#" class="w-84 block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer"
                                             readonly="readonly" :value="company.name"/>
                                     </li>
@@ -67,17 +67,25 @@
                         type="file" id="logo" @change="onFileChanged($event)" accept="image/*" required />
                 </div>
             </div>
-            <div class="w-full flex justify-center">
-                <button class="text-white bg-maingreen hover:bg-govblue focus:ring-4 focus:outline-none focus:ring-red-600 font-medium rounded-lg text-sm m:w-auto w-2/5 py-2.5 text-center transition duration-200"
+            <div class="w-full flex justify-center gap-10">
+                <button class="text-white bg-maingreen hover:bg-govblue focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm text-center px-36 py-3 transition duration-200"
                     @click.prevent="updateCompany()" type="submit">Salvar</button>
-            </div>  
+                
+                <div class="flex items-center bg-red-600 hover:bg-maingray focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg transition duration-200"
+                    @click.prevent="deleteCompany()" type="submit">
+                    <div class="flex w-full justify-start gap-3 items-center text-white px-32">
+                        <img class="w-5" :src="require('@/assets/icons/trash.svg')" alt="">
+                        <p class="font-medium">Excluir</p>
+                    </div>
+                </div>
+            </div> 
         </form>
     </section>
 </template>
 
 <script>
 import router from '@/router/index.js'
-import { listCompanies, updateCompanies } from '@/services/CompanyService.js';
+import { createCompany, listCompanies, updateCompany, deleteCompany } from '@/services/CompanyService.js';
 
 export default {
     name: 'EditCompany',
@@ -109,20 +117,6 @@ export default {
         })
     },
     methods: {
-        updateCompany(){
-            this.company.id = this.inEditionCompany.id
-            this.company.image.id = this.inEditionCompany.id_img
-            console.log(this.company)
-
-            updateCompanies(this.company).then((response) => {
-                console.log(response)
-            }).finally(() => {
-                router.push('/').then(() => {
-                    var element = document.getElementById("ourclients");
-                    element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
-                }); 
-            })
-        },
         onFileChanged(e){
             const image = e.target.files[0];
             const reader = new FileReader();
@@ -131,13 +125,52 @@ export default {
                 this.company.image.code = e.target.result;
             };
         },
-        setItem(item, id, name, id_img){
+        setItem(id, name, id_img){
             this.inEditionCompany.id = id
-            this.inEditionCompany.name = name,
-            this.inEditionCompany.id_img = id_img
-
+            this.inEditionCompany.name = name
+            if(id_img != null)
+                this.inEditionCompany.id_img = id_img
             console.log(this.inEditionCompany)
         },
+        updateCompany(){ // TODO: trocar pra submit data
+            this.company.id = this.inEditionCompany.id
+            this.company.image.id = this.inEditionCompany.id_img
+            console.log(this.company)
+
+            if(this.inEditionCompany.id == 0){
+                createCompany(this.company).then((response) => {
+                    console.log(response)
+                })
+                // .finally(() => {
+                //     router.push('/').then(() => {
+                //         var element = document.getElementById("ourclients");
+                //         element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                //     }); 
+                // })
+            } else {
+                updateCompany(this.company).then((response) => {
+                    console.log(response)
+                })
+                // .finally(() => {
+                //     router.push('/').then(() => {
+                //         var element = document.getElementById("ourclients");
+                //         element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                //     }); 
+                // })
+            }
+            
+        },
+        deleteCompany(){
+            deleteCompany(this.editProject.id).then((response) => {
+                console.log(response)
+            }).finally(() => {
+                router.push('/').then(() => {
+                    var element = document.getElementById("ourclients");
+                    element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                    alert('Deletado com sucesso')
+                }); 
+            })
+        }
     },
 }
 </script>
