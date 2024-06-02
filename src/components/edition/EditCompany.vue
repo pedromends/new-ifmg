@@ -10,8 +10,8 @@
                     <!-- Empresa -->
                     <div id="company-name-div" class="border-2 border-transparent p-2 rounded-lg">
                         <div class="flex flex-col">
-                            <label for="researchers" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Empresa:</label>
-                            <button class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 hover:text-white focus:border-red-600 block w-full p-2.5 hover:bg-maingreen" 
+                            <label for="researchers" class="mb-2 text-sm font-medium text-gray-900 dark:text-white">Empresa:</label>
+                            <button class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 hover:text-white focus:border-red-600 w-full p-2.5 hover:bg-maingreen" 
                                 id="modalityButton" data-dropdown-toggle="dropdown1" type="button">
                                 {{ inEditionCompany.name }}
                             </button>
@@ -19,11 +19,11 @@
                             <div id="dropdown1" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen">
                                 <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="modalityButton">
                                     <li @click="setItem(0, 'Novo', null)">
-                                        <input href="#" class="w-84 block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer"
+                                        <input href="#" class="w-84 px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer"
                                             readonly="readonly" value="-- Novo --"/>
                                     </li>
                                     <li v-for="(company, i) in companies" :key="i" @click="setItem(company.id, company.name, company.image.id)">
-                                        <input href="#" class="w-84 block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer"
+                                        <input href="#" class="w-84 px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer"
                                             readonly="readonly" :value="company.name"/>
                                     </li>
                                 </ul>
@@ -47,23 +47,23 @@
         <form class="bg-white w-full px-24 py-10 rounded-xl">
             <div class="grid grid-cols-2 rounded-lg pt-10 mb-10">
                 <div id="name-div" class="border-2 border-transparent py-2 rounded-lg px-6">
-                    <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nome</label>
-                    <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5"
+                    <label for="name" class="mb-2 text-sm font-medium text-gray-900 dark:text-white">Nome</label>
+                    <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 w-full p-2.5"
                         v-model="company.name" id="name" placeholder="Digite o nome..." required />
                 </div>
                 <div id="classification-div" class="border-2 border-transparent py-2 rounded-lg px-6">
-                    <label for="classification" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Classificação</label>
-                    <input class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5"
+                    <label for="classification" class="mb-2 text-sm font-medium text-gray-900 dark:text-white">Classificação</label>
+                    <input class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 w-full p-2.5"
                         v-model="company.classification" id="classification" placeholder="Digite a classificação..." required />
                 </div>
                 <div id="cnpj-div" class="border-2 border-transparent py-2 rounded-lg px-6">
-                    <label for="cnpj" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">CNPJ</label>
-                    <input class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5"
+                    <label for="cnpj" class="mb-2 text-sm font-medium text-gray-900 dark:text-white">CNPJ</label>
+                    <input class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 w-full p-2.5"
                         v-model="company.cnpj" id="cnpj" placeholder="Digite o CNPJ..." required />
                 </div>
                 <div id="logo-div" class="border-2 border-transparent py-2 rounded-lg px-6">
-                    <label for="logo" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Logomarca</label>
-                    <input class="bg-gray-50 border text-gray-900 text-sm focus:ring-red-600 focus:border-red-600 block w-full rounded-xl"
+                    <label for="logo" class="mb-2 text-sm font-medium text-gray-900 dark:text-white">Logomarca</label>
+                    <input class="bg-gray-50 border text-gray-900 text-sm focus:ring-red-600 focus:border-red-600 w-full rounded-xl"
                         type="file" id="logo" @change="onFileChanged($event)" accept="image/*" required />
                 </div>
             </div>

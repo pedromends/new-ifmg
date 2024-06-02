@@ -1,18 +1,19 @@
 import { createRouter, createWebHistory } from "vue-router";
-import HomePage from "@/pages/HomePage.vue";
-import Institutional from "@/pages/Institutional.vue";
-import MobSys from "@/pages/MobSys.vue";
-import HowItWorks from "@/pages/HowItWorks.vue";
-import Embrapii from "@/pages/Embrapii.vue";
-import NewsPage from "@/pages/NewsPage.vue";
-import Edicts from "@/pages/Edicts.vue";
-import NewsCreate from "@/pages/NewsCreate.vue";
-import Capacitation from "@/pages/Capacitation.vue";
-import Documents from "@/pages/Documents.vue";
-import Contact from "@/pages/ContactPage.vue";
-import Researchers from "@/pages/Researchers.vue";
-import MainEdition from "@/pages/MainEdition.vue";
-import OpenedNew from "@/pages/OpenedNew.vue";
+import HomePage from "@/views/HomePage.vue";
+import Institutional from "@/views/Institutional.vue";
+import MobSys from "@/views/MobSys.vue";
+import HowItWorks from "@/views/HowItWorks.vue";
+import Embrapii from "@/views/Embrapii.vue";
+import NewsPage from "@/views/NewsPage.vue";
+import Edicts from "@/views/Edicts.vue";
+import NewsCreate from "@/views/NewsCreate.vue";
+import Capacitation from "@/views/Capacitation.vue";
+import Documents from "@/views/Documents.vue";
+import Contact from "@/views/ContactPage.vue";
+import Researchers from "@/views/Researchers.vue";
+import MainEdition from "@/views/MainEdition.vue";
+import OpenedNew from "@/views/OpenedNew.vue";
+import LoginPage from "@/views/LoginPage.vue";
 import EditPresenterCard from "@/components/edition/EditPresenterCard.vue";
 import EditEventCard from "@/components/edition/EditEventCard.vue";
 import EditMainNewCard from "@/components/edition/EditMainNewCard.vue";
@@ -77,6 +78,10 @@ const routes = [
   {
     path: '/researchers',
     component: Researchers
+  },
+  {
+    path: '/login',
+    component: LoginPage
   },
   {
     path: '/edit',

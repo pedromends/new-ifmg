@@ -1,36 +1,37 @@
 import api from '@/services/api';
 
-export const createPokemon = (form) => api.request({
+export const createUser = (form) => api.request({
   headers: {
-    'Content-Type': 'multipart/form-data',
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*',
   },
   method: 'post',
-  url: '/pokedex/criar',
+  url: '/user/register',
   data: form,
 });
 
-export const listPokemons = () => api.request({
+export const listUsers = () => api.request({
   headers: {
     'Content-Type': 'application/json',
   },
   method: 'get',
-  url: '/pokedex/listar',
+  url: '/user/list',
 });
 
-export const updatePokemon = (form) => api.request({
+export const updateUser = (form) => api.request({
   headers: {
-    'Content-Type': 'multipart/form-data',
+    'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*',
   },
   method: 'put',
-  url: '/pokedex/atualizar',
+  url: '/user/update',
   data: form,
 });
 
-export const deletePokemon = (id) => api.request({
+export const deleteUser = (id) => api.request({
   headers: {
     'Content-Type': 'application/json',
   },
   method: 'delete',
-  url: `/pokedex/deletar/${id}`,
+  url: `/user/delete/${id}`,
 });

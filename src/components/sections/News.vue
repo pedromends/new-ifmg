@@ -1,19 +1,23 @@
 <template lang="">
     <section id="news" class="flex flex-col px-10 py-36 gap-16 max-lg:px-2">
-        <h1 class="text-4xl font-semibold self-center">Notícias e Eventos</h1>
+        <h1 class="text-4xl font-semibold self-center underline underline-offset-2 decoration-4 decoration-maingreen">Notícias e Eventos</h1>
         <div v-if="mainnew">
             <MainNew :tip="mainnew.tip" :title="mainnew.title" :parag="mainnew.paragraph" :img="mainnew.image.code"/>
         </div>
-        <div class="grid grid-cols-4 gap-2 max-lg:grid-cols-1 items-center">
-            <NewCard  v-for="(newNew, i) in news" :key="i"
-                :tip="'Novidade'" :title="newNew.title" :date="newNew.date" :read="'3 min de Leitura'" :img="newNew.img1.code" :newId="newNew.id"/>
+        <div class="flex gap-5 items-center">
+            <div class="flex flex-col w-3/4 gap-5">
+                <p class="font-bold text-3xl underline underline-offset-2 decoration-4 decoration-maingreen self-start ml-6">Últimas Notícias</p>
+                <div class="flex gap-3 items-end">
+                    <NewCard  v-for="(newNew, i) in news" :key="i"
+                        :tip="'Novidade'" :title="newNew.title" :date="newNew.date" :read="'3 min de Leitura'" :img="newNew.img1.code" :newId="newNew.id"/>
+                </div>
+            </div>
             <div class="flex flex-col gap-4">
                 <EventCard v-for="(event, i) in events" :key="i" :month="event.month" :day="event.day" :title="event.title" :hour="event.hour" :local="event.local"/>
             </div>
         </div>
         <router-link class="px-5 py-2 bg-maingreen text-white mx-auto rounded-lg font-bold hover:bg-white hover:text-maingreen transition duration-300 border-2 border-maingreen"
-            to="/news">
-            Ver Notícias e Eventos
+            to="/news">Ver Notícias e Eventos
         </router-link>
     </section>
 </template>

@@ -1,7 +1,7 @@
 <template lang="">
     <section class="flex justify-center bg-lightgray gap-10 my-10 mx-5">
         <div role="status" class="flex flex-col items-center gap-10">
-            <p class="font-bold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen self-start mt-5 mb-10">Editar Pesquisadores</p>
+            <p class="font-bold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen self-start mt-5 mb-10">Criar/Editar Pesquisadores</p>
 
             <!-- Card Modelo -->
             <section class="hover:shadow-lg transition duration-300 rounded-lg border border-gray-200 bg-white">

@@ -37,7 +37,7 @@
                     </a>
                 </div>
                 <input type="text" class="bg-handglass hover:bg-handglass-blue bg-maingreen bg-no-repeat bg-contain pl-10 h-8 w-44 rounded-xl border-white text-white hover:border-govblue transition duration-200"/>
-                <button class="bg-white mr-16 p-4 text-maingreen tracking-wide text-sm hover:underline hover:text-red-600">ACESSO P/ADM</button>
+                <router-link to="/login" class="bg-white mr-16 p-4 text-maingreen tracking-wide text-sm hover:underline hover:text-red-600">ACESSO P/ADM</router-link>
             </div>        
         </section>
         

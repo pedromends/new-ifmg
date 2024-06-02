@@ -1,5 +1,5 @@
 <template lang="">
-    <section class="flex hover:bg-maingreen border-2 border-gray-100 rounded-xl z-10 px-6">
+    <section class="flex hover:bg-maingreen border-2 border-gray-100 rounded-xl z-10 px-6 transition duration-200">
         <router-link to="/mobility-smart-systems" class="text-black flex max-md:flex-col py-6 gap-10 transition duration-300 max-lg:w-auto max-lg:px-0">
             <img v-bind:src="icon" alt="" class="w-16 max-lg:self-center"/>
             <div class="flex gap-1 edit items-center relative transition duration-500">
