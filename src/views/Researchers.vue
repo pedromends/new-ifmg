@@ -40,7 +40,6 @@ export default {
     },
     created(){
         listResearchers().then((response) => {
-            console.log(response.data)
             this.researchers = response.data
         })
     },
@@ -54,6 +53,7 @@ export default {
     }
 }
 </script>
+
 <style lang="">
     
 </style>

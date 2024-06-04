@@ -4,6 +4,7 @@ const api = axios.create({
   baseURL: 'http://localhost:8090/api-polo/',
   headers: {
     'Access-Control-Allow-Origin': '*',
+    'Authorization': `Bearer ${window.localStorage.getItem('refresh_token').toString()}`,
     Accept: 'application/json',
     'Content-Type': 'application/json',
   },

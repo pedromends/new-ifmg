@@ -10,14 +10,14 @@
                         </div>
                         <p class="px-10 font-bold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen">Bem-vindo de volta!</p>
                         <div class="w-full px-10" >
-                            <label class="text-maingray font-medium">Email:</label>
+                            <label class="text-maingray font-medium">Nome de Usuário:</label>
                             <input class="rounded-lg border border-maingreen w-full focus:border-red-600"
-                                v-model="newUser.email" type="text"/>
+                                v-model="login.email" type="text"/>
                         </div>
                         <div class="w-full px-10" >
                             <label class="text-maingray font-medium">Senha:</label>
                             <input class="rounded-lg border border-maingreen w-full focus:border-red-600"
-                                v-model="newUser.password" type="text"/>
+                                v-model="login.password" type="text"/>
                         </div>
                         <div class="w-full px-10 flex justify-center gap-10">
                             <button class="text-white bg-maingreen hover:bg-govblue focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm text-center px-36 py-3 transition duration-200"
@@ -103,8 +103,8 @@
 </template>
 
 <script>
-// import router from '@/router/index.js'
-import { createUser } from '@/services/UserService.js';
+import router from '@/router/index.js'
+import { createUser, loginUser } from '@/services/UserService.js';
 
 export default {
     name: 'LoginPage',
@@ -114,6 +114,10 @@ export default {
     data(){
         return {
             boolForm: true,
+            login: {
+                email: 'pedro_j.css',
+                password: 'teste'
+            },
             newUser:{
                 firstName: '',
                 lastName: '',
@@ -131,16 +135,28 @@ export default {
         requestCreateUser(){
             console.log(this.newUser)
             createUser(this.newUser).then((response) => {
-                console.log(response)
+                console.log(JSON.stringify(response.data.token).slice(1,1))
+                window.localStorage.setItem("refresh_token", JSON.stringify(response.data.token))
+                document.cookie = `refresh_token = ${JSON.stringify(response.data.token)}`
+            })
+            .finally(() => {
+                router.push('/').then(() => {
+                    window.location.reload();
+                }); 
+            })
+        },
+        requestLogin(){
+            loginUser(this.login).then((response) => {
+                console.log(JSON.stringify(response.data.token))
+                console.log(JSON.stringify(response.data.token).slice(1,1))
+                // window.localStorage.setItem("refresh_token", JSON.stringify(response.data.token))
+                // document.cookie = `refresh_token = ${JSON.stringify(response.data.token)}`
             })
             // .finally(() => {
             //     router.push('/').then(() => {
             //         window.location.reload();
             //     }); 
             // })
-        },
-        requestLogin(){
-
         }
     }
 }

@@ -10,6 +10,16 @@ export const createUser = (form) => api.request({
   data: form,
 });
 
+export const loginUser = (form) => api.request({
+  headers: {
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*',
+  },
+  method: 'post',
+  url: '/user/login',
+  data: form,
+});
+
 export const listUsers = () => api.request({
   headers: {
     'Content-Type': 'application/json',
