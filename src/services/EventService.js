@@ -3,6 +3,7 @@ import api from '@/services/api';
 export const createEvent = (form) => api.request({
   headers: {
     'Content-Type': 'application/json',
+    'Authorization': `Bearer ${window.localStorage.getItem('refresh_token')}`,
   },
   method: 'post',
   url: '/event/create',
@@ -20,6 +21,7 @@ export const listEvents = () => api.request({
 export const updateEvent = (form) => api.request({
   headers: {
     'Content-Type': 'application/json',
+    'Authorization': `Bearer ${window.localStorage.getItem('refresh_token')}`,
   },
   method: 'put',
   url: '/event/update',
@@ -29,6 +31,7 @@ export const updateEvent = (form) => api.request({
 export const deleteEvent = (id) => api.request({
   headers: {
     'Content-Type': 'application/json',
+    'Authorization': `Bearer ${window.localStorage.getItem('refresh_token')}`,
   },
   method: 'delete',
   url: `/event/delete/${id}`,

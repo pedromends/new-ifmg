@@ -1,14 +1,5 @@
 import api from '@/services/api';
 
-export const createCapacitation = (form) => api.request({
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  method: 'post',
-  url: '/capacitation/create',
-  data: form,
-});
-
 export const listCapacitation = () => api.request({
   headers: {
     'Content-Type': 'application/json',
@@ -20,16 +11,9 @@ export const listCapacitation = () => api.request({
 export const updateCapacitation = (form) => api.request({
   headers: {
     'Content-Type': 'application/json',
+    'Authorization': `Bearer ${window.localStorage.getItem('refresh_token')}`,
   },
   method: 'put',
   url: '/capacitation/update',
   data: form,
-});
-
-export const deleteCapacitation = (id) => api.request({
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  method: 'delete',
-  url: `/capacitation/delete/${id}`,
 });

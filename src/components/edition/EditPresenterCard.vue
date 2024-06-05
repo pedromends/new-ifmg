@@ -60,11 +60,16 @@
 </template>
 
 <script>
-import router from '@/router/index.js'
+ import router from '@/router/index.js'
 import { updateCard } from '@/services/PresenterCardService.js'
 
 export default {
     name: 'EditPresenterCard',
+    created(){
+        console.log(this.$store.getters.isLoggedIn)
+        console.log(this.$store.getters.getUser)
+        console.log(this.$store.getters.getToken)
+    },
     data(){
         return {
             bool: false,

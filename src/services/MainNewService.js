@@ -3,6 +3,7 @@ import api from '@/services/api';
 export const createMainNew = (form) => api.request({
   headers: {
     'Content-Type': 'application/json',
+    'Authorization': `Bearer ${window.localStorage.getItem('refresh_token')}`,
   },
   method: 'post',
   url: '/main-new/create',
@@ -20,6 +21,7 @@ export const listMainNews = () => api.request({
 export const updateMainNew = (form) => api.request({
   headers: {
     'Content-Type': 'application/json',
+    'Authorization': `Bearer ${window.localStorage.getItem('refresh_token')}`,
   },
   method: 'put',
   url: '/main-new/update',
@@ -29,6 +31,7 @@ export const updateMainNew = (form) => api.request({
 export const deleteMainNew = (id) => api.request({
   headers: {
     'Content-Type': 'application/json',
+    'Authorization': `Bearer ${window.localStorage.getItem('refresh_token')}`,
   },
   method: 'delete',
   url: `/main-new/delete/${id}`,

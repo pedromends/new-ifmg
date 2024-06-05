@@ -37,7 +37,8 @@
                     </a>
                 </div>
                 <input type="text" class="bg-handglass hover:bg-handglass-blue bg-maingreen bg-no-repeat bg-contain pl-10 h-8 w-44 rounded-xl border-white text-white hover:border-govblue transition duration-200"/>
-                <router-link to="/login" class="bg-white mr-16 p-4 text-maingreen tracking-wide text-sm hover:underline hover:text-red-600">ACESSO P/ADM</router-link>
+                <router-link v-if="!isLoggedIn" to="/login" class="bg-white mr-16 p-4 text-maingreen tracking-wide text-sm hover:underline hover:text-red-600">ACESSO P/ADM</router-link>
+                <router-link v-if="isLoggedIn" to="/login" class="bg-white mr-16 p-4 text-maingreen tracking-wide text-sm hover:underline hover:text-red-600">Deslogar</router-link>
             </div>        
         </section>
         
@@ -65,6 +66,7 @@
 <script>
 import NavbarLink from '@/components/links/NavbarLink.vue';
 import router from '@/router/index.js'
+import { mapMutations } from "vuex";
 
 export default {
     name: 'NavBar',
@@ -73,6 +75,7 @@ export default {
     },
     data() {
         return {
+            isLoggedIn: this.$store.getters.isLoggedIn,
             aboutUs: () => {
                 router.push({ path: '/' }).then(() => {
                     var element = document.getElementById("aboutus");
@@ -108,6 +111,15 @@ export default {
             },
         }  
     },
+    methods: {
+        ...mapMutations(["setUser", "setToken"]),
+        logOut(){ // TODO: passar para botão de logout na navbar depois
+            this.setUser(null);
+            this.setToken(null);
+            window.localStorage.setItem("refresh_token", null)
+            document.cookie = `refresh_token = ${null}`
+        }
+    }
 }
 </script>
 

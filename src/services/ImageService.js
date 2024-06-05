@@ -3,6 +3,7 @@ import api from '@/services/api';
 export const createImage = (form) => api.request({
   headers: {
     'Content-Type': 'application/json',
+    'Authorization': `Bearer ${window.localStorage.getItem('refresh_token')}`,
   },
   method: 'post',
   url: '/image/create',
@@ -29,6 +30,7 @@ export const updateImage = (form) => api.request({
   headers: {
     'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*',
+    'Authorization': `Bearer ${window.localStorage.getItem('refresh_token')}`,
   },
   method: 'put',
   url: '/image/update',
@@ -38,6 +40,7 @@ export const updateImage = (form) => api.request({
 export const deleteImage = (id) => api.request({
   headers: {
     'Content-Type': 'application/json',
+    'Authorization': `Bearer ${window.localStorage.getItem('refresh_token')}`,
   },
   method: 'delete',
   url: `/image/deleta/${id}`,

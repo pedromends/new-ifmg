@@ -3,25 +3,37 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from "@/router/index.js"
 import AnimatedCounter from "vue-animated-counter"
-import VueX from "vuex";
+import { createStore } from 'vuex';
 
-
-// ERRADO
-// createApp(App).use(router)
-// createApp(App).mount('#app')
-
-// CERTO
-
-//Vue.config.productionTip = false;
-
-const store = new VueX.Store({
-    state: {},
-    mutations: {},
+const store = new createStore({
+    state: {
+        user:null,
+        token: null
+    },
+    mutations: {
+        setUser(state, user){
+            state.user = user    
+        },
+        setToken(state, token){
+            state.token = token
+        },
+    },
     actions: {},
-    getters: {}
+    getters: {
+        isLoggedIn(state){
+            return state.token != null ? true : false// !! stand for return true or false
+        }, 
+        getUser(state){
+            return state.user
+        },
+        getToken(state){
+            return state.token
+        },
+    }
 })
 
-const app = createApp(App).use(router).use(VueX).use(store)
+const app = createApp(App)
+.use(router).use(store)
 .component("AnimatedCounter", AnimatedCounter)
 
 app.config.warnHandler = function () {

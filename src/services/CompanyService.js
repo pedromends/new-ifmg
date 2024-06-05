@@ -3,6 +3,7 @@ import api from '@/services/api';
 export const createCompany = (form) => api.request({
   headers: {
     'Content-Type': 'application/json',
+    'Authorization': `Bearer ${window.localStorage.getItem('refresh_token')}`,
   },
   method: 'post',
   url: '/company/create',
@@ -20,6 +21,7 @@ export const listCompanies = () => api.request({
 export const updateCompany = (form) => api.request({
   headers: {
     'Content-Type': 'application/json',
+    'Authorization': `Bearer ${window.localStorage.getItem('refresh_token')}`,
   },
   method: 'put',
   url: '/company/update',
@@ -29,6 +31,7 @@ export const updateCompany = (form) => api.request({
 export const deleteCompany = (id) => api.request({
   headers: {
     'Content-Type': 'application/json',
+    'Authorization': `Bearer ${window.localStorage.getItem('refresh_token')}`,
   },
   method: 'delete',
   url: `/company/delete/${id}`,
