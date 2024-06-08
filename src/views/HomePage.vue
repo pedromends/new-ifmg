@@ -1,7 +1,7 @@
 <template>
   <section>
     <Presenter />
-    <AboutUs />
+    <WhoWeAre />
     <Advantages />
     <News />
     <PartnerCompanies />
@@ -15,7 +15,7 @@
 <script>
 
 import Presenter from "@/components/sections/Presenter.vue"
-import AboutUs from "@/components/sections/AboutUs.vue"
+import WhoWeAre from "@/components/sections/WhoWeAre.vue"
 import Advantages from "@/components/sections/Advantages.vue"
 import PartnerCompanies from "@/components/sections/PartnerCompanies.vue"
 import Capacitation from "@/components/sections/Capacitation.vue"
@@ -28,7 +28,7 @@ export default {
   name: 'HomePage',
   components:{
     Presenter,
-    AboutUs,
+    WhoWeAre,
     Advantages,
     PartnerCompanies,
     Capacitation,

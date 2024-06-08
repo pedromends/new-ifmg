@@ -1,4 +1,4 @@
-<template lang="">
+this.activePopover<template lang="">
     <section class="flex justify-center items-start relative">
         <button title="edit" :id="`popover-${id}`" class="absolute p-3 rounded-lg bg-gray-200 -top-16 hidden z-50" @mouseleave="showHidPopover()" @click="editTalent()">
             <img :src="require('@/assets/icons/pencil-edit-maingreen.svg')" alt="#" class="h-10"/>
@@ -32,24 +32,23 @@ export default {
     },
     data(){
         return {
-            activePopover: false
+            activePopover: false,
+            isAdmin: this.$store.getters.isLoggedIn
         }
     },
     methods: {
         showHidPopover(){
-            let popover = document.getElementById(`popover-${this.id}`)
-            if(this.activePopover){
-                popover.style.display = 'none'
-            }else{
-                popover.style.display = 'inline'
+            if(this.isAdmin){
+                let popover = document.getElementById(`popover-${this.id}`)
+                this.activePopover ? popover.style.display = 'none' : popover.style.display = 'inline'
+                this.activePopover = !this.activePopover
             }
-            this.activePopover = !this.activePopover
         },
         editTalent(){
             router.push('/edit/talent-card').then(() => {
                 var element = document.getElementById("navbar");
                 window.location.reload();
-                element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });4
+                element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
             }); 
         }
     },

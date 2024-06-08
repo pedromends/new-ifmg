@@ -5,7 +5,7 @@
                 <span class="border-2 border-maingreen rounded-lg w-40 text-center text-sm px-2 py-1 max-lg:mt-6">{{ tip }}</span>
                 <h1 class="w-3/4 text-4xl font-bold mt-2">{{ title }}</h1>
                 <p class="w-3/4 text-maingray">{{ parag }}</p>
-                <button @click="editMainNew()" class="w-3/4">
+                <button @click="editMainNew()" class="w-3/4"  v-if="isAdmin">
                     <img :src="require('@/assets/icons/pencil-edit-maingreen.svg')" alt="#" class="h-8"/>
                 </button>
                 <div class="flex items-center justify-between">
@@ -27,6 +27,7 @@ export default {
     data() {
         return {
             mainnew: undefined,
+            isAdmin: this.$store.getters.isLoggedIn
         }
     },
     props: {

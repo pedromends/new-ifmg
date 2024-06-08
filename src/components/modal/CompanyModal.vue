@@ -78,7 +78,7 @@
                             Fechar
                         </button>
                     </div>
-                    <button @click="editModal()" class="">
+                    <button @click="editModal()" class="" v-if="isAdmin">
                         <img :src="require('@/assets/icons/pencil-edit-maingreen.svg')" alt="#" class="h-10"/>
                     </button>
                 </div>
@@ -93,6 +93,11 @@ import router from '@/router/index.js'
 export default {
     name: 'CompanyModal',
     components:{
+    },
+    data() {
+        return {
+            isAdmin: this.$store.getters.isLoggedIn
+        }
     },
     props: {
         img: String, //imagem a ser utilizada

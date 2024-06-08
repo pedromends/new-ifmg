@@ -11,7 +11,7 @@
             <p class="text-sm">{{ date }} | {{ read }}</p>
             <div class="flex items-center justify-between">
                 <a href="#" class="text-xs text-maingreen hover:underline">Ler Mais -></a>
-                <button @click="editNewCard()" class="self-end">
+                <button @click="editNewCard()" class="self-end" v-if="isAdmin">
                     <img :src="require('@/assets/icons/pencil-edit-maingreen.svg')" alt="#" class="h-8"/>
                 </button>
             </div>
@@ -25,6 +25,11 @@ import router from '@/router/index.js'
 export default {
     name: 'NewCard',
     components:{
+    },
+    data() {
+        return {
+            isAdmin: this.$store.getters.isLoggedIn
+        }
     },
     props: {
         tip: String,

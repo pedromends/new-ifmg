@@ -1,5 +1,5 @@
 <template lang="">
-    <router-link @click="func" :to="link" class="hover:text-red-600 hover:underline hover:decoration-red-600">{{ text }}</router-link>
+    <router-link @click="func" :to="link" class="hover:text-red-600 hover:underline hover:decoration-red-600 transition duration-200">{{ text }}</router-link>
 </template>
 <script>
 export default {

@@ -3,7 +3,7 @@
         <section class="flex flex-col gap-10 px-20 w-full max-lg:px-5">
             <div class="flex items-center justify-between">
                 <h1 class="text-4xl text-black font-semibold underline underline-offset-2 decoration-8 decoration-maingreen">Pesquisadores</h1>
-                <button class="text-white bg-maingreen hover:bg-govblue focus:ring-4 focus:outline-none focus:ring-red-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center transition duration-200"
+                <button v-if="isAdmin" class="text-white bg-maingreen hover:bg-govblue focus:ring-4 focus:outline-none focus:ring-red-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center transition duration-200"
                     type="submit" @click.prevent="createNewResearcher()">Criar novo pesquisador</button>
             </div>
             <hr class="bg-red-600 h-1"/>
@@ -24,24 +24,25 @@
 <script>
 import router from '@/router/index.js'
 import { listResearchers } from '@/services/ResearcherService.js';
-import ResearcherCard from '@/components/cards/ResearcherCard.vue';
+import ResearcherCard from '@/components/cards/ResearcherCard.vue'; 
 import BackToTop  from '@/components/buttons/BackToTop.vue';
 
 export default {
     name: 'ResearchersPage',
-    data(){
-        return {
-            researchers: null,
-        }
+    created(){
+        listResearchers().then((response) => {
+            this.researchers = response.data
+        })
     },
     components: {
         ResearcherCard,
         BackToTop
     },
-    created(){
-        listResearchers().then((response) => {
-            this.researchers = response.data
-        })
+    data(){
+        return {
+            researchers: null,
+            isAdmin: this.$store.getters.isLoggedIn,
+        }
     },
     methods: {
         createNewResearcher(){

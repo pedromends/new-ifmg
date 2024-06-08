@@ -28,12 +28,11 @@
 
 <script>
 import router from '@/router/index.js'
-import { mapGetters } from "vuex";
 
 export default {
     name: 'MainEdition',
     beforeCreate() {
-        if(this.$store.getters.isLoggedIn){
+        if(!this.$store.getters.isLoggedIn){
             router.push('/').then(() => {
                 window.location.reload();
             });
@@ -44,10 +43,7 @@ export default {
             linkCss: 'transition duration-200 hover:bg-maingreen px-3 py-1 rounded-lg text-maingreen hover:text-white font-medium',
             isLoggedIn: this.$store.getters.isLoggedIn,
         }
-    },
-    computed: {
-        ...mapGetters(["isLoggedIn"])
-    },
+    }
 }
 </script>
 

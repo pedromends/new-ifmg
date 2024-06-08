@@ -24,21 +24,20 @@
                 <router-link class="hover:underline" to="#">NOSSOS CURSOS</router-link>
             </div>
 
-            <div class="flex justify-between items-center gap-5">
+            <div class="flex justify-between items-center px-10">
                 <div class="flex items-center gap-3 px-5">
                     <a href="https://www.instagram.com/ifmgnarede/" class="hover:bg-govblue rounded-2xl transition duration-200" target="_blank">
-                        <img alt="Instagram" class="h-8" :src="require('@/assets/icons/insta.svg')"/>
+                        <img alt="Instagram" class="h-10" :src="require('@/assets/icons/insta.svg')"/>
                     </a>
                     <a href="https://twitter.com/ifmgnarede" class="hover:bg-govblue rounded-2xl transition duration-200" target="_blank">
-                        <img alt="Twitter" class="h-8" :src="require('@/assets/icons/twitter.svg')"/>
+                        <img alt="Twitter" class="h-10" :src="require('@/assets/icons/twitter.svg')"/>
                     </a>
                     <a href="https://www.youtube.com/comunicacaoifmg" class="hover:bg-govblue rounded-2xl transition duration-200" target="_blank">
-                        <img alt="Youtube" class="h-8" :src="require('@/assets/icons/youtube.svg')"/>
+                        <img alt="Youtube" class="h-10" :src="require('@/assets/icons/youtube.svg')"/>
                     </a>
                 </div>
-                <input type="text" class="bg-handglass hover:bg-handglass-blue bg-maingreen bg-no-repeat bg-contain pl-10 h-8 w-44 rounded-xl border-white text-white hover:border-govblue transition duration-200"/>
-                <router-link v-if="!isLoggedIn" to="/login" class="bg-white mr-16 p-4 text-maingreen tracking-wide text-sm hover:underline hover:text-red-600">ACESSO P/ADM</router-link>
-                <router-link v-if="isLoggedIn" to="/login" class="bg-white mr-16 p-4 text-maingreen tracking-wide text-sm hover:underline hover:text-red-600">Deslogar</router-link>
+                <input type="text" class="bg-handglass hover:bg-handglass-blue bg-maingreen bg-no-repeat bg-contain pl-10 h-10 w-72 rounded-xl border-white text-white hover:border-red-600 transition duration-200"/>
+                <ProfileDropdown/>
             </div>        
         </section>
         
@@ -50,12 +49,12 @@
                 <NavbarLink :link="'/news'" :text="'NOTÍCIAS'" />
                 <NavbarLink :func="ourClients" :link="'/'" :text="'PORTFÓLIO DE PROJETOS'" />
             </div>
-            <div class="flex text-sm text-maingray gap-5  mr-14 max-lg:p-0 items-center">
+            <div class="flex text-sm text-maingray gap-5 py-1  mr-14 max-lg:p-0 items-center">
                 <NavbarLink :link="'/researchers'" :text="'PESQUISADORES'" />
                 <NavbarLink :link="'/edicts'" :text="'EDITAIS'" />
                 <NavbarLink :link="'/docs'" :text="'DOCUMENTOS'" />
                 <NavbarLink :func="capacitation" :link="'/capacitation'" :text="'CAPACITAÇÃO'" />
-                <router-link to="/embrapii" class="hover:underline">
+                <router-link to="/embrapii" class="hover:underline shadow shadow-transparent hover:shadow-red-600 transition duration-200">
                     <img :src="require('@/assets/icons/embrapii.png')" class="w-16" alt="">
                 </router-link>
             </div>
@@ -65,17 +64,17 @@
 
 <script>
 import NavbarLink from '@/components/links/NavbarLink.vue';
-import router from '@/router/index.js'
-import { mapMutations } from "vuex";
+import router from '@/router/index.js';
+import ProfileDropdown from "@/components/dropdown/ProfileDropdown.vue";
 
 export default {
     name: 'NavBar',
     components:{
-        NavbarLink
+        NavbarLink,
+        ProfileDropdown
     },
     data() {
         return {
-            isLoggedIn: this.$store.getters.isLoggedIn,
             aboutUs: () => {
                 router.push({ path: '/' }).then(() => {
                     var element = document.getElementById("aboutus");
@@ -96,8 +95,6 @@ export default {
             },
             goHome: () => {
                 router.push({ path: '/' }).then(() => {
-                    var element = document.getElementById("aboutus");
-                    element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
                     window.location.reload();
                 })
             },
@@ -111,15 +108,6 @@ export default {
             },
         }  
     },
-    methods: {
-        ...mapMutations(["setUser", "setToken"]),
-        logOut(){ // TODO: passar para botão de logout na navbar depois
-            this.setUser(null);
-            this.setToken(null);
-            window.localStorage.setItem("refresh_token", null)
-            document.cookie = `refresh_token = ${null}`
-        }
-    }
 }
 </script>
 

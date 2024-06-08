@@ -9,7 +9,7 @@
                 </div>
             </div>
         </router-link>
-        <button @click="editAdvantages()" class="">
+        <button @click="editAdvantages()" class="" v-if="isAdmin">
             <img :src="require('@/assets/icons/pencil-edit-maingreen.svg')" alt="#" class="h-10"/>
         </button>
     </section>
@@ -22,6 +22,11 @@ import router from '@/router/index.js'
 export default {
     name: 'AdvantagesCard',
     components:{
+    },
+    data(){
+        return {
+            isAdmin: this.$store.getters.isLoggedIn
+        }
     },
     props: {
         dif: String,

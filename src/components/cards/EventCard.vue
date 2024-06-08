@@ -10,7 +10,7 @@
                 <span class="italic">{{ hour }} | {{ local }}</span>
             </div>
         </a>
-        <button @click="editAdvantages()" class="self-end">
+        <button @click="editAdvantages()" class="self-end" v-if="isAdmin">
             <img :src="require('@/assets/icons/pencil-edit-maingreen.svg')" alt="#" class="h-10"/>
         </button>
     </section>
@@ -22,6 +22,11 @@ import router from '@/router/index.js'
 export default {
     name: 'EventCard',
     components:{
+    },
+    data() {
+        return {
+            isAdmin: this.$store.getters.isLoggedIn
+        }
     },
     props: {
         month: String,
