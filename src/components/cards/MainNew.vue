@@ -1,7 +1,7 @@
 <template lang="">
-    <section class="px-5 border-2 rounded-3xl border-r-maingreen hover:shadow-2xl transition duration-300">
+    <section class="border-2 rounded-3xl border-r-maingreen hover:shadow-2xl transition duration-300">
         <div @click.prevent="openNew()" class="flex max-lg:flex-col justify-between items-center gap-2">           
-            <div class="flex flex-col gap-3 pl-10 px-3">
+            <div class="flex flex-col gap-3 pl-20 px-3">
                 <span class="border-2 border-maingreen rounded-lg w-40 text-center text-sm px-2 py-1 max-lg:mt-6">{{ tip }}</span>
                 <h1 class="w-3/4 text-4xl font-bold mt-2">{{ title }}</h1>
                 <p class="w-3/4 text-maingray">{{ parag }}</p>

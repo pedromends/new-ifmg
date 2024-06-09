@@ -14,6 +14,8 @@ import Researchers from "@/views/Researchers.vue";
 import MainEdition from "@/views/MainEdition.vue";
 import OpenedNew from "@/views/OpenedNew.vue";
 import LoginPage from "@/views/LoginPage.vue";
+import Profile from "@/views/Profile.vue";
+import Settings from "@/views/Settings.vue";
 import EditPresenterCard from "@/components/edition/EditPresenterCard.vue";
 import EditEventCard from "@/components/edition/EditEventCard.vue";
 import EditMainNewCard from "@/components/edition/EditMainNewCard.vue";
@@ -82,6 +84,14 @@ const routes = [
   {
     path: '/login',
     component: LoginPage
+  },
+  {
+    path: '/profile',
+    component: Profile
+  },
+  {
+    path: '/settings',
+    component: Settings
   },
   {
     path: '/edit',

@@ -24,7 +24,7 @@
                 <router-link class="hover:underline" to="#">NOSSOS CURSOS</router-link>
             </div>
 
-            <div class="flex justify-between items-center px-10">
+            <div class="flex justify-between items-center px-5 gap-5">
                 <div class="flex items-center gap-3 px-5">
                     <a href="https://www.instagram.com/ifmgnarede/" class="hover:bg-govblue rounded-2xl transition duration-200" target="_blank">
                         <img alt="Instagram" class="h-10" :src="require('@/assets/icons/insta.svg')"/>
@@ -54,7 +54,7 @@
                 <NavbarLink :link="'/edicts'" :text="'EDITAIS'" />
                 <NavbarLink :link="'/docs'" :text="'DOCUMENTOS'" />
                 <NavbarLink :func="capacitation" :link="'/capacitation'" :text="'CAPACITAÇÃO'" />
-                <router-link to="/embrapii" class="hover:underline shadow shadow-transparent hover:shadow-red-600 transition duration-200">
+                <router-link to="/embrapii" class="hover:underline shadow shadow-transparent hover:shadow-red-600 transition duration-200 rounded-lg">
                     <img :src="require('@/assets/icons/embrapii.png')" class="w-16" alt="">
                 </router-link>
             </div>

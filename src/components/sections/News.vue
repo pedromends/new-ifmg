@@ -4,7 +4,7 @@
         <div v-if="mainnew">
             <MainNew :tip="mainnew.tip" :title="mainnew.title" :parag="mainnew.paragraph" :img="mainnew.image.code"/>
         </div>
-        <div class="flex gap-5 items-center">
+        <div class="flex gap-5 items-center justify-between pl-10">
             <div class="flex flex-col w-3/4 gap-5">
                 <p class="font-bold text-3xl underline underline-offset-2 decoration-4 decoration-maingreen self-start ml-6">Últimas Notícias</p>
                 <div class="flex gap-3 items-end">

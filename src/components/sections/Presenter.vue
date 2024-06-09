@@ -3,8 +3,13 @@
     <section id="home" class="bg-campus bg-cover bg-no-repeat bg-bottom">
         <div class=" flex flex-col justify-center items-center p-10 gap-96 rounded-b-3xl relative">
             <div class="flex flex-col justify-center gap-24 py-16 pb-28">
-                <h1 class="text-5xl text-center text-black w-216 mx-auto font-semibold max-lg:w-auto max-lg:text-3xl">Bem-vindo ao Polo de Inovação IFMG</h1>
-                <p class="text-center text-black text-xl w-192 max-lg:w-auto max-lg:text-sm">
+                <h1 class="text-5xl text-center text-white w-216 mx-auto font-semibold max-lg:w-auto max-lg:text-3xl">
+                    Bem-vindo ao
+                    <span class=" mx-2">Polo de Inovação
+                        <span class="font-bold">IFMG</span>
+                    </span>
+                </h1>
+                <p class="text-center text-white text-xl w-192 max-lg:w-auto max-lg:text-sm">
                     O Polo de Inovação IFMG atua na aproximação das empresas com o setor acadêmico,
                     desenvolvendo projetos relacionados à diversas áreas do mercado.
                 </p>
@@ -16,7 +21,7 @@
                     </div>
                 </div>
             </div>
-            <div class="flex max-lg:flex-col gap-4 p-10 bg-gray-200 border-16 max-lg:border-0 border-white rounded-3xl absolute top-84 max-lg:top-[33rem] max-lg:px-10">
+            <div class="flex max-lg:flex-col gap-4 p-10 bg-gray-200 border-16 max-lg:border-0 border-white rounded-3xl absolute top-128 max-lg:top-[33rem] max-lg:px-10">
                 <div v-if="presenters" class="flex gap-4">
                     <PresenterCard v-for="(presenter, i) in presenters" :key="i" :num="presenter.num" :text="presenter.text" />
                 </div>
