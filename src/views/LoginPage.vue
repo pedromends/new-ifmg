@@ -197,11 +197,13 @@ export default {
         requestLogin(){
             loginUser(this.login).then((response) => {
                 const aux = response.data
-                console.log(aux)
-                let newToken = aux.token.substring(1, aux.token.length-1)
+                let newToken = aux.token
+                console.log(newToken)
                 this.$store.commit('setUser', response.data.userVO)
                 this.$store.commit('setToken', newToken)
+                window.localStorage.setItem("refresh_token", newToken)
                 this.showSuccessLogin()
+                
                 setInterval(() => {
                     router.push("/").then(() => {
                         window.location.reload()

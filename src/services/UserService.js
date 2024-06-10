@@ -10,6 +10,18 @@ export const createUser = (form) => api.request({
   data: form,
 });
 
+export const getUserInfo = (form) => api.request(
+  {
+  headers: {
+    'Content-Type': 'application/json; charset=utf-8',
+    'Access-Control-Allow-Origin': '*',
+    'Authorization': `Bearer ${window.localStorage.getItem('refresh_token')}`,
+  },
+  method: 'get',
+  url: '/user/get-info',
+  params: form,
+});
+
 export const loginUser = (form) => api.request({
   headers: {
     'Content-Type': 'application/json',
@@ -32,6 +44,7 @@ export const updateUser = (form) => api.request({
   headers: {
     'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*',
+    'Authorization': `Bearer ${window.localStorage.getItem('refresh_token')}`,
   },
   method: 'put',
   url: '/user/update',
@@ -41,6 +54,7 @@ export const updateUser = (form) => api.request({
 export const deleteUser = (id) => api.request({
   headers: {
     'Content-Type': 'application/json',
+    'Authorization': `Bearer ${window.localStorage.getItem('refresh_token')}`,
   },
   method: 'delete',
   url: `/user/delete/${id}`,

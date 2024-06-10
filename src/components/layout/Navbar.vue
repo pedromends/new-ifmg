@@ -1,7 +1,7 @@
 <template lang="">
     <nav class="w-full relative font-opensans max-lg:hidden" id="navbar">
         <router-link to="/" class="bg-white absolute right-1/2 transform translate-x-1/2 rounded-b-2xl hover:shadow-2xl transition duration-300">
-            <img alt="" class="h-40 w-32 px-5 py-4" :src="require('@/assets/icons/main-logo.jpg')"/>
+            <img alt="" class="h-48 w-36 px-5 py-4" :src="require('@/assets/icons/main-logo.jpg')"/>
         </router-link>
 
         <section class="bg-govblue flex justify-between items-center py-1 text-lightgray font-raleway font-bold uppercase">
@@ -24,8 +24,8 @@
                 <router-link class="hover:underline" to="#">NOSSOS CURSOS</router-link>
             </div>
 
-            <div class="flex justify-between items-center px-5 gap-5">
-                <div class="flex items-center gap-3 px-5">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center gap-3 mx-3">
                     <a href="https://www.instagram.com/ifmgnarede/" class="hover:bg-govblue rounded-2xl transition duration-200" target="_blank">
                         <img alt="Instagram" class="h-10" :src="require('@/assets/icons/insta.svg')"/>
                     </a>
@@ -36,8 +36,11 @@
                         <img alt="Youtube" class="h-10" :src="require('@/assets/icons/youtube.svg')"/>
                     </a>
                 </div>
-                <input type="text" class="bg-handglass hover:bg-handglass-blue bg-maingreen bg-no-repeat bg-contain pl-10 h-10 w-72 rounded-xl border-white text-white hover:border-red-600 transition duration-200"/>
+                <input type="text" class="bg-handglass hover:bg-handglass-blue mx-3  bg-maingreen bg-no-repeat bg-contain pl-10 h-10 w-72 rounded-xl border-white text-white hover:border-red-600 transition duration-200"/>
                 <ProfileDropdown/>
+                <div class="flex items-center gap-3 px-3">
+                    <NotificationDropdown />
+                </div>
             </div>        
         </section>
         
@@ -66,12 +69,14 @@
 import NavbarLink from '@/components/links/NavbarLink.vue';
 import router from '@/router/index.js';
 import ProfileDropdown from "@/components/dropdown/ProfileDropdown.vue";
+import NotificationDropdown from "@/components/dropdown/NotificationDropdown.vue";
 
 export default {
     name: 'NavBar',
     components:{
         NavbarLink,
-        ProfileDropdown
+        ProfileDropdown,
+        NotificationDropdown
     },
     data() {
         return {

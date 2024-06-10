@@ -104,29 +104,44 @@
         </div>
     </main>
 </template>
+
 <script>
-    export default {
-        name:'SettingsPage',
-        data() {
-            return {
-                css:{
-                    kbd: "p-3 text-lg font-semibold text-white bg-maingreen border border-gray-200 rounded-lg",
-                    input: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5"
-                }
-            }
-        },
-        methods: {
-            onFileChanged(e){
-                const image = e.target.files[0];
-                const reader = new FileReader();
-                reader.readAsDataURL(image);
-                reader.onload = e =>{
-                    this.newImage.code = e.target.result;
-                };
+import { getUserInfo } from '@/services/UserService'
+
+export default {
+    name:'SettingsPage',
+    created() {
+        this.user = this.$store.getters.getUser
+        console.log(this.user)
+        getUserInfo({email: this.user.email}).then((response) => {
+            console.log(response.data)
+        }).catch((e) => {
+            console.log(e)
+            //this.showErrorLogin()
+        })
+    },
+    data() {
+        return {
+            css:{
+                kbd: "p-3 text-lg font-semibold text-white bg-maingreen border border-gray-200 rounded-lg",
+                input: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5"
             },
-        },  
-    }
+            user: null
+        }
+    },
+    methods: {
+        onFileChanged(e){
+            const image = e.target.files[0];
+            const reader = new FileReader();
+            reader.readAsDataURL(image);
+            reader.onload = e =>{
+                this.newImage.code = e.target.result;
+            };
+        },
+    },  
+}
 </script>
+
 <style lang="">
 
 </style>

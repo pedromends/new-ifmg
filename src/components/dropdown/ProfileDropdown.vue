@@ -41,14 +41,14 @@
 
 <script>
 import SignOutSuccess from "@/components/alert/SignOutSuccess.vue";
-//import router from '@/router/index.js'
+import router from '@/router/index.js'
 import { mapMutations } from "vuex";
 
 export default {
     name: 'ProfileDropdown',
-    created() {
-        console.log(this.user)
-    },
+    // created() {
+    //     console.log(this.user)
+    // },
     components: {
         SignOutSuccess
     },
@@ -70,11 +70,11 @@ export default {
             window.localStorage.setItem("refresh_token", null)
             document.cookie = `refresh_token = ${null}`
             this.showSignOutSuccess()
-            // setInterval(() => {
-            //     router.push("/").then(() => {
-            //         window.location.reload()
-            //     })
-            // }, 3000)
+            setInterval(() => {
+                router.push("/").then(() => {
+                    window.location.reload()
+                })
+            }, 3000)
         }
     }
 }
