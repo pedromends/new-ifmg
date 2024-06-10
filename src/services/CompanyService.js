@@ -13,6 +13,7 @@ export const createCompany = (form) => api.request({
 export const listCompanies = () => api.request({
   headers: {
     'Content-Type': 'application/json',
+    'Authorization': `Bearer ${window.localStorage.getItem('refresh_token')}`,
   },
   method: 'get',
   url: '/company/list',

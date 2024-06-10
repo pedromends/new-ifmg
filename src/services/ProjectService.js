@@ -1,8 +1,9 @@
 import api from '@/services/api';
 
-export const createCompany = (form) => api.request({
+export const createProject = (form) => api.request({
   headers: {
     'Content-Type': 'application/json',
+    'Authorization': `Bearer ${window.localStorage.getItem('refresh_token')}`,
   },
   method: 'post',
   url: '/project/create',
@@ -20,6 +21,7 @@ export const listProjects = () => api.request({
 export const updateProject = (form) => api.request({
   headers: {
     'Content-Type': 'application/json',
+    'Authorization': `Bearer ${window.localStorage.getItem('refresh_token')}`,
   },
   method: 'put',
   url: '/project/update',

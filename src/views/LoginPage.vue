@@ -65,7 +65,7 @@
                         <div class="w-full px-10" >
                             <label class="text-maingray font-medium">Senha:</label>
                             <input class="rounded-lg border border-maingreen w-full focus:border-red-600"
-                                v-model="login.password" type="text"/>
+                                v-model="login.password" type="password"/>
                         </div>
                         <div class="w-full px-10 flex justify-center gap-10">
                             <button class="text-white bg-maingreen hover:bg-govblue focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm text-center px-36 py-3 transition duration-200"
@@ -115,12 +115,12 @@
                             <div class="w-full">
                                 <label for="" class="text-maingray font-medium">Senha:</label>
                                 <input class="rounded-lg border border-maingreen w-full focus:border-red-600"
-                                    v-model="newUser.password" type="text"/>
+                                    v-model="newUser.password" type="password"/>
                             </div>
                             <div class="w-full">
                                 <label class="text-maingray font-medium">Confirme sua senha:</label>
                                 <input class="rounded-lg border border-maingreen w-full focus:border-red-600"
-                                    v-model="newUser.confirmPassword" type="text"/>
+                                    v-model="newUser.confirmPassword" type="password"/>
                             </div>
                             <div class="w-full">
                                 <label class="text-maingray font-medium">Aluno/Professor:</label>

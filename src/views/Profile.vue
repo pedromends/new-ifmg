@@ -25,31 +25,30 @@
                 </ol>
             </div>
             <h1 class="text-4xl font-semibold underline decoration-maingreen decoration-4">Perfil</h1>
-            <div class="grid grid-cols-2 gap-10">
+            <div v-if="info != null" class="grid grid-cols-2 gap-10">
                 <div class="flex flex-col gap-10">
                     <div class="bg-lightgray flex flex-col rounded-lg p-10 gap-10 border border-maingreen text-lg">
                         <div>
-                            <img :src="require('@/assets/avatar/jese-leos.png')" class="w-36 h-36 rounded-full" alt="Profile Pic">
-                            <h1 class="text-2xl font-bold">Jese Leos</h1>
+                            <img :src="info.img.code" class="w-36 h-36 rounded-full" alt="Profile Pic">
+                            <h1 class="text-2xl font-semibold">{{ info.firstName }} {{ info.lastName }}</h1>
                             <p>Front-end Developer</p>
                             <p>San Francisco, USA</p>
                         </div>
 
                         <div>
                             <p>Email:</p>
-                            <p class="font-semibold text-maingreen">yourname@flowbite.com</p>
+                            <p class="font-semibold text-maingreen">{{ info.email }}</p>
                         </div>
 
                         <div>
                             <p>Endereço:</p>
-                            <p class="font-semibold text-maingreen">92 Miles Drive, Newark, NJ 07103, California, United States of America</p>
+                            <p class="font-semibold text-maingreen">{{ info.address }}</p>
                         </div>
 
                         <div>
                             <p>Telefone:</p>
-                            <p class="font-semibold text-maingreen">+00 123 456 789 / +12 345 678</p>
+                            <p class="font-semibold text-maingreen">{{ info.phone }}</p>
                         </div>
-                        <p>Software Skill</p>
                     </div>
                     <div class="bg-lightgray p-3 flex flex-col gap-4 border border-maingreen rounded-lg">
                         <h1 class="text-2xl font-semibold underline decoration-maingreen underline-offset-2">Habilidades</h1>
@@ -85,14 +84,13 @@
                 <div class="bg-lightgray p-8 flex flex-col rounded-lg border border-maingreen gap-5">
                     <h1 class="text-3xl font-semibold underline decoration-maingreen underline-offset-2">Informações Gerais</h1>
                     <div class="w-3/4 flex flex-col gap-4">
-                        <h1 class="text-2xl font-semibold">Sobre mim</h1>
-                        <p class="text-lg">Tincidunt quam neque in cursus viverra orci, dapibus nec tristique. Nullam ut sit dolor consectetur urna, dui cras nec sed. Cursus risus congue arcu aenean posuere aliquam.</p>
-                        <p class="text-lg">Et vivamus lorem pulvinar nascetur non. Pulvinar a sed platea rhoncus ac mauris amet. Urna, sem pretium sit pretium urna, senectus vitae. Scelerisque fermentum, cursus felis dui suspendisse velit pharetra. Augue et duis cursus maecenas eget quam lectus. Accumsan vitae nascetur pharetra rhoncus praesent dictum risus suspendisse.</p>
+                        <h1 class="text-2xl font-semibold underline decoration-maingreen decoration-2">Sobre mim</h1>
+                        <p class="text-lg">{{ info.aboutMe }}</p>
                     </div>
                     <div class="grid grid-cols-2 gap-5 text-lg">
                         <div>
-                            <p>Education</p>
-                            <p class="font-semibold text-maingreen">Thomas Jeff High School, Stanford University</p>
+                            <p>Educação</p>
+                            <p class="font-semibold text-maingreen">{{ info.education }}</p>
                         </div>
                         <div>
                             <p>Work History</p>
@@ -129,17 +127,31 @@
         </div>
     </main>
 </template>
+
 <script>
-    export default {
-        name:'ProfilePage',
-        data() {
-            return {
-                css:{
-                    kbd: "p-3 text-lg font-semibold text-white bg-maingreen border border-gray-200 rounded-lg"
-                }
+import { getUserInfo } from '@/services/UserService'
+
+export default {
+    name:'ProfilePage',
+    created() {
+        this.user = this.$store.getters.getUser
+        console.log(this.user)
+        getUserInfo({email: this.user.email}).then((response) => {
+            console.log(response.data)
+            this.info = response.data
+        }).catch((e) => {
+            console.log(e)
+        })
+    },
+    data() {
+        return {
+            info: null,
+            css:{
+                kbd: "p-3 text-lg font-semibold text-white bg-maingreen border border-gray-200 rounded-lg"
             }
-        },
-    }
+        }
+    },
+}
 </script>
 <style lang="">
 

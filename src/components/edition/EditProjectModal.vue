@@ -97,7 +97,8 @@
                             <div id="dropdown5" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen">
                                 <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="modalityButton">
                                     <li @click="boolNewProject == true">
-                                        <input href="#" class="w-84 block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer"
+                                        <input href="#" @click="setItem('project', 0, '--Novo--', 0)"
+                                            class="w-84 block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer"
                                             readonly="readonly" value="-- Novo --"/>
                                     </li>
                                     <li v-for="(project, i) in projects" :key="i" @click="setItem('project', project.id, project.name, project.company.img.id)">
@@ -242,7 +243,7 @@ import router from '@/router/index.js'
 import { listModalities } from '@/services/ModalityService.js';
 import { listCompanies } from '@/services/CompanyService.js';
 import { listResearchers } from '@/services/ResearcherService.js';
-import { listProjects, updateProject, deleteProject } from '@/services/ProjectService';
+import { createProject, listProjects, updateProject, deleteProject } from '@/services/ProjectService';
 import { getTalents } from '@/services/TalentService.js'
 
 export default {
@@ -310,23 +311,18 @@ export default {
     created(){
         listCompanies().then((response) => {
             this.companies = response.data
-            console.log(this.companies)
-            
+        
             listModalities().then((response) => {
                 this.modalities = response.data
-                console.log(this.modalities)
 
                 listResearchers().then((response) => {
                     this.researchers = response.data
-                    console.log(this.researchers)
 
                     listProjects().then((response) => {
                         this.projects = response.data
-                        console.log(this.projects)
 
                         getTalents().then((response) => {
                             this.talents = response.data
-                            console.log(this.talents)
                         }).catch((error) => {
                             console.log(error)
                         })
@@ -358,7 +354,7 @@ export default {
             };
         },
         setItem(item, id, name, id_img){
-
+            console.log(id, name, id_img)
             if (item == 'researcher') {
                 this.editResearchers.id = id
                 this.editResearchers.name = name,
@@ -382,8 +378,16 @@ export default {
             }
         },
         updateCard(){
-            if(this.boolNewProject){
-                // criar novo projeto
+            if(this.editProject.id == 0){
+                createProject(this.newProject).then((response) => {
+                    console.log(response)
+                })
+                // .finally(() => {
+                //     router.push('/').then(() => {
+                //         var element = document.getElementById("ourclients");
+                //         element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                //     }); 
+                // })
             } else {
                 this.newProject.id = this.editProject.id
                 this.newProject.company.id = this.editCompany.id
@@ -396,12 +400,13 @@ export default {
 
                 updateProject(this.newProject).then((response) => {
                     console.log(response)
-                }).finally(() => {
-                    router.push('/').then(() => {
-                        var element = document.getElementById("ourclients");
-                        element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
-                    }); 
                 })
+                // .finally(() => {
+                //     router.push('/').then(() => {
+                //         var element = document.getElementById("ourclients");
+                //         element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                //     }); 
+                // })
             }
         },
         deleteProject(){

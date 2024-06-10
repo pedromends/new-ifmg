@@ -13,6 +13,7 @@ export const createModality = (form) => api.request({
 export const listModalities = () => api.request({
   headers: {
     'Content-Type': 'application/json',
+    'Authorization': `Bearer ${window.localStorage.getItem('refresh_token')}`,
   },
   method: 'get',
   url: '/modality/list',

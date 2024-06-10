@@ -25,74 +25,59 @@
                 </ol>
             </div>
             <h1 class="text-4xl font-semibold underline decoration-maingreen decoration-4">Configurações</h1>
-            <div class="grid grid-cols-2 gap-10">
+            <div v-if="info != null" class="grid grid-cols-2 gap-10">
                 <div class="">
                     <div class="flex flex-col gap-10">
                         <div class="bg-lightgray flex flex-col rounded-lg p-10 gap-10 border border-maingreen text-lg">
-                            <div>
-                                <img :src="require('@/assets/avatar/jese-leos.png')" class="w-36 h-36 rounded-full" alt="Profile Pic">
-                                <h1 class="text-2xl font-bold">Jese Leos</h1>
-                                <p>Front-end Developer</p>
+                            <h1 class="text-3xl font-semibold underline decoration-maingreen underline-offset-2">Foto de Perfil</h1>
+                            <div class="flex flex-col gap-3">
+                                <img :src="info.img.code" class="w-36 h-36 rounded-full" alt="Profile Pic">
+                                <h1 class="text-2xl font-semibold">{{ info.firstName }} {{ info.lastName }}</h1>
+                                <p>{{ info.profession }}</p>
                                 <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none"
                                     aria-describedby="file_input_help" id="file_input" type="file" @change="onFileChanged($event)" accept="image/*">
                             </div>
                         </div>
                         <div class="bg-lightgray flex flex-col rounded-lg p-10 gap-10 border border-maingreen text-lg">
                             <div>
-                                <h1 class="text-2xl font-bold">Idioma e Fuso-Horário</h1>
+                                <h1 class="text-3xl font-semibold underline decoration-maingreen underline-offset-2">Idioma e Fuso-Horário</h1>
                             </div>  
                         </div>
                     </div>
                 </div>
                 <div class="flex flex-col gap-10">
                     <div class="bg-lightgray p-8 flex flex-col rounded-lg border border-maingreen gap-5">
-                        <h1 class="text-3xl font-semibold underline decoration-maingreen underline-offset-2">Informações Gerais</h1>
+                        <h1 class="text-3xl font-semibold underline decoration-maingreen underline-offset-2">Dados Gerais</h1>
                         <div class="grid grid-cols-2 gap-5 text-lg">
                             <div>
-                                <p>Education</p>
+                                <p>Nome</p>
                                 <input :class="css.input" placeholder="Thomas Jeff High School, Stanford University"/>
                             </div>
                             <div>
-                                <p>Work History</p>
-                                <input :class="css.input" placeholder="Twitch, Google, Apple"/>
+                                <p>Sobrenome</p>
+                                <input :class="css.input" placeholder="Thomas Jeff High School, Stanford University"/>
                             </div>
                             <div>
-                                <p>Join Date</p>
-                                <input :class="css.input" placeholder="12-09-2021"/>
+                                <p>Educação</p>
+                                <input :class="css.input" placeholder="Thomas Jeff High School, Stanford University"/>
                             </div>
                             <div>
-                                <p>Languages</p>
-                                <input :class="css.input" placeholder="English, German, Italian, Spanish"/>
-                            </div>
-                            <div>
-                                <p>Organization</p>
-                                <input :class="css.input" placeholder="Themesberg LLC"/>
-                            </div>
-                            <div>
-                                <p>Role</p>
-                                <input :class="css.input" placeholder="Graphic Designer"/>
-                            </div>
-                            <div>
-                                <p>Department</p>
-                                <input :class="css.input" placeholder="Marketing"/>
-                            </div>
-                            <div>
-                                <p>Birthday</p>
-                                <input :class="css.input" placeholder="15-08-1990"/>
+                                <p>Departamento</p>
+                                <input :class="css.input" placeholder="Thomas Jeff High School, Stanford University"/>
                             </div>
                         </div>
                         <button class="text-white bg-maingreen hover:bg-govblue focus:ring-2 focus:outline-none focus:ring-red-600 font-medium rounded-lg text-sm w-full sm:w-auto px-48 py-2.5 text-center transition duration-200"
                             type="submit" >Salvar</button>
                     </div>
                     <div class="bg-lightgray p-8 flex flex-col rounded-lg border border-maingreen gap-5">
-                        <h1 class="text-3xl font-semibold underline decoration-maingreen underline-offset-2">Informações de Senha</h1>
+                        <h1 class="text-3xl font-semibold underline decoration-maingreen underline-offset-2">Senha</h1>
                         <div class="grid grid-cols-2 gap-5 text-lg">
                             <div>
-                                <p>Senha atual</p>
+                                <p>Nova senha</p>
                                 <input :class="css.input" placeholder="Thomas Jeff High School, Stanford University"/>
                             </div>
                             <div>
-                                <p>Confirmação de senha</p>
+                                <p>Confirmação da nova senha</p>
                                 <input :class="css.input" placeholder="Twitch, Google, Apple"/>
                             </div>
                         </div>
@@ -112,9 +97,9 @@ export default {
     name:'SettingsPage',
     created() {
         this.user = this.$store.getters.getUser
-        console.log(this.user)
         getUserInfo({email: this.user.email}).then((response) => {
-            console.log(response.data)
+            this.info = response.data
+            console.log(this.info)
         }).catch((e) => {
             console.log(e)
             //this.showErrorLogin()
@@ -126,7 +111,17 @@ export default {
                 kbd: "p-3 text-lg font-semibold text-white bg-maingreen border border-gray-200 rounded-lg",
                 input: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5"
             },
-            user: null
+            info: null,
+            newUser: {
+                firstName: '',
+                lastName: '',
+                education: '',
+                department: '',
+                img: {
+                    code: '',
+                    name: ''
+                }
+            }
         }
     },
     methods: {
@@ -135,7 +130,7 @@ export default {
             const reader = new FileReader();
             reader.readAsDataURL(image);
             reader.onload = e =>{
-                this.newImage.code = e.target.result;
+                this.newUser.img.code = e.target.result;
             };
         },
     },  
