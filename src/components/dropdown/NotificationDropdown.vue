@@ -4,7 +4,7 @@
             class="flex items-center rounded-lg relative"
             type="button">
             <img :src="require('@/assets/icons/bell.svg')" class="w-7 mx-1" alt=""/>
-            <img v-if="notification > 0" :src="require('@/assets/icons/dot.svg')" class="w-6 absolute left-6 top-4" alt=""/>
+            <img v-if="notification > 0" :src="require('@/assets/icons/dot.svg')" class="w-4 absolute left-6 top-5" alt=""/>
         </button>
 
         <!-- Dropdown menu -->
@@ -38,8 +38,9 @@
 </template>
 
 <script>
-//import router from '@/router/index.js'
+// import router from '@/router/index.js'
 import { mapMutations } from "vuex";
+
 
 export default {
     name: 'NotificationDropdown',

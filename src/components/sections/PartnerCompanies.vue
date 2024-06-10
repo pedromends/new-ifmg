@@ -44,19 +44,17 @@ export default {
     components: {
         CompanyModal
     },
-    data(){
-        return {
-            projects: undefined
-        }
-    },
-    props: {
-    },
     created(){
         listProjects().then((response) => {
             this.projects = response.data
         }).catch((error) => {
             console.log(error)
         })
+    },
+    data(){
+        return {
+            projects: undefined
+        }
     }
 }
 </script>

@@ -31,7 +31,7 @@
                         <div>
                             <img :src="info.img.code" class="w-36 h-36 rounded-full" alt="Profile Pic">
                             <h1 class="text-2xl font-semibold">{{ info.firstName }} {{ info.lastName }}</h1>
-                            <p>Front-end Developer</p>
+                            <p>{{ info.profession }}</p>
                             <p>San Francisco, USA</p>
                         </div>
 
@@ -50,7 +50,7 @@
                             <p class="font-semibold text-maingreen">{{ info.phone }}</p>
                         </div>
                     </div>
-                    <div class="bg-lightgray p-3 flex flex-col gap-4 border border-maingreen rounded-lg">
+                    <div class="bg-lightgray p-4 flex flex-col gap-4 border border-maingreen rounded-lg">
                         <h1 class="text-2xl font-semibold underline decoration-maingreen underline-offset-2">Habilidades</h1>
                         <div class="flex gap-3">
                             <kbd :class="css.kbd">HTML</kbd>
@@ -65,7 +65,7 @@
                             <kbd :class="css.kbd">MySQL</kbd>
                        </div>
                     </div>
-                    <div class="bg-lightgray p-3 flex flex-col gap-4 border border-maingreen rounded-lg">
+                    <div class="bg-lightgray p-4 flex flex-col gap-4 border border-maingreen rounded-lg">
                         <h1 class="text-2xl font-semibold underline decoration-maingreen underline-offset-2">Hobbies</h1>
                         <div class="flex gap-3">
                             <kbd :class="css.kbd">Futebol</kbd>
@@ -83,7 +83,7 @@
                 </div>
                 <div class="bg-lightgray p-8 flex flex-col rounded-lg border border-maingreen gap-5">
                     <h1 class="text-3xl font-semibold underline decoration-maingreen underline-offset-2">Informações Gerais</h1>
-                    <div class="w-3/4 flex flex-col gap-4">
+                    <div class="w-4/5 flex flex-col gap-4">
                         <h1 class="text-2xl font-semibold underline decoration-maingreen decoration-2">Sobre mim</h1>
                         <p class="text-lg">{{ info.aboutMe }}</p>
                     </div>

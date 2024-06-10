@@ -31,6 +31,7 @@ export const updateProject = (form) => api.request({
 export const deleteProject = (id) => api.request({
   headers: {
     'Content-Type': 'application/json',
+    'Authorization': `Bearer ${window.localStorage.getItem('refresh_token')}`,
   },
   method: 'delete',
   url: `/project/delete/${id}`,

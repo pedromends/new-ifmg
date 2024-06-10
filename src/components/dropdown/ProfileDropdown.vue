@@ -6,13 +6,14 @@
             <router-link to="/login" class="p-4 transition duration-200 text-maingreen tracking-wide text-sm hover:underline">LOGIN</router-link>
         </button>
 
-        <button v-if="isLoggedIn" id="dropdownAvatarNameButton" data-dropdown-toggle="dropdownAvatarName"
-            class="flex items-center text-lg px-5 py-2 font-medium text-maingreen rounded-lg hover:bg-white hover:text-maingreen transition duration-200"
+        <button v-if="isLoggedIn && info != null" id="dropdownAvatarNameButton" data-dropdown-toggle="dropdownAvatarName"
+            class="flex items-center gap-2 text-lg font-medium text-maingreen rounded-lg hover:bg-white hover:text-maingreen transition duration-200"
             type="button">
-            {{ user.firstName }}
-            <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="#2F9E40"
+            <img :src="info.img.code" class="w-12 h-12 rounded-full" alt="">
+            <p class="text-sm">{{ user.firstName }}</p>
+            <svg class="w-2.5 h-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="#006666"
                 viewBox="0 0 10 6">
-                <path stroke="#2F9E40" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                <path stroke="#006666" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="m1 1 4 4 4-4" />
             </svg>
         </button>
@@ -43,19 +44,29 @@
 import SignOutSuccess from "@/components/alert/SignOutSuccess.vue";
 import router from '@/router/index.js'
 import { mapMutations } from "vuex";
+import { getUserInfo } from '@/services/UserService'
 
 export default {
     name: 'ProfileDropdown',
-    // created() {
-    //     console.log(this.user)
-    // },
+    created() {
+        if(this.isLoggedIn){
+            getUserInfo({email: this.user.email}).then((response) => {
+                this.info = response.data
+                console.log(this.info)
+            }).catch((e) => {
+                console.log(e)
+                //this.showErrorLogin()
+            })
+        } 
+    },
     components: {
         SignOutSuccess
     },
     data(){
         return {
             isLoggedIn: this.$store.getters.isLoggedIn,
-            user: this.$store.getters.getUser
+            user: this.$store.getters.getUser,
+            info: null
         }
     },
     methods: {
@@ -64,7 +75,7 @@ export default {
             let div = document.getElementById("success-logout-alert")
             div.style.display = "flex"
         },
-        logOut(){ // TODO: passar para botão de logout na navbar depois
+        logOut() {
             this.setUser(null);
             this.setToken(null);
             window.localStorage.setItem("refresh_token", null)

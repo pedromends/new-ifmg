@@ -4,7 +4,7 @@
             <div class="flex flex-col gap-5">
                 <div class="flex items-center justify-between">
                     <h1 class="text-4xl text-black font-semibold underline underline-offset-2 decoration-8 decoration-maingreen">Blog do Polo</h1>
-                    <button class="text-white bg-maingreen hover:bg-govblue focus:ring-4 focus:outline-none focus:ring-red-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center transition duration-200 mb-10"
+                    <button v-if="isAdmin" class="text-white bg-maingreen hover:bg-govblue focus:ring-4 focus:outline-none focus:ring-red-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center transition duration-200 mb-10"
                     type="submit" @click.prevent="createNew()">Criar nova notícia</button>
                 </div>
                 <hr class="bg-red-600 h-1"/>
@@ -36,10 +36,12 @@ export default {
     },
     data() {
         return {
-            news: null
+            news: null,
+            isAdmin: false
         }
     },
     created(){
+        this.isAdmin = this.$store.getters.isLoggedIn
         listNews(this.newNew).then((response) => {
             this.news = response.data
             console.log(this.news)

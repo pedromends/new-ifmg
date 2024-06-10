@@ -50,34 +50,30 @@
                         <h1 class="text-3xl font-semibold underline decoration-maingreen underline-offset-2">Dados Gerais</h1>
                         <div class="grid grid-cols-2 gap-5 text-lg">
                             <div>
-                                <p>Nome</p>
-                                <input :class="css.input" placeholder="Thomas Jeff High School, Stanford University"/>
+                                <p class="font-semibold">Nome</p>
+                                <input :class="css.input" placeholder=""/>
                             </div>
                             <div>
-                                <p>Sobrenome</p>
-                                <input :class="css.input" placeholder="Thomas Jeff High School, Stanford University"/>
+                                <p class="font-semibold">Sobrenome</p>
+                                <input :class="css.input" placeholder=""/>
                             </div>
                             <div>
-                                <p>Educação</p>
-                                <input :class="css.input" placeholder="Thomas Jeff High School, Stanford University"/>
+                                <p class="font-semibold">Educação</p>
+                                <input :class="css.input" placeholder=""/>
                             </div>
                             <div>
-                                <p>Departamento</p>
-                                <input :class="css.input" placeholder="Thomas Jeff High School, Stanford University"/>
+                                <p class="font-semibold">Departamento</p>
+                                <input :class="css.input" placeholder=""/>
                             </div>
                         </div>
-                        <button class="text-white bg-maingreen hover:bg-govblue focus:ring-2 focus:outline-none focus:ring-red-600 font-medium rounded-lg text-sm w-full sm:w-auto px-48 py-2.5 text-center transition duration-200"
-                            type="submit" >Salvar</button>
-                    </div>
-                    <div class="bg-lightgray p-8 flex flex-col rounded-lg border border-maingreen gap-5">
                         <h1 class="text-3xl font-semibold underline decoration-maingreen underline-offset-2">Senha</h1>
                         <div class="grid grid-cols-2 gap-5 text-lg">
                             <div>
-                                <p>Nova senha</p>
-                                <input :class="css.input" placeholder="Thomas Jeff High School, Stanford University"/>
+                                <p class="font-semibold">Nova senha</p>
+                                <input :class="css.input" placeholder=""/>
                             </div>
                             <div>
-                                <p>Confirmação da nova senha</p>
+                                <p class="font-semibold">Confirmação da nova senha</p>
                                 <input :class="css.input" placeholder="Twitch, Google, Apple"/>
                             </div>
                         </div>
@@ -99,10 +95,8 @@ export default {
         this.user = this.$store.getters.getUser
         getUserInfo({email: this.user.email}).then((response) => {
             this.info = response.data
-            console.log(this.info)
         }).catch((e) => {
             console.log(e)
-            //this.showErrorLogin()
         })
     },
     data() {

@@ -34,7 +34,7 @@
                 <div>
                     <h1 class="font-semibold">Como participar?</h1>
                     <p>Entre em contato com a equipe do Polo de Inovação IFMG:</p>
-                    <p>prospeccao.polo@ifmg.edu.br</p>
+                    <p>prospeccao.polo(@)ifmg.edu.br</p>
                     <p>37 3322-8529</p>
                 </div>
             </div>

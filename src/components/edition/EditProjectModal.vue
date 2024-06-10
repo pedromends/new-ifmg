@@ -255,7 +255,7 @@ export default {
             boolSaibaMais: true,
             companies: null,
             talents: null,
-            modalities: null,
+            modalities: 1,
             researchers: null,
             projects: null,
             editCompany:{
@@ -379,15 +379,19 @@ export default {
         },
         updateCard(){
             if(this.editProject.id == 0){
+                this.newProject.coordinator.id = this.editCoordinator.id
+                this.newProject.researchers.id = this.editResearchers.id
+                this.newProject.company.id = this.editCompany.id
+
                 createProject(this.newProject).then((response) => {
                     console.log(response)
                 })
-                // .finally(() => {
-                //     router.push('/').then(() => {
-                //         var element = document.getElementById("ourclients");
-                //         element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
-                //     }); 
-                // })
+                .finally(() => {
+                    router.push('/').then(() => {
+                        var element = document.getElementById("ourclients");
+                        element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                    }); 
+                })
             } else {
                 this.newProject.id = this.editProject.id
                 this.newProject.company.id = this.editCompany.id
@@ -401,12 +405,12 @@ export default {
                 updateProject(this.newProject).then((response) => {
                     console.log(response)
                 })
-                // .finally(() => {
-                //     router.push('/').then(() => {
-                //         var element = document.getElementById("ourclients");
-                //         element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
-                //     }); 
-                // })
+                .finally(() => {
+                    router.push('/').then(() => {
+                        var element = document.getElementById("ourclients");
+                        element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                    }); 
+                })
             }
         },
         deleteProject(){
