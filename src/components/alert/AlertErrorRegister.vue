@@ -1,20 +1,20 @@
 <template lang="">
-    <!-- Sucesso Login -->
-    <div id="success-logout-alert" class="hidden items-center p-5 mb-4 text-sm text-white rounded-lg bg-maingreen absolute right-180 top-36 border border-white" role="alert">
+    <!-- Erro Cadastro -->
+    <div id="error-register-alert" class="hidden items-center p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 absolute right-180" role="alert">
         <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
             <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
         </svg>
         <span class="sr-only">Info</span>
         <div>
-            <span class="text-lg">Saída bem-sucedida! Redirecionando.....</span>
+            <span class="text-lg">Erro ao cadastrar! Um ou mais campos com erro.</span>
         </div>
     </div>
 </template>
 <script>
 export default {
-    name: 'SignOutSuccess'
+name: 'ContactSent'
 }
 </script>
 <style lang="">
-    
+
 </style>

@@ -1,17 +1,17 @@
 <template lang="">
-    <section v-if="isAdmin" class="p-3 bg-white rounded-lg hover:bg-maingray transition duration-200">
+    <section v-if="isAdmin" class="p-3 hover:bg-govblue rounded-lg transition duration-200">
         <button id="dropdownAvatarNameButton" data-dropdown-toggle="dropdownNotification"
             class="flex items-center rounded-lg relative"
             type="button">
             <img :src="require('@/assets/icons/bell.svg')" class="w-7 mx-1" alt=""/>
-            <img v-if="notiCount > 0" :src="require('@/assets/icons/dot.svg')" class="w-4 absolute left-6 top-5" alt=""/>
+            <img v-if="notiCount > 0" :src="require('@/assets/icons/dot.svg')" class="w-4 absolute right-6 bottom-4" alt=""/>
         </button>
 
         <!-- Dropdown menu -->
         <div class="z-10 hidden bg-white divide-y divide-maingreen rounded-xl shadow border border-maingreen"
             id="dropdownNotification">
             <ul class="flex flex-col gap-1 divide divide-maingreen rounded-xl max-w-132 max-h-96 overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen">
-                <NotificationCard v-for="(notification, i) in notifications" :key="i" :companyName="notification.externalCompany" :notificationId="notification.id"/>
+                <NotificationCard v-for="(notification, i) in notifications" :key="i" :companyName="notification.externalCompany" :notificationId="notification.id" :readed="notification.readed"/>
             </ul>
         </div>
     </section>

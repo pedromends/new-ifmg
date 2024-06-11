@@ -13,7 +13,7 @@
             </p>
         </div>
         <div class="flex flex-col gap-10 p-4">
-            <div class="flex items-center gap-2">
+            <div class="flex items-center gap-2 mt-3">
                 <img :src="require('@/assets/icons/components.svg')" class="w-10 h-10 mt-1" alt="">
                 <h1 class="text-3xl font-semibold underline decoration-maingreen decoration-4">Edição de Componentes</h1>
             </div>

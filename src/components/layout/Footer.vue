@@ -57,10 +57,15 @@
                 <FooterLink :href="'https://www.formiga.ifmg.edu.br/component/content/article/119-engenharia-eletrica?catid=2&Itemid=205'" :text="'Engenharia Elétrica'"/>
             </div>
         </div>
-        <div class="flex max-lg:text-xs gap-10 text-sm max-lg:gap-2 max-lg:justify-start">
-            <p class="text-fttitle">Copyright © Instituto Federal | 2023</p>
-            <p class="text-fttitle">Política de Privacidade</p>
-            <p class="text-fttitle">Termos e Condições</p>
+        <div class="flex max-lg:text-xs gap-48 text-sm max-lg:gap-2 max-lg:justify-start">
+            <div class="flex flex-col gap-2">
+                <p class="text-fttitle">Copyright © Instituto Federal | 2023</p>
+                <p class="text-fttitle hover:underline decoration-maingreen">Política de Privacidade</p>
+                <p class="text-fttitle hover:underline decoration-maingreen">Termos e Condições</p>
+                <p class="text-fttitle">Developed by
+                    <span><a class="text-maingreen hover:underline decoration-maingreen" href="https://pedromends.github.io/" target="_blank">Dev Pedro</a></span>
+                </p>
+            </div>
         </div>
     </footer>
 </template>

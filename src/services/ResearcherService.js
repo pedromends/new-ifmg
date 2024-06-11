@@ -13,7 +13,6 @@ export const createResearcher = (form) => api.request({
 export const getByEmail = (email) => api.request({
   headers: {
     'Content-Type': 'application/json',
-    'Authorization': `Bearer ${window.localStorage.getItem('refresh_token')}`,
   },
   method: 'get',
   url: '/researcher/get-by-email',

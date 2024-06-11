@@ -15,7 +15,7 @@
             </div>
             <div class="flex items-center gap-2">
                 <img :src="require('@/assets/icons/settings.svg')" class="w-8 h-8 mt-2" alt="">
-                <h1 class="text-4xl font-semibold underline decoration-maingreen decoration-4">Configurações</h1>
+                <h1 class="text-3xl font-semibold underline decoration-maingreen decoration-4">Configurações</h1>
             </div>
             <div v-if="info != null" class="grid grid-cols-2 gap-10">
                 <div class="">

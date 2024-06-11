@@ -29,7 +29,7 @@
                 aria-labelledby="dropdownInformdropdownAvatarNameButtonationButton">
                 <div class="flex items-center px-3 hover:bg-lightgray transition duration-200">
                     <img :src="require('@/assets/icons/components.svg')" class="w-7 h-7" alt="">
-                    <router-link to="/edit" class="text-start px-4 py-2 hover:text-black">Edição de Componentes</router-link>
+                    <router-link to="/edit" class="text-start p-2 hover:text-black">Edição de Componentes</router-link>
                 </div>
                 <div class="flex items-center px-3 hover:bg-lightgray transition duration-200">
                     <img :src="require('@/assets/icons/profile.svg')" class="w-5 h-5" alt="">

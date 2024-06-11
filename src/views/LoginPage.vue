@@ -4,50 +4,10 @@
 
             <!-- Alertas -->
             <div class="transition duration-200">
-
-                <!-- Sucesso Cadastro -->
-                <div id="success-register-alert" class="hidden items-center p-4 mb-4 text-sm text-white rounded-lg bg-maingreen absolute right-180" role="alert">
-                    <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
-                    </svg>
-                    <span class="sr-only">Info</span>
-                    <div>
-                      <span class="text-lg">Cadastrado com sucesso! Agora você pode logar livremente.</span>
-                    </div>
-                </div>
-
-                <!-- Sucesso Login -->
-                <div id="success-login-alert" class="hidden items-center p-4 mb-4 text-sm text-white rounded-lg bg-maingreen absolute right-180" role="alert">
-                    <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
-                    </svg>
-                    <span class="sr-only">Info</span>
-                    <div>
-                      <span class="text-lg">Logado com sucesso! Redirecionando.....</span>
-                    </div>
-                </div>
-
-                <!-- Erro Cadastro -->
-                <div id="error-register-alert" class="hidden items-center p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 absolute right-180" role="alert">
-                    <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
-                    </svg>
-                    <span class="sr-only">Info</span>
-                    <div>
-                      <span class="text-lg">Erro ao cadastrar! Um ou mais campos com erro.</span>
-                    </div>
-                </div>
-
-                <!-- Erro Login -->
-                <div id="error-login-alert" class="hidden items-center p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 absolute right-180" role="alert">
-                    <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
-                    </svg>
-                    <span class="sr-only">Info</span>
-                    <div>
-                      <span class="text-lg">Erro ao logar! Credenciais incorretas.</span>
-                    </div>
-                </div>
+                <AlertSuccessLogin/>
+                <AlertErrorLogin/>
+                <AlertSuccessRegister/>
+                <AlertErrorRegister/>
             </div>
 
             <div class="flex items-center gap-10">
@@ -148,9 +108,19 @@
 import router from '@/router/index.js';
 import { createUser, loginUser } from '@/services/UserService.js';
 import { mapMutations, mapActions } from "vuex";
+import AlertSuccessLogin from '@/components/alert/AlertSuccessLogin';
+import AlertErrorLogin from '@/components/alert/AlertErrorLogin';
+import AlertSuccessRegister from '@/components/alert/AlertSuccessRegister';
+import AlertErrorRegister from '@/components/alert/AlertErrorRegister';
 
 export default {
     name: 'LoginPage',
+    components:{
+        AlertSuccessLogin,
+        AlertErrorLogin,
+        AlertSuccessRegister,
+        AlertErrorRegister
+    },
     data(){
         return {
             isLoggedIn: this.$store.getters.isLoggedIn,
@@ -160,13 +130,12 @@ export default {
                 password: 'joao@20091999'
             },
             newUser: {
-                firstName: 'João Pedro',
-                lastName: 'Mendonça de Souza',
-                username: 'pedro_j.css',
-                email: 'joaopedromend14@gmail.com',
-                password: 'joao@20091999',
-                confirmPassword: 'joao@20091999',
-                role: 'Codemaster'
+                firstName: '',
+                lastName: '',
+                username: '',
+                email: '',
+                password: '',
+                confirmPassword: '',
             }
         }
     },
@@ -198,11 +167,13 @@ export default {
             loginUser(this.login).then((response) => {
                 const aux = response.data
                 let newToken = aux.token
-                console.log(newToken)
+
                 this.$store.commit('setUser', response.data.userVO)
                 this.$store.commit('setToken', newToken)
+
                 window.localStorage.setItem("refresh_token", newToken)
                 this.showSuccessLogin()
+
                 setInterval(() => {
                     router.push("/").then(() => {
                         window.location.reload()
@@ -225,23 +196,27 @@ export default {
         showErrorLogin(){
             let div = document.getElementById("error-login-alert")
             div.style.display = "flex"
-            // setInterval(() => {
-            //     div.style.display = "hidden"
-            // }, 3000)
+            setInterval(() => {
+                this.hide('error-login-alert')
+            }, 3000)
         },
         showSuccessRegister(){
             let div = document.getElementById("success-register-alert")
             div.style.display = "flex"
-            // setInterval(() => {
-            //     div.style.display = "hidden"
-            // }, 3000)
+             setInterval(() => {
+                this.hide('success-register-alert')
+            }, 3000)
         },
         showErrorRegister(){
             let div = document.getElementById("error-register-alert")
             div.style.display = "flex"
-            // setInterval(() => {
-            //     div.style.display = "hidden"
-            // }, 3000)
+             setInterval(() => {
+                this.hide('error-register-alert')
+            }, 3000)
+        },
+        hide(idClass){
+            let div = document.getElementById(idClass)
+            div.style.display = "none"
         }
     }
 }
