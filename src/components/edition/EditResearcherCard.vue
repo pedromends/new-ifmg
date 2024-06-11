@@ -41,7 +41,7 @@
                                 readonly="readonly" value="-- Novo --"/>
                         </li>
                         <li v-for="(researcher, i) in researchers" :key="i" @click="setItem('researcher', researcher.id, researcher.firstName + ' ' + researcher.lastName, researcher.img.id)">
-                            <input href="#" class="block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer w-80" readonly="readonly" :value="researcher.firstName + ' ' + researcher.lastName"/>
+                            <input href="#" required class="block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer w-80" readonly="readonly" :value="researcher.firstName + ' ' + researcher.lastName"/>
                         </li>
                     </ul>
                 </div>
@@ -181,12 +181,10 @@ export default {
     },
     created(){
         listResearchers().then((response) => {
-            console.log(response.data)
             this.researchers = response.data
         })
 
         listCampus().then((response)=>{
-            console.log(response.data)
             this.campuses = response.data
         })
     },

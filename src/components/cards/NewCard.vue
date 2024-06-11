@@ -1,5 +1,5 @@
 <template lang="">
-    <div @click.prevent="openNew()" class="flex flex-col justify-center gap-3 hover:bg-gray-200 rounded-xl transition duration-300 pb-3">
+    <div v-if="newBody != null" @click.prevent="openNew()" class="flex flex-col justify-center gap-3 hover:bg-gray-200 rounded-xl transition duration-300 pb-3">
         <div class="w-full flex justify-center px-3">
             <img :src="img" alt="" class="mt-3 w-3/4"/>
         </div>
@@ -21,14 +21,33 @@
 
 <script>
 import router from '@/router/index.js'
+import { listMainNews } from '@/services/MainNewService.js';
 
 export default {
     name: 'NewCard',
+    beforeCreate() {
+        listMainNews().then((response) => {
+            let res = response.data
+            this.newBody.title = res.title
+            this.newBody.img1.code = res.image.code
+            this.newBody.paragraph1 = res.paragraph
+        })
+    },
+    beforeMount() {
+        
+    },
     components:{
     },
     data() {
         return {
-            isAdmin: this.$store.getters.isLoggedIn
+            isAdmin: this.$store.getters.isLoggedIn,
+            newBody: {
+                title:null,
+                paragraph1: '',
+                img1:{
+                    code: ''
+                }
+            }
         }
     },
     props: {

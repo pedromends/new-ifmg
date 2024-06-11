@@ -1,11 +1,11 @@
 <template lang="">
-    <a href="https://lattes.cnpq.br/" target="_blank" class="hover:shadow-lg transition duration-300 rounded-lg border border-gray-200">
+    <button  @click.prevent="openResearcher()" href="https://lattes.cnpq.br/" target="_blank" class="hover:shadow-lg transition duration-300 rounded-lg border border-gray-200">
         <div class="border-t border-maingreen bg-lightgray px-4 py-5 flex items-center justify-between">
             <h1 class="font-semibold">{{ name }}</h1>
             <img alt="Polo IFMG" class="h-16 rounded-lg border border-maingreen" :src="img.code"/>
         </div>
         <div class="flex flex-col px-3 gap-3 py-3">
-            <p class="font-semibold">{{ course }}</p>
+            <p class="font-semibold text-start">{{ course }}</p>
             <a :href="link" class="flex items-center gap-3">
                 <img alt="Polo IFMG" class="h-4" :src="require('@/assets/icons/email-green.svg')"/>
                 <p class="text-sm text-maingreen">{{ email }}</p>
@@ -15,9 +15,12 @@
                 <p class="text-sm text-maingreen">Portfólio</p>
             </a>
         </div>
-    </a>
+    </button>
 </template>
+
 <script>
+import router from '@/router/index.js'
+
 export default {
     name: 'CardResearcher',
     props: {
@@ -27,7 +30,15 @@ export default {
         link: String,
         course: String,
         img: Object
-    }
+    },
+    methods: {
+        openResearcher(){
+            router.push('/researchers/' + this.email).then(() => {
+                var element = document.getElementById("navbar");
+                element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+            }); 
+        }
+    },
 }
 </script>
 <style lang="">

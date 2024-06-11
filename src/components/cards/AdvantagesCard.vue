@@ -9,8 +9,8 @@
                 </div>
             </div>
         </button>
-        <button @click="editAdvantages()" class="" v-if="isAdmin">
-            <img :src="require('@/assets/icons/pencil-edit-maingreen.svg')" alt="#" class="h-10"/>
+        <button @click="editAdvantages()" class="hover:bg-white" v-if="isAdmin">
+            <img :src="require('@/assets/icons/pencil-edit-maingreen.svg')" alt="#" class="h-10 fill-white"/>
         </button>
     </section>
 </template>
@@ -42,7 +42,6 @@ export default {
             }); 
         },
         goTo(){
-            
             router.push('/mobility-smart-systems').then(() => {
                 var element = document.getElementById("navbar");
                 element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });

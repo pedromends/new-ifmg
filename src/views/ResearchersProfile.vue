@@ -24,9 +24,9 @@
                     </li>
                 </ol>
             </div>
-            <div class="flex items-center gap-4">
-                <img :src="require('@/assets/icons/profile.svg')" class="w-8 h-8 mt-2" alt="">
+            <div class="flex items-center gap-2">
                 <h1 class="text-4xl font-semibold underline decoration-maingreen decoration-4">Perfil</h1>
+                <img :src="require('@/assets/icons/profile.svg')" class="w-8 h-8 mt-1" alt="">
             </div>
             <div v-if="info != null" class="grid grid-cols-2 gap-10">
                 <div class="flex flex-col gap-10">
@@ -73,7 +73,7 @@
                     <div class="flex flex-col gap-3">
                         <h1 class="text-3xl font-semibold underline decoration-maingreen underline-offset-2">Informações Gerais</h1>
                         <div class="w-4/5 flex flex-col gap-4">
-                            <h1 class="text-2xl font-semibold underline decoration-maingreen decoration-2">Sobre mim</h1>
+                            <h1 class="text-2xl font-semibold underline decoration-maingreen decoration-2">Sobre</h1>
                             <p class="text-lg">{{ info.aboutMe }}</p>
                         </div>
                     </div>
@@ -116,14 +116,19 @@
 </template>
 
 <script>
-import { getUserInfo } from '@/services/UserService'
+import { useRoute } from "vue-router";
+import { getByEmail } from '@/services/ResearcherService'
 
 export default {
-    name:'ProfilePage',
+    name:'ResearchersProfile',
     created() {
-        this.user = this.$store.getters.getUser
-        getUserInfo({email: this.user.email}).then((response) => {
+        const route = useRoute();
+        const id = route.params.id;
+        console.log(id)
+
+        getByEmail(id).then((response) => {
             this.info = response.data
+            console.log(response.data)
         }).catch((e) => {
             console.log(e)
         })

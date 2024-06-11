@@ -7,13 +7,13 @@
         <section class="bg-govblue flex justify-between items-center py-1 text-lightgray font-raleway font-bold uppercase">
             <div class="flex justify-end items-center text-center gap-5 text-xs ml-40">
                 <img :src="require('@/assets/icons/govbr.svg')" alt=""/>
-                <router-link class="pr-2 hover:text-red-600" to="">COMUNICA BR</router-link>
-                <router-link class="pr-2 hover:text-red-600" to="">LEGISLAÇÃO</router-link>
+                <router-link class="pr-2 hover:text-red-600" to="/">COMUNICA BR</router-link>
+                <router-link class="pr-2 hover:text-red-600" to="/">LEGISLAÇÃO</router-link>
             </div>
             <div class="flex justify-center items-center gap-3 text-xs pr-20 mr-16">
-                <router-link class="pl-3 hover:text-red-600" to="">PARTICIPE</router-link>
-                <router-link class="pl-3 hover:text-red-600" to=""> ACESSO À INFORMAÇÃO</router-link>
-                <router-link class="pl-3 hover:text-red-600" to="">ÓRGÃOS DO GOVERNO</router-link>
+                <router-link class="pl-3 hover:text-red-600" to="/">PARTICIPE</router-link>
+                <router-link class="pl-3 hover:text-red-600" to="/"> ACESSO À INFORMAÇÃO</router-link>
+                <router-link class="pl-3 hover:text-red-600" to="/">ÓRGÃOS DO GOVERNO</router-link>
             </div>
         </section>
 
