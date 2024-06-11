@@ -1,6 +1,6 @@
 <template lang="">
-    <section class="flex items-center justify-between hover:bg-gray-100 rounded-lg p-2 transition duration-30">
-        <a href="#" target="_blank" class="flex items-center gap-5">
+    <section class="flex items-center justify-between hover:bg-gray-100 rounded-lg p-2 transition duration-30 cursor-pointer">
+        <div class="flex items-center gap-5">
             <div class="flex flex-col justify-center text-lg items-center">
                 <span>{{ month }}</span>
                 <p class="text-xl">{{ day }}</p>
@@ -9,7 +9,7 @@
                 <p class="text-maingreen  font-bold">{{ title }}</p>
                 <span class="italic">{{ hour }} | {{ local }}</span>
             </div>
-        </a>
+        </div>
         <button @click="editAdvantages()" class="" v-if="isAdmin">
             <img :src="require('@/assets/icons/pencil-edit-maingreen.svg')" alt="#" class="h-10"/>
         </button>

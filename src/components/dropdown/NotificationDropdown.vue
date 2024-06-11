@@ -10,7 +10,7 @@
         <!-- Dropdown menu -->
         <div class="z-10 hidden bg-white divide-y divide-maingreen rounded-xl shadow border border-maingreen"
             id="dropdownNotification">
-            <ul class="flex flex-col gap-1 divide divide-maingreen rounded-xl max-h-96 overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen">
+            <ul class="flex flex-col gap-1 divide divide-maingreen rounded-xl max-w-132 max-h-96 overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen">
                 <NotificationCard v-for="(notification, i) in notifications" :key="i" :companyName="notification.externalCompany" :notificationId="notification.id"/>
             </ul>
         </div>
@@ -26,10 +26,12 @@ import { mapMutations } from "vuex";
 export default {
     name: 'NotificationDropdown',
     created() {
-        listContacts(this.contact).then((response) => {    
-            this.notifications = response.data
-            this.notiCount = this.notifications.length
-        })
+        if(this.isAdmin){
+            listContacts(this.contact).then((response) => {    
+                this.notifications = response.data
+                this.notiCount = this.notifications.length
+            })
+        }
     },
     components: {
         NotificationCard

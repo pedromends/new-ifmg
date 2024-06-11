@@ -89,7 +89,7 @@
                     <div id="campuses" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow">
                         <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
                             <li v-for="(campus, i) in campuses" :key="i" @click="setItem('campus', campus.id, campus.name)">
-                                <input id="campus" class="block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer w-80" readonly="readonly" :value="campus.name"/>
+                                <input required id="campus" class="block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer w-80" readonly="readonly" :value="campus.name"/>
                             </li>
                         </ul>
                     </div>
@@ -162,7 +162,7 @@ export default {
                 name: 'Selecione um Campus',
             },
             newResearcher: {
-                id: 1,
+                id: null,
                 name: '',
                 campus: {
                     id: 0,
@@ -195,9 +195,11 @@ export default {
             this.bool = !this.bool
         },
         setItem(item, id, name, id_img){
+            console.log(item, id, name, id_img)
             if(item == 'researcher'){
                 this.inEditionResearcher.id = id
                 this.inEditionResearcher.name = name
+
                 if(id_img != null){
                     this.inEditionResearcher.id_img = id_img
                 }
@@ -232,6 +234,7 @@ export default {
                     })
                 } else {
                     this.newResearcher.img.id = this.inEditionResearcher.id_img
+                    this.newResearcher.id = this.inEditionResearcher.id
 
                     updateResearcher(this.newResearcher).then((response) => {
                         console.log(response)
@@ -249,12 +252,13 @@ export default {
             }else{
                 deleteResearcher(this.newResearcher.id).then((response) => {
                     console.log(response)
-                }).finally(() => {
-                    router.push('/researchers').then(() => {
-                        alert('Deletado com sucesso')
-                        window.location.reload();
-                    }); 
                 })
+                // .finally(() => {
+                //     router.push('/researchers').then(() => {
+                //         alert('Deletado com sucesso')
+                //         window.location.reload();
+                //     }); 
+                // })
             }
         }
     },

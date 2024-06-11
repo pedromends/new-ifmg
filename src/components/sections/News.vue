@@ -16,14 +16,14 @@
                 <EventCard v-for="(event, i) in events" :key="i" :month="event.month" :day="event.day" :title="event.title" :hour="event.hour" :local="event.local"/>
             </div>
         </div>
-        <!-- <GenericLink :classEx="'px-5 py-2 bg-maingreen text-white mx-auto rounded-lg font-bold hover:bg-white hover:text-maingreen transition duration-300 border-2 border-maingreen'"
+        <GenericLink :classEx="'px-5 py-2 bg-maingreen text-white mx-auto rounded-lg font-bold hover:bg-white hover:text-maingreen transition duration-300 border-2 border-maingreen cursor-pointer'"
             :text="'Ver Notícias e Eventos'" :func="goTo">
-        </GenericLink> -->
+        </GenericLink>
     </section>
 </template>
 
 <script>
-//import router from '@/router/index.js'
+import router from '@/router/index.js'
 import { listMainNews } from '@/services/MainNewService';
 import { listNewsCard } from '@/services/NewsCardService';
 import { listEvents }  from '@/services/EventService';
@@ -31,7 +31,7 @@ import { listThreeNews }  from '@/services/NewService';
 import NewCard from '@/components/cards/NewCard.vue';
 import EventCard from '@/components/cards/EventCard.vue';
 import MainNew from '../cards/MainNew.vue';
-//import GenericLink from '@/components/links/GenericLink';
+import GenericLink from '@/components/links/GenericLink';
 
 
 export default {
@@ -40,7 +40,7 @@ export default {
         NewCard,
         EventCard,
         MainNew,
-        //GenericLink
+        GenericLink
     },
     data() {
         return {
@@ -48,13 +48,13 @@ export default {
             smallnews: undefined,
             events: undefined,
             news: undefined,
-            // goTo: () => {
-            //     router.push('/news').then(() => {
-            //         window.location.reload()
-            //         var element = document.getElementById("navbar");
-            //         element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
-            //     });
-            // }
+            goTo: () => {
+                router.push({ path: '/news' }).then(() => {
+                    window.location.reload();
+                    var element = document.getElementById("navbar");
+                    element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                })
+            },
         }
     },
     created(){

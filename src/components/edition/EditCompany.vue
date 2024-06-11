@@ -130,13 +130,11 @@ export default {
             this.inEditionCompany.name = name
             if(id_img != null)
                 this.inEditionCompany.id_img = id_img
-            console.log(this.inEditionCompany)
         },
         updateCompany(){ // TODO: trocar pra submit data
             if(this.inEditionCompany.id != null){
                 if(this.inEditionCompany.id == 0){
                     this.company.id = null
-                    console.log(this.company)
                     createCompany(this.company).then((response) => {
                         console.log(response)
                     }).finally(() => {
@@ -148,7 +146,6 @@ export default {
                 } else {
                     this.company.id = this.inEditionCompany.id
                     this.company.image.id = this.inEditionCompany.id_img
-                    console.log(this.company)
                     updateCompany(this.company).then((response) => {
                         console.log(response)
                     }).finally(() => {

@@ -28,6 +28,7 @@ import EditCapacitationCard from "@/components/edition/EditCapacitationCard.vue"
 import EditAboutUs from "@/components/edition/EditAboutUs.vue";
 import EditCompany from "@/components/edition/EditCompany.vue";
 import ResearchersProfile from "@/views/ResearchersProfile.vue";
+import Notifications from "@/views/Notifications.vue";
 
 const routes = [
   {
@@ -97,6 +98,10 @@ const routes = [
   {
     path: '/researchers/:id',
     component: ResearchersProfile
+  },
+  {
+    path: '/notifications',
+    component: Notifications
   },
   {
     path: '/edit',

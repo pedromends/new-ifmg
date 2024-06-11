@@ -53,7 +53,7 @@
                 <NavbarLink :func="ourClients" :link="'/'" :text="'PORTFÓLIO DE PROJETOS'" />
             </div>
             <div class="flex text-sm text-maingray gap-5 py-1  mr-14 max-lg:p-0 items-center">
-                <NavbarLink :link="'/researchers'" :text="'PESQUISADORES'" />
+                <NavbarLink :func="goResearchers" :link="'/researchers'"  :text="'PESQUISADORES'" />
                 <NavbarLink :link="'/edicts'" :text="'EDITAIS'" />
                 <NavbarLink :link="'/docs'" :text="'DOCUMENTOS'" />
                 <NavbarLink :func="capacitation" :link="'/capacitation'" :text="'CAPACITAÇÃO'" />
@@ -82,21 +82,18 @@ export default {
         return {
             aboutUs: () => {
                 router.push({ path: '/' }).then(() => {
-                    window.location.reload();
                     var element = document.getElementById("aboutus");
                     element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
                 })
             },
             advantages: () => {
                 router.push({ path: '/' }).then(() => {
-                    window.location.reload();
                     var element = document.getElementById("advantages");
                     element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
                 })
             },
             capacitation: () => {
                 router.push({ path: '/' }).then(() => {
-                    window.location.reload();
                     var element = document.getElementById("capacitation");
                     element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
                 })
@@ -112,6 +109,11 @@ export default {
                     var element = document.getElementById("ourclients");
                     element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
                 }).finally(() => {
+                    window.location.reload();
+                })
+            },
+            goResearchers: () => {
+                router.push({ path: '/researchers' }).then(() => {
                     window.location.reload();
                 })
             },

@@ -1,13 +1,19 @@
 <template lang="">
-    <li @click="readNote()" class="flex flex-col gap-5 text-maingreen px-10 py-5 cursor-pointer transition duration-200 bg-lightgray border border-red-600 rounded-lg">
-        <div class="flex items-center gap-2 effect">
-            <img :src="require('@/assets/icons/info.svg')" class="w-5" alt="">
+    <li @click="readNote()" class="flex items-center gap-5 text-maingreen px-10 py-5 cursor-pointer transition duration-200 bg-lightgray border border-red-600 rounded-lg" :class="!read ? 'font-bold':''">
+        <div class="flex flex-col gap-2 effect w-2/5">
+            <div class="flex gap-2 items-center">
+                <img v-if="!read" :src="require('@/assets/icons/dot.svg')" class="w-4" alt=""/>
+                <img :src="require('@/assets/icons/info.svg')" class="w-5" alt="">
+            </div>
             <h1>Uma empresa nova fez contato!</h1>
-            <img v-if="!read" :src="require('@/assets/icons/dot.svg')" class="w-4" alt=""/>
+            <p class="w-3/5">A {{ externalCompany }} mandou uma mensagem:</p>
         </div>
-        <p>A Empresa de {{ area }}, {{ externalCompany }} mandou uma mensagem:</p>
-        <p class="w-2/5">{{ message }}</p>
-        <p>{{ email }}</p>
+        <div class="flex flex-col">
+            <p>Área: {{ area }}</p>
+            <p>Email: {{ email }}</p>
+        </div>
+        <p class="w-3/5">{{ message }}</p>
+        
     </li>
 </template>
 
@@ -50,7 +56,7 @@ export default {
                     router.push("/notifications").then(() => {
                         window.location.reload()
                     })
-                }, 3000)
+                }, 1500)
             });
         }
     }

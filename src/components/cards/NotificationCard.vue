@@ -4,7 +4,7 @@
             <img :src="require('@/assets/icons/info.svg')" class="w-5" alt="">
             <h1>Uma empresa nova fez contato!</h1>
         </div>
-        <p>A Empresa {{ companyName }} mandou uma mensagem! Clique para saber mais!</p>
+        <p>A {{ companyName }} mandou uma mensagem! Clique para saber mais!</p>
     </li>
 </template>
 

@@ -1,5 +1,5 @@
 <template lang="">
-    <section v-if="newBody" class="px-16 flex flex-col gap-10 py-10">
+    <section v-if="newBody" class="px-16 flex flex-col gap-10 ">
         <div class="flex items-center gap-2">
             <img class="w-6" :src="require('@/assets/icons/house2.svg')" alt="">
             <router-link to="/news" class="text-maingreen hover:underline">> Notícias ></router-link>

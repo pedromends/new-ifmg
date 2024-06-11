@@ -1,5 +1,5 @@
 <template lang="">
-    <router-link @click="func" :class="classEx">{{ text }}</router-link>
+    <a @click="func" :class="classEx">{{ text }}</a>
 </template>
 <script>
 export default {

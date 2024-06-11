@@ -66,11 +66,11 @@ export default {
     data() {
         return {
             contact:{
-                name: 'Prospecção Vale',
-                email: 'vale@vale.com',
-                externalCompany: 'Vale do Rio Doce',
-                area: 'Mineração',
-                message: 'Tincidunt quam neque in cursus viverra orci, dapibus nec tristique. Nullam ut sit dolor consectetur urna, dui cras nec sed. Cursus risus congue arcu aenean posuere aliquam.'
+                name: null,
+                email: null,
+                externalCompany: null,
+                area: null,
+                message: null
             }
         }
     },
