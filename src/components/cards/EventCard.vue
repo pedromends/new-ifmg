@@ -10,7 +10,7 @@
                 <span class="italic">{{ hour }} | {{ local }}</span>
             </div>
         </a>
-        <button @click="editAdvantages()" class="self-end" v-if="isAdmin">
+        <button @click="editAdvantages()" class="" v-if="isAdmin">
             <img :src="require('@/assets/icons/pencil-edit-maingreen.svg')" alt="#" class="h-10"/>
         </button>
     </section>

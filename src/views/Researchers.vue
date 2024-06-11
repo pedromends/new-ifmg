@@ -9,8 +9,11 @@
             <hr class="bg-red-600 h-1"/>
             <div class="flex items-center gap-5">
                 <input type="text" placeholder="Pesquisar..." class="w-full rounded-lg"/>
-                <img alt="Laboratório de sistemas automotivos IFMG - Campus Formiga" class=" bg-maingreen px-4 rounded-lg" :src="require('@/assets/icons/hand-glass.svg')" />
-            </div>
+                <button class="">
+                    <img alt="Laboratório de sistemas automotivos IFMG - Campus Formiga" :src="require('@/assets/icons/hand-glass.svg')" 
+                    class="border border-maingreen bg-maingreen px-4 rounded-lg hover:bg-lightgray transition duration-200" />
+                </button>
+            </div>  
             <div class="grid grid-cols-3 gap-7 max-lg:grid-cols-1">
                 <ResearcherCard v-for="(researcher, i) in researchers" :key="i"
                     :img="researcher.img" :course="researcher.course" :link="'#'" :name="researcher.firstName + ' ' + researcher.lastName" :email="researcher.email"/>
@@ -47,6 +50,7 @@ export default {
     methods: {
         createNewResearcher(){
             router.push('/edit/researcher').then(() => {
+                window.location.reload()
                 var element = document.getElementById("navbar");
                 element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
             }); 

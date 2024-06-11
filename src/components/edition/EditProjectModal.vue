@@ -1,14 +1,14 @@
 <template lang="">
-    <section class="flex flex-col justify-center bg-lightgray gap-10">
+    <section class="flex justify-center items-center bg-lightgray gap-10">
         <div role="status" class="">
-            <p class="font-bold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen self-start mt-10 ml-36">Modal de Projetos</p>
-            <section class="flex justify-center gap-10 items-center mt-5 animate-pulse">
+            <section class="flex flex-col justify-center gap-10 items-center mt-5 animate-pulse">
+                <p class="font-bold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen self-start mt-10">Modal de Projetos</p>
 
                 <!-- Modal -->
                 <div class="relative p-4 w-full max-w-2xl max-h-full">
                     <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                         <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t border-maingreen">
-                            <div @mouseover="onOffEffect('company-name-div')" @mouseleave="onOffEffect('company-name-div')" class="h-8 bg-black rounded-full w-36 mr-72 border border-transparent hover:border-red-700"></div>
+                            <div class="h-8 bg-black rounded-full w-36 mr-72 border border-transparent hover:border-red-700"></div>
                             <button type="button" class="bg-transparent rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center hover:bg-gray-500/50 transition duration-200">
                                 <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
                                     <path stroke="#E02424" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
@@ -18,7 +18,7 @@
                         </div>
                         <div class="p-4 md:p-5 space-y-4 flex flex-col">
                             <div>
-                                <h2 @mouseover="onOffEffect('project-name-div')" @mouseleave="onOffEffect('project-name-div')" id="headName" class="text-maingray border border-transparent hover:border-red-700">
+                                <h2 id="headName" class="text-maingray border border-transparent hover:border-red-700">
                                     <button type="button" data-accordion-target="#headBody" aria-expanded="false" aria-controls="headBody"
                                         class="flex items-center justify-between w-full p-5 font-medium rtl:text-right border border-maingreen rounded-t-xl hover:bg-blue-100 gap-3 transition duration-200">
                                         <div class="h-3 bg-maingreen rounded-full w-48"></div>
@@ -27,7 +27,7 @@
                                         </svg>
                                     </button>
                                 </h2>
-                                <div @mouseover="onOffEffect('about-project-div')" @mouseleave="onOffEffect('about-project-div')" class="border border-transparent hover:border-red-700">
+                                <div class="border border-transparent hover:border-red-700">
                                     <div class="p-5 border rounded-b-xl border-gray-200 gap-2 flex flex-col">
                                         <div class="h-1 bg-black rounded-full w-96"></div>
                                         <div class="h-1 bg-black rounded-full w-96"></div>
@@ -43,23 +43,23 @@
                             </div>
     
                             <div class="flex flex-col px-2 text-sm gap-1">
-                                <div @mouseover="onOffEffect('coor-name-div')" @mouseleave="onOffEffect('coor-name-div')" class="flex gap-2 items-center max-lg:text-sm border border-transparent hover:border-red-700">
+                                <div class="flex gap-2 items-center max-lg:text-sm border border-transparent hover:border-red-700">
                                     <p class="font-bold text-maingray">Coordenador: </p>
                                     <div class="h-2 bg-black rounded-full w-24"></div>
                                 </div>
-                                <div @mouseover="onOffEffect('researchers-div')" @mouseleave="onOffEffect('researchers-div')" class="flex gap-2 items-center max-lg:text-sm border border-transparent hover:border-red-700">
+                                <div class="flex gap-2 items-center max-lg:text-sm border border-transparent hover:border-red-700">
                                     <p class="font-bold text-maingray">Pesquisador(es): </p>
                                     <div class="h-2 bg-black rounded-full w-24"></div>
                                 </div>
-                                <div @mouseover="onOffEffect('students-div')" @mouseleave="onOffEffect('students-div')"  class="flex gap-2 items-center max-lg:text-sm border border-transparent hover:border-red-700">
+                                <div  class="flex gap-2 items-center max-lg:text-sm border border-transparent hover:border-red-700">
                                     <p class="font-bold text-maingray">Aluno(s): </p>
                                     <div class="h-2 bg-black rounded-full w-24"></div>
                                 </div>
-                                <div @mouseover="onOffEffect('situation-div')" @mouseleave="onOffEffect('situation-div')" class="flex gap-2 items-center max-lg:text-sm border border-transparent hover:border-red-700">
+                                <div class="flex gap-2 items-center max-lg:text-sm border border-transparent hover:border-red-700">
                                     <p class="font-bold text-maingray">Situação: </p>
                                     <p>Situação</p>
                                 </div>
-                                <div @mouseover="onOffEffect('value-div')" @mouseleave="onOffEffect('value-div')" class="flex gap-2 items-center max-lg:text-sm border border-transparent hover:border-red-700">
+                                <div class="flex gap-2 items-center max-lg:text-sm border border-transparent hover:border-red-700">
                                     <p class="font-bold text-maingray">Valor:</p>
                                     <div class="flex items-center gap-3">R$ <div class="h-2 bg-black rounded-full w-10"></div></div>
                                 </div>
@@ -81,7 +81,7 @@
         </div>
 
         <!-- Formulário -->
-        <form class="bg-white p-10  rounded-lg mb-10">
+        <form class="bg-white p-10 rounded-lg">
             <div class="flex flex-col gap-6 mb-6">
                 <div class="grid grid-cols-3">
 
@@ -129,7 +129,7 @@
                             <div id="dropdown1" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen">
                                 <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="modalityButton">
                                     <li v-for="(company, i) in companies" :key="i" @click="setItem('company', company.id, company.name, company.image.id)">
-                                        <input href="#" class="w-84 block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer "
+                                        <input required href="#" class="w-84 block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer "
                                             readonly="readonly" :value="company.name"/>
                                     </li>
                                 </ul>
@@ -149,7 +149,7 @@
                             <div id="dropdown2" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen">
                                 <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="modalityButton">
                                     <li v-for="(researcher, i) in researchers" :key="i" @click="setItem('coordinator', researcher.id, researcher.firstName + ' ' + researcher.lastName, researcher.img.id)">
-                                        <input href="#" class="w-84 block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer" readonly="readonly" :value="researcher.firstName + ' ' + researcher.lastName "/>
+                                        <input required class="w-84 block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer" readonly="readonly" :value="researcher.firstName + ' ' + researcher.lastName "/>
                                     </li>
                                 </ul>
                             </div>
@@ -186,7 +186,7 @@
                                 <div id="dropdown3" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen">
                                     <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="modalityButton">
                                         <li v-for="(researcher, i) in researchers" :key="i" @click="setItem('researcher', researcher.id, researcher.firstName + ' ' + researcher.lastName, researcher.img.id)">
-                                            <input href="#" class="w-84 block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer" readonly="readonly" :value="researcher.firstName + ' ' + researcher.lastName "/>
+                                            <input href="#"  class="w-84 block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer" readonly="readonly" :value="researcher.firstName + ' ' + researcher.lastName "/>
                                         </li>
                                     </ul>
                                 </div>
@@ -354,7 +354,7 @@ export default {
             };
         },
         setItem(item, id, name, id_img){
-            console.log(id, name, id_img)
+            console.log(item, id, name, id_img)
             if (item == 'researcher') {
                 this.editResearchers.id = id
                 this.editResearchers.name = name,
@@ -379,14 +379,20 @@ export default {
         },
         updateCard(){
             if(this.editProject.id == 0){
+                let aux = this.editCompany.name
+                aux.replace(' ', '')
+
                 this.newProject.coordinator.id = this.editCoordinator.id
                 this.newProject.researchers.id = this.editResearchers.id
-                this.newProject.company.id = this.editCompany.id
+                
+                this.newProject.modalName = 'modal_' + aux
+                this.newProject.accordionId = 'accordion_' + aux
+                this.newProject.headerName = 'header_' + aux
+                this.newProject.headerBody = 'heading_' + aux
 
                 createProject(this.newProject).then((response) => {
                     console.log(response)
-                })
-                .finally(() => {
+                }).finally(() => {
                     router.push('/').then(() => {
                         var element = document.getElementById("ourclients");
                         element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
@@ -399,13 +405,11 @@ export default {
                 this.newProject.coordinator.id = this.editCoordinator.id
                 this.newProject.researchers.id = this.editResearchers.id
                 this.newProject.students.id = this.editStudents.id
-                this.newProject.name = this.editProject.name
                 console.log(this.newProject)
 
                 updateProject(this.newProject).then((response) => {
                     console.log(response)
-                })
-                .finally(() => {
+                }).finally(() => {
                     router.push('/').then(() => {
                         var element = document.getElementById("ourclients");
                         element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });

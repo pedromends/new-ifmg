@@ -24,7 +24,10 @@
                     </li>
                 </ol>
             </div>
-            <h1 class="text-4xl font-semibold underline decoration-maingreen decoration-4">Perfil</h1>
+            <div class="flex items-center gap-2">
+                <h1 class="text-4xl font-semibold underline decoration-maingreen decoration-4">Perfil</h1>
+                <img :src="require('@/assets/icons/profile.svg')" class="w-8 h-8 mt-1" alt="">
+            </div>
             <div v-if="info != null" class="grid grid-cols-2 gap-10">
                 <div class="flex flex-col gap-10">
                     <div class="bg-lightgray flex flex-col rounded-lg p-10 gap-10 border border-maingreen text-lg">

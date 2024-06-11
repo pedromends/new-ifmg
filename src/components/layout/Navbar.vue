@@ -82,18 +82,21 @@ export default {
         return {
             aboutUs: () => {
                 router.push({ path: '/' }).then(() => {
+                    window.location.reload();
                     var element = document.getElementById("aboutus");
                     element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
                 })
             },
             advantages: () => {
                 router.push({ path: '/' }).then(() => {
+                    window.location.reload();
                     var element = document.getElementById("advantages");
                     element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
                 })
             },
             capacitation: () => {
                 router.push({ path: '/' }).then(() => {
+                    window.location.reload();
                     var element = document.getElementById("capacitation");
                     element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
                 })
@@ -105,6 +108,7 @@ export default {
             },
             ourClients: () => {
                 router.push({ path: '/' }).then(() => {
+                    window.location.reload();
                     var element = document.getElementById("ourclients");
                     element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
                 }).finally(() => {

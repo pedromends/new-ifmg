@@ -1,7 +1,10 @@
 <template lang="">
     <main class="px-16 pt-6" id="main-edition">  
         <div class="flex flex-col gap-10 p-4">
-            <h1 class="text-3xl font-semibold underline decoration-maingreen decoration-4">Modo de Edição</h1>
+            <div class="flex items-center gap-2">
+                <h1 class="text-3xl font-semibold underline decoration-maingreen decoration-4">Edição de Componentes</h1>
+                <img :src="require('@/assets/icons/components.svg')" class="w-10 h-10" alt="">
+            </div>
             <div class="flex gap-5 rounded-2xl">
                 <div class="flex flex-col">
                     <ul class="flex flex-col gap-3 justify-between border-l-2 border-red-600 p-4">

@@ -133,43 +133,45 @@ export default {
             console.log(this.inEditionCompany)
         },
         updateCompany(){ // TODO: trocar pra submit data
-            this.company.id = this.inEditionCompany.id
-            this.company.image.id = this.inEditionCompany.id_img
-            console.log(this.company)
-
-            if(this.inEditionCompany.id == 0){
-                createCompany(this.company).then((response) => {
-                    console.log(response)
-                })
-                // .finally(() => {
-                //     router.push('/').then(() => {
-                //         var element = document.getElementById("ourclients");
-                //         element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
-                //     }); 
-                // })
-            } else {
-                updateCompany(this.company).then((response) => {
-                    console.log(response)
-                })
-                // .finally(() => {
-                //     router.push('/').then(() => {
-                //         var element = document.getElementById("ourclients");
-                //         element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
-                //     }); 
-                // })
+            if(this.inEditionCompany.id != null){
+                if(this.inEditionCompany.id == 0){
+                    this.company.id = null
+                    console.log(this.company)
+                    createCompany(this.company).then((response) => {
+                        console.log(response)
+                    }).finally(() => {
+                        router.push('/').then(() => {
+                            var element = document.getElementById("ourclients");
+                            element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                        }); 
+                    })
+                } else {
+                    this.company.id = this.inEditionCompany.id
+                    this.company.image.id = this.inEditionCompany.id_img
+                    console.log(this.company)
+                    updateCompany(this.company).then((response) => {
+                        console.log(response)
+                    }).finally(() => {
+                        router.push('/').then(() => {
+                            var element = document.getElementById("ourclients");
+                            element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                        }); 
+                    })
+                }
             }
             
         },
         deleteCompany(){
             deleteCompany(this.editProject.id).then((response) => {
                 console.log(response)
-            }).finally(() => {
-                router.push('/').then(() => {
-                    var element = document.getElementById("ourclients");
-                    element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
-                    alert('Deletado com sucesso')
-                }); 
             })
+            // .finally(() => {
+            //     router.push('/').then(() => {
+            //         var element = document.getElementById("ourclients");
+            //         element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+            //         alert('Deletado com sucesso')
+            //     }); 
+            // })
         }
     },
 }

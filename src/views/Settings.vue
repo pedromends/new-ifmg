@@ -2,8 +2,8 @@
     <main class="px-16">
         <div class="flex flex-col gap-6">
             <div class="flex" aria-label="Breadcrumb">
-                <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
-                    <li class="inline-flex items-center">
+                <ol class="flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
+                    <li class="flex items-center">
                         <router-link to="/"
                             class="flex items-center text-sm font-medium text-maingreen hover:underline">
                             <svg class="w-3 h-3 me-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
@@ -15,7 +15,7 @@
                         </router-link>
                     </li>
                     <li class="flex items-center">
-                        <svg class="rtl:rotate-180 w-3 h-3 text-gray-400 mx-1" aria-hidden="true"
+                        <svg class="rtl:rotate-180 w-3 h-3 text-gray-400" aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="m1 9 4-4-4-4" />
@@ -24,7 +24,10 @@
                     </li>
                 </ol>
             </div>
-            <h1 class="text-4xl font-semibold underline decoration-maingreen decoration-4">Configurações</h1>
+            <div class="flex items-center gap-2">
+                <h1 class="text-4xl font-semibold underline decoration-maingreen decoration-4">Configurações</h1>
+                <img :src="require('@/assets/icons/settings.svg')" class="w-8 h-8 mt-2" alt="">
+            </div>
             <div v-if="info != null" class="grid grid-cols-2 gap-10">
                 <div class="">
                     <div class="flex flex-col gap-10">
@@ -94,11 +97,11 @@
                             <div class="grid grid-cols-2 gap-5 text-lg my-3">
                                 <div>
                                     <p class="font-semibold">Nova senha</p>
-                                    <input :class="css.input" placeholder=""/>
+                                    <input :class="css.input" type="password" placeholder=""/>
                                 </div>
                                 <div>
                                     <p class="font-semibold">Confirmação da nova senha</p>
-                                    <input :class="css.input" placeholder="Twitch, Google, Apple"/>
+                                    <input :class="css.input" type="password" placeholder=""/>
                                 </div>
                                 <button class="col-span-2 text-white bg-maingreen hover:bg-govblue focus:ring-2 focus:outline-none focus:ring-red-600 font-medium rounded-lg text-sm w-full sm:w-auto px-48 py-2.5 text-center transition duration-200"
                                     @click.prevent="updateUser()" type="submit" >Salvar</button>

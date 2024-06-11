@@ -11,9 +11,9 @@
             type="button">
             <img :src="info.img.code" class="w-10 h-10 rounded-full" alt="">
             <p class="text-sm">{{ user.firstName }}</p>
-            <svg class="w-2.5 h-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="#006666"
+            <svg class="w-2.5 h-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="#2f9e40"
                 viewBox="0 0 10 6">
-                <path stroke="#006666" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                <path stroke="#2f9e40" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="m1 1 4 4 4-4" />
             </svg>
         </button>
@@ -27,12 +27,21 @@
             </div>
             <ul class="flex flex-col py-2 text-gray-700 dark:text-gray-200"
                 aria-labelledby="dropdownInformdropdownAvatarNameButtonationButton">
-                <router-link to="/edit" class="transition duration-200 text-start px-4 py-2 hover:bg-lightgray hover:text-black">Edição de Componentes</router-link>
-                <router-link to="/settings" class="transition duration-200 text-start px-4 py-2 hover:bg-lightgray hover:text-black">Configurações</router-link>
-                <router-link to="/profile" class="transition duration-200 text-start px-4 py-2 hover:bg-lightgray hover:text-black">Perfil</router-link>
+                <div class="flex items-center px-3 hover:bg-lightgray transition duration-200">
+                    <img :src="require('@/assets/icons/components.svg')" class="w-7 h-7" alt="">
+                    <router-link to="/edit" class="text-start px-4 py-2 hover:text-black">Edição de Componentes</router-link>
+                </div>
+                <div class="flex items-center px-3 hover:bg-lightgray transition duration-200">
+                    <img :src="require('@/assets/icons/profile.svg')" class="w-5 h-5" alt="">
+                    <router-link to="/profile" class="text-start px-4 py-2 hover:text-black">Perfil</router-link>
+                </div>
+                <div class="flex items-center px-3 hover:bg-lightgray transition duration-200">
+                    <img :src="require('@/assets/icons/settings.svg')" class="w-6 h-6" alt="">
+                    <router-link to="/settings" class="text-start px-4 py-2 hover:text-black">Configurações</router-link>
+                </div>
             </ul>
-            <div class="py-2">
-                <button @click.prevent="logOut()" class="w-full px-4 py-2 text-sm hover:text-white hover:bg-red-600 transition duration-200">
+            <div class="py-2 hover:text-white hover:bg-red-600 transition duration-200">
+                <button @click.prevent="logOut()" class="w-full px-4 py-2 text-sm">
                     Sair
                 </button>
             </div>

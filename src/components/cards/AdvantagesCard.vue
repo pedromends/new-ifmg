@@ -1,6 +1,6 @@
 <template lang="">
-    <section class="flex hover:bg-maingreen border-2 border-gray-100 rounded-xl z-10 px-6 transition duration-200">
-        <router-link to="/mobility-smart-systems" class="text-black flex max-md:flex-col py-6 gap-10 transition duration-300 max-lg:w-auto max-lg:px-0">
+    <section class="flex  hover:bg-maingreen border-2 border-gray-100 rounded-xl z-10 px-6 transition duration-200">
+        <button @click="goTo()" to="/mobility-smart-systems" class="text-black text-start flex max-md:flex-col items-center py-6 gap-10 transition duration-300 max-lg:w-auto max-lg:px-0">
             <img v-bind:src="icon" alt="" class="w-16 max-lg:self-center"/>
             <div class="flex gap-1 edit items-center relative transition duration-500">
                 <div class="flex flex-col">
@@ -8,15 +8,16 @@
                     <p class="text-xs w-80 px-4 go-white">{{ text }}</p>
                 </div>
             </div>
-        </router-link>
+        </button>
         <button @click="editAdvantages()" class="" v-if="isAdmin">
             <img :src="require('@/assets/icons/pencil-edit-maingreen.svg')" alt="#" class="h-10"/>
         </button>
     </section>
-
 </template>
 
 <script>
+// Mobilidade e Sistemas Inteligentes
+// O Polo de Inovação IFMG atua como Unidade EMBRAPII no desenvolvimento de projetos relacionados à Otimização de Processos e Gestão de Ativos Móveis e Sistemas Automotivos e Transportes.
 import router from '@/router/index.js'
 
 export default {
@@ -39,6 +40,13 @@ export default {
                 var element = document.getElementById("navbar");
                 element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
             }); 
+        },
+        goTo(){
+            
+            router.push('/mobility-smart-systems').then(() => {
+                var element = document.getElementById("navbar");
+                element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+            });
         }
     }
 }

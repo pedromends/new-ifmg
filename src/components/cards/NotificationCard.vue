@@ -1,5 +1,5 @@
 <template lang="">
-    <li @click="readNote()" class="flex flex-col effect text-maingreen hover:text-white px-10 py-2 cursor-pointer rounded-t-xl transition duration-200 hover:bg-red-500">
+    <li @click="readNote()" class="flex flex-col effect text-maingreen hover:text-white px-10 py-2 cursor-pointer transition duration-200 hover:bg-red-500">
         <div class="flex items-center gap-2 effect">
             <img :src="require('@/assets/icons/info.svg')" class="w-5" alt="">
             <h1>Uma empresa nova fez contato!</h1>
