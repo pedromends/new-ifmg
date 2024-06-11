@@ -40,7 +40,7 @@ export const listUsers = () => api.request({
   url: '/user/list',
 });
 
-export const updateUser = (form) => api.request({
+export const updateUserInfo = (form) => api.request({
   headers: {
     'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*',

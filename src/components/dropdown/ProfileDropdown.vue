@@ -9,7 +9,7 @@
         <button v-if="isLoggedIn && info != null" id="dropdownAvatarNameButton" data-dropdown-toggle="dropdownAvatarName"
             class="flex items-center gap-2 text-lg font-medium text-maingreen rounded-lg hover:bg-white hover:text-maingreen transition duration-200"
             type="button">
-            <img :src="info.img.code" class="w-12 h-12 rounded-full" alt="">
+            <img :src="info.img.code" class="w-10 h-10 rounded-full" alt="">
             <p class="text-sm">{{ user.firstName }}</p>
             <svg class="w-2.5 h-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="#006666"
                 viewBox="0 0 10 6">
@@ -52,7 +52,6 @@ export default {
         if(this.isLoggedIn){
             getUserInfo({email: this.user.email}).then((response) => {
                 this.info = response.data
-                console.log(this.info)
             }).catch((e) => {
                 console.log(e)
                 //this.showErrorLogin()

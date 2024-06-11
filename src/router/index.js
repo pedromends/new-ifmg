@@ -27,6 +27,7 @@ import EditProjectModal from "@/components/edition/EditProjectModal.vue";
 import EditCapacitationCard from "@/components/edition/EditCapacitationCard.vue";
 import EditAboutUs from "@/components/edition/EditAboutUs.vue";
 import EditCompany from "@/components/edition/EditCompany.vue";
+import Notifications from "@/views/Notifications.vue";
 
 const routes = [
   {
@@ -92,6 +93,10 @@ const routes = [
   {
     path: '/settings',
     component: Settings
+  },
+  {
+    path: '/notifications',
+    component: Notifications
   },
   {
     path: '/edit',

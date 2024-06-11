@@ -32,9 +32,8 @@
                             <img :src="info.img.code" class="w-36 h-36 rounded-full" alt="Profile Pic">
                             <h1 class="text-2xl font-semibold">{{ info.firstName }} {{ info.lastName }}</h1>
                             <p>{{ info.profession }}</p>
-                            <p>San Francisco, USA</p>
+                            <p>{{ info.city }}</p>
                         </div>
-
                         <div>
                             <p>Email:</p>
                             <p class="font-semibold text-maingreen">{{ info.email }}</p>
@@ -42,7 +41,7 @@
 
                         <div>
                             <p>Endereço:</p>
-                            <p class="font-semibold text-maingreen">{{ info.address }}</p>
+                            <p class="font-semibold text-maingreen">{{ info.address }}, {{ info.city }}</p>
                         </div>
 
                         <div>
@@ -50,21 +49,7 @@
                             <p class="font-semibold text-maingreen">{{ info.phone }}</p>
                         </div>
                     </div>
-                    <div class="bg-lightgray p-4 flex flex-col gap-4 border border-maingreen rounded-lg">
-                        <h1 class="text-2xl font-semibold underline decoration-maingreen underline-offset-2">Habilidades</h1>
-                        <div class="flex gap-3">
-                            <kbd :class="css.kbd">HTML</kbd>
-                            <kbd :class="css.kbd">CSS</kbd>
-                            <kbd :class="css.kbd">Javascript</kbd>
-                            <kbd :class="css.kbd">TailwindCSS</kbd>
-                        </div>
-                       <div class="flex gap-3">
-                            <kbd :class="css.kbd">Spring Boot</kbd>
-                            <kbd :class="css.kbd">Java</kbd>
-                            <kbd :class="css.kbd">Algolia</kbd>
-                            <kbd :class="css.kbd">MySQL</kbd>
-                       </div>
-                    </div>
+                    
                     <div class="bg-lightgray p-4 flex flex-col gap-4 border border-maingreen rounded-lg">
                         <h1 class="text-2xl font-semibold underline decoration-maingreen underline-offset-2">Hobbies</h1>
                         <div class="flex gap-3">
@@ -81,44 +66,43 @@
                         </div>
                     </div>
                 </div>
-                <div class="bg-lightgray p-8 flex flex-col rounded-lg border border-maingreen gap-5">
-                    <h1 class="text-3xl font-semibold underline decoration-maingreen underline-offset-2">Informações Gerais</h1>
-                    <div class="w-4/5 flex flex-col gap-4">
-                        <h1 class="text-2xl font-semibold underline decoration-maingreen decoration-2">Sobre mim</h1>
-                        <p class="text-lg">{{ info.aboutMe }}</p>
+                <div class="bg-lightgray p-8 flex flex-col justify-between rounded-lg border border-maingreen gap-5">
+                    <div class="flex flex-col gap-3">
+                        <h1 class="text-3xl font-semibold underline decoration-maingreen underline-offset-2">Informações Gerais</h1>
+                        <div class="w-4/5 flex flex-col gap-4">
+                            <h1 class="text-2xl font-semibold underline decoration-maingreen decoration-2">Sobre mim</h1>
+                            <p class="text-lg">{{ info.aboutMe }}</p>
+                        </div>
                     </div>
-                    <div class="grid grid-cols-2 gap-5 text-lg">
+                    <div class="flex flex-col gap-5 justify-between">
                         <div>
                             <p>Educação</p>
                             <p class="font-semibold text-maingreen">{{ info.education }}</p>
                         </div>
                         <div>
-                            <p>Work History</p>
+                            <p>Histórico de Trabalho</p>
                             <p class="font-semibold text-maingreen">Twitch, Google, Apple</p>
                         </div>
                         <div>
-                            <p>Join Date</p>
-                            <p class="font-semibold text-maingreen">12-09-2021</p>
+                            <p>Departamento</p>
+                            <p class="font-semibold text-maingreen">{{ info.department }}</p>
                         </div>
-                        <div>
-                            <p>Languages</p>
-                            <p class="font-semibold text-maingreen">English, German, Italian, Spanish</p>
-                        </div>
-                        <div>
-                            <p>Organization</p>
-                            <p class="font-semibold text-maingreen">Themesberg LLC</p>
-                        </div>
-                        <div>
-                            <p>Role</p>
-                            <p class="font-semibold text-maingreen">Graphic Designer</p>
-                        </div>
-                        <div>
-                            <p>Department</p>
-                            <p class="font-semibold text-maingreen">Marketing</p>
-                        </div>
-                        <div>
-                            <p>Birthday</p>
-                            <p class="font-semibold text-maingreen">15-08-1990</p>
+                    </div>
+                    <div class="flex flex-col justify-between gap-5 text-lg">
+                        <div class="px-2 flex flex-col gap-4 rounded-lg col-span-2">
+                            <h1 class="text-2xl font-semibold underline decoration-maingreen underline-offset-2">Habilidades</h1>
+                            <div class="flex gap-3">
+                                <kbd :class="css.kbd">HTML</kbd>
+                                <kbd :class="css.kbd">CSS</kbd>
+                                <kbd :class="css.kbd">Javascript</kbd>
+                                <kbd :class="css.kbd">TailwindCSS</kbd>
+                            </div>
+                           <div class="flex gap-3">
+                                <kbd :class="css.kbd">Spring Boot</kbd>
+                                <kbd :class="css.kbd">Java</kbd>
+                                <kbd :class="css.kbd">Algolia</kbd>
+                                <kbd :class="css.kbd">MySQL</kbd>
+                           </div>
                         </div>
                     </div>
                 </div>
@@ -135,9 +119,7 @@ export default {
     name:'ProfilePage',
     created() {
         this.user = this.$store.getters.getUser
-        console.log(this.user)
         getUserInfo({email: this.user.email}).then((response) => {
-            console.log(response.data)
             this.info = response.data
         }).catch((e) => {
             console.log(e)

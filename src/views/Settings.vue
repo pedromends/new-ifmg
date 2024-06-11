@@ -32,8 +32,8 @@
                             <h1 class="text-3xl font-semibold underline decoration-maingreen underline-offset-2">Foto de Perfil</h1>
                             <div class="flex flex-col gap-3">
                                 <img :src="info.img.code" class="w-36 h-36 rounded-full" alt="Profile Pic">
-                                <h1 class="text-2xl font-semibold">{{ info.firstName }} {{ info.lastName }}</h1>
-                                <p>{{ info.profession }}</p>
+                                <h1 class="text-2xl font-semibold underline decoration-maingreen underline-offset-2">{{ info.firstName }} {{ info.lastName }}</h1>
+                                <p class="underline decoration-maingreen underline-offset-2">{{ info.profession }}</p>
                                 <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none"
                                     aria-describedby="file_input_help" id="file_input" type="file" @change="onFileChanged($event)" accept="image/*">
                             </div>
@@ -46,39 +46,64 @@
                     </div>
                 </div>
                 <div class="flex flex-col gap-10">
-                    <div class="bg-lightgray p-8 flex flex-col rounded-lg border border-maingreen gap-5">
-                        <h1 class="text-3xl font-semibold underline decoration-maingreen underline-offset-2">Dados Gerais</h1>
-                        <div class="grid grid-cols-2 gap-5 text-lg">
-                            <div>
-                                <p class="font-semibold">Nome</p>
-                                <input :class="css.input" placeholder=""/>
-                            </div>
-                            <div>
-                                <p class="font-semibold">Sobrenome</p>
-                                <input :class="css.input" placeholder=""/>
-                            </div>
-                            <div>
-                                <p class="font-semibold">Educação</p>
-                                <input :class="css.input" placeholder=""/>
-                            </div>
-                            <div>
-                                <p class="font-semibold">Departamento</p>
-                                <input :class="css.input" placeholder=""/>
+                    <div class="bg-lightgray p-8 flex flex-col gap-10 rounded-lg border border-maingreen">
+                        <div>
+                            <h1 class="text-3xl font-semibold underline decoration-maingreen underline-offset-2 my-3">Dados Gerais</h1>
+                            <div v-if="this.newUser != null" class="grid grid-cols-2 gap-5 text-lg">
+                                <div>
+                                    <p class="font-semibold">Nome</p>
+                                    <input :class="css.input" v-model="this.newUser.firstName" placeholder=""/>
+                                </div>
+                                <div>
+                                    <p class="font-semibold">Sobrenome</p>
+                                    <input :class="css.input" v-model="this.newUser.lastName" placeholder=""/>
+                                </div>
+                                <div>
+                                    <p class="font-semibold">Email</p>
+                                    <input :class="css.input" v-model="this.newUser.email" placeholder=""/>
+                                </div>
+                                <div>
+                                    <p class="font-semibold">Educação</p>
+                                    <input :class="css.input" v-model="this.newUser.education" placeholder=""/>
+                                </div>
+                                <div>
+                                    <p class="font-semibold">Departamento</p>
+                                    <input :class="css.input" v-model="this.newUser.department" placeholder=""/>
+                                </div>
+                                <div>
+                                    <p class="font-semibold">Histórico de Trabalho</p>
+                                    <input :class="css.input" v-model="this.newUser.firstName" placeholder=""/>
+                                </div>
+                                <div>
+                                    <p class="font-semibold">Endereço</p>
+                                    <input :class="css.input" v-model="this.newUser.address" placeholder=""/>
+                                </div>
+                                <div>
+                                    <p class="font-semibold">Cidade</p>
+                                    <input :class="css.input" v-model="this.newUser.city" placeholder=""/>
+                                </div>
+                                <div class="col-span-2">
+                                    <p class="font-semibold">Sobre Mim</p>
+                                    <textarea class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-red-600 focus:border-red-600"
+                                        v-model="this.newUser.aboutMe" placeholder="Sobre mim..."  id="parag" rows="10" cols="20"></textarea>
+                                </div>
                             </div>
                         </div>
-                        <h1 class="text-3xl font-semibold underline decoration-maingreen underline-offset-2">Senha</h1>
-                        <div class="grid grid-cols-2 gap-5 text-lg">
-                            <div>
-                                <p class="font-semibold">Nova senha</p>
-                                <input :class="css.input" placeholder=""/>
-                            </div>
-                            <div>
-                                <p class="font-semibold">Confirmação da nova senha</p>
-                                <input :class="css.input" placeholder="Twitch, Google, Apple"/>
+                        <div>
+                            <h1 class="text-3xl font-semibold underline decoration-maingreen underline-offset-2 my-3">Senha</h1>
+                            <div class="grid grid-cols-2 gap-5 text-lg my-3">
+                                <div>
+                                    <p class="font-semibold">Nova senha</p>
+                                    <input :class="css.input" placeholder=""/>
+                                </div>
+                                <div>
+                                    <p class="font-semibold">Confirmação da nova senha</p>
+                                    <input :class="css.input" placeholder="Twitch, Google, Apple"/>
+                                </div>
+                                <button class="col-span-2 text-white bg-maingreen hover:bg-govblue focus:ring-2 focus:outline-none focus:ring-red-600 font-medium rounded-lg text-sm w-full sm:w-auto px-48 py-2.5 text-center transition duration-200"
+                                    @click.prevent="updateUser()" type="submit" >Salvar</button>
                             </div>
                         </div>
-                        <button class="text-white bg-maingreen hover:bg-govblue focus:ring-2 focus:outline-none focus:ring-red-600 font-medium rounded-lg text-sm w-full sm:w-auto px-48 py-2.5 text-center transition duration-200"
-                            type="submit" >Salvar</button>
                     </div>
                 </div>
             </div>
@@ -87,7 +112,7 @@
 </template>
 
 <script>
-import { getUserInfo } from '@/services/UserService'
+import { getUserInfo, updateUserInfo } from '@/services/UserService'
 
 export default {
     name:'SettingsPage',
@@ -95,6 +120,8 @@ export default {
         this.user = this.$store.getters.getUser
         getUserInfo({email: this.user.email}).then((response) => {
             this.info = response.data
+            console.log(this.info)
+            this.setForm()
         }).catch((e) => {
             console.log(e)
         })
@@ -109,13 +136,18 @@ export default {
             newUser: {
                 firstName: '',
                 lastName: '',
+                aboutMe: '',
+                address: '',
+                city: '',
                 education: '',
                 department: '',
+                profession: '',
+                phone: '',
                 img: {
                     code: '',
                     name: ''
                 }
-            }
+            },
         }
     },
     methods: {
@@ -127,6 +159,29 @@ export default {
                 this.newUser.img.code = e.target.result;
             };
         },
+        setForm(){
+            this.newUser.id = this.info.id
+            this.newUser.firstName = this.info.firstName;
+            this.newUser.lastName = this.info.lastName;
+            this.newUser.email = this.info.email;
+            this.newUser.aboutMe = this.info.aboutMe;
+            this.newUser.address = this.info.address;
+            this.newUser.education = this.info.education;
+            this.newUser.city = this.info.city;
+            this.newUser.department = this.info.department;
+            this.newUser.profession = this.info.profession;
+            this.newUser.phone = this.info.phone;
+            this.newUser.img.id = this.info.img.id;
+            this.newUser.img.name = `${this.$store.getters.getUser}-profile`
+        },
+        updateUser(){
+            updateUserInfo(this.newUser).then((response) => {
+                console.log(response.data)
+            }).catch((e) => {
+                console.log(e)
+            })
+            //.finally(() => window.location.reload())
+        }
     },  
 }
 </script>

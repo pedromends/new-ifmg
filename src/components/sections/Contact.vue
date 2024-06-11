@@ -89,7 +89,7 @@ export default {
             let div = document.getElementById("contact-sent-alert")
             div.style.display = "flex"
         },
-    },
+    }
 }
 </script>
 <style lang="">
