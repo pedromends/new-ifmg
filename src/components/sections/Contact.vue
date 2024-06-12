@@ -26,23 +26,23 @@
                         <ContactSent />
                         <div class="flex flex-col w-96 max-lg:w-auto">
                             <label class="text-maingray text-sm">Nome</label>
-                            <input v-model="contact.name" type="text" class="rounded-lg border-1 border-gray-1 max-lg:h-8">
+                            <input required v-model="contact.name" type="text" class="rounded-lg border-1 border-gray-1 max-lg:h-8">
                         </div>
                         <div class="flex flex-col w-96 max-lg:w-auto">
                             <label class="text-maingray text-sm">Email</label>
-                            <input v-model="contact.email" type="text" class="rounded-lg border-1 border-gray-1 max-lg:h-8">
+                            <input required v-model="contact.email" type="text" class="rounded-lg border-1 border-gray-1 max-lg:h-8">
                         </div>
                         <div class="flex flex-col w-96 max-lg:w-auto">
                             <label class="text-maingray text-sm">Empresa</label>
-                            <input v-model="contact.externalCompany" type="text" class="rounded-lg border-1 border-gray-1 max-lg:h-8">
+                            <input required v-model="contact.externalCompany" type="text" class="rounded-lg border-1 border-gray-1 max-lg:h-8">
                         </div>
                         <div class="flex flex-col w-96 max-lg:w-auto">
                             <label class="text-maingray text-sm">Área de Atuação da Empresa</label>
-                            <input v-model="contact.area" type="text" class="rounded-lg border-1 border-gray-1 max-lg:h-8">
+                            <input required v-model="contact.area" type="text" class="rounded-lg border-1 border-gray-1 max-lg:h-8">
                         </div>
                         <div class="flex flex-col w-96 max-lg:w-auto">
                             <label class="text-maingray text-sm">Mensagem</label>
-                            <textarea v-model="contact.message" rows="5" type="text" class="rounded-lg border-1 border-gray-1 max-lg:h-8"></textarea>
+                            <textarea required v-model="contact.message" rows="5" type="text" class="rounded-lg border-1 border-gray-1 max-lg:h-8"></textarea>
                         </div>
                         <button class="px-5 py-2 bg-maingreen text-white w-48 rounded-md font-semibold border-2 border-maingreen transition duration-300 hover:text-maingreen hover:bg-white"
                             @click.prevent="sendContact()">Enviar Mensagem</button>

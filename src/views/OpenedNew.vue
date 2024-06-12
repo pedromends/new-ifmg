@@ -8,11 +8,11 @@
         <div class="px-48 flex flex-col gap-10">
             <p class="font-semibold text-4xl">{{ newBody.title }}</p>
             <div v-if="newBody.img1.code != undefined" class="flex justify-center">
-                <img :src="newBody.img1.code" alt=""/>
+                <img :src="newBody.img1.code" alt="" class="max-w-216 max-h-216"/>
             </div>
             <p class="break-all text-lg">{{ newBody.paragraph1 }}</p>
-            <div v-if="newBody.img2.code != undefined">
-                <img :src="newBody.img2.code" alt=""/>
+            <div v-if="newBody.img2.code != undefined" class="flex justify-center">
+                <img :src="newBody.img2.code" alt="" class="max-w-216 max-h-216"/>
             </div>
             <p class="break-all text-lg">{{ newBody.paragraph2 }}</p>
         </div>

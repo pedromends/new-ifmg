@@ -95,7 +95,7 @@
                 <div id="image-div" class="border-2 border-transparent p-2 rounded-lg">
                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Imagem do Ícone</label>
                     <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none"
-                        aria-describedby="file_input_help" id="file_input" type="file" @change="onImageChange($event)" accept="image/*">
+                        required aria-describedby="file_input_help" id="file_input" type="file" @change="onImageChange($event)" accept="image/*">
                     <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG, JPG or GIF (MAX. 800x400px).</p>
                 </div>
             </div>
@@ -147,7 +147,7 @@ export default {
             };
         },
         updateCard(){
-            if(this.capacitationCard.title !== '' && this.capacitationCard.subtitle !== ''){
+            if(this.capacitationCard.img.code !== ''){
                 console.log(this.capacitationCard)
                 updateCapacitation(this.capacitationCard).then((response) => {
                     console.log(response)

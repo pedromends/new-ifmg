@@ -3,6 +3,7 @@ import api from '@/services/api';
 export const createNew = (form) => api.request({
     headers: {
       'Content-Type': 'application/json',
+      'Authorization': `Bearer ${window.localStorage.getItem('refresh_token')}`,
     },
     method: 'post',
     url: '/new/create',

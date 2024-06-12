@@ -1,5 +1,5 @@
 <template lang="">
-    <button :class="css.btn" id="to-top-button" @click="goToTop()" title="Go To Top">&uarr;</button>
+    <button :class="css.btn" id="to-top-button" @click="goToTop()" title="Go to top">&uarr;</button>
 </template>
 
 <script>

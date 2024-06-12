@@ -29,7 +29,6 @@ export const listPokemons = () => api.request({
 export const updateImage = (form) => api.request({
   headers: {
     'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': '*',
     'Authorization': `Bearer ${window.localStorage.getItem('refresh_token')}`,
   },
   method: 'put',

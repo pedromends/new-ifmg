@@ -111,7 +111,8 @@ export default {
             console.log(this.newNew)
             createNew(this.newNew).then((response) => {
                 console.log(response)
-            }).finally(() => {
+            })
+            .finally(() => {
                 router.push('/news').then(() => {
                     var element = document.getElementById("navbar");
                     element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });

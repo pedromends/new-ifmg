@@ -20,7 +20,7 @@
             <div class="flex gap-5 rounded-2xl">
                 <div class="flex flex-col">
                     <ul class="flex flex-col gap-3 justify-between border-l-2 border-red-600 p-4">
-                        <router-link to="/edit/presenter-card" :class="linkCss">Cards de Apresentação</router-link>
+                        <router-link to="/edit/presenter-card" :class="linkCss">Sessão de Apresentação</router-link>
                         <router-link to="/edit/about-us" :class="linkCss">Sobre Nós</router-link>
                         <router-link to="/edit/advantages-card" :class="linkCss">Cards de Vantagens</router-link>
                         <router-link to="/edit/main-new" :class="linkCss">Notícia Principal</router-link>

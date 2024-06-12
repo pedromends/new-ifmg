@@ -1,8 +1,9 @@
-import api from '@/services/api';
+import api from '@/services/api'
 
 export const createNewsCard = (form) => api.request({
   headers: {
     'Content-Type': 'application/json',
+    'Authorization': `Bearer ${window.localStorage.getItem('refresh_token')}`,
   },
   method: 'post',
   url: '/news-card/create',
@@ -29,6 +30,7 @@ export const updateNewsCard = (form) => api.request({
 export const deleteNewsCard = (id) => api.request({
   headers: {
     'Content-Type': 'application/json',
+    'Authorization': `Bearer ${window.localStorage.getItem('refresh_token')}`,
   },
   method: 'delete',
   url: `/news-card/delete/${id}`,

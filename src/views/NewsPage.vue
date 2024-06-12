@@ -25,7 +25,7 @@
                     <img alt="Laboratório de sistemas automotivos IFMG - Campus Formiga" class=" bg-maingreen px-4 rounded-lg" :src="require('@/assets/icons/hand-glass.svg')" />
                 </div>
             </div>
-            <div class="grid grid-cols-3 gap-5 text-maingray max-lg:grid-cols-1">
+            <div class="grid grid-cols-4 gap-5 text-maingray max-lg:grid-cols-1">
                 <NewCard  v-for="(newNew, i) in news" :key="i"
                     :tip="'Novidade'" :title="newNew.title" :date="newNew.date" :read="'3 min de Leitura'" :img="newNew.img1.code" :newId="newNew.id"/>
             </div>

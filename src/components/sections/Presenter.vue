@@ -1,21 +1,22 @@
 <template lang="">
     <!-- TODO: Atualizar papel de parede via ADM -->
-    <section id="home" class="bg-campus bg-cover bg-no-repeat bg-bottom">
+     <!-- bg-campus bg-bottom -->
+    <section id="home" class="bg-cover bg-no-repeat bg-center">
         <div class=" flex flex-col justify-center items-center p-10 gap-96 rounded-b-3xl relative">
             <div class="flex flex-col justify-center gap-24 py-16 pb-28">
-                <h1 class="text-5xl text-center text-lightgray w-216 mx-auto font-semibold max-lg:w-auto max-lg:text-3xl">
+                <h1 class="text-5xl text-center w-216 mx-auto font-semibold max-lg:w-auto max-lg:text-3xl">
                     Bem-vindo ao
-                    <span class=" mx-2">Polo de Inovação
-                        <span class="font-bold">IFMG</span>
+                    <span class=" mx-2">
+                        <span class="underline decoration-maingreen decoration-4"> Polo de Inovação IFMG</span>
                     </span>
                 </h1>
-                <p class="text-center text-lightgray text-xl w-192 max-lg:w-auto max-lg:text-sm">
+                <p class="text-center text-maingray text-xl w-192 max-lg:w-auto max-lg:text-sm">
                     O Polo de Inovação IFMG atua na aproximação das empresas com o setor acadêmico,
                     desenvolvendo projetos relacionados à diversas áreas do mercado.
                 </p>
                 <div class="flex justify-center gap-5 max-lg:gap-3 text-white max-lg:flex-col"> 
                     <button @click.prevent="goToContact()" class="bg-white text-maingreen px-6 py-3 rounded-3xl max-lg:px-3 font-semibold hover:bg-maingreen hover:text-white border hover:border-white transition duration-200">Começar Projeto</button>
-                    <div class="flex justify-center items-center gap-1 hover:bg-maingray hover:text-white border border-white px-2 rounded-3xl transition duration-200 max-lg:py-2">
+                    <div class="flex justify-center items-center gap-1 bg-maingray hover:bg-lightgray hover:text-maingreen border border-white px-2 rounded-3xl transition duration-200 max-lg:py-2">
                         <img alt="Play" :src="require('@/assets/icons/play.svg')"/>
                         <a class="pr-1" href="https://www.youtube.com/watch?v=tCPe3D92C_E&ab_channel=IFMGPlay" target="_blank">Vídeo Institucional</a>
                     </div>
@@ -34,15 +35,25 @@
 import PresenterCard from '@/components/cards/PresenterCard.vue';
 import { listCards } from '@/services/PresenterCardService';
 import router from '@/router/index.js'
+import { getOneImage } from '@/services/ImageService';
 
 export default {
     name: 'MainPresenter',
+    mounted() {
+        getOneImage(145).then((response) => {
+            this.img_obj = response.data
+            let div = document.getElementById("home")
+
+            div.style.backgroundImage = `url(${this.img_obj.code})`
+        })
+    },
     components:{
         PresenterCard
     },
     data(){
         return {
-            presenters: undefined
+            presenters: undefined,
+            img_obj: ''
         }
     },
     methods:{
