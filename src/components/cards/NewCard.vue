@@ -33,9 +33,6 @@ export default {
             this.newBody.paragraph1 = res.paragraph
         })
     },
-    beforeMount() {
-        
-    },
     components:{
     },
     data() {

@@ -61,6 +61,7 @@ export default {
     methods: {
         createNewResearcher(){
             router.push('/edit/researcher').then(() => {
+                window.location.reload()
                 var element = document.getElementById("navbar");
                 element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
             }); 

@@ -1,7 +1,7 @@
 <template lang="">
     <section class="flex justify-center bg-lightgray gap-10 my-10 mx-5">
         <div role="status" class="flex flex-col items-center gap-10">
-            <p class="font-bold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen self-start mt-5 mb-10">Criar/Editar Pesquisadores</p>
+            <p class="font-semibold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen self-start mt-5 mb-10">Criar/Editar Pesquisadores</p>
 
             <!-- Card Modelo -->
             <section class="hover:shadow-lg transition duration-300 rounded-lg border border-gray-200 bg-white">
@@ -31,7 +31,7 @@
             <div>
                 <button class="text-maingray bg-white hover:bg-maingreen hover:text-white focus:ring-4 focus:outline-none focus:ring-red-600 font-medium rounded-lg text-sm text-center flex items-center p-4 transition duration-200 border-2 border-maingreen"
                     id="dropdownDefaultButton" data-dropdown-toggle="dropdown" type="button">
-                    {{ inEditionResearcher.name }}
+                    {{ inEditionResearcher.firstName }} {{ inEditionResearcher.lastName }}
                 </button>
 
                 <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow">
@@ -54,28 +54,68 @@
                 <div id="name-div" class="border-2 border-transparent p-2 rounded-lg">
                     <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nome</label>
                     <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5"
-                        v-model="newResearcher.firstName" type="text" id="name" required />
+                        v-model="inEditionResearcher.firstName" type="text" id="name" required />
                 </div>
 
                 <!-- Sobrenome -->
                 <div id="lastname-div" class="border-2 border-transparent p-2 rounded-lg">
                     <label for="lastname" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Sobrenome</label>
                     <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5"
-                        v-model="newResearcher.lastName" type="text" id="lastname" required />
+                        v-model="inEditionResearcher.lastName" type="text" id="lastname" required />
+                </div>
+
+                
+                <!-- Endereço -->
+                <div id="lastname-div" class="border-2 border-transparent p-2 rounded-lg">
+                    <label for="lastname" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Endereço</label>
+                    <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5"
+                        v-model="inEditionResearcher.address" type="text" id="lastname" required />
+                </div>
+
+                
+                <!-- Cidade -->
+                <div id="lastname-div" class="border-2 border-transparent p-2 rounded-lg">
+                    <label for="lastname" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Cidade</label>
+                    <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5"
+                        v-model="inEditionResearcher.city" type="text" id="lastname" required />
+                </div>
+
+                
+                <!-- Departamento -->
+                <div id="lastname-div" class="border-2 border-transparent p-2 rounded-lg">
+                    <label for="lastname" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Departamento</label>
+                    <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5"
+                        v-model="inEditionResearcher.department" type="text" id="lastname" required />
+                </div>
+
+                
+                <!-- Titulação -->
+                <div id="lastname-div" class="border-2 border-transparent p-2 rounded-lg">
+                    <label for="lastname" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Titulação</label>
+                    <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5"
+                        v-model="inEditionResearcher.level" type="text" id="lastname" required />
+                </div>
+
+                
+                <!-- Telefone -->
+                <div id="lastname-div" class="border-2 border-transparent p-2 rounded-lg">
+                    <label for="lastname" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Telefone</label>
+                    <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5"
+                        v-model="inEditionResearcher.phone" type="text" id="lastname" required />
                 </div>
 
                 <!-- Curso -->
                 <div id="course-div" class="border-2 border-transparent p-2 rounded-lg">
                     <label for="course" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Curso</label>
                     <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5" required
-                        v-model="newResearcher.course" type="text" id="course" />
+                        v-model="inEditionResearcher.course" type="text" id="course" />
                 </div>
 
                 <!-- Email -->
                 <div id="email-div" class="border-2 border-transparent p-2 rounded-lg">
                     <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
                     <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5"
-                        v-model="newResearcher.email" type="text" id="email" required />
+                        v-model="inEditionResearcher.email" type="text" id="email" required />
                 </div>
 
                 <!-- Campus -->
@@ -95,26 +135,19 @@
                     </div>
                 </div>
                 
-                <!-- Titulação -->
-                <div id="level-div" class="border-2 border-transparent p-2 rounded-lg">
-                    <label for="level" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Titulação</label>
-                    <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5" 
-                        v-model="newResearcher.level" type="text" id="level" required />
-                </div>
-
                 <!-- Sexo -->
                 <div id="sex-div" class="border-2 border-transparent p-2 rounded-lg">
                     <label for="sex_link" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Sexo:</label>
                     <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5"
-                        v-model="newResearcher.sex" type="tel" id="sex_link" required />
+                        v-model="inEditionResearcher.sex" type="tel" id="sex_link" required />
                 </div>
 
                 <!-- Portfólio -->
-                <div id="lattes-div" class="border-2 border-transparent p-2 rounded-lg">
+                <!-- <div id="lattes-div" class="border-2 border-transparent p-2 rounded-lg">
                     <label for="lattes_link" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Portfólio</label>
                     <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5" 
-                        v-model="newResearcher.name" type="tel" id="lattes_link" required />
-                </div>
+                        v-model="inEditionResearcher.name" type="tel" id="lattes_link" required />
+                </div> -->
 
                 <!-- Imagem -->
                 <div id="image-div" class="border-2 border-transparent p-2 rounded-lg col-span-2">
@@ -153,29 +186,30 @@ export default {
             researchers: null,
             campuses: null,
             inEditionResearcher:{
-                id: null,
-                name: 'Selecione um Pesquisador',
-                id_img: null
-            },
-            inEditionCampus:{
-                id: null,
-                name: 'Selecione um Campus',
-            },
-            newResearcher: {
-                id: null,
-                name: '',
+                id: 0,
                 campus: {
                     id: 0,
                     name: ''
                 },
-                firstName: '',
+                firstName: 'Selecione um Pesquisador',
                 lastName: '',
-                level: '',
-                sex: '',
                 img: {
                     id: null,
                     code: null
-                }
+                },
+                about: '',
+                address: '',
+                city: '',
+                course: '',
+                department: '',
+                email: '',
+                level: '',
+                phone: '',
+                sex: ''
+            },
+            inEditionCampus:{
+                id: null,
+                name: 'Selecione um Campus',
             },
         }
     },
@@ -184,48 +218,61 @@ export default {
             this.researchers = response.data
         })
 
-        listCampus().then((response)=>{
+        listCampus().then((response) => {
             this.campuses = response.data
         })
     },
     methods: {
-        onOffEffect(div){
+        onOffEffect(div) {
             let target = document.getElementById(div);
             this.bool ? target.style.borderColor = 'transparent' : target.style.borderColor = 'red'
             this.bool = !this.bool
         },
-        setItem(item, id, name, id_img){
-            console.log(item, id, name, id_img)
-            if(item == 'researcher'){
-                this.inEditionResearcher.id = id
-                this.inEditionResearcher.name = name
+        setItem(item, id, name, id_img) {
+            if(item == 'researcher') {
 
-                if(id_img != null){
-                    this.inEditionResearcher.id_img = id_img
-                }
+                let objId = this.researchers.filter((researcher) => {
+                    if(researcher.id == id)
+                        return researcher
+                })
+
+                this.inEditionResearcher.id = objId[0].id
+                this.inEditionResearcher.img.id = id_img
+                this.inEditionResearcher.firstName = objId[0].firstName
+                this.inEditionResearcher.about = objId[0].about
+                this.inEditionResearcher.address = objId[0].address
+                this.inEditionResearcher.city = objId[0].city
+                this.inEditionResearcher.course = objId[0].course
+                this.inEditionResearcher.department = objId[0].department
+                this.inEditionResearcher.email = objId[0].email
+                this.inEditionResearcher.lastName = objId[0].lastName
+                this.inEditionResearcher.level = objId[0].level
+                this.inEditionResearcher.phone = objId[0].phone
+                this.inEditionResearcher.sex = objId[0].sex
+
+                console.log(this.inEditionResearcher)
                 
-            }else if(item == 'campus'){
+            } else if(item == 'campus') {
                 this.inEditionCampus.id = id
                 this.inEditionCampus.name = name,
                 console.log(this.inEditionCampus)
             }
         },
-        onImageChange(e){
+        onImageChange(e) {
             const image = e.target.files[0];
             const reader = new FileReader();
             reader.readAsDataURL(image);
             reader.onload = e => {
-                this.newResearcher.img.code = e.target.result;
+                this.inEditionResearcher.img.code = e.target.result;
             };
         },
-        updateResearcher(){
-            if(this.newResearcher.firstName !== '' && this.newResearcher.lastName !== ''){
-                this.newResearcher.id = this.inEditionResearcher.id
-                this.newResearcher.campus.id = this.inEditionCampus.id
-                this.newResearcher.campus.name = this.inEditionCampus.name
+        updateResearcher() {
+            if(this.inEditionResearcher.firstName !== '' && this.inEditionResearcher.campus !== ''){
+                this.inEditionResearcher.campus.id = this.inEditionCampus.id
+                this.inEditionResearcher.campus.name = this.inEditionCampus.name
                 
-                if(this.newResearcher.id == 0){
-                    createResearcher(this.newResearcher).then((response) => {
+                if(this.inEditionResearcher.id == 0){
+                    createResearcher(this.inEditionResearcher).then((response) => {
                         console.log(response)
                     }).finally(() => {
                         router.push('/researchers').then(() => {
@@ -233,10 +280,7 @@ export default {
                         }); 
                     })
                 } else {
-                    this.newResearcher.img.id = this.inEditionResearcher.id_img
-                    this.newResearcher.id = this.inEditionResearcher.id
-
-                    updateResearcher(this.newResearcher).then((response) => {
+                    updateResearcher(this.inEditionResearcher).then((response) => {
                         console.log(response)
                     }).finally(() => {
                         router.push('/researchers').then(() => {
@@ -244,13 +288,15 @@ export default {
                         }); 
                     })
                 }
+            } else {
+                // criar alert de erro
             }
         },
         deleteResearcher(){
-            if(this.newResearcher.id == 0){
+            if(this.inEditionResearcher.id == 0){
                 alert('selecione um aluno primeiro')
             }else{
-                deleteResearcher(this.newResearcher.id).then((response) => {
+                deleteResearcher(this.inEditionResearcher.id).then((response) => {
                     console.log(response)
                 })
                 // .finally(() => {

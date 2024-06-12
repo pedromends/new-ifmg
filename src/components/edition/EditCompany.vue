@@ -1,11 +1,9 @@
 <template lang="">
     <section class="bg-lightgray gap-10 w-full flex flex-col pt-5 px-10">
         <div role="status" class="">
-            
             <section class="flex justify-center gap-10 items-center">
-
                 <div class="flex flex-col ">
-                    <p class="font-bold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen self-center my-5">Empresa Parceira</p>
+                    <p class="font-semibold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen self-center my-5">Empresa Parceira</p>
                 
                     <!-- Empresa -->
                     <div id="company-name-div" class="border-2 border-transparent p-2 rounded-lg">

@@ -1,6 +1,6 @@
 <template lang="">
-    <main class="px-16 pt-6" id="main-edition">
-        <div class="flex items-center gap-2">
+    <main class="px-10 pt-6" id="main-edition">
+        <div class="flex items-center gap-2 px-5">
             <img class="w-6" :src="require('@/assets/icons/house2.svg')" alt="">
             <router-link to="/news" class="text-maingreen hover:underline">Home</router-link>
             <p class="flex items-center">

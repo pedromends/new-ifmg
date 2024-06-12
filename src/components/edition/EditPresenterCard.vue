@@ -1,7 +1,7 @@
 <template lang="">
     <section class="flex flex-col justify-center bg-lightgray gap-10">
         <div class="flex flex-col items-center gap-5 pt-10">
-            <p class="font-bold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen self-start ml-6 mb-5">Cards de Apresentação</p>
+            <p class="font-semibold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen self-start ml-6 mb-5">Cards de Apresentação</p>
 
             <!-- Box dos Cards -->
             <div class="flex gap-5">

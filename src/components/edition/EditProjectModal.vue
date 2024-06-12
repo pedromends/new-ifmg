@@ -2,7 +2,7 @@
     <section class="flex justify-center items-center bg-lightgray gap-10">
         <div role="status" class="">
             <section class="flex flex-col justify-center gap-10 items-center mt-5 animate-pulse">
-                <p class="font-bold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen self-start mt-10">Modal de Projetos</p>
+                <p class="font-semibold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen self-start mt-10">Modal de Projetos</p>
 
                 <!-- Modal -->
                 <div class="relative p-4 w-full max-w-2xl max-h-full">

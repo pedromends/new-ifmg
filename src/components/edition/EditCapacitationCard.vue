@@ -1,6 +1,6 @@
 <template lang="">
     <section class="flex flex-col justify-center bg-lightgray gap-10 my-10">
-        <p class="font-bold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen self-start ml-6">Cards de Capacitação</p>
+        <p class="font-semibold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen self-start ml-6">Cards de Capacitação</p>
 
         <!-- Box dos Cards-->
         <div role="status" class="animate-pulse flex gap-1">

@@ -1,7 +1,7 @@
 <template lang="">
     <section class="flex flex-col justify-center bg-lightgray gap-10 mb-10">
         <div role="status" class="pt-5">
-            <p class="font-bold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen self-start mt-5 mb-10">Notícias Secundárias</p>
+            <p class="font-semibold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen self-start mt-5 mb-10">Notícias Secundárias</p>
 
             <!-- Sequência de Cards -->
             <section class="flex gap-3 animate-pulse">

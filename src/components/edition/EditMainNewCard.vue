@@ -1,7 +1,7 @@
 <template lang="">
     <section class="flex flex-col justify-center gap-4">
         <div role="status" class="pt-5 animate-pulse">
-            <p class="font-bold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen self-start my-5 ml-20">Notícia Principal</p>
+            <p class="font-semibold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen self-start my-5 ml-20">Notícia Principal</p>
 
             <!-- Esqueleto do componente -->
             <section class="px-20 max-lg:px-5">

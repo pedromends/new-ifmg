@@ -1,7 +1,6 @@
 <template lang="">
     <section class="p-3 bg-white">
         <SignOutSuccess/>
-
         <button v-if="!isLoggedIn" class="p-1 rounded-lg">
             <router-link to="/login" class="p-4 transition duration-200 text-maingreen tracking-wide text-sm hover:underline">LOGIN</router-link>
         </button>
@@ -27,18 +26,18 @@
             </div>
             <ul class="flex flex-col py-2 text-gray-700 dark:text-gray-200"
                 aria-labelledby="dropdownInformdropdownAvatarNameButtonationButton">
-                <div class="flex items-center px-3 hover:bg-lightgray transition duration-200">
+                <router-link to="/edit" class="flex items-center px-3 hover:bg-lightgray transition duration-200">
                     <img :src="require('@/assets/icons/components.svg')" class="w-7 h-7" alt="">
-                    <router-link to="/edit" class="text-start p-2 hover:text-black">Edição de Componentes</router-link>
-                </div>
-                <div class="flex items-center px-3 hover:bg-lightgray transition duration-200">
+                    <p class="text-start p-2 hover:text-black">Edição de Componentes</p>
+                </router-link>
+                <router-link to="/profile" class="flex items-center px-3 hover:bg-lightgray transition duration-200">
                     <img :src="require('@/assets/icons/profile.svg')" class="w-5 h-5" alt="">
-                    <router-link to="/profile" class="text-start px-4 py-2 hover:text-black">Perfil</router-link>
-                </div>
-                <div class="flex items-center px-3 hover:bg-lightgray transition duration-200">
+                    <p class="text-start px-4 py-2 hover:text-black">Perfil</p>
+                </router-link>
+                <router-link to="/settings" class="flex items-center px-3 hover:bg-lightgray transition duration-200">
                     <img :src="require('@/assets/icons/settings.svg')" class="w-6 h-6" alt="">
-                    <router-link to="/settings" class="text-start px-4 py-2 hover:text-black">Configurações</router-link>
-                </div>
+                    <p class="text-start px-4 py-2 hover:text-black">Configurações</p>
+                </router-link>
             </ul>
             <div class="py-2 hover:text-white hover:bg-red-600 transition duration-200">
                 <button @click.prevent="logOut()" class="w-full px-4 py-2 text-sm">
@@ -63,7 +62,6 @@ export default {
                 this.info = response.data
             }).catch((e) => {
                 console.log(e)
-                //this.showErrorLogin()
             })
         } 
     },
