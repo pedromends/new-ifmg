@@ -22,7 +22,7 @@
                 <div class="flex flex-col gap-10">
                     <div class="bg-lightgray flex flex-col rounded-lg p-10 gap-10 border border-maingreen text-lg">
                         <div>
-                            <img :src="info.img.code" class="w-36 h-36 rounded-full" alt="Profile Pic">
+                            <img v-if="loadImg" :src="info.img.code" class="w-36 h-36 rounded-full" alt="Profile Pic">
                             <h1 class="text-2xl font-semibold">{{ info.firstName }} {{ info.lastName }}</h1>
                             <p>{{ info.profession }}</p>
                             <p>{{ info.city }}</p>
@@ -114,6 +114,9 @@ export default {
         this.user = this.$store.getters.getUser
         getUserInfo({email: this.user.email}).then((response) => {
             this.info = response.data
+            if(this.info.img.code != null){
+                this.loadImg = true
+            }
         }).catch((e) => {
             console.log(e)
         })
@@ -123,7 +126,8 @@ export default {
             info: null,
             css:{
                 kbd: "p-3 text-lg font-semibold text-white bg-maingreen border border-gray-200 rounded-lg"
-            }
+            },
+            loadImg: false
         }
     },
 }

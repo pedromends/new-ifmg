@@ -5,10 +5,12 @@
             <router-link to="/login" class="p-4 transition duration-200 text-maingreen tracking-wide text-sm hover:underline">LOGIN</router-link>
         </button>
 
-        <button v-if="isLoggedIn && info != null" id="dropdownAvatarNameButton" data-dropdown-toggle="dropdownAvatarName"
+        <button v-if="isLoggedIn" id="dropdownAvatarNameButton" data-dropdown-toggle="dropdownAvatarName"
             class="flex items-center gap-2 text-lg font-medium text-maingreen rounded-lg hover:bg-white hover:text-maingreen transition duration-200"
             type="button">
-            <img :src="info.img.code" class="w-10 h-10 rounded-full" alt="">
+            <div v-if="loadImg">
+                <img :src="info.img.code" class="w-10 h-10 rounded-full" alt="">
+            </div>
             <p class="text-sm">{{ user.firstName }}</p>
             <svg class="w-2.5 h-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="#2f9e40"
                 viewBox="0 0 10 6">
@@ -60,6 +62,9 @@ export default {
         if(this.isLoggedIn){
             getUserInfo({email: this.user.email}).then((response) => {
                 this.info = response.data
+                if(this.info.img.code != null){
+                    this.loadImg = true
+                }
             }).catch((e) => {
                 console.log(e)
             })
@@ -72,7 +77,8 @@ export default {
         return {
             isLoggedIn: this.$store.getters.isLoggedIn,
             user: this.$store.getters.getUser,
-            info: null
+            info: null,
+            loadImg: false
         }
     },
     methods: {

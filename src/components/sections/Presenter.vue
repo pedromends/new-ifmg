@@ -10,7 +10,7 @@
                         <span class="underline decoration-maingreen decoration-4"> Polo de Inovação IFMG</span>
                     </span>
                 </h1>
-                <p class="text-center text-maingray text-xl w-192 max-lg:w-auto max-lg:text-sm">
+                <p class="text-center text-white text-xl w-192 max-lg:w-auto max-lg:text-sm">
                     O Polo de Inovação IFMG atua na aproximação das empresas com o setor acadêmico,
                     desenvolvendo projetos relacionados à diversas áreas do mercado.
                 </p>

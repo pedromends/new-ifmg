@@ -23,7 +23,7 @@
                         <div class="bg-lightgray flex flex-col rounded-lg p-10 gap-10 border border-maingreen text-lg">
                             <h1 class="text-3xl font-semibold underline decoration-maingreen underline-offset-2">Foto de Perfil</h1>
                             <div class="flex flex-col gap-3">
-                                <img :src="info.img.code" class="w-36 h-36 rounded-full" alt="Profile Pic">
+                                <img v-if="loadImg" :src="info.img.code" class="w-36 h-36 rounded-full" alt="Profile Pic">
                                 <h1 class="text-2xl font-semibold underline decoration-maingreen underline-offset-2">{{ info.firstName }} {{ info.lastName }}</h1>
                                 <p class="underline decoration-maingreen underline-offset-2">{{ info.profession }}</p>
                                 <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none"
@@ -109,6 +109,9 @@ export default {
         getUserInfo({email: this.user.email}).then((response) => {
             this.info = response.data
             this.setForm()
+            if(this.info.code != null){
+                this.loadImg = true
+            }
         }).catch((e) => {
             console.log(e)
         })
