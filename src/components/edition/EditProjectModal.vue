@@ -159,8 +159,13 @@
                     <!-- Situação -->
                     <div id="situation-div" class="border-2 border-transparent p-2 rounded-lg">
                         <label for="situation" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Situação</label>
-                        <input class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5"
-                            v-model="newProject.situation" id="situation" placeholder="Em andamento/Em garantia/Concluído..." required />
+                            <select class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 w-full p-2.5"
+                                name="situation" v-model="newProject.situation" id="situation" aria-placeholder="testres">
+                                <option value="" selected disabled hidden>Selecione uma opção</option>
+                                <option value="Concluído">Concluído</option>
+                                <option value="Em andamento">Em andamento</option>
+                                <option value="Cancelado">Cancelado</option>
+                            </select>
                     </div>
 
                     <!-- Valor -->

@@ -4,7 +4,7 @@
             <div class="flex max-lg:flex-col gap-24">
                 <div v-if="maintext" class="flex flex-col w-140 max-lg:w-auto gap-8 max-lg:mt-10">
                     <div class="flex items-center w-full justify-between edit transition duration-300 h-10">
-                        <span class="text-maingreen font-bold text-sm underline decoration-red-600 decoration-2">QUEM SOMOS</span>
+                        <span class="text-maingreen font-semibold text-sm underline decoration-red-600 decoration-2">QUEM SOMOS</span>
                         <button @click="editAboutUs()" v-if="isAdmin">
                             <img :src="require('@/assets/icons/pencil-edit-maingreen.svg')" alt="#" class="h-10 hidden"/>
                         </button>

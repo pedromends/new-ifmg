@@ -3,11 +3,11 @@
         <div class="w-full flex justify-center px-3">
             <img :src="img" alt="" class="mt-3 max-w-72 max-h-72"/>
         </div>
-        <div class="px-8 flex flex-col justify-start gap-2">
+        <div class="px-8 flex flex-col justify-between gap-2">
             <div class="flex items-center self-start">
                 <span class="border-2 border-maingreen rounded-lg text-start text-sm text-maingray px-10">{{ tip }}</span>
             </div>
-            <h1 class="text-base font-semibold mt-2">{{ title }}</h1>
+            <h1 class="text-base font-semibold mt-2 max-w-96">{{ title }}</h1>
             <p class="text-sm">{{ date }} | {{ read }}</p>
             <div class="flex items-center justify-between">
                 <a href="#" class="text-xs text-maingreen hover:underline">Ler Mais -></a>

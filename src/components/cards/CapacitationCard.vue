@@ -2,7 +2,7 @@
     <div class="transition duration-200 hover:text-black hover:bg-white flex flex-col gap-3 px-8 py-8 rounded-3xl border-2 border-white effect">
         <div class="flex justify-between items-center">
             <img :src="icon" class="bg-white p-3 rounded-xl w-12" alt=""/>
-            <button @click="editCapacitation()" class="self-end" v-if="isAdmin">
+            <button @click="editCapacitation()" class="self-end hover:bg-maingreen rounded-lg p-1 transition duration-200" v-if="isAdmin">
                 <img :src="require('@/assets/icons/pencil-edit.svg')" alt="#" class="h-10"/>
             </button>
         </div>

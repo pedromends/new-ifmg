@@ -1,8 +1,8 @@
 <template lang="">
     <nav class="w-full relative font-opensans max-lg:hidden" id="navbar">
-        <router-link to="/" class="bg-white absolute right-1/2 transform translate-x-1/2 rounded-b-2xl hover:shadow-2xl transition duration-300">
+        <button @click="goHome" class="bg-white absolute right-1/2 transform translate-x-1/2 rounded-b-2xl hover:shadow-2xl transition duration-300">
             <img alt="" class="h-48 w-36 px-5 py-4" :src="require('@/assets/icons/main-logo.jpg')"/>
-        </router-link>
+        </button>
 
         <section class="bg-govblue flex justify-between items-center py-1 text-lightgray font-raleway font-bold uppercase">
             <div class="flex justify-end items-center text-center gap-5 text-xs ml-40">

@@ -59,10 +59,10 @@
         </div>
         <div class="flex max-lg:text-xs gap-48 text-sm max-lg:gap-2 max-lg:justify-start">
             <div class="flex flex-col gap-2">
-                <p class="text-fttitle">Copyright © Instituto Federal | 2023</p>
+                <p class="text-fttitle">Copyright © <span class="text-maingreen">Instituto Federal | 2024</span></p>
                 <p class="text-fttitle hover:underline decoration-maingreen">Política de Privacidade</p>
                 <p class="text-fttitle hover:underline decoration-maingreen">Termos e Condições</p>
-                <p class="text-fttitle">Developed by
+                <p class="text-fttitle">Desenvolvido por
                     <span><a class="text-maingreen hover:underline decoration-maingreen" href="https://pedromends.github.io/" target="_blank">Dev Pedro</a></span>
                 </p>
             </div>

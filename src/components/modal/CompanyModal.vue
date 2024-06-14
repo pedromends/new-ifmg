@@ -1,6 +1,6 @@
 <template lang="">
     <button title="Abrir Modal" :data-modal-target="modalname" :data-modal-toggle="modalname" type="button" class="flex items-center">
-        <img :src="img" class="py-5 rounded-xl bg-white shadow-lg self-center px-10 hover:shadow-md hover:shadow-maingray transition duration-300 mx-auto brea" alt="#" :class="extraClass"/>
+        <img :src="img" class="py-5 rounded-xl bg-white shadow-lg self-center px-10 hover:shadow-md hover:shadow-red-600 transition duration-300 mx-auto brea" alt="#" :class="extraClass"/>
     </button>
 
     <section :id="modalname" tabindex="-1" aria-hidden="true" 
@@ -118,9 +118,8 @@ export default {
             router.push('/edit/project-modal').then(() => {
                 var element = document.getElementById("navbar");
                 element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
-            }).finally(() => {
                 window.location.reload();
-            });
+            })
         }
     },
 }

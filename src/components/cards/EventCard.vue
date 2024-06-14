@@ -1,5 +1,5 @@
 <template lang="">
-    <section class="flex items-center justify-between hover:bg-gray-100 rounded-lg p-2 transition duration-30 cursor-pointer">
+    <section class="flex items-center justify-between hover:bg-gray-100 rounded-lg py-2 px-8 transition duration-30 cursor-pointer">
         <div class="flex items-center gap-5">
             <div class="flex flex-col justify-center text-lg items-center">
                 <span>{{ month }}</span>
