@@ -1,5 +1,5 @@
 <template lang="">
-    <a :href="link" target="_blank" class="hover:text-black hover:underline transition duration-300">{{ text }}</a>
+    <a :href="link" target="_blank" :class="exClass" class="hover:underline transition duration-200">{{ text }}</a>
 </template>
 <script>
 export default {
@@ -8,7 +8,8 @@ export default {
     },
     props: {
         link: String,
-        text: String
+        text: String,
+        exClass: String
     }
 }
 </script>

@@ -99,11 +99,11 @@
                                     <li @click="boolNewProject == true">
                                         <input href="#" @click="setItem('project', 0, '--Novo--', 0)"
                                             class="w-84 block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer"
-                                            readonly="readonly" value="-- Novo --"/>
+                                            readonly="readonly" value="-- Novo --" required/>
                                     </li>
                                     <li v-for="(project, i) in projects" :key="i" @click="setItem('project', project.id, project.name, project.company.img.id)">
                                         <input href="#" class="w-84 block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer"
-                                            readonly="readonly" :value="project.name "/>
+                                            readonly="readonly" :value="project.name " required/>
                                     </li>
                                 </ul>
                             </div>
@@ -191,7 +191,7 @@
                                 <div id="dropdown3" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen">
                                     <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="modalityButton">
                                         <li v-for="(researcher, i) in researchers" :key="i" @click="setItem('researcher', researcher.id, researcher.firstName + ' ' + researcher.lastName, researcher.img.id)">
-                                            <input href="#"  class="w-84 block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer" readonly="readonly" :value="researcher.firstName + ' ' + researcher.lastName "/>
+                                            <input href="#"  class="w-84 block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer" readonly="readonly" :value="researcher.firstName + ' ' + researcher.lastName " required/>
                                         </li>
                                     </ul>
                                 </div>
@@ -210,7 +210,7 @@
                                 <div id="dropdown4" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll overflow-x-hidden overflow-y-hidden">
                                     <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="modalityButton">
                                         <li v-for="(talent, i) in talents" :key="i" @click="setItem('talents', talent.id, talent.name, talent.img.id)">
-                                            <input href="#" class="w-84 block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer" readonly="readonly" :value="talent.name"/>
+                                            <input href="#" class="w-84 block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer" readonly="readonly" required :value="talent.name"/>
                                         </li>
                                     </ul>
                                 </div>
@@ -222,7 +222,7 @@
                     <div id="about-project-div" class="border-2 border-transparent p-2 rounded-lg col-span-2 w-full">
                         <label for="project_resume" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Sobre o projeto</label>
                         <textarea id="project_resume" rows="10" cols="50" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border focus:ring-red-600 focus:border-red-600"
-                            v-model="newProject.resume" placeholder="Escreva sobre o projeto aqui..."></textarea>
+                          required  v-model="newProject.resume" placeholder="Escreva sobre o projeto aqui..."></textarea>
                     </div>
                 </div>
                 <div class="w-full flex justify-center gap-10">
@@ -416,6 +416,7 @@ export default {
                     console.log(response)
                 }).finally(() => {
                     router.push('/').then(() => {
+                        window.location.reload()
                         var element = document.getElementById("ourclients");
                         element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
                     }); 

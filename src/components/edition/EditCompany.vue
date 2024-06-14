@@ -137,7 +137,8 @@ export default {
                         console.log(response)
                     }).finally(() => {
                         router.push('/').then(() => {
-                            var element = document.getElementById("ourclients");
+                            window.location.reload()
+                            var element = document.getElementById("navbar");
                             element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
                         }); 
                     })
@@ -148,6 +149,7 @@ export default {
                         console.log(response)
                     }).finally(() => {
                         router.push('/').then(() => {
+                            window.location.reload()
                             var element = document.getElementById("ourclients");
                             element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
                         }); 
@@ -159,14 +161,13 @@ export default {
         deleteCompany(){
             deleteCompany(this.editProject.id).then((response) => {
                 console.log(response)
+            }).finally(() => {
+                router.push('/').then(() => {
+                    var element = document.getElementById("ourclients");
+                    element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                    alert('Deletado com sucesso')
+                }); 
             })
-            // .finally(() => {
-            //     router.push('/').then(() => {
-            //         var element = document.getElementById("ourclients");
-            //         element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
-            //         alert('Deletado com sucesso')
-            //     }); 
-            // })
         }
     },
 }

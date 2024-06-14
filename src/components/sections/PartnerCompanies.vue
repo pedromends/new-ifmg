@@ -2,13 +2,14 @@
     <section id="ourclients" class="flex justify-center items-center bg-lightgray py-10">
         <div class="flex flex-col justify-center items-center gap-5 mt-5">
             <div class="flex flex-col justify-center items-center gap-5">
-                <h1 class="text-4xl font-semibold max-lg:text-center">Portfólio de Projetos</h1>
+                <h1 class="text-4xl font-semibold max-lg:text-center underline underline-offset-2 decoration-4 decoration-maingreen">Portfólio de Projetos</h1>
                 <p class="text-sm text-maingray max-lg:text-center">
                     Empresas que fizeram ou fazem projetos com o Polo de Inovação IFMG.
                 </p>
                 <div class="flex items-center gap-5 w-full">
-                <input type="text" placeholder="Pesquisar..." class="w-full rounded-lg"/>
-                    <img alt="Laboratório de sistemas automotivos IFMG - Campus Formiga" class=" bg-maingreen px-4 rounded-lg" :src="require('@/assets/icons/hand-glass.svg')" />
+                    <input type="text" placeholder="Pesquisar..." class="w-full rounded-lg"/>
+                    <img class="bg-maingreen rounded-lg hover:bg-maingray w-20 h-11 transition duration-200"
+                        alt="Laboratório de sistemas automotivos IFMG - Campus Formiga" :src="require('@/assets/icons/hand-glass.svg')"/>
                 </div>
             </div>
             <div class="bg-whitecircle bg-no-repeat bg-center min-h-160 flex items-center">

@@ -1,10 +1,10 @@
 <template lang="">
     <button title="Abrir Modal" :data-modal-target="modalname" :data-modal-toggle="modalname" type="button" class="flex items-center">
-        <img :src="img" class="py-5 rounded-xl bg-white shadow-lg self-center px-10 hover:shadow-md hover:shadow-red-600 transition duration-300 mx-auto brea" alt="#" :class="extraClass"/>
+        <img :src="img" class="py-5 rounded-xl bg-white shadow-lg self-center px-10 hover:shadow-md hover:shadow-red-600 transition duration-300 mx-auto " alt="#" :class="extraClass"/>
     </button>
 
     <section :id="modalname" tabindex="-1" aria-hidden="true" 
-        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full ">
         <div class="relative p-4 w-full max-w-2xl max-h-full">
             <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
 
@@ -116,9 +116,10 @@ export default {
     methods: {
         editModal(){
             router.push('/edit/project-modal').then(() => {
+                window.location.reload();
+            }).finally(()=>{
                 var element = document.getElementById("navbar");
                 element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
-                window.location.reload();
             })
         }
     },

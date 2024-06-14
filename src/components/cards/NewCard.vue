@@ -57,10 +57,7 @@ export default {
     },
     methods:{
         editNewCard(){
-            router.push('/edit/news-card').then(() => {
-                var element = document.getElementById("navbar");
-                element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
-            }); 
+            // levar para editar notícia
         },
         openNew(){
             router.push('/open-new/' + this.newId).then(() => {

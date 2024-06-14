@@ -2,7 +2,7 @@
     <section id="capacitation" class="flex flex-col px-16 py-36 gap-16 bg-maingreen">
         <div class="flex flex-col max-lg:w-auto self-center text-center text-white w-160 gap-5">
             <span class="text-xs font-semibold">CAPACITAÇÃO CREDENCIADA PELA EMBRAPII</span>
-            <h1 class="text-4xl max-lg:text-xl font-semibold">A inovação está ao seu alcance!</h1>
+            <h1 class="text-4xl max-lg:text-xl font-semibold underline underline-offset-4 decoration-2 decoration-white">A inovação está ao seu alcance!</h1>
             <p class="text-lightgray">Contamos com um modelo ágil para projetos de fomento à inovação sem burocracia e com custos reduzidos que podem chegar a até 50% do valor do projeto.</p>
         </div>
         <div class="flex max-lg:flex-col justify-center gap-7 text-white">

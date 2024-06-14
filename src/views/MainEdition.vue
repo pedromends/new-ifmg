@@ -20,17 +20,17 @@
             <div class="flex gap-5 rounded-2xl">
                 <div class="flex flex-col">
                     <ul class="flex flex-col gap-3 justify-between border-l-2 border-red-600 p-4">
-                        <router-link to="/edit/presenter-card" :class="linkCss">Sessão de Apresentação</router-link>
-                        <router-link to="/edit/about-us" :class="linkCss">Sobre Nós</router-link>
-                        <router-link to="/edit/advantages-card" :class="linkCss">Cards de Vantagens</router-link>
-                        <router-link to="/edit/main-new" :class="linkCss">Notícia Principal</router-link>
-                        <!-- <router-link to="/edit/news-card" :class="linkCss">Notícias Secundárias</router-link> -->
-                        <router-link to="/edit/event-card" :class="linkCss">Cards de Eventos</router-link>
-                        <router-link to="/edit/project-modal" :class="linkCss">Modal de Projetos</router-link>
-                        <router-link to="/edit/capacitation-card" :class="linkCss">Cards de Capacitação</router-link>
-                        <router-link to="/edit/talent-card" :class="linkCss">Cards de Talentos</router-link>
-                        <router-link to="/edit/researcher" :class="linkCss">Editar Pesquisadores</router-link>
-                        <router-link to="/edit/company" :class="linkCss">Empresa Parceira</router-link>
+                        <button class="text-start" @click="goPresenter" to="/edit/presenter-card" :class="linkCss">Sessão de Apresentação</button>
+                        <button class="text-start" @click="goAboutUs" to="/edit/about-us" :class="linkCss">Sobre Nós</button>
+                        <button class="text-start" @click="goAdvantages" to="/edit/advantages-card" :class="linkCss">Cards de Vantagens</button>
+                        <button class="text-start" @click="goMainNew" to="/edit/main-new" :class="linkCss">Notícia Principal</button>
+                        <!-- <button class="text-start" @click="go" to="/edit/news-card" :class="linkCss">Notícias Secundárias</button> -->
+                        <button class="text-start" @click="goEvents" to="/edit/event-card" :class="linkCss">Cards de Eventos</button>
+                        <button class="text-start" @click="goProjects" to="/edit/project-modal" :class="linkCss">Modal de Projetos</button>
+                        <button class="text-start" @click="goCapacitation" to="/edit/capacitation-card" :class="linkCss">Cards de Capacitação</button>
+                        <button class="text-start" @click="goTalents" to="/edit/talent-card" :class="linkCss">Cards de Talentos</button>
+                        <button class="text-start" @click="goResearchers" to="/edit/researcher" :class="linkCss">Editar Pesquisadores</button>
+                        <button class="text-start" @click="goCompany" to="/edit/company" :class="linkCss">Empresa Parceira</button>
                     </ul>
                 </div>
                 <div class="p-2 flex justify-center w-full bg-lightgray rounded-lg">
@@ -53,12 +53,75 @@ export default {
             });
         }
     },
-    data(){
+    data() {
         return {
             linkCss: 'transition duration-200 hover:bg-maingreen px-3 py-1 rounded-lg text-maingreen hover:text-white font-medium',
             isLoggedIn: this.$store.getters.isLoggedIn,
-        }
-    }
+            goPresenter: () => {
+                router.push({ path: '/edit/presenter-card' }).then(() => {
+                    var element = document.getElementById("navbar");
+                    element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                    window.location.reload()
+                })
+            },
+            goEvents: () => {
+                router.push({ path: '/edit/event-card' }).then(() => {
+                    var element = document.getElementById("navbar");
+                    element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                    window.location.reload()
+                })
+            },
+            goNewsCard: () => {
+                router.push({ path: '/edit/news-card' }).then(() => {
+                    var element = document.getElementById("navbar");
+                    element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                    window.location.reload()
+                })
+            },
+            goResearchers: () => {
+                router.push({ path: '/edit/researcher' }).then(() => {
+                    var element = document.getElementById("navbar");
+                    element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                    window.location.reload()
+                })
+            },
+            goTalents: () => {
+                router.push({ path: '/edit/talent-card' }).then(() => {
+                    var element = document.getElementById("navbar");
+                    element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                    window.location.reload()
+                })
+            },
+            goProjects: () => {
+                router.push({ path: '/edit/project-modal' }).then(() => {
+                    var element = document.getElementById("navbar");
+                    element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                    window.location.reload()
+                })
+            },
+            goCapacitation: () => {
+                router.push({ path: '/edit/capacitation-card' }).then(() => {
+                    var element = document.getElementById("navbar");
+                    element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                    window.location.reload()
+                })
+            },
+            goAboutUs: () => {
+                router.push({ path: '/edit/about-us' }).then(() => {
+                    var element = document.getElementById("navbar");
+                    element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                    window.location.reload()
+                })
+            },
+            goCompany: () => {
+                router.push({ path: '/edit/company' }).then(() => {
+                    var element = document.getElementById("navbar");
+                    element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                    window.location.reload()
+                })
+            },
+        }  
+    },
 }
 </script>
 

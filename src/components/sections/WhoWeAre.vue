@@ -10,7 +10,7 @@
                         </button>
                     </div>
                     <div class="flex flex-col gap-3">
-                        <h1 class="font-bold text-4xl w-96 max-lg:w-auto">{{ maintext.title }}</h1>
+                        <h1 class="font-semibold text-4xl w-96 max-lg:w-auto">{{ maintext.title }}</h1>
                         <p class="w-full text-maingray">{{ maintext.parag }}</p>
                     </div>
                     <!-- Ir para página explicando tudo sobre o polo -->
