@@ -29,22 +29,12 @@
 
             <!-- Pesquisador-->
             <div>
-                <button class="text-maingray bg-white hover:bg-maingreen hover:text-white focus:ring-4 focus:outline-none focus:ring-red-600 font-medium rounded-lg text-sm text-center flex items-center p-4 transition duration-200 border-2 border-maingreen"
-                    id="dropdownDefaultButton" data-dropdown-toggle="dropdown" type="button">
-                    {{ inEditionResearcher.firstName }} {{ inEditionResearcher.lastName }}
-                </button>
-
-                <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow">
-                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
-                        <li @click="setItem('researcher', 0, 'Novo', null)">
-                            <input href="#" class="w-84 block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer"
-                                readonly="readonly" value="-- Novo --"/>
-                        </li>
-                        <li v-for="(researcher, i) in researchers" :key="i" @click="setItem('researcher', researcher.id, researcher.firstName + ' ' + researcher.lastName, researcher.img.id)">
-                            <input href="#" required class="block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer w-80" readonly="readonly" :value="researcher.firstName + ' ' + researcher.lastName"/>
-                        </li>
-                    </ul>
-                </div>
+                <select v-model="inEditionResearcher.id" name="" id="" class="bg-gray-50 border border-maingreen text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 w-full p-2.5">
+                    <option class="bg-white divide-y divide-gray-100 rounded-lg text-center shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen"
+                        value="0">Selecione um Pesquisador</option>
+                    <option class="bg-white divide-y divide-gray-100 text-start rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen"
+                        :value="researcher.id" v-for="(researcher, i) in researchers" :key="i">{{ researcher.firstName + ' ' + researcher.lastName }}</option>
+                </select>
             </div>
         </div>
         <form class="bg-white p-10 rounded-2xl">
@@ -54,7 +44,7 @@
                 <div id="name-div" class="border-2 border-transparent p-2 rounded-lg">
                     <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nome</label>
                     <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5"
-                        v-model="inEditionResearcher.firstName" type="text" id="name" required />
+                        v-model="inEditionResearcher.firstName" type="text" id="lastname" required />
                 </div>
 
                 <!-- Sobrenome -->
@@ -121,25 +111,25 @@
                 <!-- Campus -->
                 <div id="campus-div" class="border-2 border-transparent p-2 rounded-lg">
                     <label for="campus" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Campus</label>
-                    <button class="text-maingray bg-white hover:bg-maingreen hover:text-white focus:ring-4 focus:outline-none focus:ring-red-600 font-medium rounded-lg text-sm text-center flex items-center p-4 transition duration-200 border-2 border-maingreen"
-                        id="dropdownDefaultButton" data-dropdown-toggle="campuses" type="button">
-                        {{ inEditionCampus.name }}
-                    </button>
-
-                    <div id="campuses" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow">
-                        <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
-                            <li v-for="(campus, i) in campuses" :key="i" @click="setItem('campus', campus.id, campus.name)">
-                                <input required id="campus" class="block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer w-80" readonly="readonly" :value="campus.name"/>
-                            </li>
-                        </ul>
-                    </div>
+                    <select v-model="inEditionResearcher.id" name="" id="" class="bg-gray-50 border border-maingreen text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 w-full p-2.5">
+                        <option class="bg-white divide-y divide-gray-100 rounded-lg text-center shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen"
+                            value="0" disabled>Selecione um Campus</option>
+                        <option class="bg-white divide-y divide-gray-100 text-start rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen"
+                            :value="campus.id"  v-for="(campus, i) in campuses" :key="i">{{ campus.name }}</option>
+                    </select>
                 </div>
                 
                 <!-- Sexo -->
                 <div id="sex-div" class="border-2 border-transparent p-2 rounded-lg">
-                    <label for="sex_link" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Sexo:</label>
-                    <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5"
-                        v-model="inEditionResearcher.sex" type="tel" id="sex_link" required />
+                    <label for="sex_link" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Gênero</label>
+                    <select v-model="inEditionResearcher.sex" name="" id="" class="bg-gray-50 border border-maingreen text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 w-full p-2.5">
+                        <option class="bg-white divide-y divide-gray-100 rounded-lg text-center shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen"
+                            value="0" disabled>Selecione</option>
+                        <option class="bg-white divide-y divide-gray-100 rounded-lg text-center shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen"
+                            value="F">Feminino</option>
+                        <option class="bg-white divide-y divide-gray-100 rounded-lg text-center shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen"
+                            value="M">Masculino</option>
+                    </select>
                 </div>
 
                 <!-- Portfólio -->
@@ -175,7 +165,7 @@
 
 <script>
 import router from '@/router/index.js'
-import { createResearcher, updateResearcher, listResearchers, deleteResearcher } from '@/services/ResearcherService.js';
+import { createResearcher, listResearchers, updateResearcher, deleteResearcher } from '@/services/ResearcherService.js';
 import { listCampus } from '@/services/CampusService.js';
 
 export default {
@@ -191,7 +181,7 @@ export default {
                     id: 0,
                     name: ''
                 },
-                firstName: 'Selecione um Pesquisador',
+                firstName: null,
                 lastName: '',
                 img: {
                     id: null,
@@ -205,7 +195,7 @@ export default {
                 email: '',
                 level: '',
                 phone: '',
-                sex: ''
+                sex: 0
             },
             inEditionCampus:{
                 id: null,
@@ -228,36 +218,6 @@ export default {
             this.bool ? target.style.borderColor = 'transparent' : target.style.borderColor = 'red'
             this.bool = !this.bool
         },
-        setItem(item, id, name, id_img) {
-            if(item == 'researcher') {
-
-                let objId = this.researchers.filter((researcher) => {
-                    if(researcher.id == id)
-                        return researcher
-                })
-
-                this.inEditionResearcher.id = objId[0].id
-                this.inEditionResearcher.img.id = id_img
-                this.inEditionResearcher.firstName = objId[0].firstName
-                this.inEditionResearcher.about = objId[0].about
-                this.inEditionResearcher.address = objId[0].address
-                this.inEditionResearcher.city = objId[0].city
-                this.inEditionResearcher.course = objId[0].course
-                this.inEditionResearcher.department = objId[0].department
-                this.inEditionResearcher.email = objId[0].email
-                this.inEditionResearcher.lastName = objId[0].lastName
-                this.inEditionResearcher.level = objId[0].level
-                this.inEditionResearcher.phone = objId[0].phone
-                this.inEditionResearcher.sex = objId[0].sex
-
-                console.log(this.inEditionResearcher)
-                
-            } else if(item == 'campus') {
-                this.inEditionCampus.id = id
-                this.inEditionCampus.name = name,
-                console.log(this.inEditionCampus)
-            }
-        },
         onImageChange(e) {
             const image = e.target.files[0];
             const reader = new FileReader();
@@ -265,6 +225,10 @@ export default {
             reader.onload = e => {
                 this.inEditionResearcher.img.code = e.target.result;
             };
+        },
+        setImgId(img_id){
+            console.log(this.inEditionResearcher)
+            this.inEditionResearcher.img.id = img_id
         },
         updateResearcher() {
             if(this.inEditionResearcher.firstName !== '' && this.inEditionResearcher.campus !== ''){
@@ -280,6 +244,14 @@ export default {
                         }); 
                     })
                 } else {
+                    console.log(this.researchers)
+                    let objId = this.researchers.filter((researcher) => {
+                        if(researcher.id == this.inEditionResearcher.id)
+                            return researcher
+                    })
+                    console.log(objId)
+                    this.inEditionResearcher.img.id = objId[0].img.id
+                    console.log(this.inEditionResearcher)
                     updateResearcher(this.inEditionResearcher).then((response) => {
                         console.log(response)
                     }).finally(() => {

@@ -89,7 +89,7 @@
                     <div id="project-name-div" class="border-2 border-transparent p-2 rounded-lg">
                         <div class="flex flex-col">
                             <label for="researchers" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Projeto:</label>
-                            <button class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 hover:text-white focus:border-red-600 block w-full p-2.5 hover:bg-maingreen transition duration-200" 
+                            <!-- <button class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 hover:text-white focus:border-red-600 block w-full p-2.5 hover:bg-maingreen transition duration-200" 
                                 id="modalityButton" data-dropdown-toggle="dropdown5" type="button">
                                 {{ editProject.name }}
                             </button>
@@ -106,7 +106,13 @@
                                             readonly="readonly" :value="project.name " required/>
                                     </li>
                                 </ul>
-                            </div>
+                            </div> -->
+                            <select v-model="editProject.id" name="" id="" class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 w-full p-2.5">
+                                <option class="bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen"
+                                    value="0">---Novo projeto---</option>
+                                <option class="bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen"
+                                    :value="project.id" v-for="(project, i) in projects" :key="i">{{ project.name }}</option>
+                            </select>
                         </div>
                     </div>
 
@@ -121,7 +127,7 @@
                     <div id="company-name-div" class="border-2 border-transparent p-2 rounded-lg">
                         <div class="flex flex-col">
                             <label for="researchers" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Empresa:</label>
-                            <button class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 hover:text-white focus:border-red-600 block w-full p-2.5 hover:bg-maingreen transition duration-200" 
+                            <!-- <button class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 hover:text-white focus:border-red-600 block w-full p-2.5 hover:bg-maingreen transition duration-200" 
                                 id="modalityButton" data-dropdown-toggle="dropdown1" type="button">
                                 {{ editCompany.name }}
                             </button>
@@ -133,7 +139,13 @@
                                             readonly="readonly" :value="company.name"/>
                                     </li>
                                 </ul>
-                            </div>
+                            </div> -->
+                            <select v-model="editCompany.id" name="" id="" class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 w-full p-2.5">
+                                <option class="bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen"
+                                    selected disabled hidden>Selecione uma empresa</option>
+                                <option class="bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen"
+                                    :value="company.id" v-for="(company, i) in companies" :key="i">{{ company.name }}</option>
+                            </select>
                         </div>
                     </div>
 
@@ -141,7 +153,7 @@
                     <div id="coor-name-div" class="border-2 border-transparent p-2 rounded-lg">
                         <div class="flex flex-col">
                             <label for="researchers" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Coordenador:</label>
-                            <button class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 hover:text-white focus:border-red-600 block w-full p-2.5 hover:bg-maingreen transition duration-200 " 
+                            <!-- <button class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 hover:text-white focus:border-red-600 block w-full p-2.5 hover:bg-maingreen transition duration-200 " 
                                 id="modalityButton" data-dropdown-toggle="dropdown2" type="button">
                                 {{ editCoordinator.name }}
                             </button>
@@ -152,7 +164,13 @@
                                         <input required class="w-84 block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer" readonly="readonly" :value="researcher.firstName + ' ' + researcher.lastName "/>
                                     </li>
                                 </ul>
-                            </div>
+                            </div> -->
+                            <select v-model="editCoordinator.id" name="" id="" class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 w-full p-2.5">
+                                <option class="bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen"
+                                    selected disabled hidden>Selecione uma empresa</option>
+                                <option class="bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen"
+                                    :value="researcher.id" v-for="(researcher, i) in researchers" :key="i">{{ researcher.firstName + ' ' + researcher.lastName }}</option>
+                            </select>
                         </div>
                     </div>
 
@@ -160,7 +178,7 @@
                     <div id="situation-div" class="border-2 border-transparent p-2 rounded-lg">
                         <label for="situation" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Situação</label>
                             <select class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 w-full p-2.5"
-                                name="situation" v-model="newProject.situation" id="situation" aria-placeholder="testres">
+                                name="situation" v-model="newProject.situation" id="situation">
                                 <option value="" selected disabled hidden>Selecione uma opção</option>
                                 <option value="Concluído">Concluído</option>
                                 <option value="Em andamento">Em andamento</option>
@@ -176,14 +194,14 @@
                     </div>
                 </div>
 
-                <div class="flex">
-                    <div class="flex flex-col">
+                <div class="flex flex-col">
+                    <div class="flex">
 
                         <!-- Pesquisadores -->
                         <div id="researchers-div" class="border-2 border-transparent p-2 rounded-lg">
                             <div class="flex flex-col">
                                 <label for="researchers" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Pesquisadores:</label>
-                                <button class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 hover:text-white focus:border-red-600 block w-full p-2.5 hover:bg-maingreen transition duration-200" 
+                                <!-- <button class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 hover:text-white focus:border-red-600 block w-full p-2.5 hover:bg-maingreen transition duration-200" 
                                     id="modalityButton" data-dropdown-toggle="dropdown3" type="button">
                                     {{ editResearchers.name }}
                                 </button>
@@ -194,7 +212,13 @@
                                             <input href="#"  class="w-84 block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer" readonly="readonly" :value="researcher.firstName + ' ' + researcher.lastName " required/>
                                         </li>
                                     </ul>
-                                </div>
+                                </div> -->
+                                <select v-model="editResearchers.id" name="" id="" class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 w-full p-2.5">
+                                    <option class="bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen"
+                                        selected disabled hidden>Selecione os pesquisadores</option>
+                                    <option class="bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen"
+                                        :value="researcher.id" v-for="(researcher, i) in researchers" :key="i">{{ researcher.firstName + ' ' + researcher.lastName }}</option>
+                                </select>
                             </div>
                         </div>
     
@@ -202,7 +226,7 @@
                         <div id="students-div" class="border-2 border-transparent p-2 rounded-lg">
                             <div class="flex flex-col">
                                 <label for="researchers" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Alunos:</label>
-                                <button class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 hover:text-white focus:border-red-600 block w-full p-2.5 hover:bg-maingreen transition duration-200" 
+                                <!-- <button class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 hover:text-white focus:border-red-600 block w-full p-2.5 hover:bg-maingreen transition duration-200" 
                                     id="modalityButton" data-dropdown-toggle="dropdown4" type="button">
                                     {{ editStudents.name }}
                                 </button>
@@ -213,16 +237,21 @@
                                             <input href="#" class="w-84 block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer" readonly="readonly" required :value="talent.name"/>
                                         </li>
                                     </ul>
-                                </div>
+                                </div> -->
+                                <select v-model="editStudents.id" name="" id="" class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 w-full p-2.5">
+                                    <option class="bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen"
+                                        selected disabled hidden>Selecione os pesquisadores</option>
+                                    <option class="bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen"
+                                        value="" v-for="(talent, i) in talents" :key="i">{{ talent.name }}</option>
+                                </select>
                             </div>
                         </div>
                     </div>
-
                     <!-- Sobre o Projeto -->
                     <div id="about-project-div" class="border-2 border-transparent p-2 rounded-lg col-span-2 w-full">
                         <label for="project_resume" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Sobre o projeto</label>
                         <textarea id="project_resume" rows="10" cols="50" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border focus:ring-red-600 focus:border-red-600"
-                          required  v-model="newProject.resume" placeholder="Escreva sobre o projeto aqui..."></textarea>
+                            required  v-model="newProject.resume" placeholder="Escreva sobre o projeto aqui..."></textarea>
                     </div>
                 </div>
                 <div class="w-full flex justify-center gap-10">
@@ -264,7 +293,7 @@ export default {
             researchers: null,
             projects: null,
             editCompany:{
-                id: null,
+                id: 'Selecione uma empresa',
                 name: 'Selecione uma Empresa',
                 id_img: null
             },
@@ -384,25 +413,20 @@ export default {
         },
         updateCard(){
             if(this.editProject.id == 0){
-                let aux = this.editCompany.name
-                aux.replace(' ', '')
-
+                this.newProject.company.id = this.editCompany.id
                 this.newProject.coordinator.id = this.editCoordinator.id
                 this.newProject.researchers.id = this.editResearchers.id
                 
-                this.newProject.modalName = 'modal_' + aux
-                this.newProject.accordionId = 'accordion_' + aux
-                this.newProject.headerName = 'header_' + aux
-                this.newProject.headerBody = 'heading_' + aux
-
+                console.log(this.newProject)
                 createProject(this.newProject).then((response) => {
                     console.log(response)
-                }).finally(() => {
-                    router.push('/').then(() => {
-                        var element = document.getElementById("ourclients");
-                        element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
-                    }); 
                 })
+                 .finally(() => {
+                     router.push('/').then(() => {
+                         var element = document.getElementById("ourclients");
+                         element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                     }); 
+                 })
             } else {
                 this.newProject.id = this.editProject.id
                 this.newProject.company.id = this.editCompany.id
@@ -414,25 +438,27 @@ export default {
 
                 updateProject(this.newProject).then((response) => {
                     console.log(response)
-                }).finally(() => {
-                    router.push('/').then(() => {
-                        window.location.reload()
-                        var element = document.getElementById("ourclients");
-                        element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
-                    }); 
+                })
+                 .finally(() => {
+                     router.push('/').then(() => {
+                         window.location.reload()
+                         var element = document.getElementById("ourclients");
+                         element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                     }); 
                 })
             }
         },
         deleteProject(){
             deleteProject(this.editProject.id).then((response) => {
                 console.log(response)
-            }).finally(() => {
-                router.push('/').then(() => {
-                    var element = document.getElementById("ourclients");
-                    element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
-                    alert('Deletado com sucesso')
-                }); 
             })
+             .finally(() => {
+                 router.push('/').then(() => {
+                     var element = document.getElementById("ourclients");
+                     element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                     alert('Deletado com sucesso')
+                 }); 
+             })
         }
     },
 }

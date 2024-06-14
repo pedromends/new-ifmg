@@ -46,7 +46,7 @@
         
         <section class="flex justify-between items-center">
             <div class="flex text-sm text-maingray gap-5 p-4 ml-14 max-lg:p-0">
-                <NavbarLink :func="goHome" :link="'/'" :text="'INÍCIO'" />
+                <router-link class="hover:text-red-600 hover:underline" to='/'>INÍCIO</router-link>
                 <NavbarLink :func="aboutUs" :link="'/'" :text="'QUEM SOMOS'" />
                 <NavbarLink :func="advantages" :link="'/'" :text="'VANTAGENS'" />
                 <NavbarLink :link="'/news'" :text="'NOTÍCIAS'" />

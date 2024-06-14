@@ -1,7 +1,12 @@
 <template lang="">
-    <button title="Abrir Modal" :data-modal-target="modalname" :data-modal-toggle="modalname" type="button" class="flex items-center">
-        <img :src="img" class="py-5 rounded-xl bg-white shadow-lg self-center px-10 hover:shadow-md hover:shadow-red-600 transition duration-300 mx-auto " alt="#" :class="extraClass"/>
-    </button>
+    <section title="Abrir Modal" :data-modal-target="modalname" :data-modal-toggle="modalname"
+        class="flex justify-center">
+        <button class="bg-gradient-to-r from-maingreen to-transparent p-0.5 rounded-xl flex items-center shadow-md shadow-transparent hover:shadow-md hover:shadow-maingreen transition duration-200"
+            type="button">
+            <img :src="img" class="py-5 rounded-xl bg-white shadow-lg self-center px-10 mx-auto" alt="#" :class="extraClass"/>
+        </button>
+    </section>
+    
 
     <section :id="modalname" tabindex="-1" aria-hidden="true" 
         class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full ">

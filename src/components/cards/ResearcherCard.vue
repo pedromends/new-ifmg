@@ -1,8 +1,11 @@
 <template lang="">
-    <button  @click.prevent="openResearcher()" href="https://lattes.cnpq.br/" target="_blank" class="hover:shadow-lg transition duration-300 rounded-lg border border-gray-200">
+    <button class="hover:shadow-md shadow-md hover:shadow-maingreen shadow-transparent transition duration-300 rounded-lg border border-gray-200"
+        @click.prevent="openResearcher()" href="https://lattes.cnpq.br/" target="_blank">
         <div class="border-t border-maingreen bg-lightgray px-4 py-5 flex items-center justify-between">
             <h1 class="font-semibold">{{ name }}</h1>
-            <img alt="Polo IFMG" class="h-16 rounded-lg border border-maingreen" :src="img.code"/>
+            <div v-if="img != null">
+                <img alt="Polo IFMG" class="h-16 rounded-lg border border-maingreen" :src="img.code"/>
+            </div>
         </div>
         <div class="flex flex-col px-3 gap-3 py-3">
             <p class="font-semibold text-start">{{ course }}</p>
