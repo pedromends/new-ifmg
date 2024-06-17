@@ -1,5 +1,5 @@
 <template lang="">
-    <section class="bg-lightgray gap-10 w-full flex flex-col pt-5 px-10">
+    <section class="bg-lightgray gap-10 w-full flex flex-col py-5 px-10">
         <div role="status" class="">
             <section class="flex justify-center gap-10 items-center">
                 <div class="flex flex-col ">
@@ -9,23 +9,12 @@
                     <div id="company-name-div" class="border-2 border-transparent p-2 rounded-lg">
                         <div class="flex flex-col">
                             <label for="researchers" class="mb-2 text-sm font-medium text-gray-900 dark:text-white">Empresa:</label>
-                            <button class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 hover:text-white focus:border-red-600 w-full p-2.5 hover:bg-maingreen" 
-                                id="modalityButton" data-dropdown-toggle="dropdown1" type="button">
-                                {{ inEditionCompany.name }}
-                            </button>
-
-                            <div id="dropdown1" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen">
-                                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="modalityButton">
-                                    <li @click="setItem(0, 'Novo', null)">
-                                        <input href="#" class="w-84 px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer"
-                                            readonly="readonly" value="-- Novo --"/>
-                                    </li>
-                                    <li v-for="(company, i) in companies" :key="i" @click="setItem(company.id, company.name, company.image.id)">
-                                        <input href="#" class="w-84 px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer"
-                                            readonly="readonly" :value="company.name"/>
-                                    </li>
-                                </ul>
-                            </div>
+                            <select v-model="inEditionCompany.id" name="" id="" class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 w-full p-2.5">
+                                <option class="bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen"
+                                    selected disabled hidden value="0">Selecione um projeto</option>
+                                <option class="bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen"
+                                    :value="company.id" v-for="(company, i) in companies" :key="i">{{ company.name }}</option>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -102,8 +91,8 @@ export default {
                 cnpj: ''
             },
             inEditionCompany:{
-                id: null,
-                name: 'Selecione uma Empresa',
+                id: 'Selecione uma Empresa',
+                name: '',
                 id_img: null
             },
         }
@@ -159,15 +148,16 @@ export default {
             
         },
         deleteCompany(){
-            deleteCompany(this.editProject.id).then((response) => {
+            deleteCompany(this.inEditionCompany.id).then((response) => {
                 console.log(response)
-            }).finally(() => {
-                router.push('/').then(() => {
-                    var element = document.getElementById("ourclients");
-                    element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
-                    alert('Deletado com sucesso')
-                }); 
             })
+            // .finally(() => {
+            //     router.push('/').then(() => {
+            //         var element = document.getElementById("ourclients");
+            //         element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+            //         alert('Deletado com sucesso')
+            //     }); 
+            // })
         }
     },
 }

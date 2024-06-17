@@ -29,6 +29,7 @@ import EditAboutUs from "@/components/edition/EditAboutUs.vue";
 import EditCompany from "@/components/edition/EditCompany.vue";
 import ResearchersProfile from "@/views/ResearchersProfile.vue";
 import Notifications from "@/views/Notifications.vue";
+import Edition from "@/components/edition/Edition.vue";
 
 const routes = [
   {
@@ -107,6 +108,11 @@ const routes = [
     path: '/edit',
     component: MainEdition,
     children: [
+      {
+        path: "/edit/",
+        name: 'Index',
+        component: Edition
+      },
       {
         path: "/edit/presenter-card",
         name: 'EditPresenterCard',

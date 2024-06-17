@@ -85,12 +85,12 @@
                     <div id="title-div" class="border-2 border-transparent p-2">
                         <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Título do Card {{ currentForm }}</label>
                         <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5"
-                            type="text" id="title" c placeholder="John" required v-model="newAdvantages.differential"/>
+                            type="text" id="title" placeholder="Título do card" required v-model="newAdvantages.differential"/>
                     </div>
                     <div id="resume-div" class="border-2 border-transparent p-2">
                         <label for="resume" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Resumo Card {{ currentForm }}</label>
                         <textarea class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-red-600 focus:border-red-600" 
-                            id="resume" cols="20" v-model="newAdvantages.description" placeholder="Escreva sobre a sua manchete aqui..."></textarea>
+                            id="resume" cols="20" v-model="newAdvantages.description" placeholder="Introdução..."></textarea>
                     </div>
                     <div id="icon-div" class="border-2 border-transparent p-2">
                         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Ícone do Card {{ currentForm }}</label>

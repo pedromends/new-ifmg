@@ -9,10 +9,10 @@
                 Venha inovar conosco, temos a solução que seu empreendimento precisa
             </p>
         </div>
-        <div v-if="img_obj" class="flex max-lg:flex-col gap-16 justify-center items-center">
+        <div v-if="img_obj" class="flex max-lg:flex-col gap-40 justify-center items-center">
             <img :src="img_obj.code" class="w-132 max-lg:px-6 max-lg:w-auto ml-16 max-lg:ml-auto" alt="People Studying"/>
             <div class="flex flex-col gap-5">
-                <AdvantagesCard  v-for="(advantage, i) in advantages" :key="i" :dif="advantage.differential" :text="advantage.description" :icon="advantage.img.code"/>
+                <AdvantagesCard v-for="(advantage, i) in advantages" :key="i" :dif="advantage.differential" :text="advantage.description" :icon="advantage.img.code"/>
             </div>
         </div>
     </section>
@@ -44,7 +44,7 @@ export default {
         // .finally(() => {
         //     this.$router.push('/');
         // });
-        -
+
         listAdvantages().then((response) => {
             this.advantages = response.data
         }).catch((error) => {

@@ -23,8 +23,6 @@
                         <button class="text-start" @click="goPresenter" to="/edit/presenter-card" :class="linkCss">Sessão de Apresentação</button>
                         <button class="text-start" @click="goAboutUs" to="/edit/about-us" :class="linkCss">Sobre Nós</button>
                         <button class="text-start" @click="goAdvantages" to="/edit/advantages-card" :class="linkCss">Cards de Vantagens</button>
-                        <button class="text-start" @click="goMainNew" to="/edit/main-new" :class="linkCss">Notícia Principal</button>
-                        <!-- <button class="text-start" @click="go" to="/edit/news-card" :class="linkCss">Notícias Secundárias</button> -->
                         <button class="text-start" @click="goEvents" to="/edit/event-card" :class="linkCss">Cards de Eventos</button>
                         <button class="text-start" @click="goProjects" to="/edit/project-modal" :class="linkCss">Modal de Projetos</button>
                         <button class="text-start" @click="goCapacitation" to="/edit/capacitation-card" :class="linkCss">Cards de Capacitação</button>
@@ -120,11 +118,18 @@ export default {
                     window.location.reload()
                 })
             },
+            goAdvantages: () => {
+                router.push({ path: '/edit/advantages-card' }).then(() => {
+                    var element = document.getElementById("navbar");
+                    element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                    window.location.reload()
+                })
+            },
         }  
     },
 }
 </script>
 
-<style lang="">
+<style>
     
 </style>

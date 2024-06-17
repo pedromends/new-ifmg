@@ -19,9 +19,9 @@
 
         <section class="flex justify-between bg-maingreen">
             <div class="flex justify-between items-center gap-10 px-32 text-lightgray text-sm">
-                <router-link class="hover:underline" to="/contact">CONTATO</router-link>
-                <a class="hover:underline" href="https://www2.ifmg.edu.br/portal/processo-seletivo" target="_blank">INGRESSO</a>
-                <a class="hover:underline" href="https://www.formiga.ifmg.edu.br/graduacao" target="_blank">NOSSOS CURSOS</a>
+                <router-link class="hover:underline hover:text-govblue transition duration-200" to="/contact">CONTATO</router-link>
+                <a class="hover:underline hover:text-govblue transition duration-200" href="https://www2.ifmg.edu.br/portal/processo-seletivo" target="_blank">INGRESSO</a>
+                <a class="hover:underline hover:text-govblue transition duration-200" href="https://www.formiga.ifmg.edu.br/graduacao" target="_blank">NOSSOS CURSOS</a>
             </div>
 
             <div class="flex justify-between items-center">

@@ -3,6 +3,7 @@ import api from '@/services/api';
 export const createTalent = (form) => api.request({
   headers: {
     'Content-Type': 'application/json',
+    'Authorization': `Bearer ${window.localStorage.getItem('refresh_token')}`,
   },
   method: 'post',
   url: '/talent/create',
@@ -20,6 +21,7 @@ export const getTalents = () => api.request({
 export const updateTalent = (form) => api.request({
   headers: {
     'Content-Type': 'application/json',
+    'Authorization': `Bearer ${window.localStorage.getItem('refresh_token')}`,
   },
   method: 'put',
   url: '/talent/update',
@@ -29,6 +31,7 @@ export const updateTalent = (form) => api.request({
 export const deleteTalent = (id) => api.request({
   headers: {
     'Content-Type': 'application/json',
+    'Authorization': `Bearer ${window.localStorage.getItem('refresh_token')}`,
   },
   method: 'delete',
   url: `/talent/delete/${id}`,

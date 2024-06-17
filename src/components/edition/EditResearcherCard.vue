@@ -111,7 +111,7 @@
                 <!-- Campus -->
                 <div id="campus-div" class="border-2 border-transparent p-2 rounded-lg">
                     <label for="campus" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Campus</label>
-                    <select v-model="inEditionResearcher.id" name="" id="" class="bg-gray-50 border border-maingreen text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 w-full p-2.5">
+                    <select v-model="inEditionResearcher.campus.id" name="" id="" class="bg-gray-50 border border-maingreen text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 w-full p-2.5">
                         <option class="bg-white divide-y divide-gray-100 rounded-lg text-center shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen"
                             value="0" disabled>Selecione um Campus</option>
                         <option class="bg-white divide-y divide-gray-100 text-start rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen"
@@ -119,7 +119,7 @@
                     </select>
                 </div>
                 
-                <!-- Sexo -->
+                <!-- Gênero -->
                 <div id="sex-div" class="border-2 border-transparent p-2 rounded-lg">
                     <label for="sex_link" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Gênero</label>
                     <select v-model="inEditionResearcher.sex" name="" id="" class="bg-gray-50 border border-maingreen text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 w-full p-2.5">
@@ -244,7 +244,7 @@ export default {
                         }); 
                     })
                 } else {
-                    console.log(this.researchers)
+                    // console.log(this.researchers)
                     let objId = this.researchers.filter((researcher) => {
                         if(researcher.id == this.inEditionResearcher.id)
                             return researcher

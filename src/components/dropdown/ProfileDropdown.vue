@@ -28,7 +28,7 @@
             </div>
             <ul class="flex flex-col py-2 text-gray-700 dark:text-gray-200"
                 aria-labelledby="dropdownInformdropdownAvatarNameButtonationButton">
-                <router-link to="/edit" class="flex items-center px-3 hover:bg-lightgray transition duration-200">
+                <router-link to="/edit/" class="flex items-center px-3 hover:bg-lightgray transition duration-200">
                     <img :src="require('@/assets/icons/components.svg')" class="w-7 h-7" alt="">
                     <p class="text-start p-2 hover:text-black">Edição de Componentes</p>
                 </router-link>

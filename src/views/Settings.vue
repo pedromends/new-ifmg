@@ -109,7 +109,7 @@ export default {
         getUserInfo({email: this.user.email}).then((response) => {
             this.info = response.data
             this.setForm()
-            if(this.info.code != null){
+            if(this.info.img.code != null){
                 this.loadImg = true
             }
         }).catch((e) => {

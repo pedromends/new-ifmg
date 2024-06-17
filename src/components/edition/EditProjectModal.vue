@@ -2,7 +2,7 @@
     <section class="flex justify-center items-center bg-lightgray gap-10">
         <div role="status" class="">
             <section class="flex flex-col justify-center gap-10 items-center mt-5 animate-pulse">
-                <p class="font-semibold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen self-start mt-10">Modal de Projetos</p>
+                <p class="font-semibold text-3xl underline underline-offset-2 decoration-4 decoration-maingreen self-start mt-10 pl-10">Modal de Projetos</p>
 
                 <!-- Modal -->
                 <div class="relative p-4 w-full max-w-2xl max-h-full">
@@ -83,33 +83,15 @@
         <!-- Formulário -->
         <form class="bg-white p-10 rounded-lg">
             <div class="flex flex-col gap-6 mb-6">
-                <div class="grid grid-cols-3">
+                <div class="grid grid-cols-4">
 
                     <!-- Projeto -->
                     <div id="project-name-div" class="border-2 border-transparent p-2 rounded-lg">
                         <div class="flex flex-col">
                             <label for="researchers" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Projeto:</label>
-                            <!-- <button class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 hover:text-white focus:border-red-600 block w-full p-2.5 hover:bg-maingreen transition duration-200" 
-                                id="modalityButton" data-dropdown-toggle="dropdown5" type="button">
-                                {{ editProject.name }}
-                            </button>
-                                
-                            <div id="dropdown5" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen">
-                                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="modalityButton">
-                                    <li @click="boolNewProject == true">
-                                        <input href="#" @click="setItem('project', 0, '--Novo--', 0)"
-                                            class="w-84 block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer"
-                                            readonly="readonly" value="-- Novo --" required/>
-                                    </li>
-                                    <li v-for="(project, i) in projects" :key="i" @click="setItem('project', project.id, project.name, project.company.img.id)">
-                                        <input href="#" class="w-84 block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer"
-                                            readonly="readonly" :value="project.name " required/>
-                                    </li>
-                                </ul>
-                            </div> -->
                             <select v-model="editProject.id" name="" id="" class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 w-full p-2.5">
                                 <option class="bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen"
-                                    value="0">---Novo projeto---</option>
+                                    selected disabled hidden value="0">Selecione um projeto</option>
                                 <option class="bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen"
                                     :value="project.id" v-for="(project, i) in projects" :key="i">{{ project.name }}</option>
                             </select>
@@ -127,19 +109,6 @@
                     <div id="company-name-div" class="border-2 border-transparent p-2 rounded-lg">
                         <div class="flex flex-col">
                             <label for="researchers" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Empresa:</label>
-                            <!-- <button class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 hover:text-white focus:border-red-600 block w-full p-2.5 hover:bg-maingreen transition duration-200" 
-                                id="modalityButton" data-dropdown-toggle="dropdown1" type="button">
-                                {{ editCompany.name }}
-                            </button>
-
-                            <div id="dropdown1" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen">
-                                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="modalityButton">
-                                    <li v-for="(company, i) in companies" :key="i" @click="setItem('company', company.id, company.name, company.image.id)">
-                                        <input required href="#" class="w-84 block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer "
-                                            readonly="readonly" :value="company.name"/>
-                                    </li>
-                                </ul>
-                            </div> -->
                             <select v-model="editCompany.id" name="" id="" class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 w-full p-2.5">
                                 <option class="bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen"
                                     selected disabled hidden>Selecione uma empresa</option>
@@ -153,21 +122,9 @@
                     <div id="coor-name-div" class="border-2 border-transparent p-2 rounded-lg">
                         <div class="flex flex-col">
                             <label for="researchers" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Coordenador:</label>
-                            <!-- <button class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 hover:text-white focus:border-red-600 block w-full p-2.5 hover:bg-maingreen transition duration-200 " 
-                                id="modalityButton" data-dropdown-toggle="dropdown2" type="button">
-                                {{ editCoordinator.name }}
-                            </button>
-                                
-                            <div id="dropdown2" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen">
-                                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="modalityButton">
-                                    <li v-for="(researcher, i) in researchers" :key="i" @click="setItem('coordinator', researcher.id, researcher.firstName + ' ' + researcher.lastName, researcher.img.id)">
-                                        <input required class="w-84 block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer" readonly="readonly" :value="researcher.firstName + ' ' + researcher.lastName "/>
-                                    </li>
-                                </ul>
-                            </div> -->
                             <select v-model="editCoordinator.id" name="" id="" class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 w-full p-2.5">
                                 <option class="bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen"
-                                    selected disabled hidden>Selecione uma empresa</option>
+                                    selected disabled hidden>Selecione um coordenador</option>
                                 <option class="bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen"
                                     :value="researcher.id" v-for="(researcher, i) in researchers" :key="i">{{ researcher.firstName + ' ' + researcher.lastName }}</option>
                             </select>
@@ -190,63 +147,37 @@
                     <div id="value-div" class="border-2 border-transparent p-2 rounded-lg">
                         <label for="value" class="mb-2 text-sm font-medium text-gray-900 dark:text-white">Valor</label>
                         <input class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 w-full p-2.5"
-                            v-model="newProject.value" type="number" id="value"  placeholder="" required />
+                            v-model="newProject.value" type="number" id="value" min="0" placeholder="" required />
+                    </div>
+
+                    <!-- Pesquisadores -->
+                    <div id="researchers-div" class="border-2 border-transparent p-2 rounded-lg">
+                        <div class="flex flex-col">
+                            <label for="researchers" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Pesquisadores:</label>
+                            <select v-model="editResearchers.id" name="" id="" class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 w-full p-2.5">
+                                <option class="bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen"
+                                    selected disabled hidden>Selecione os pesquisadores</option>
+                                <option class="bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen"
+                                    :value="researcher.id" v-for="(researcher, i) in researchers" :key="i">{{ researcher.firstName + ' ' + researcher.lastName }}</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Alunos -->
+                    <div id="students-div" class="border-2 border-transparent p-2 rounded-lg">
+                        <div class="flex flex-col">
+                            <label for="researchers" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Alunos:</label>
+                            <select v-model="editStudents.id" name="" id="" class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 w-full p-2.5">
+                                <option class="bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen"
+                                    selected disabled hidden>Selecione os pesquisadores</option>
+                                <option class="bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen"
+                                    value="" v-for="(talent, i) in talents" :key="i">{{ talent.name }}</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
 
-                <div class="flex flex-col">
-                    <div class="flex">
-
-                        <!-- Pesquisadores -->
-                        <div id="researchers-div" class="border-2 border-transparent p-2 rounded-lg">
-                            <div class="flex flex-col">
-                                <label for="researchers" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Pesquisadores:</label>
-                                <!-- <button class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 hover:text-white focus:border-red-600 block w-full p-2.5 hover:bg-maingreen transition duration-200" 
-                                    id="modalityButton" data-dropdown-toggle="dropdown3" type="button">
-                                    {{ editResearchers.name }}
-                                </button>
-                                    
-                                <div id="dropdown3" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen">
-                                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="modalityButton">
-                                        <li v-for="(researcher, i) in researchers" :key="i" @click="setItem('researcher', researcher.id, researcher.firstName + ' ' + researcher.lastName, researcher.img.id)">
-                                            <input href="#"  class="w-84 block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer" readonly="readonly" :value="researcher.firstName + ' ' + researcher.lastName " required/>
-                                        </li>
-                                    </ul>
-                                </div> -->
-                                <select v-model="editResearchers.id" name="" id="" class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 w-full p-2.5">
-                                    <option class="bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen"
-                                        selected disabled hidden>Selecione os pesquisadores</option>
-                                    <option class="bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen"
-                                        :value="researcher.id" v-for="(researcher, i) in researchers" :key="i">{{ researcher.firstName + ' ' + researcher.lastName }}</option>
-                                </select>
-                            </div>
-                        </div>
-    
-                        <!-- Alunos -->
-                        <div id="students-div" class="border-2 border-transparent p-2 rounded-lg">
-                            <div class="flex flex-col">
-                                <label for="researchers" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Alunos:</label>
-                                <!-- <button class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 hover:text-white focus:border-red-600 block w-full p-2.5 hover:bg-maingreen transition duration-200" 
-                                    id="modalityButton" data-dropdown-toggle="dropdown4" type="button">
-                                    {{ editStudents.name }}
-                                </button>
-                                    
-                                <div id="dropdown4" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll overflow-x-hidden overflow-y-hidden">
-                                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="modalityButton">
-                                        <li v-for="(talent, i) in talents" :key="i" @click="setItem('talents', talent.id, talent.name, talent.img.id)">
-                                            <input href="#" class="w-84 block px-4 py-2 hover:bg-maingreen hover:text-white cursor-pointer" readonly="readonly" required :value="talent.name"/>
-                                        </li>
-                                    </ul>
-                                </div> -->
-                                <select v-model="editStudents.id" name="" id="" class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 w-full p-2.5">
-                                    <option class="bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen"
-                                        selected disabled hidden>Selecione os pesquisadores</option>
-                                    <option class="bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen"
-                                        value="" v-for="(talent, i) in talents" :key="i">{{ talent.name }}</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
+                <div class="flex">
                     <!-- Sobre o Projeto -->
                     <div id="about-project-div" class="border-2 border-transparent p-2 rounded-lg col-span-2 w-full">
                         <label for="project_resume" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Sobre o projeto</label>
@@ -357,21 +288,12 @@ export default {
 
                         getTalents().then((response) => {
                             this.talents = response.data
-                        }).catch((error) => {
-                            console.log(error)
-                        })
-                    }).catch((error) => {
-                        console.log(error)
-                    })
-                }).catch((error) => {
-                    console.log(error)
-                })
-            }).catch((error) => {
-                console.log(error)
-            })
-        }).catch((error) => {
-            console.log(error)
-        })
+                            
+                        }).catch((error) => console.log(error))
+                    }).catch((error) => console.log(error))
+                }).catch((error) => console.log(error))
+            }).catch((error) => console.log(error))
+        }).catch((error) => console.log(error))
     },
     methods: {
         onOffEffect(div){
@@ -420,8 +342,7 @@ export default {
                 console.log(this.newProject)
                 createProject(this.newProject).then((response) => {
                     console.log(response)
-                })
-                 .finally(() => {
+                }).finally(() => {
                      router.push('/').then(() => {
                          var element = document.getElementById("ourclients");
                          element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
@@ -438,8 +359,7 @@ export default {
 
                 updateProject(this.newProject).then((response) => {
                     console.log(response)
-                })
-                 .finally(() => {
+                }).finally(() => {
                      router.push('/').then(() => {
                          window.location.reload()
                          var element = document.getElementById("ourclients");
@@ -451,8 +371,7 @@ export default {
         deleteProject(){
             deleteProject(this.editProject.id).then((response) => {
                 console.log(response)
-            })
-             .finally(() => {
+            }).finally(() => {
                  router.push('/').then(() => {
                      var element = document.getElementById("ourclients");
                      element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
