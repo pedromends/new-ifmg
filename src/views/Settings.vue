@@ -31,9 +31,15 @@
                             </div>
                         </div>
                         <div class="bg-lightgray flex flex-col rounded-lg p-10 gap-10 border border-maingreen text-lg">
-                            <div>
-                                <h1 class="text-3xl font-semibold underline decoration-maingreen underline-offset-2">Idioma e Fuso-Horário</h1>
-                            </div>  
+                            <!-- <div>
+                                <h1 class="text-3xl font-semibold underline decoration-maingreen underline-offset-2">Permissões de Usuário</h1>
+                                <select v-model="inEditUser.id" name="" id="" class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 w-full p-2.5">
+                                    <option class="bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen"
+                                        selected disabled hidden value="0">Selecione um usuário</option>
+                                    <option class="bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen"
+                                        :value="allUser.id" v-for="(allUser, i) in allUsers" :key="i">{{ allUser.name }}</option>
+                                </select>
+                            </div>   -->
                         </div>
                     </div>
                 </div>
@@ -100,7 +106,7 @@
 </template>
 
 <script>
-import { getUserInfo, updateUserInfo } from '@/services/UserService'
+import { getUserInfo, updateUserInfo, listUsers } from '@/services/UserService'
 
 export default {
     name:'SettingsPage',
@@ -115,6 +121,12 @@ export default {
         }).catch((e) => {
             console.log(e)
         })
+
+        listUsers().then((response) => {
+            this.allUsers = response.data
+        }).catch((e) => {
+            console.log(e)
+        })
     },
     data() {
         return {
@@ -123,6 +135,10 @@ export default {
                 input: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5"
             },
             info: null,
+            allUsers: '',
+            inEditUser: {
+                id: ''
+            },
             newUser: {
                 firstName: '',
                 lastName: '',

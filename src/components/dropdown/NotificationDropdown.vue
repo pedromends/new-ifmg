@@ -18,7 +18,7 @@
 </template>
 
 <script>
-// import router from '@/router/index.js'
+import router from '@/router/index.js'
 import NotificationCard from "@/components/cards/NotificationCard"
 import { listContacts } from "@/services/ContactService"
 import { mapMutations } from "vuex";
@@ -56,11 +56,11 @@ export default {
             window.localStorage.setItem("refresh_token", null)
             document.cookie = `refresh_token = ${null}`
             this.showSignOutSuccess()
-            // setInterval(() => {
-            //     router.push("/").then(() => {
-            //         window.location.reload()
-            //     })
-            // }, 3000)
+            setInterval(() => {
+                router.push("/").then(() => {
+                    window.location.reload()
+                })
+            }, 3000)
         }
     }
 }

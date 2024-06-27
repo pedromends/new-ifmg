@@ -132,6 +132,7 @@ export default {
             newUser: {
                 firstName: '',
                 lastName: '',
+                role: 'ADMIN',
                 username: '',
                 email: '',
                 password: '',
@@ -150,6 +151,7 @@ export default {
         },
         requestCreateUser(){
             createUser(this.newUser).then((response) => {
+                console.log(response.data)
                 const aux = JSON.stringify(response.data)
                 this.$store.commit('setUser', aux)
                 this.showSuccessRegister()
@@ -165,6 +167,7 @@ export default {
         },
         requestLogin(){
             loginUser(this.login).then((response) => {
+                console.log(response.data)
                 const aux = response.data
                 let newToken = aux.token
 

@@ -29,7 +29,7 @@
                 </div>
             </section>
         </div>
-
+        <AlertSuccessDelete/>
         <!-- Formulário -->
         <form class="bg-white w-full px-24 py-10 rounded-xl">
             <div class="grid grid-cols-2 rounded-lg pt-10 mb-10">
@@ -57,7 +57,6 @@
             <div class="w-full flex justify-center gap-10">
                 <button class="text-white bg-maingreen hover:bg-govblue focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm text-center px-36 py-3 transition duration-200"
                     @click.prevent="updateCompany()" type="submit">Salvar</button>
-                
                 <div class="flex items-center bg-red-600 hover:bg-maingray focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg transition duration-200"
                     @click.prevent="deleteCompany()" type="submit">
                     <div class="flex w-full justify-start gap-3 items-center text-white px-32">
@@ -73,9 +72,13 @@
 <script>
 import router from '@/router/index.js'
 import { createCompany, listCompanies, updateCompany, deleteCompany } from '@/services/CompanyService.js';
+import AlertSuccessDelete from "@/components/alert/AlertSuccessDelete.vue";
 
 export default {
     name: 'EditCompany',
+    components: {
+        AlertSuccessDelete
+    },
     data(){
         return {
             companies: null,
@@ -111,6 +114,10 @@ export default {
             reader.onload = e => {
                 this.company.image.code = e.target.result;
             };
+        },
+        showDeleteSuccess(){
+            let div = document.getElementById("success-delete-alert")
+            div.style.display = "flex"
         },
         setItem(id, name, id_img){
             this.inEditionCompany.id = id
@@ -150,14 +157,15 @@ export default {
         deleteCompany(){
             deleteCompany(this.inEditionCompany.id).then((response) => {
                 console.log(response)
+            }).finally(() => {
+                this.showDeleteSuccess()
+                setInterval(() => {
+                    router.push('/').then(() => {1
+                        var element = document.getElementById("ourclients");
+                        element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                    }); 
+                }, 2000)
             })
-            // .finally(() => {
-            //     router.push('/').then(() => {
-            //         var element = document.getElementById("ourclients");
-            //         element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
-            //         alert('Deletado com sucesso')
-            //     }); 
-            // })
         }
     },
 }

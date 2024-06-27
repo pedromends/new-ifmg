@@ -43,7 +43,7 @@
                         </div>
                     </div>
                     
-                    <div class="bg-lightgray p-4 flex flex-col gap-4 border border-maingreen rounded-lg">
+                    <!-- <div class="bg-lightgray p-4 flex flex-col gap-4 border border-maingreen rounded-lg">
                         <h1 class="text-2xl font-semibold underline decoration-maingreen underline-offset-2">Hobbies</h1>
                         <div class="flex gap-3">
                             <kbd :class="css.kbd">Futebol</kbd>
@@ -57,7 +57,7 @@
                             <kbd :class="css.kbd">Ski</kbd>
                             <kbd :class="css.kbd">The Witcher</kbd>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="bg-lightgray p-8 flex flex-col justify-between rounded-lg border border-maingreen gap-5">
                     <div class="flex flex-col gap-3">
@@ -81,7 +81,7 @@
                             <p class="font-semibold text-maingreen">{{ info.department }}</p>
                         </div>
                     </div>
-                    <div class="flex flex-col justify-between gap-5 text-lg">
+                    <!-- <div class="flex flex-col justify-between gap-5 text-lg">
                         <div class="px-2 flex flex-col gap-4 rounded-lg col-span-2">
                             <h1 class="text-2xl font-semibold underline decoration-maingreen underline-offset-2">Habilidades</h1>
                             <div class="flex gap-3">
@@ -97,7 +97,7 @@
                                 <kbd :class="css.kbd">MySQL</kbd>
                            </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div></div>
             </div>

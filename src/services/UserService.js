@@ -35,6 +35,7 @@ export const loginUser = (form) => api.request({
 export const listUsers = () => api.request({
   headers: {
     'Content-Type': 'application/json',
+    'Authorization': `Bearer ${window.localStorage.getItem('refresh_token')}`,
   },
   method: 'get',
   url: '/user/list',

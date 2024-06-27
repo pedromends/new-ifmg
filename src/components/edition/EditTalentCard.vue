@@ -1,5 +1,6 @@
 <template lang="">
     <section class="flex flex-col justify-center bg-lightgray gap-10">
+        <AlertSuccessDelete/>
         <div role="status" class="flex gap-24 justify-center items-center mt-10">
             <div class="left-4 flex flex-col gap-5">
                 <p class="font-semibold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen self-start mt-5 mb-10">Cards de Talentos</p>
@@ -28,7 +29,6 @@
                 <div class="h-1.5 bg-black rounded-full w-28 border border-transparent hover:border-red-700"></div>
             </div>
         </div>
-
         <!-- Formulário -->
         <form class="bg-white p-10 rounded-lg mb-10">
             <div class="grid gap-6 mb-6 md:grid-cols-2">
@@ -73,15 +73,19 @@
 <script>
 import router from '@/router/index.js'
 import { createTalent, updateTalent, getTalents, deleteTalent } from '@/services/TalentService.js';
+import AlertSuccessDelete from "@/components/alert/AlertSuccessDelete.vue"
 
 export default {
     name: 'EditnewTalent',
+    components: {
+        AlertSuccessDelete
+    },
     data(){
         return {
             bool: false,
             talents: null,
             inEdition:{
-                id: 'Selecione um talento',
+                id: 0,
                 name: 'Selecione um aluno',
                 id_img: null
             },
@@ -116,27 +120,32 @@ export default {
                 this.newTalent.img.code = e.target.result;
             };
         },
+        showDeleteSuccess(){
+            let div = document.getElementById("success-delete-alert")
+            div.style.display = "flex"
+        },
         updateCard(){
             if(this.newTalent.name !== '' && this.newTalent.profession !== ''){
                 this.newTalent.id = this.inEdition.id
 
-                if(this.newTalent.id == 0){
+                if(this.inEdition.id == 0){
                     console.log(this.newTalent)
                     createTalent(this.newTalent).then((response) => {
                         console.log(response)
                     })
-                    // .finally(() => {
-                    //     router.push('/').then(() => {
-                    //         var element = document.getElementById("talents");
-                    //         window.location.reload();
-                    //         element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
-                    //     }); 
-                    // })
+                    .finally(() => {
+                        router.push('/').then(() => {
+                            var element = document.getElementById("talents");
+                            window.location.reload();
+                            element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                        }); 
+                    })
                 } else {
                     let objId = this.talents.filter((talent) => {
                         if(talent.id == this.inEdition.id)
                             return talent
                     })
+                    
                     console.log(objId)
                     this.newTalent.img.id = objId[0].img.id
                     updateTalent(this.newTalent).then((response) => {
@@ -154,17 +163,18 @@ export default {
         deleteTalent(){
             if(this.newTalent.id == 0){
                 alert('selecione um aluno primeiro')
-            }else{
+            } else {
                 deleteTalent(this.inEdition.id).then((response) => {
                     console.log(response)
+                }).finally(() => {
+                    this.showDeleteSuccess()
+                    setInterval(() => {
+                        router.push('/').then(() => {1
+                            var element = document.getElementById("ourclients");
+                            element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                        }); 
+                    }, 2000)
                 })
-                // .finally(() => {
-                //     router.push('/').then(() => {
-                //         var element = document.getElementById("ourclients");
-                //         element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
-                //         alert('Deletado com sucesso')
-                //     }); 
-                // })
             }
         }
     },

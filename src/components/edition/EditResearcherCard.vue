@@ -2,7 +2,7 @@
     <section class="flex justify-center bg-lightgray gap-10 my-10 mx-5">
         <div role="status" class="flex flex-col items-center gap-10">
             <p class="font-semibold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen self-start mt-5 mb-10">Criar/Editar Pesquisadores</p>
-
+            
             <!-- Card Modelo -->
             <section class="hover:shadow-lg transition duration-300 rounded-lg border border-gray-200 bg-white">
                 <div class="border-t border-maingreen px-4 py-5 gap-48 flex items-center justify-between animate-pulse">
@@ -38,8 +38,8 @@
             </div>
         </div>
         <form class="bg-white p-10 rounded-2xl">
+            <AlertSuccessDelete/>
             <div class="grid gap-6 mb-6 md:grid-cols-2">
-
                 <!-- Nome -->
                 <div id="name-div" class="border-2 border-transparent p-2 rounded-lg">
                     <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nome</label>
@@ -167,9 +167,13 @@
 import router from '@/router/index.js'
 import { createResearcher, listResearchers, updateResearcher, deleteResearcher } from '@/services/ResearcherService.js';
 import { listCampus } from '@/services/CampusService.js';
+import AlertSuccessDelete from "@/components/alert/AlertSuccessDelete.vue";
 
 export default {
     name: 'EditResearcherCard',
+    components: {
+        AlertSuccessDelete
+    },
     data(){
         return {
             bool: false,
@@ -226,15 +230,16 @@ export default {
                 this.inEditionResearcher.img.code = e.target.result;
             };
         },
+        showDeleteSuccess(){
+            let div = document.getElementById("success-delete-alert")
+            div.style.display = "flex"
+        },
         setImgId(img_id){
             console.log(this.inEditionResearcher)
             this.inEditionResearcher.img.id = img_id
         },
         updateResearcher() {
-            if(this.inEditionResearcher.firstName !== '' && this.inEditionResearcher.campus !== ''){
-                this.inEditionResearcher.campus.id = this.inEditionCampus.id
-                this.inEditionResearcher.campus.name = this.inEditionCampus.name
-                
+            if(this.inEditionResearcher.firstName !== '' && this.inEditionResearcher.campus !== ''){                
                 if(this.inEditionResearcher.id == 0){
                     createResearcher(this.inEditionResearcher).then((response) => {
                         console.log(response)
@@ -271,12 +276,15 @@ export default {
                 deleteResearcher(this.inEditionResearcher.id).then((response) => {
                     console.log(response)
                 })
-                // .finally(() => {
-                //     router.push('/researchers').then(() => {
-                //         alert('Deletado com sucesso')
-                //         window.location.reload();
-                //     }); 
-                // })
+                .finally(() => {
+                    this.showDeleteSuccess()
+                    setInterval(() => {
+                        router.push('/').then(() => {1
+                            var element = document.getElementById("ourclients");
+                            element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                        }); 
+                    }, 2000)
+                })
             }
         }
     },

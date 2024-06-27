@@ -82,6 +82,7 @@
 
         <!-- Formulário -->
         <form class="bg-white p-10 rounded-lg">
+            <AlertSuccessDelete/>
             <div class="flex flex-col gap-6 mb-6">
                 <div class="grid grid-cols-4">
 
@@ -210,9 +211,13 @@ import { listCompanies } from '@/services/CompanyService.js';
 import { listResearchers } from '@/services/ResearcherService.js';
 import { createProject, listProjects, updateProject, deleteProject } from '@/services/ProjectService';
 import { getTalents } from '@/services/TalentService.js'
+import AlertSuccessDelete from "@/components/alert/AlertSuccessDelete.vue";
 
 export default {
     name: 'EditProjectModal',
+    components: {
+        AlertSuccessDelete
+    },
     data(){
         return {
             boolNewProject: false,
@@ -244,7 +249,7 @@ export default {
                 id_img: null
             },
             editProject:{
-                id: null,
+                id: 0,
                 name: 'Selecione o Projeto',
             },
             newProject: {
@@ -333,6 +338,10 @@ export default {
                 this.editCompany.id_img = id_img
             }
         },
+        showDeleteSuccess(){
+            let div = document.getElementById("success-delete-alert")
+            div.style.display = "flex"
+        },
         updateCard(){
             if(this.editProject.id == 0){
                 this.newProject.company.id = this.editCompany.id
@@ -372,12 +381,17 @@ export default {
             deleteProject(this.editProject.id).then((response) => {
                 console.log(response)
             }).finally(() => {
-                 router.push('/').then(() => {
-                     var element = document.getElementById("ourclients");
-                     element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
-                     alert('Deletado com sucesso')
-                 }); 
-             })
+                setInterval(() => {
+                    this.showDeleteSuccess()
+                    setInterval(() => {
+                        router.push('/').then(() => {
+                            window.location.reload()
+                            var element = document.getElementById("ourclients");
+                            element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                        }); 
+                    }, 2000)
+                })
+            })     
         }
     },
 }
