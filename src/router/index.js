@@ -17,6 +17,7 @@ import LoginPage from "@/views/LoginPage.vue";
 import Profile from "@/views/Profile.vue";
 import Settings from "@/views/Settings.vue";
 import FAQ from "@/views/FAQ.vue";
+import CreateFAQ from "@/views/CreateFAQ.vue";
 
 import EditPresenterCard from "@/components/edition/EditPresenterCard.vue";
 import EditEventCard from "@/components/edition/EditEventCard.vue";
@@ -109,6 +110,10 @@ const routes = [
   {
     path: '/FAQ',
     component: FAQ
+  },
+  {
+    path: '/create-faq',
+    component: CreateFAQ
   },
   {
     path: '/edit',

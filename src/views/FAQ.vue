@@ -18,7 +18,7 @@
 </template>
 
 <script>
-    //import router from '@/router/index.js'
+    import router from '@/router/index.js'
     import {  listFAQs } from '@/services/FAQService.js';
     //import ResearcherCard from '@/components/cards/ResearcherCard.vue'; 
     //import BackToTop  from '@/components/buttons/BackToTop.vue';
@@ -43,7 +43,10 @@
         },
         methods: {
             createNewQuestion(){
-                console.log('chamou')
+                router.push('/create-faq').then(() => {
+                    var element = document.getElementById("navbar");
+                    element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                });
             }
         },
     }

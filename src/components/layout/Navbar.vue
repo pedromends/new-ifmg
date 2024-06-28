@@ -1,6 +1,6 @@
 <template lang="">
     <nav class="w-full relative font-opensans max-lg:hidden" id="navbar">
-        <a href="/" class="bg-white absolute right-1/2 transform translate-x-1/2 rounded-b-2xl hover:shadow-2xl transition duration-300">
+        <a href="/" class="bg-white absolute right-1/2 transform translate-x-1/2 rounded-b-2xl hover:shadow-black shadow-lg transition duration-300">
             <img alt="" class="h-48 w-36 px-5 py-4" :src="require('@/assets/icons/main-logo.jpg')"/>
         </a>
 
