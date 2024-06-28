@@ -57,6 +57,7 @@
                 <NavbarLink :link="'/edicts'" :text="'EDITAIS'" />
                 <NavbarLink :link="'/docs'" :text="'DOCUMENTOS'" />
                 <NavbarLink :func="capacitation" :link="'/capacitation'" :text="'CAPACITAÇÃO'" />
+                <NavbarLink :func="faq" :link="'/capacitation'" :text="'FAQ'" />
                 <router-link to="/embrapii" class="hover:underline shadow shadow-transparent hover:shadow-red-600 transition duration-200 rounded-lg">
                     <img :src="require('@/assets/icons/embrapii.png')" class="w-16" alt="">
                 </router-link>
@@ -106,6 +107,11 @@ export default {
             },
             goResearchers: () => {
                 router.push({ path: '/researchers' }).then(() => {
+                    window.location.reload();
+                })
+            },
+            faq: () => {
+                router.push({ path: '/FAQ' }).then(() => {
                     window.location.reload();
                 })
             },

@@ -16,6 +16,8 @@ import OpenedNew from "@/views/OpenedNew.vue";
 import LoginPage from "@/views/LoginPage.vue";
 import Profile from "@/views/Profile.vue";
 import Settings from "@/views/Settings.vue";
+import FAQ from "@/views/FAQ.vue";
+
 import EditPresenterCard from "@/components/edition/EditPresenterCard.vue";
 import EditEventCard from "@/components/edition/EditEventCard.vue";
 import EditMainNewCard from "@/components/edition/EditMainNewCard.vue";
@@ -103,6 +105,10 @@ const routes = [
   {
     path: '/notifications',
     component: Notifications
+  },
+  {
+    path: '/FAQ',
+    component: FAQ
   },
   {
     path: '/edit',
