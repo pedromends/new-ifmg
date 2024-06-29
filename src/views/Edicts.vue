@@ -17,23 +17,8 @@
             <hr class="bg-red-600 h-1"/>
             <div class="flex flex-col gap-5 text-maingray">
                 <div>
-                    <h1 class="font-semibold">Abertos</h1>
                     <ul class="flex flex-col gap-1 text-blue-700">
-                        <a href="" class="hover:underline">Edital de Fluxo Contínuo para Cadastro de Pesquisadores</a>
-                        <a href="" class="hover:underline">Edital 2</a>
-                        <a href="" class="hover:underline">Edital 3</a>
-                        <a href="" class="hover:underline">Edital 4</a>
-                        <a href="" class="hover:underline">Edital 5</a>
-                    </ul>
-                </div>
-                <div>
-                    <h1 class="font-semibold">Fechados</h1>
-                    <ul class="flex flex-col gap-1 text-blue-700">
-                        <a href="" class="hover:underline">Edital 6</a>
-                        <a href="" class="hover:underline">Edital 7</a>
-                        <a href="" class="hover:underline">Edital 8</a>
-                        <a href="" class="hover:underline">Edital 9 </a>
-                        <a href="" class="hover:underline">Edital 10</a>
+                        <a v-for="(edict, i) in edicts" :key="i" :href="edict.link" target="_blank" class="hover:underline">{{ edict.title }}</a>
                     </ul>
                 </div>
                 <!-- TODO: Criar CRUD de editais com as seguintes informações -->
@@ -49,17 +34,34 @@
     </main>
 </template>
 
-<script>
-import BackToTop  from '@/components/buttons/BackToTop.vue';
 
-export default {
-    name: 'EdictsPage',
-    components:{
-        BackToTop
-    },
-    props: {
+<script>
+    import router from '@/router/index.js'
+    import {  listEdicts } from '@/services/EdictService.js';
+
+    export default {
+        name: 'EdictsPage',
+        created(){
+            listEdicts().then((response) => {
+                this.edicts = response.data
+                console.log(this.edicts)
+            })
+        },
+        data(){
+            return {
+                edicts: null,
+                isAdmin: this.$store.getters.isLoggedIn,
+            }
+        },
+        methods: {
+            createNewQuestion(){
+                router.push('/create-faq').then(() => {
+                    var element = document.getElementById("navbar");
+                    element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                });
+            }
+        },
     }
-}
 </script>
 <style lang="">
     

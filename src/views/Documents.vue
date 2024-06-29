@@ -1,5 +1,5 @@
 <template lang="">
-    <main class="flex justify-center items-center px-10">
+    <main class="flex justify-start items-center px-10 ">
         <div class="flex flex-col gap-10 px-20 w-full">
             <div class="flex items-center gap-2">
                 <img class="w-6" :src="require('@/assets/icons/house2.svg')" alt="">
@@ -13,33 +13,55 @@
                     <span>Documentos</span>
                 </p>
             </div>
-            <h1 class="text-4xl text-black font-semibold underline underline-offset-2 decoration-8 decoration-maingreen">Documentos</h1>
+            <h1 class="text-4xl text-black font-semibold underline underline-offset-2 decoration-8 decoration-maingreen">Editais</h1>
             <hr class="bg-red-600 h-1"/>
             <div class="flex flex-col gap-5 text-maingray">
                 <div>
+                    <ul class="flex flex-col gap-1 text-blue-700">
+                        <a v-for="(doc, i) in docs" :key="i" :href="doc.link" target="_blank" class="hover:underline">{{ doc.title }}</a>
+                    </ul>
                 </div>
-                <div>
-                </div>
-                <!-- Título do Documento -->
-                <!-- Objetivo - Ano -->
-                <!-- Arquivo Modelo -->
+                <!-- TODO: Criar CRUD de editais com as seguintes informações -->
+                <!-- Título do Edital -->
+                <!-- Número - Ano -->
+                <!-- Breve Descrição -->
+                <!-- Link p inscrição -->
+                <!-- Arquivo em PDF-->
+                <!-- Imagem p/ divulgação -->
             </div>
         </div>
         <BackToTop />
     </main>
 </template>
 
-<script>
-import BackToTop  from '@/components/buttons/BackToTop.vue';
 
-export default {
-    name: 'DocumentsPage',
-    components:{
-        BackToTop
-    },
-    props: {
+<script>
+    import router from '@/router/index.js'
+    import {  listDocs } from '@/services/DocsService.js';
+
+    export default {
+        name: 'DocsPage',
+        created(){
+            listDocs().then((response) => {
+                this.docs = response.data
+                console.log(this.docs)
+            })
+        },
+        data(){
+            return {
+                docs: null,
+                isAdmin: this.$store.getters.isLoggedIn,
+            }
+        },
+        methods: {
+            createNewQuestion(){
+                router.push('/create-faq').then(() => {
+                    var element = document.getElementById("navbar");
+                    element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                });
+            }
+        },
     }
-}
 </script>
 <style lang="">
     
