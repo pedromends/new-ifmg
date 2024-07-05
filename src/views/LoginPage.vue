@@ -132,7 +132,7 @@ export default {
             newUser: {
                 firstName: '',
                 lastName: '',
-                role: 'ADMIN',
+                role: 'USER',
                 username: '',
                 email: '',
                 password: '',
@@ -140,8 +140,15 @@ export default {
             }
         }
     },
+    beforeCreate() {
+        if(this.$store.getters.isLoggedIn){
+            router.push('/').then(() => {
+                window.location.reload();
+            });
+        }
+    },
     methods:{
-        ...mapMutations(["setUser", "setToken"]),
+        ...mapMutations(["setUser", "setToken", "setRole"]),
         ...mapActions(["getToken", "getUser"]),
         redirect(){
            // 
@@ -168,20 +175,16 @@ export default {
         requestLogin(){
             loginUser(this.login).then((response) => {
                 console.log(response.data)
+                
                 const aux = response.data
                 let newToken = aux.token
 
-                this.$store.commit('setUser', response.data.userVO)
+                this.$store.commit('setUser', aux.userVO)
                 this.$store.commit('setToken', newToken)
+                this.$store.commit('setRole', aux.userVO.role)
 
                 window.localStorage.setItem("refresh_token", newToken)
                 this.showSuccessLogin()
-
-                setInterval(() => {
-                    router.push("/").then(() => {
-                        window.location.reload()
-                    })
-                 }, 3000)
             }).catch((e) => {
                 console.log(e)
                 this.showErrorLogin()

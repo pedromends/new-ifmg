@@ -45,7 +45,7 @@ import router from '@/router/index.js'
 export default {
     name: 'MainEdition',
     beforeCreate() {
-        if(!this.$store.getters.isLoggedIn){
+        if(!this.$store.getters.isAdmin){
             router.push('/').then(() => {
                 window.location.reload();
             });
@@ -54,7 +54,7 @@ export default {
     data() {
         return {
             linkCss: 'transition duration-200 hover:bg-maingreen px-3 py-1 rounded-lg text-maingreen hover:text-white font-medium',
-            isLoggedIn: this.$store.getters.isLoggedIn,
+            isAdmin: this.$store.getters.isAdmin,
             goPresenter: () => {
                 router.push({ path: '/edit/presenter-card' }).then(() => {
                     var element = document.getElementById("navbar");

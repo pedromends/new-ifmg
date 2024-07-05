@@ -13,7 +13,8 @@ const vuexLocal = new VuexPersistence({
 const store = new createStore({
     state: {
         user: null,
-        token: null
+        token: null,
+        role: null
     },
     mutations: {
         setUser(state, user){
@@ -22,18 +23,24 @@ const store = new createStore({
         setToken(state, token){
             state.token = token
         },
+        setRole(state, role){
+            state.role = role
+        },
     },
     plugins: [vuexLocal.plugin],
     actions: {},
     getters: {
         isLoggedIn(state){
             return state.token != null ? true : false// !! stand for return true or false
-        }, // do jeito que tá se o usuário colocar qualquer coisa como token, vai dar acesso permitido, proteger isso depois
+        },
         getUser(state){
             return state.user
         },
         getToken(state){
             return state.token
+        },
+        isAdmin(state){
+            return state.role == "CODEMASTER" || state.role == "ADMIN" ? true : false
         },
     }
 })
