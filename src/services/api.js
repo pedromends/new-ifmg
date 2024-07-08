@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://195.200.6.114:8443/api-polo/',
-  //baseURL: 'http://localhost:8090/api-polo/',
+  baseURL: 'https://195.200.6.114:8443/api-polo/',
+  //baseURL: 'https://localhost:8443/api-polo/',
   headers: {
     'Access-Control-Allow-Origin': '*',
     Accept: 'application/json',
