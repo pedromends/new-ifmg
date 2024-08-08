@@ -57,14 +57,14 @@
                 <FooterLink :exClass="'hover:text-red-600'" :href="'https://www.formiga.ifmg.edu.br/component/content/article/119-engenharia-eletrica?catid=2&Itemid=205'" :text="'Engenharia Elétrica'"/>
             </div>
         </div>
-        <div class="flex max-lg:text-xs gap-48 text-sm max-lg:gap-2 max-lg:justify-start">
+        <div class="flex max-lg:text-xs gap-48 text-sm max-lg:gap-2 max-sm:justify-center">
             <div class="flex flex-col gap-2">
-                <div class="text-fttitle">Copyright ©
+                <div class="text-fttitle max-sm:text-center">Copyright ©
                     <a href="https://www.ifmg.edu.br/portal" target="_blank" class="text-maingreen hover:underline decoration-maingreen">IFMG | 2024</a>
                 </div>
-                <p class="text-fttitle hover:underline decoration-maingreen">Política de Privacidade</p>
-                <p class="text-fttitle hover:underline decoration-maingreen">Termos e Condições</p>
-                <p class="text-fttitle">Desenvolvido por
+                <p class="text-fttitle max-sm:text-center hover:underline decoration-maingreen">Política de Privacidade</p>
+                <p class="text-fttitle max-sm:text-center hover:underline decoration-maingreen">Termos e Condições</p>
+                <p class="text-fttitle max-sm:text-center">Desenvolvido por
                     <span><a class="text-maingreen hover:underline decoration-maingreen" href="https://pedromends.github.io/" target="_blank">Dev Pedro</a></span>
                 </p>
             </div>

@@ -1,5 +1,5 @@
 <template lang="">
-    <li @click="readNote()" class="flex items-center gap-5 text-maingreen hover:text-white px-10 py-5 cursor-pointer transition duration-200 bg-lightgray hover:bg-maingreen border border-red-600 rounded-lg" :class="!read ? 'font-bold':''">
+    <li @click="readNote()" class="flex max-sm:flex-col items-center gap-5 text-maingreen hover:text-white px-10 py-5 cursor-pointer transition duration-200 bg-lightgray hover:bg-maingreen border border-red-600 rounded-lg" :class="!read ? 'font-bold':''">
         <div class="flex flex-col gap-2 effect w-2/5">
             <div class="flex gap-2 items-center">
                 <img v-if="!read" :src="require('@/assets/icons/dot.svg')" class="w-4" alt=""/>

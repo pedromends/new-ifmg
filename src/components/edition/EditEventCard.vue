@@ -1,5 +1,5 @@
 <template lang="">
-    <section class="flex justify-center bg-lightgray gap-10 my-10">
+    <section class="flex max-sm:flex-col  justify-center bg-lightgray gap-10 my-10">
         <div role="status" class="max-w-sm animate-pulse self-center flex flex-col gap-3">
             <p class="font-semibold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen self-start mt-8 mb-5">Cards de Eventos</p>
             <div @mouseover="setCard(1)" class="flex justify-between shadow-lg shadow-transparent hover:shadow-red-600 items-center gap-5 rounded-lg px-3 py-2 transition duration-300 bg-white pt-5">

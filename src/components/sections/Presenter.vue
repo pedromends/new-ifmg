@@ -16,7 +16,7 @@
                         desenvolvendo projetos relacionados à diversas áreas do mercado.
                     </p>
                 </div>
-                <div class="flex justify-center gap-5 max-lg:gap-3 text-white max-lg:flex-col mb-12"> 
+                <div class="flex justify-center gap-5 max-lg:gap-3 text-white max-lg:flex-col mb-12 max-sm:px-10"> 
                     <button class="bg-white text-maingreen px-6 py-3 rounded-3xl max-lg:px-3 font-semibold hover:bg-maingreen hover:text-white border hover:border-white transition duration-200"
                         @click.prevent="goToContact()">Começar Projeto</button>
                     <div class="flex justify-center items-center gap-1 bg-maingreen hover:bg-maingray text-white border border-white px-2 rounded-3xl transition duration-200 max-lg:py-2">
@@ -25,8 +25,8 @@
                     </div>
                 </div>
             </div>
-            <div class="flex max-lg:flex-col gap-4 p-10 bg-gray-200 border-16 max-lg:border-0 border-white rounded-3xl absolute top-112 max-lg:top-[33rem] max-lg:px-10">
-                <div v-if="presenters" class="flex gap-4">
+            <div class="flex gap-4 p-10 bg-gray-200 border-16 max-lg:border-0 border-white rounded-3xl absolute top-112 max-lg:top-[33rem] max-lg:px-10">
+                <div v-if="presenters" class="flex gap-4 max-sm:flex-col">
                     <PresenterCard v-for="(presenter, i) in presenters" :key="i" :num="presenter.num" :text="presenter.text" />
                 </div>
             </div>

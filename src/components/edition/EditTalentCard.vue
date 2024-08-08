@@ -1,7 +1,7 @@
 <template lang="">
     <section class="flex flex-col justify-center bg-lightgray gap-10">
         <AlertSuccessDelete/>
-        <div role="status" class="flex gap-24 justify-center items-center mt-10">
+        <div role="status" class="flex max-sm:flex-col gap-24 justify-center items-center mt-10">
             <div class="left-4 flex flex-col gap-5">
                 <p class="font-semibold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen self-start mt-5 mb-10">Cards de Talentos</p>
                 <select v-model="inEdition.id" name="" id="" class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 w-full p-2.5">
@@ -31,7 +31,7 @@
         </div>
         <!-- Formulário -->
         <form class="bg-white p-10 rounded-lg mb-10">
-            <div class="grid gap-6 mb-6 md:grid-cols-2">
+            <div class="grid gap-6 mb-6 md:grid-cols-2 max-sm:grid-cols-1">
                 <div id="name-div" class="border-2 border-transparent p-2 rounded-lg">
                     <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nome</label>
                     <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5" 
@@ -54,7 +54,7 @@
                     <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG, JPG or GIF (MAX. 800x400px).</p>
                 </div>
             </div>
-            <div class="w-full flex justify-center gap-10">
+            <div class="w-full flex max-sm:flex-col justify-center gap-10">
                 <button class="text-white bg-maingreen hover:bg-govblue focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm text-center px-36 py-3 transition duration-200"
                     @click.prevent="updateCard()" type="submit">Salvar</button>
                 

@@ -1,11 +1,11 @@
 <template lang="">
-    <section class="flex justify-center items-center bg-lightgray gap-10">
-        <div role="status" class="">
-            <section class="flex flex-col justify-center gap-10 items-center mt-5 animate-pulse">
-                <p class="font-semibold text-3xl underline underline-offset-2 decoration-4 decoration-maingreen self-start mt-10 pl-10">Modal de Projetos</p>
+    <section class="flex max-sm:flex-col justify-center items-center bg-lightgray gap-10 max-sm:w-3/4">
+
+            <section role="status" class="flex flex-col justify-center gap-10 items-center mt-5 animate-pulse ">
+                <p class="font-semibold text-3xl underline underline-offset-2 decoration-4 decoration-maingreen self-start mt-10 pl-10 max-sm:ml-24">Modal de Projetos</p>
 
                 <!-- Modal -->
-                <div class="relative p-4 w-full max-w-2xl max-h-full">
+                <div class="relative p-4 w-full max-w-2xl max-h-full max-sm:w-3/4">
                     <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                         <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t border-maingreen">
                             <div class="h-8 bg-black rounded-full w-36 mr-72 border border-transparent hover:border-red-700"></div>
@@ -29,15 +29,15 @@
                                 </h2>
                                 <div class="border border-transparent hover:border-red-700">
                                     <div class="p-5 border rounded-b-xl border-gray-200 gap-2 flex flex-col">
-                                        <div class="h-1 bg-black rounded-full w-96"></div>
-                                        <div class="h-1 bg-black rounded-full w-96"></div>
-                                        <div class="h-1 bg-black rounded-full w-96"></div>
-                                        <div class="h-1 bg-black rounded-full w-96"></div>
-                                        <div class="h-1 bg-black rounded-full w-96"></div>
-                                        <div class="h-1 bg-black rounded-full w-96"></div>
-                                        <div class="h-1 bg-black rounded-full w-96"></div>
-                                        <div class="h-1 bg-black rounded-full w-96"></div>
-                                        <div class="h-1 bg-black rounded-full w-96"></div>
+                                        <div class="h-1 bg-black rounded-full w-96 max-sm:w-14"></div>
+                                        <div class="h-1 bg-black rounded-full w-96 max-sm:w-14"></div>
+                                        <div class="h-1 bg-black rounded-full w-96 max-sm:w-14"></div>
+                                        <div class="h-1 bg-black rounded-full w-96 max-sm:w-14"></div>
+                                        <div class="h-1 bg-black rounded-full w-96 max-sm:w-14"></div>
+                                        <div class="h-1 bg-black rounded-full w-96 max-sm:w-14"></div>
+                                        <div class="h-1 bg-black rounded-full w-96 max-sm:w-14"></div>
+                                        <div class="h-1 bg-black rounded-full w-96 max-sm:w-14"></div>
+                                        <div class="h-1 bg-black rounded-full w-96 max-sm:w-14"></div>
                                     </div>
                                 </div>
                             </div>
@@ -78,13 +78,12 @@
                     </div>
                 </div>
             </section>
-        </div>
 
         <!-- Formulário -->
-        <form class="bg-white p-10 rounded-lg">
+        <form class="bg-white p-10 rounded-lg max-sm:p-2">
             <AlertSuccessDelete/>
             <div class="flex flex-col gap-6 mb-6">
-                <div class="grid grid-cols-4">
+                <div class="grid grid-cols-4 max-sm:grid-cols-1">
 
                     <!-- Projeto -->
                     <div id="project-name-div" class="border-2 border-transparent p-2 rounded-lg">
@@ -186,7 +185,7 @@
                             required  v-model="newProject.resume" placeholder="Escreva sobre o projeto aqui..."></textarea>
                     </div>
                 </div>
-                <div class="w-full flex justify-center gap-10">
+                <div class="w-full flex max-sm:flex-col justify-center gap-10">
                     <button class="text-white bg-maingreen hover:bg-govblue focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm text-center px-36 py-3 transition duration-200"
                         @click.prevent="updateCard()" type="submit">Salvar</button>
                     

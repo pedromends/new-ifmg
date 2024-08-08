@@ -1,8 +1,8 @@
 <template lang="">
     <section class="flex flex-col justify-center bg-lightgray gap-10 rounded-lg">
         <div role="status" class="flex flex-col items-center gap-10 rounded-xl mb-10">
-            <p class="font-semibold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen text-center mt-10 self-start ml-48">Cards de Vantagens</p>
-            <div class="flex items-center gap-4 bg-white rounded-xl h-full">
+            <p class="font-semibold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen text-center mt-10 self-start ml-48 max-sm:ml-0">Cards de Vantagens</p>
+            <div class="flex max-sm:flex-col items-center gap-4 bg-white rounded-xl h-full">
             
                 <!-- Imagem de capa --> 
                 <div class="border-2 border-transparent p-2 hover:border-red-700 mx-10 flex items-center h-full">

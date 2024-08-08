@@ -3,7 +3,7 @@
         <p class="font-semibold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen self-start ml-6">Cards de Capacitação</p>
 
         <!-- Box dos Cards-->
-        <div role="status" class="animate-pulse flex gap-1">
+        <div role="status" class="animate-pulse flex max-sm:flex-col gap-1">
             <div @mouseover="changeForm(1, 4)" class="shadow-lg shadow-transparent hover:shadow-red-600 transition duration-200 hover:text-black hover:bg-white flex flex-col gap-3 px-8 py-8 rounded-3xl border-2 border-white bg-maingreen">
                 <div class="flex justify-between items-center ">
                     <svg class="w-8 h-8 text-gray-200 effect-1 border border-transparent hover:border-red-700 rounded-lg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
@@ -76,7 +76,7 @@
 
         <!-- Formulário -->
         <form class="bg-white flex flex-col p-10 rounded-lg">
-            <div class="grid gap-6 mb-6 grid-cols-2">
+            <div class="grid gap-6 mb-6 grid-cols-2 max-sm:grid-cols-1">
                 <div id="title-div" class="border-2 border-transparent p-2 rounded-lg">
                     <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Título Card {{ currentForm }}</label>
                     <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5" 

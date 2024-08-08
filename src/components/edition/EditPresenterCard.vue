@@ -1,10 +1,10 @@
 <template lang="">
     <section class="flex flex-col justify-center bg-lightgray gap-10">
-        <div class="flex flex-col items-center gap-5 pt-10">
+        <div class="flex flex-col items-center gap-5 pt-10 max-sm:mb-12">
             <p class="font-semibold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen self-start ml-6 mb-5">Sessão de Apresentação</p>
-            <div class="relative">
+            <div class="relative max-sm:mt-10fff">
                 <!-- Box dos Cards -->
-                <div class="flex gap-5">
+                <div class="flex gap-5 max-sm:flex-col">
                     <div @mouseover="setCard(1)" class="bg-white border-b-4 border-maingreen flex flex-col text-center items-center px-2 py-6 shadow-lg shadow-transparent hover:shadow-red-600 transition duration-400 relative z-20">
                         <div role="status" class="max-w-sm animate-pulse flex flex-col pt-4 px-14 gap-4">
                             <h1 class="h-8 bg-maingreen rounded-full w-24 self-center border-4 border-transparent hover:border-red-700"></h1>
@@ -34,7 +34,7 @@
                     </div>
                 </div>
             </div>
-            <div @mouseover="onOffEffect('cover-div')" @mouseleave="onOffEffect('cover-div')" alt="Polo IFMG" class="rounded-lg border border-maingreen flex items-center px-5 border-transparent hover:border-red-700 absolute">
+            <div @mouseover="onOffEffect('cover-div')" @mouseleave="onOffEffect('cover-div')" alt="Polo IFMG" class="rounded-lg border border-maingreen flex items-center px-5 border-transparent hover:border-red-700 absolute max-sm:mt-10">
                 <svg class="w-32 h-32 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
                     <path d="M18 0H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm4.376 10.481A1 1 0 0 1 16 15H4a1 1 0 0 1-.895-1.447l3.5-7A1 1 0 0 1 7.468 6a.965.965 0 0 1 .9.5l2.775 4.757 1.546-1.887a1 1 0 0 1 1.618.1l2.541 4a1 1 0 0 1 .028 1.011Z"/>
                 </svg>

@@ -1,7 +1,7 @@
 <template lang="">
     <section class="bg-lightgray gap-10 w-full flex flex-col py-5 px-10">
         <div role="status" class="">
-            <section class="flex justify-center gap-10 items-center">
+            <section class="flex max-sm:flex-col justify-center gap-10 items-center">
                 <div class="flex flex-col ">
                     <p class="font-semibold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen self-center my-5">Empresa Parceira</p>
                 
@@ -31,8 +31,8 @@
         </div>
         <AlertSuccessDelete/>
         <!-- Formulário -->
-        <form class="bg-white w-full px-24 py-10 rounded-xl">
-            <div class="grid grid-cols-2 rounded-lg pt-10 mb-10">
+        <form class="bg-white w-full px-24 max-sm:px-4 py-10 rounded-xl">
+            <div class="grid grid-cols-2 max-sm:grid-cols-1 rounded-lg pt-10 mb-10">
                 <div id="name-div" class="border-2 border-transparent py-2 rounded-lg px-6">
                     <label for="name" class="mb-2 text-sm font-medium text-gray-900 dark:text-white">Nome</label>
                     <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 w-full p-2.5"
@@ -54,7 +54,7 @@
                         type="file" id="logo" @change="onFileChanged($event)" accept="image/*" required />
                 </div>
             </div>
-            <div class="w-full flex justify-center gap-10">
+            <div class="w-full flex max-sm:flex-col justify-center gap-10">
                 <button class="text-white bg-maingreen hover:bg-govblue focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm text-center px-36 py-3 transition duration-200"
                     @click.prevent="updateCompany()" type="submit">Salvar</button>
                 <div class="flex items-center bg-red-600 hover:bg-maingray focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg transition duration-200"

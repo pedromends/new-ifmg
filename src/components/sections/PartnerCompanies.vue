@@ -1,7 +1,7 @@
 <template lang="">
     <section id="ourclients" class="flex justify-center items-center bg-lightgray py-10">
         <div class="bg-whitecircle bg-no-repeat bg-center min-h-160 flex flex-col items-center">
-            <div class="flex flex-col items-center justify-center gap-10 h-160 overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen mx-48">
+            <div class="flex flex-col items-center justify-center gap-10 h-160 overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen mx-48 max-sm:mx-12">
                 <div class="flex flex-col justify-center items-center gap-5">
                     <h1 class="text-4xl font-semibold max-lg:text-center underline underline-offset-2 decoration-4 decoration-maingreen">Portfólio de Projetos</h1>
                     <p class="text-sm text-maingray max-lg:text-center">
@@ -13,7 +13,7 @@
                             alt="Laboratório de sistemas automotivos IFMG - Campus Formiga" :src="require('@/assets/icons/hand-glass.svg')"/>
                     </div>
                 </div>
-                <div v-if="projects != undefined" class="grid grid-cols-6 justify-center gap-3 items-center overflow-y-auto py-5">
+                <div v-if="projects != undefined" class="grid grid-cols-6 max-sm:grid-cols-2 justify-center gap-3 items-center overflow-y-auto py-5">
                     <CompanyModal v-for="(project, i) in projects" :key="i"
                         :img="project.company.img.code"
                         :headName="project.headerName"

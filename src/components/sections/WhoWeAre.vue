@@ -1,8 +1,8 @@
 <template lang="">
-    <section id="aboutus" class="px-12 py-24 mt-16 max-lg:px-4 ">
-        <div class="flex justify-center px-12 max-lg:px-8">
-            <div class="flex max-lg:flex-col gap-24">
-                <div v-if="maintext" class="flex flex-col w-140 max-lg:w-auto gap-8 max-lg:mt-10">
+    <section id="aboutus" class="px-12 py-24 mt-16 max-sm:px-4 ">
+        <div class="flex justify-center px-12 max-sm:px-8 max-sm:mt-96">
+            <div class="flex max-sm:flex-col gap-24">
+                <div v-if="maintext" class="flex flex-col w-140 max-sm:w-auto gap-8 max-sm:mt-10">
                     <div class="flex items-center w-full justify-between edit transition duration-300 h-10">
                         <span class="text-maingreen font-semibold text-sm underline decoration-red-600 decoration-2">QUEM SOMOS</span>
                         <button @click="editAboutUs()" v-if="isAdmin">
@@ -10,7 +10,7 @@
                         </button>
                     </div>
                     <div class="flex flex-col gap-3">
-                        <h1 class="font-semibold text-4xl w-96 max-lg:w-auto">{{ maintext.title }}</h1>
+                        <h1 class="font-semibold text-4xl w-96 max-sm:w-auto">{{ maintext.title }}</h1>
                         <p class="w-full text-maingray">{{ maintext.parag }}</p>
                     </div>
                     <!-- Ir para página explicando tudo sobre o polo -->

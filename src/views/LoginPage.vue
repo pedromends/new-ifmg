@@ -126,13 +126,13 @@ export default {
             isLoggedIn: this.$store.getters.isLoggedIn,
             boolForm: true,
             login: {
-                email: 'pedro_j.css',
-                password: 'joao@20091999'
+                email: '',
+                password: ''
             },
             newUser: {
                 firstName: '',
                 lastName: '',
-                role: 'USER',
+                role: 'ADMIN',
                 username: '',
                 email: '',
                 password: '',

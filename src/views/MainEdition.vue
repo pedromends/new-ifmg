@@ -1,5 +1,5 @@
 <template lang="">
-    <main class="px-10 pt-6" id="main-edition">
+    <main class="px-10 pt-6 max-sm:mt-20" id="main-edition">
         <div class="flex items-center gap-2 px-5">
             <img class="w-6" :src="require('@/assets/icons/house2.svg')" alt="">
             <router-link to="/news" class="text-maingreen hover:underline">Home</router-link>
@@ -17,7 +17,7 @@
                 <img :src="require('@/assets/icons/components.svg')" class="w-10 h-10 mt-1" alt="">
                 <h1 class="text-3xl font-semibold underline decoration-maingreen decoration-4">Edição de Componentes</h1>
             </div>
-            <div class="flex gap-5 rounded-2xl">
+            <div class="flex max-sm:flex-col gap-5 rounded-2xl">
                 <div class="flex flex-col">
                     <ul class="flex flex-col gap-3 justify-between border-l-2 border-red-600 p-4">
                         <button class="text-start" @click="goPresenter" to="/edit/presenter-card" :class="linkCss">Sessão de Apresentação</button>
