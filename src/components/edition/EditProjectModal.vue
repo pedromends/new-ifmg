@@ -202,7 +202,7 @@
 </template>
 
 <script>
-//import router from '@/router/index.js'
+import router from '@/router/index.js'
 
 import { listModalities } from '@/services/ModalityService.js';
 import { listCompanies } from '@/services/CompanyService.js';

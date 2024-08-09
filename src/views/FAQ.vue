@@ -12,6 +12,7 @@
                 :bodyId="FAQ.idBody"
                 :answer="FAQ.answer"
                 :question="FAQ.question"
+                :id="FAQ.id"
             />
         </div>
     </main>
@@ -19,7 +20,7 @@
 
 <script>
     import router from '@/router/index.js'
-    import {  listFAQs } from '@/services/FAQService.js';
+    import { listFAQs } from '@/services/FAQService.js';
     //import ResearcherCard from '@/components/cards/ResearcherCard.vue'; 
     //import BackToTop  from '@/components/buttons/BackToTop.vue';
     import FAQCard from '@/components/cards/FAQCard.vue'
