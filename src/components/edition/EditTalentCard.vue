@@ -147,17 +147,19 @@ export default {
                     })
                     
                     console.log(objId)
-                    this.newTalent.img.id = objId[0].img.id
+                    if(this.newTalent.img.code != null){
+                        this.newTalent.img.id = objId[0].img.id
+                    }
                     updateTalent(this.newTalent).then((response) => {
                         console.log(response)
                     }).finally(() => {
                         router.push('/').then(() => {
-                            var element = document.getElementById("talents");
                             window.location.reload();
-                            element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
                         }); 
                     })
                 }
+            }else{
+                alert('Um ou mais campos vazios')
             }
         },
         deleteTalent(){
@@ -170,8 +172,7 @@ export default {
                     this.showDeleteSuccess()
                     setInterval(() => {
                         router.push('/').then(() => {1
-                            var element = document.getElementById("ourclients");
-                            element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                            window.location.reload();
                         }); 
                     }, 2000)
                 })

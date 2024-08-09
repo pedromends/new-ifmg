@@ -40,13 +40,15 @@
                         value="0">Selecione um Pesquisador</option>
                     <option
                         class="bg-white divide-y divide-gray-100 text-start rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen"
-                        :value="researcher.id" v-for="(researcher, i) in researchers" :key="i">{{ researcher.firstName + ' ' + researcher.lastName }}</option>
+                        :value="researcher.id" v-for="(researcher, i) in researchers" :key="i">{{ researcher.firstName +
+                        ' ' + researcher.lastName }}</option>
                 </select>
             </div>
         </div>
+
         <form class="bg-white p-10 rounded-2xl">
             <AlertSuccessDelete />
-            <div class="flex max-sm:flex-col">
+            <div class="flex justify-between max-sm:flex-col">
                 <div class="flex gap-6 mb-6 flex-col">
                     <!-- Nome -->
                     <div id="name-div" class="border-2 border-transparent p-2 rounded-lg">
@@ -105,7 +107,9 @@
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5"
                             v-model="inEditionResearcher.level" type="text" id="lastname" required />
                     </div>
+                </div>
 
+                <div class="flex gap-6 mb-6 flex-col">
 
                     <!-- Telefone -->
                     <div id="lastname-div" class="border-2 border-transparent p-2 rounded-lg">
@@ -115,8 +119,7 @@
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5"
                             v-model="inEditionResearcher.phone" type="text" id="lastname" required />
                     </div>
-                </div>
-                <div class="flex flex-col">
+
                     <!-- Curso -->
                     <div id="course-div" class="border-2 border-transparent p-2 rounded-lg">
                         <label for="course"
@@ -296,9 +299,12 @@
                             if (researcher.id == this.inEditionResearcher.id)
                                 return researcher
                         })
+
                         console.log(objId)
+
                         this.inEditionResearcher.img.id = objId[0].img.id
                         console.log(this.inEditionResearcher)
+
                         updateResearcher(this.inEditionResearcher).then((response) => {
                             console.log(response)
                         }).finally(() => {
@@ -318,16 +324,14 @@
                     deleteResearcher(this.inEditionResearcher.id).then((response) => {
                         console.log(response)
                     })
-                        .finally(() => {
-                            this.showDeleteSuccess()
-                            setInterval(() => {
-                                router.push('/').then(() => {
-                                    1
-                                    var element = document.getElementById("ourclients");
-                                    element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
-                                });
-                            }, 2000)
-                        })
+                    // .finally(() => {
+                    //     this.showDeleteSuccess()
+                    //     setInterval(() => {
+                    //         router.push('/').then(() => {
+                    //             window.location.reload();
+                    //         });
+                    //     }, 2000)
+                    // })
                 }
             }
         },

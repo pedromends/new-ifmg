@@ -9,9 +9,7 @@
                     <div id="company-name-div" class="border-2 border-transparent p-2 rounded-lg">
                         <div class="flex flex-col">
                             <label for="researchers" class="mb-2 text-sm font-medium text-gray-900 dark:text-white">Empresa:</label>
-                            <select v-model="inEditionCompany.id" name="" id="" class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 w-full p-2.5">
-                                <option class="bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen"
-                                    selected disabled hidden value="0">Selecione um projeto</option>
+                            <select @change="showEditCompany($event)" v-model="company.id" name="" id="" class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 w-full p-2.5">
                                 <option class="bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen"
                                     :value="company.id" v-for="(company, i) in companies" :key="i">{{ company.name }}</option>
                             </select>
@@ -29,6 +27,7 @@
                 </div>
             </section>
         </div>
+
         <AlertSuccessDelete/>
         <!-- Formulário -->
         <form class="bg-white w-full px-24 max-sm:px-4 py-10 rounded-xl">
@@ -83,20 +82,16 @@ export default {
         return {
             companies: null,
             company: {
-                id: 1,
+                id: 0,
                 image: {
                     id: null,
-                    name: '',
+                    name: 'debug',
                     code: ''
                 },
                 name: '',
                 classification: '',
-                cnpj: ''
-            },
-            inEditionCompany:{
-                id: 'Selecione uma Empresa',
-                name: '',
-                id_img: null
+                cnpj: '',
+                active: 1
             },
         }
     },
@@ -107,6 +102,9 @@ export default {
         })
     },
     methods: {
+        showEditCompany(){
+            console.log(this.company)
+        },
         onFileChanged(e){
             const image = e.target.files[0];
             const reader = new FileReader();
@@ -119,50 +117,39 @@ export default {
             let div = document.getElementById("success-delete-alert")
             div.style.display = "flex"
         },
-        setItem(id, name, id_img){
-            this.inEditionCompany.id = id
-            this.inEditionCompany.name = name
-            if(id_img != null)
-                this.inEditionCompany.id_img = id_img
-        },
         updateCompany(){ // TODO: trocar pra submit data
-            if(this.inEditionCompany.id != null){
-                if(this.inEditionCompany.id == 0){
-                    this.company.id = null
-                    createCompany(this.company).then((response) => {
-                        console.log(response)
-                    }).finally(() => {
-                        router.push('/').then(() => {
-                            window.location.reload()
-                            var element = document.getElementById("navbar");
-                            element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
-                        }); 
-                    })
-                } else {
-                    this.company.id = this.inEditionCompany.id
-                    this.company.image.id = this.inEditionCompany.id_img
-                    updateCompany(this.company).then((response) => {
-                        console.log(response)
-                    }).finally(() => {
-                        router.push('/').then(() => {
-                            window.location.reload()
-                            var element = document.getElementById("ourclients");
-                            element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
-                        }); 
-                    })
-                }
+            console.log(this.company)
+            if(this.company.id == 0){
+                this.company.id = null
+                createCompany(this.company).then((response) => {
+                    console.log(response)
+                })
+                .finally(() => {
+                    router.push('/').then(() => {
+                        window.location.reload()
+                    }); 
+                })
+            } else {
+                updateCompany(this.company).then((response) => {
+                    console.log(response)
+                })
+                
+                .finally(() => {
+                    router.push('/').then(() => {
+                        window.location.reload()
+                    }); 
+                })
             }
             
         },
         deleteCompany(){
-            deleteCompany(this.inEditionCompany.id).then((response) => {
+            deleteCompany(this.company.id).then((response) => {
                 console.log(response)
             }).finally(() => {
                 this.showDeleteSuccess()
                 setInterval(() => {
                     router.push('/').then(() => {1
-                        var element = document.getElementById("ourclients");
-                        element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                       window.location.reload()
                     }); 
                 }, 2000)
             })

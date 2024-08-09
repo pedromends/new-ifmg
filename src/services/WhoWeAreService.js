@@ -3,6 +3,7 @@ import api from '@/services/api';
 export const createWhoWeAre = (form) => api.request({
   headers: {
     'Content-Type': 'application/json',
+    'Authorization': `Bearer ${window.localStorage.getItem('refresh_token')}`,
   },
   method: 'post',
   url: '/who-we-are/create',
@@ -12,6 +13,7 @@ export const createWhoWeAre = (form) => api.request({
 export const getWhoWeAre = () => api.request({
   headers: {
     'Content-Type': 'application/json',
+    'Authorization': `Bearer ${window.localStorage.getItem('refresh_token')}`,
   },
   method: 'get',
   url: '/who-we-are/get',
@@ -20,6 +22,7 @@ export const getWhoWeAre = () => api.request({
 export const updateWhoWeAre = (form) => api.request({
   headers: {
     'Content-Type': 'application/json',
+    'Authorization': `Bearer ${window.localStorage.getItem('refresh_token')}`,
   },
   method: 'put',
   url: '/who-we-are/update',
@@ -29,6 +32,7 @@ export const updateWhoWeAre = (form) => api.request({
 export const deleteWhoWeAre = (id) => api.request({
   headers: {
     'Content-Type': 'application/json',
+    'Authorization': `Bearer ${window.localStorage.getItem('refresh_token')}`,
   },
   method: 'delete',
   url: `/who-we-are/delete/${id}`,

@@ -120,6 +120,10 @@ export default {
             if(this.newAboutUs.title !== '' && this.newAboutUs.parag !== ''){
                 updateWhoWeAre(this.newAboutUs).then((response) => {
                     console.log(response)
+                }).finally(() => {
+                    router.push('/').then(() => {
+                        window.location.reload()
+                    }); 
                 })
             }
             if(this.newImage.code !== undefined){
@@ -127,8 +131,7 @@ export default {
                     console.log(response)
                 }).finally(() => {
                     router.push('/').then(() => {
-                        var element = document.getElementById("navbar");
-                        element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                        window.location.reload()
                     }); 
                 })
             }

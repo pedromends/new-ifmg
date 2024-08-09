@@ -1,6 +1,5 @@
 <template lang="">
     <section class="flex max-sm:flex-col justify-center items-center bg-lightgray gap-10 max-sm:w-3/4">
-
             <section role="status" class="flex flex-col justify-center gap-10 items-center mt-5 animate-pulse ">
                 <p class="font-semibold text-3xl underline underline-offset-2 decoration-4 decoration-maingreen self-start mt-10 pl-10 max-sm:ml-24">Modal de Projetos</p>
 
@@ -203,7 +202,7 @@
 </template>
 
 <script>
-import router from '@/router/index.js'
+//import router from '@/router/index.js'
 
 import { listModalities } from '@/services/ModalityService.js';
 import { listCompanies } from '@/services/CompanyService.js';
@@ -273,7 +272,8 @@ export default {
                 name: '',
                 resume: '',
                 situation: '',
-                value: ''
+                value: '',
+                active: 1
             }
         }
     },
@@ -292,7 +292,6 @@ export default {
 
                         getTalents().then((response) => {
                             this.talents = response.data
-                            
                         }).catch((error) => console.log(error))
                     }).catch((error) => console.log(error))
                 }).catch((error) => console.log(error))
@@ -313,30 +312,6 @@ export default {
                 this.newResearcher.img.code = e.target.result;
             };
         },
-        setItem(item, id, name, id_img){
-            console.log(item, id, name, id_img)
-            if (item == 'researcher') {
-                this.editResearchers.id = id
-                this.editResearchers.name = name,
-                this.editResearchers.id_img = id_img
-            } else if (item == 'talents') {
-                this.editStudents.id = id
-                this.editStudents.name = name,
-                this.editStudents.id_img = id_img
-            } else if (item == 'coordinator') {
-                this.editCoordinator.id = id
-                this.editCoordinator.name = name,
-                this.editCoordinator.id_img = id_img
-            } else if(item == 'project') {
-                this.editProject.id = id
-                this.editProject.name = name,
-                this.editProject.id_img = id_img
-            } else {
-                this.editCompany.id = id
-                this.editCompany.name = name,
-                this.editCompany.id_img = id_img
-            }
-        },
         showDeleteSuccess(){
             let div = document.getElementById("success-delete-alert")
             div.style.display = "flex"
@@ -350,7 +325,8 @@ export default {
                 console.log(this.newProject)
                 createProject(this.newProject).then((response) => {
                     console.log(response)
-                }).finally(() => {
+                })
+                .finally(() => {
                      router.push('/').then(() => {
                          var element = document.getElementById("ourclients");
                          element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
@@ -367,7 +343,8 @@ export default {
 
                 updateProject(this.newProject).then((response) => {
                     console.log(response)
-                }).finally(() => {
+                })
+                .finally(() => {
                      router.push('/').then(() => {
                          window.location.reload()
                          var element = document.getElementById("ourclients");
@@ -377,9 +354,11 @@ export default {
             }
         },
         deleteProject(){
-            deleteProject(this.editProject.id).then((response) => {
+            if(this.editProject.id != 0){
+                deleteProject(this.editProject.id).then((response) => {
                 console.log(response)
-            }).finally(() => {
+            })
+            .finally(() => {
                 setInterval(() => {
                     this.showDeleteSuccess()
                     setInterval(() => {
@@ -391,6 +370,9 @@ export default {
                     }, 2000)
                 })
             })     
+            }else{
+                alert('Selecione primeiro uma empresa pra deletar')
+            }
         }
     },
 }

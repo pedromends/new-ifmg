@@ -56,7 +56,7 @@
                             type="text" id="last_name" placeholder="Projetos Publicados, Empresas Parceiras....." required v-model="newCard.text"/>
                     </div>
                     <div id="cover-div" class="border border-transparent rounded-lg p-2">
-                        <label for="last_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Imagem de capa</label>
+                        <label for="last_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Imagem de capa (Não obrigatório)</label>
                         <input class="bg-gray-50 border text-gray-900 text-sm focus:ring-red-600 focus:border-red-600 w-full rounded-xl"
                             type="file" id="logo" @change="onFileChanged($event)" accept="image/*" required />
                     </div>
@@ -100,7 +100,8 @@ export default {
         },
         updateCard(){
             this.newCard.id = this.cardToUpdate
-            if(this.newCard.num != null){
+            
+            if (this.newCard.num != null) {
                 updateCard(this.newCard).then((response) => {
                     console.log(response)
                 }).finally(() => {
@@ -114,6 +115,11 @@ export default {
             if(this.background.code != null){
                 updateImage(this.background).then((response) => {
                     console.log(response.data)
+                }).finally(() => {
+                    router.push('/').then(() => {
+                        var element = document.getElementById("navbar");
+                        element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                    }); 
                 })
             }
         },
