@@ -33,7 +33,6 @@
         created(){
             listFAQs().then((response) => {
                 this.FAQs = response.data
-                console.log(this.FAQs)
             })
         },
         data(){

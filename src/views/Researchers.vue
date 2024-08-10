@@ -28,7 +28,8 @@
             </div>  
             <div class="grid grid-cols-3 gap-7 max-sm:grid-cols-1">
                 <ResearcherCard v-for="(researcher, i) in researchers" :key="i"
-                    :img="researcher.img" :course="researcher.course" :link="'#'" :name="researcher.firstName + ' ' + researcher.lastName" :email="researcher.email"/>
+                    :img="researcher.img" :course="researcher.course" :link="'#'" :name="researcher.firstName + ' ' + researcher.lastName" 
+                        :email="researcher.email" :id="researcher.id"/>
             </div>
         </section>
         <BackToTop />
@@ -60,7 +61,7 @@ export default {
     },
     methods: {
         createNewResearcher(){
-            router.push('/edit/researcher').then(() => {
+            router.push('/edit/researcher/0').then(() => {
                 window.location.reload()
                 var element = document.getElementById("navbar");
                 element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });

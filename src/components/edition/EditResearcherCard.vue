@@ -213,6 +213,8 @@
     import { createResearcher, listResearchers, updateResearcher, deleteResearcher } from '@/services/ResearcherService.js';
     import { listCampus } from '@/services/CampusService.js';
     import AlertSuccessDelete from "@/components/alert/AlertSuccessDelete.vue";
+    import { getResearcher } from '@/services/ResearcherService.js';
+    import { useRoute } from "vue-router";
 
     export default {
         name: 'EditResearcherCard',
@@ -223,6 +225,7 @@
             return {
                 bool: false,
                 researchers: null,
+                researcher: null,
                 campuses: null,
                 inEditionResearcher: {
                     id: 0,
@@ -253,6 +256,18 @@
             }
         },
         created() {
+
+            const route = useRoute();
+            const id = parseInt(route.params.id);
+
+            if (id != 0) {
+                getResearcher({id: id}).then((response) => {
+                    this.researcher = response.data
+                    this.inEditionResearcher = this.researcher
+                    console.log(this.researcher)
+                })
+            }
+
             listResearchers().then((response) => {
                 this.researchers = response.data
             })
@@ -260,6 +275,8 @@
             listCampus().then((response) => {
                 this.campuses = response.data
             })
+
+
         },
         methods: {
             onOffEffect(div) {

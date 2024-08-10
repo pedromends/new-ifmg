@@ -29,6 +29,17 @@ export const listResearchers = () => api.request({
   url: '/researcher/list',
 });
 
+export const getResearcher = (obj) => api.request({
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${window.localStorage.getItem('refresh_token')}`,
+  },
+  method: 'get',
+
+  data:obj.toString(),
+  url: '/researcher/get-one/' + obj.id,
+});
+
 export const updateResearcher = (form) => api.request({
   headers: {
     'Content-Type': 'application/json',

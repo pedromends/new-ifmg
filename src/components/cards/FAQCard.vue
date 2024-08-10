@@ -17,9 +17,9 @@
                             <img :src="require('@/assets/icons/pencil-edit-maingreen.svg')" alt=""
                                 class="h-10 m-2 hover:bg-gray-300 rounded-lg" />
                         </button>
-                        <div class="hover:bg-gray-300 rounded-md">
+                        <button @click="deleteFAQ()" class="hover:bg-gray-300 rounded-md">
                             <img :src="require('@/assets/icons/trash.svg')" alt="" class="h-7 m-2" v-if="!inEdit" />
-                        </div>
+                        </button>
                     </div>
                     <button :data-accordion-target="`#${bodyId}`" :aria-controls="bodyId" type="button"
                         aria-expanded="true">
@@ -35,20 +35,22 @@
         <div :id="bodyId" class="hidden" :aria-labelledby="accordionId">
             <div class="p-5 border border-gray-200 dark:border-gray-700 dark:bg-gray-900 rounded-lg">
                 <p v-if="!inEdit" class="mb-2 text-gray-500 dark:text-gray-400 max-w-216">{{ answer }}</p>
-                <textarea class="rounded-md" v-if="inEdit" type="text" v-model="FAQ.answer" cols="50" rows="10"></textarea>
+                <textarea class="rounded-md" v-if="inEdit" type="text" v-model="FAQ.answer" cols="50"
+                    rows="10"></textarea>
             </div>
         </div>
     </div>
 </template>
 
 <script>
-    import { updateFAQ } from '@/services/FAQService.js';
+    import { updateFAQ, deleteFAQ } from '@/services/FAQService.js';
+    import router from '@/router/index.js'
 
     export default {
         name: 'FAQCard',
-        created(){
+        created() {
             this.FAQ.question = this.question,
-            this.FAQ.answer = this.answer
+                this.FAQ.answer = this.answer
         },
         data() {
             return {
@@ -78,7 +80,20 @@
                     console.log(response)
                     this.inEdit = false
                 }).catch((error) => console.log(error))
-                
+
+            },
+            deleteFAQ() {
+                deleteFAQ(this.id)
+                    .then((response) => {
+                        console.log(response)
+                    }).catch((error) => console.log(error)).finally(() => {
+                        router.push('/').then(() => {
+                            var element = document.getElementById("capacitation");
+                            element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                            window.location.reload();
+                        });
+                    })
+
             }
         }
     }

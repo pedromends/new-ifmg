@@ -39,6 +39,7 @@ export const createNew = (form) => api.request({
   export const updateNew = (form) => api.request({
     headers: {
       'Content-Type': 'application/json',
+      'Authorization': `Bearer ${window.localStorage.getItem('refresh_token')}`,
     },
     method: 'put',
     url: '/new/update',
@@ -48,6 +49,7 @@ export const createNew = (form) => api.request({
   export const deleteNew = (id) => api.request({
     headers: {
       'Content-Type': 'application/json',
+      'Authorization': `Bearer ${window.localStorage.getItem('refresh_token')}`,
     },
     method: 'delete',
     url: `/new/delete/${id}`,

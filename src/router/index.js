@@ -33,6 +33,7 @@ import EditCompany from "@/components/edition/EditCompany.vue";
 import ResearchersProfile from "@/views/ResearchersProfile.vue";
 import Notifications from "@/views/Notifications.vue";
 import Edition from "@/components/edition/Edition.vue";
+import EditNew from "@/components/edition/EditNew.vue";
 
 const routes = [
   {
@@ -145,7 +146,7 @@ const routes = [
         component: EditNewCard
       },
       {
-        path: "/edit/researcher",
+        path: "/edit/researcher/:id",
         name: 'EditResearcherCard',
         component: EditResearcherCard
       },
@@ -178,6 +179,11 @@ const routes = [
         path: "/edit/company",
         name: 'EditCompany',
         component: EditCompany
+      },
+      {
+        path: "/edit/edit-new/:id",
+        name: 'EditNew',
+        component: EditNew
       },
     ]
   }
