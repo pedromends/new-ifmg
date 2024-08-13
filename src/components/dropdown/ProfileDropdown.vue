@@ -59,6 +59,8 @@ import { getUserInfo } from '@/services/UserService'
 export default {
     name: 'ProfileDropdown',
     created() {
+
+        console.log(this.isAdmin)
         if(this.isLoggedIn){
             getUserInfo({email: this.user.email}).then((response) => {
                 this.info = response.data

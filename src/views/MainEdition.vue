@@ -77,7 +77,7 @@ export default {
                 })
             },
             goResearchers: () => {
-                router.push({ path: '/edit/researcher' }).then(() => {
+                router.push({ path: '/edit/researcher/0' }).then(() => {
                     var element = document.getElementById("navbar");
                     element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
                     window.location.reload()

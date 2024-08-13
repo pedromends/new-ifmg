@@ -247,7 +247,8 @@
                     email: '',
                     level: '',
                     phone: '',
-                    sex: 0
+                    sex: 0,
+                    active: 1
                 },
                 inEditionCampus: {
                     id: null,

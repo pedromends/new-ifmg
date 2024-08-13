@@ -3,7 +3,7 @@
         class="flex justify-center">
         <button class="bg-gradient-to-r from-maingreen to-transparent p-0.5 rounded-xl flex items-center shadow-md shadow-transparent hover:shadow-md hover:shadow-maingreen transition duration-200"
             type="button">
-            <img :src="img" class="py-5 rounded-xl bg-white shadow-lg self-center px-10 mx-auto" alt="#" :class="extraClass"/>
+            <img :src="img" class="py-5 rounded-xl bg-white shadow-lg self-center px-10 eauto" alt="#" :class="extraClass"/>
         </button>
     </section>
     
@@ -54,14 +54,14 @@
                             <p class="font-bold text-maingray">Coordenador: </p>
                             <p>{{ coorName }}</p>
                         </div>
-                        <div class="flex gap-2 items-center max-lg:text-sm">
+                        <!-- <div class="flex gap-2 items-center max-lg:text-sm">
                             <p class="font-bold text-maingray">Pesquisador(es): </p>
                             <p>Nome e Campus</p>
                         </div>
                         <div class="flex gap-2 items-center max-lg:text-sm">
                             <p class="font-bold text-maingray">Aluno(s): </p>
                             <p>Nome e Curso</p>
-                        </div>
+                        </div> -->
                         <div class="flex gap-2 items-center max-lg:text-sm">
                             <p class="font-bold text-maingray">Situação: </p>
                             <p>{{ situ }}</p>
