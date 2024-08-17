@@ -29,7 +29,7 @@ export default {
     data() {
         return {
             mainnew: undefined,
-            isAdmin: this.$store.getters.isLoggedIn
+            isAdmin: this.$store.getters.isAdmin
         }
     },
     props: {

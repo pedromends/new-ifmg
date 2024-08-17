@@ -101,7 +101,7 @@ export default {
     },
     data() {
         return {
-            isAdmin: this.$store.getters.isLoggedIn
+            isAdmin: this.$store.getters.isAdmin
         }
     },
     props: {

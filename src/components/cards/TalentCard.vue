@@ -33,7 +33,7 @@ export default {
     data(){
         return {
             activePopover: false,
-            isAdmin: this.$store.getters.isLoggedIn
+            isAdmin: this.$store.getters.isAdmin
         }
     },
     methods: {
