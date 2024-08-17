@@ -56,7 +56,7 @@ export default {
     data(){
         return {
             researchers: null,
-            isAdmin: this.$store.getters.isLoggedIn,
+            isAdmin: this.$store.getters.isAdmin,
         }
     },
     methods: {

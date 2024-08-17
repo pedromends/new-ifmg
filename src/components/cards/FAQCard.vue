@@ -2,8 +2,7 @@
     <div>
         <!-- Card 1 -->
         <h2 :id="accordionId" class="min-w-216">
-            <div
-                class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-gray-200 rounded-xl focus:ring-4 focus:ring-gray-200 gap-3">
+            <div class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border gap-3 rounded-xl">
                 <span v-if="!inEdit">{{ question }}</span>
                 <div class="flex">
                     <input v-if="inEdit" type="text" v-model="FAQ.question" class="rounded-md">
@@ -12,7 +11,7 @@
                     </button>
                 </div>
                 <div class="self-end flex gap-10 items-center">
-                    <div class="flex gap-4 items-center">
+                    <div class="flex gap-4 items-center" v-if="isAdmin">
                         <button @click="editing()">
                             <img :src="require('@/assets/icons/pencil-edit-maingreen.svg')" alt=""
                                 class="h-10 m-2 hover:bg-gray-300 rounded-lg" />
@@ -21,9 +20,8 @@
                             <img :src="require('@/assets/icons/trash.svg')" alt="" class="h-7 m-2" v-if="!inEdit" />
                         </button>
                     </div>
-                    <button :data-accordion-target="`#${bodyId}`" :aria-controls="bodyId" type="button"
-                        aria-expanded="true">
-                        <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true"
+                    <button :data-accordion-target="`#${bodyId}`" :aria-controls="bodyId" type="button" aria-expanded="true" title="Expandir">
+                        <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0 m-4" aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M9 5 5 1 1 5" />
@@ -55,6 +53,7 @@
         data() {
             return {
                 inEdit: false,
+                isAdmin: this.$store.getters.isAdmin,
                 FAQ: {
                     question: '',
                     answer: '',

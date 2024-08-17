@@ -52,6 +52,17 @@ export const updateUserInfo = (form) => api.request({
   data: form,
 });
 
+export const updatePermissions = (form) => api.request({
+  headers: {
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*',
+    'Authorization': `Bearer ${window.localStorage.getItem('refresh_token')}`,
+  },
+  method: 'put',
+  url: '/user/change-permissions',
+  data: form,
+});
+
 export const deleteUser = (id) => api.request({
   headers: {
     'Content-Type': 'application/json',

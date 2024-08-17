@@ -59,8 +59,6 @@ import { getUserInfo } from '@/services/UserService'
 export default {
     name: 'ProfileDropdown',
     created() {
-
-        console.log(this.isAdmin)
         if(this.isLoggedIn){
             getUserInfo({email: this.user.email}).then((response) => {
                 this.info = response.data
@@ -85,7 +83,7 @@ export default {
         }
     },
     methods: {
-        ...mapMutations(["setUser", "setToken"]),
+        ...mapMutations(["setUser", "setToken",  "setRole"]),
         showSignOutSuccess(){
             let div = document.getElementById("success-logout-alert")
             div.style.display = "flex"
@@ -93,6 +91,7 @@ export default {
         logOut() {
             this.setUser(null);
             this.setToken(null);
+            this.setRole('USER')
             window.localStorage.setItem("refresh_token", null)
             document.cookie = `refresh_token = ${null}`
             this.showSignOutSuccess()

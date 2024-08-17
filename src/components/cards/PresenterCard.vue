@@ -1,6 +1,6 @@
 <template lang="">
     <div class="bg-white border-b-4 border-maingreen flex flex-col text-center items-center px-2 py-6 transition duration-400 relative z-20"
-        :class="loggedIn ? 'edit' : 'user'">
+        :class="isAdmin ? 'edit' : 'user'">
         <button @click="editPresenterCard()">
             <img :src="require('@/assets/icons/pencil-edit.svg')" alt="#" class="h-10 mx-24 mt-5 z-20" />
         </button>
@@ -21,7 +21,7 @@ export default {
     name: 'PresenterCard',
     data(){
         return {
-            loggedIn: this.$store.getters.isLoggedIn
+            isAdmin: this.$store.getters.isAdmin
         }
     },
     props: {
@@ -30,7 +30,7 @@ export default {
     },
     methods:{
         editPresenterCard(){
-            if(this.loggedIn){
+            if(this.isAdmin){
                 router.push('/edit/presenter-card').then(() => {
                     var element = document.getElementById("navbar");
                     element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });

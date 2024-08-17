@@ -1,9 +1,7 @@
 <template lang="">
-    <div class="hover:shadow-md shadow-md hover:shadow-maingreen shadow-transparent transition duration-300 rounded-lg border border-gray-200"
-        >
+    <div class="hover:shadow-md shadow-md hover:shadow-maingreen shadow-transparent transition duration-300 rounded-lg border border-gray-200">
         <div class="border-t border-maingreen bg-lightgray px-4 py-5 flex items-center justify-between">
             <h1 class="font-semibold">{{ name }}</h1>
-            
             <div v-if="img != null" class="flex items-center gap-4">
                 <button @click="editResearcher()" class="self-end" v-if="isAdmin">
                     <img :src="require('@/assets/icons/pencil-edit-maingreen.svg')" alt="#" class="h-8"/>
@@ -32,7 +30,7 @@ export default {
     name: 'CardResearcher',
     data(){
         return {
-            isAdmin: this.$store.getters.isLoggedIn,
+            isAdmin: this.$store.getters.isAdmin,
         }
     },
     props: {

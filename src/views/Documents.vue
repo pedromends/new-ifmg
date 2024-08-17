@@ -24,7 +24,7 @@
                     type="button">Inserir novo documento</button>
 
                 <!-- Main modal -->
-                <div id="default-modal" tabindex="-1" aria-hidden="true"
+                <div id="default-modal" tabindex="-1" aria-hidden="true" v-if="isAdmin"
                     class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
                     <div class="relative p-4 w-full max-w-2xl max-h-full">
                         <!-- Modal content -->
@@ -91,7 +91,6 @@
                             <a target="_blank" class="hover:underline">{{ doc.title }}</a>
                         </li>
                     </ul>
-                    
                 </div>
                 <!-- TODO: Criar CRUD de editais com as seguintes informações -->
                 <!-- Título do Edital -->
@@ -116,13 +115,12 @@
         created() {
             listDocs().then((response) => {
                 this.docs = response.data
-                console.log(this.docs)
             })
         },
         data() {
             return {
                 docs: null,
-                isAdmin: this.$store.getters.isLoggedIn,
+                isAdmin: this.$store.getters.isAdmin,
             }
         },
         methods: {

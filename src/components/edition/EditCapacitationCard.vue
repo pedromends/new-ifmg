@@ -153,8 +153,6 @@ export default {
                     console.log(response)
                 }).finally(() => {
                     router.push('/').then(() => {
-                        var element = document.getElementById("capacitation");
-                        element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
                         window.location.reload();
                     }); 
                 })

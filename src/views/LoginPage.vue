@@ -132,7 +132,7 @@ export default {
             newUser: {
                 firstName: '',
                 lastName: '',
-                role: 'ADMIN',
+                role: 'USER',
                 username: '',
                 email: '',
                 password: '',

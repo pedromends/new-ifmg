@@ -13,7 +13,6 @@ export const createFAQ = (form) => api.request({
 export const listFAQs = () => api.request({
   headers: {
     'Content-Type': 'application/json',
-    'Authorization': `Bearer ${window.localStorage.getItem('refresh_token')}`,
   },
   method: 'get',
   url: '/FAQ/list',

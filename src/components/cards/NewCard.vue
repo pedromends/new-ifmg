@@ -1,6 +1,6 @@
 <template lang="">
-    <div v-if="newBody != null" class="flex flex-col justify-center gap-3 hover:bg-gray-200 rounded-xl transition duration-300 pb-3 h-full max-sm:self-center">
-        <div v-if="img != null" @click.prevent="openNew()" class="w-full flex justify-center px-3">
+    <div v-if="newBody != null" class="flex flex-col justify-between gap-3 hover:bg-gray-200 rounded-xl transition duration-300 pb-3 h-full max-sm:self-center">
+        <div v-if="img != null" @click.prevent="openNew()" class="w-full flex justify-center items-center px-3">
             <img :src="img" alt="" class="mt-3 max-w-72 max-h-72"/>
         </div>
         <div class="px-8 flex flex-col justify-between gap-2">

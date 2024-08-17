@@ -13,7 +13,6 @@ export const createDoc = (form) => api.request({
 export const listDocs = () => api.request({
   headers: {
     'Content-Type': 'application/json',
-    'Authorization': `Bearer ${window.localStorage.getItem('refresh_token')}`,
   },
   method: 'get',
   url: '/docs/list',

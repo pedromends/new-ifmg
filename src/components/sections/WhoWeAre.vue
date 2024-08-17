@@ -42,7 +42,7 @@ export default {
         return {
             maintext: undefined,
             image: '',
-            isAdmin: this.$store.getters.isLoggedIn
+            isAdmin: this.$store.getters.isAdmin
         }
     },
     methods:{

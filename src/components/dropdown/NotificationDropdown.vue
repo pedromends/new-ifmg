@@ -38,7 +38,7 @@ export default {
     },
     data(){
         return {
-            isAdmin: this.$store.getters.isLoggedIn,
+            isAdmin: this.$store.getters.isAdmin,
             user: this.$store.getters.getUser,
             notifications: null,
             notiCount: null
