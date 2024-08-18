@@ -5,13 +5,13 @@
         <div class=" flex flex-col justify-center items-center pt-12 gap-96 rounded-b-3xl relative">
             <div class="flex flex-col gap-12 pb-28">
                 <div class="flex flex-col gap-10 pt-16">
-                    <h1 class="text-5xl text-center text-govblue w-216 mx-auto font-semibold max-lg:w-auto max-lg:text-3xl">
+                    <h1 class="2xl:text-5xl xl:text-4xl text-center text-govblue w-216 mx-auto font-semibold max-lg:w-auto max-lg:text-3xl">
                         Seja bem-vindo ao <br/>
                         <span class="mx-2">
                             <span class="underline decoration-maingreen decoration-4">Polo de Inovação IFMG</span>
                         </span>
                     </h1>
-                    <p class="text-center text-gray-900 text-xl max-w-192 max-lg:w-auto max-lg:text-sm">
+                    <p class="text-center text-gray-900 2xl:text-xl xl:text-md max-w-192 max-lg:w-auto max-lg:text-sm">
                         O Polo de Inovação IFMG atua na aproximação das empresas com o setor acadêmico,
                         desenvolvendo projetos relacionados à diversas áreas do mercado.
                     </p>

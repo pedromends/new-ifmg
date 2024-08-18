@@ -1,6 +1,6 @@
 <template lang="">
     <section title="Abrir Modal" :data-modal-target="modalname" :data-modal-toggle="modalname"
-        class="flex justify-center">
+        class="flex justify-start">
         <button class="bg-gradient-to-r from-maingreen to-transparent p-0.5 rounded-xl flex items-center shadow-md shadow-transparent hover:shadow-md hover:shadow-maingreen transition duration-200"
             type="button">
             <img :src="img" class="py-5 rounded-xl bg-white shadow-lg self-center px-10 eauto" alt="#" :class="extraClass"/>

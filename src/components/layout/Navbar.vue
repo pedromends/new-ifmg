@@ -36,7 +36,7 @@
                         <img alt="Youtube" class="h-10" :src="require('@/assets/icons/youtube.svg')"/>
                     </a>
                 </div>
-                <input type="text" class="bg-handglass hover:bg-handglass-blue mx-3  bg-maingreen bg-no-repeat bg-contain pl-10 h-10 w-72 rounded-xl border-white text-white hover:border-red-600 transition duration-200"/>
+                <input type="text" class="bg-handglass hover:bg-handglass-blue mx-3  bg-maingreen bg-no-repeat bg-contain pl-10 h-10 2xl:w-72 xl:w-32 rounded-xl border-white text-white hover:border-red-600 transition duration-200"/>
                 <ProfileDropdown/>
                 <div class="flex items-center gap-3 px-3">
                     <NotificationDropdown />
@@ -45,14 +45,14 @@
         </section>
         
         <section class="flex justify-between items-center">
-            <div class="flex text-sm text-maingray gap-5 p-4 ml-14 max-lg:p-0">
+            <div class="flex text-sm text-maingray gap-5 p-4 2xl:ml-14 xl:ml-4 max-lg:p-0">
                 <router-link class="hover:text-red-600 hover:underline" to='/'>INÍCIO</router-link>
                 <NavbarLink :func="aboutUs" :link="'/'" :text="'QUEM SOMOS'" />
                 <NavbarLink :func="advantages" :link="'/'" :text="'VANTAGENS'" />
                 <NavbarLink :link="'/news'" :text="'NOTÍCIAS'" />
                 <NavbarLink :func="ourClients" :link="'/'" :text="'PORTFÓLIO DE PROJETOS'" />
             </div>
-            <div class="flex text-sm text-maingray gap-5 py-1  mr-14 max-lg:p-0 items-center">
+            <div class="flex text-sm text-maingray gap-5 py-1 md:mr-4 mr-14 max-lg:p-0 items-center">
                 <NavbarLink :func="goResearchers" :link="'/researchers'"  :text="'PESQUISADORES'" />
                 <NavbarLink :link="'/edicts'" :text="'EDITAIS'" />
                 <NavbarLink :link="'/docs'" :text="'DOCUMENTOS'" />

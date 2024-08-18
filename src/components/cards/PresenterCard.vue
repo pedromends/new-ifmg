@@ -6,10 +6,10 @@
         </button>
         <div class="absolute z-30">
             <div class="flex items-center text-maingreen font-bold text-4xl justify-center">
-                <AnimatedCounter :value="parseInt(num)" :duration="800" class="py-1"/>
+                <AnimatedCounter :value="parseInt(num)" :duration="800" class="py-1 xl:text-md"/>
                 <p>+</p>
             </div>
-            <p class="">{{ text }}</p>
+            <p class="xl:text-sm">{{ text }}</p>
         </div>
     </div>
 </template>

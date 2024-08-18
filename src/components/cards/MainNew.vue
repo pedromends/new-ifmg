@@ -2,7 +2,7 @@
     <section class="bg-gradient-to-r from-maingreen to-transparent pt-1 pb-1 pl-1 border rounded-3xl hover:shadow-lg shadow-transparent hover:shadow-maingreen transition duration-300">
         <div class="bg-white rounded-3xl">
             <div @click.prevent="openNew()" class="flex max-lg:flex-col justify-between items-center gap-2">           
-                <div class="flex flex-col gap-3 pl-20 px-3">
+                <div class="flex flex-col gap-3 2xl:pl-20 xl:pl-4 px-3 xl:py-10">
                     <span class="border-2 border-maingreen rounded-lg w-40 text-center text-sm px-2 py-1 max-lg:mt-6">{{ tip }}</span>
                     <h1 class="w-3/4 text-4xl font-semibold mt-2">{{ title }}</h1>
                     <p class="w-3/4 text-maingray">{{ parag }}</p>
