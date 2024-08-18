@@ -1,13 +1,13 @@
 <template lang="">
-    <section id="news" class="flex flex-col px-10 py-36 gap-16 max-lg:px-2">
+    <section id="news" class="flex flex-col 2xl:px-10 xl:px-4 2xl:py-36 2xl:gap-16 xl:gap-4 max-lg:px-2">
         <h1 class="text-4xl font-semibold self-center underline underline-offset-2 decoration-4 decoration-maingreen">Notícias e Eventos</h1>
         <div v-if="mainnew">
             <MainNew :tip="mainnew.tip" :title="mainnew.title" :parag="mainnew.paragraph" :img="mainnew.image.code"/>
         </div>
-        <div class="flex max-sm:flex-col gap-5 items-center justify-between pl-10 max-sm:pl-0">
-            <div class="flex flex-col w-3/4 gap-5">
+        <div class="flex max-sm:flex-col 2xl:gap-5 xl:gap-3 items-center justify-between pl-10 max-sm:pl-0 xl:py-12">
+            <div class="flex flex-col 2xl:w-full xl:w-4/5 gap-5">
                 <p class="font-semibold text-3xl underline underline-offset-2 decoration-4 decoration-maingreen self-start ml-6">Últimas Notícias</p>
-                <div class="flex gap-3 items-end justify-between max-sm:flex-col overflow-x-scroll">
+                <div class="flex gap-3 items-end 2xl:max-w-full xl:max-w-216 justify-between max-sm:flex-col overflow-x-scroll">
                     <NewCard  v-for="(newNew, i) in news" :key="i"
                         :tip="'Novidade'" :title="newNew.title" :date="newNew.date" :read="'3 min de Leitura'" :img="newNew.img1.code" :newId="newNew.id"/>
                 </div>
