@@ -6,6 +6,13 @@ module.exports = {
   ],
   theme: {
     extend: {
+      typography: {
+        DEFAULT: {
+          css: {
+            maxWidth: 'none', // add required value here
+          }
+        }
+      },
       borderWidth: {
         '1': '1px',
         '12': '12px',
@@ -80,6 +87,7 @@ module.exports = {
     },
   },
   plugins: [
-    require('flowbite/plugin')
+    require('flowbite/plugin'),
+    require('@tailwindcss/typography')
   ],
 }

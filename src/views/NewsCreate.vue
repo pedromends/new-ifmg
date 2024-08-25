@@ -1,7 +1,7 @@
 <template lang="">
     <section class="flex flex-col px-24 py-10">
-        <h1 class="text-4xl text-black font-semibold underline underline-offset-2 decoration-8 decoration-maingreen">Criação de Notícias</h1>
-        <div class="px-52">
+        <h1 class="text-4xl text-black font-semibold underline underline-offset-2 decoration-8 decoration-maingreen mb-12">Criação de Notícias</h1>
+        <!-- <div class="px-52">
             <form class="bg-white p-10 rounded-lg">
                 <div class="grid gap-6 mb-6 grid-cols-2">
                     <div id="tip-div" class="border-2 border-transparent p-2 col-span-2">
@@ -58,14 +58,16 @@
                     </div>
                 </div>
             </form>
-        </div>
+        </div> -->
         
+        <TiptapEditor/>
     </section>
 </template>
 
 <script>
 import router from '@/router/index.js'
 import { createNew } from '@/services/NewService.js';
+import TiptapEditor from '@/components/neweditor/TiptapEditor.vue'
 
 export default {
     name: 'NewsCreate',
@@ -90,6 +92,7 @@ export default {
         }
     },
     components:{
+        TiptapEditor
     },
     methods: {
         setImage(img, e){
