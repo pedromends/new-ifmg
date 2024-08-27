@@ -10,12 +10,12 @@ export const createNew = (form) => api.request({
     data: form,
   });
   
-  export const listNews = () => api.request({
+  export const listNews = (page) => api.request({
     headers: {
       'Content-Type': 'application/json',
     },
     method: 'get',
-    url: '/new/list',
+    url: '/new/list?page='+ page + '&size=9',
   });
 
   export const listThreeNews = () => api.request({

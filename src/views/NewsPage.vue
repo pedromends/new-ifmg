@@ -1,6 +1,6 @@
 <template lang="">
     <main class="flex justify-center items-center px-16 py-2 max-lg:p-2 max-lg:mt-20">
-        <div class="flex flex-col px-20 max-lg:px-4">
+        <div class="flex flex-col px-20 max-lg:px-4 gap-10">
             <div class="flex items-center gap-2">
                 <img class="w-6" :src="require('@/assets/icons/house2.svg')" alt="">
                 <router-link to="/news" class="text-maingreen hover:underline">Home</router-link>
@@ -15,67 +15,108 @@
             </div>
             <div class="flex flex-col gap-10 mb-10 pt-5">
                 <div class="flex items-center justify-between">
-                    <h1 class="text-4xl text-black font-semibold underline underline-offset-2 decoration-8 decoration-maingreen">Blog do Polo</h1>
-                    <button v-if="isAdmin" class="text-white bg-maingreen hover:bg-govblue focus:ring-4 focus:outline-none focus:ring-red-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center transition duration-200 mb-10"
+                    <h1
+                        class="text-4xl text-black font-semibold underline underline-offset-2 decoration-8 decoration-maingreen">
+                        Blog do Polo</h1>
+                    <button v-if="isAdmin"
+                        class="text-white bg-maingreen hover:bg-govblue focus:ring-4 focus:outline-none focus:ring-red-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center transition duration-200 mb-10"
                         type="submit" @click.prevent="createNew()">Criar nova notícia</button>
                 </div>
-                <hr class="bg-red-600 h-1"/>
+                <hr class="bg-red-600 h-1" />
                 <div class="flex items-center gap-5">
-                    <input type="text" placeholder="Pesquisar..." class="w-full rounded-lg ring ring-transparent focus:ring-red-600"/>
-                    <img alt="Laboratório de sistemas automotivos IFMG - Campus Formiga" class=" bg-maingreen px-4 rounded-lg" :src="require('@/assets/icons/hand-glass.svg')" />
+                    <input type="text" placeholder="Pesquisar..."
+                        class="w-full rounded-lg ring ring-transparent focus:ring-red-600" />
+                    <img alt="Laboratório de sistemas automotivos IFMG - Campus Formiga"
+                        class=" bg-maingreen px-4 rounded-lg" :src="require('@/assets/icons/hand-glass.svg')" />
                 </div>
             </div>
             <div class="grid grid-cols-3 gap-5 text-maingray max-lg:grid-cols-1">
-                <NewCard  v-for="(newNew, i) in news" :key="i"
-                    :tip="'Novidade'" :title="newNew.title" :date="newNew.date" :read="'3 min de Leitura'"
-                    :img="newNew.img1.code" :newId="newNew.id" />
+                <NewCard v-for="(newNew, i) in news" :key="i" :tip="'Novidade'" :title="newNew.title"
+                    :date="newNew.date" :read="'3 min de Leitura'" :img="newNew.img1.code" :newId="newNew.id" />
             </div>
+            <nav aria-label="flex justify-center">
+                <ul class="flex items-center -space-x-px h-10 text-base justify-center">
+                    <li>
+                        <button class="flex items-center justify-center px-4 h-10 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700"
+                            @click="pageSet(this.page - 1)">
+                            <span class="sr-only">Previous</span>
+                            <svg class="w-3 h-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                fill="none" viewBox="0 0 6 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="M5 1 1 5l4 4" />
+                            </svg>
+                        </button>
+                    </li>
+                    <li v-for="(page, i) in totalPages" :key="i">
+                        <button  :class="this.page == i ? 'bg-maingreen text-white hover:bg-green-700' : 'bg-white text-gray-500 hover:text-gray-700'"
+                            class="flex items-center justify-center px-4 h-10 leading-tight border border-gray-300"
+                            @click="pageSet(i)">{{ i + 1}}</button>
+                    </li>
+                    <li>
+                        <button class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700" @click="pageSet(this.page + 1)">
+                            <span class="sr-only">Next</span>
+                            <svg class="w-3 h-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                fill="none" viewBox="0 0 6 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="m1 9 4-4-4-4" />
+                            </svg>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
         </div>
         <BackToTop />
     </main>
 </template>
 
 <script>
-import router from '@/router/index.js'    
-import NewCard from '@/components/cards/NewCard.vue';
-import BackToTop  from '@/components/buttons/BackToTop.vue';
-import { listNews } from '@/services/NewService.js';
+    import router from '@/router/index.js'
+    import NewCard from '@/components/cards/NewCard.vue';
+    import BackToTop from '@/components/buttons/BackToTop.vue';
+    import { listNews } from '@/services/NewService.js';
 
-export default {
-    name: 'NewsSection',
-    components:{
-        NewCard,
-        BackToTop
-    },
-    data() {
-        return {
-            news: null,
-            isAdmin: false
-        }
-    },
-    created(){
-        this.isAdmin = this.$store.getters.isAdmin
-        listNews(this.newNew).then((response) => {
-            this.news = response.data
-            console.log(this.news)
-        })
-    },
-    methods: {
-        createNew(){
-            router.push('/news/create')
-            // .then(() => {
-            //     var element = document.getElementById("news");
-            //     element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
-            // });
+    export default {
+        name: 'NewsSection',
+        components: {
+            NewCard,
+            BackToTop
         },
-        
-        
-    },
-    props: {
+        data() {
+            return {
+                news: null,
+                isAdmin: false,
+                page: 1,
+                totalPages: 0,
+                totalElements: 0
+            }
+        },
+        created() {
+            this.isAdmin = this.$store.getters.isAdmin
+            this.pageSet(1)
+        },
+        methods: {
+            createNew() {
+                router.push('/news/create')
+                // .then(() => {
+                //     var element = document.getElementById("news");
+                //     element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                // });
+            },
+            pageSet(page){
+                this.page = page
+                listNews(page).then((response) => {
+                    this.news = response.data.content
+                    this.totalPages = response.data.totalPages
+                    this.totalElements = response.data.totalElements
+                    console.log(this.news)
+                })
+            }
+        },
+        props: {
+        }
     }
-}
 </script>
 
 <style lang="">
-    
+
 </style>
