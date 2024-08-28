@@ -6,9 +6,6 @@
                     <span class="border-2 border-maingreen rounded-lg w-40 text-center text-sm px-2 py-1 max-lg:mt-6">{{ tip }}</span>
                     <h1 class="w-3/4 text-4xl font-semibold mt-2">{{ title }}</h1>
                     <p class="w-3/4 text-maingray">{{ parag }}</p>
-                    <button @click="editMainNew()" class="w-3/4"  v-if="isAdmin">
-                        <img :src="require('@/assets/icons/pencil-edit-maingreen.svg')" alt="#" class="h-8"/>
-                    </button>
                     <div class="flex items-center justify-between">
                         <a href="#" class="text-xs text-maingreen hover:underline">Ler Mais -></a>
                     </div>
@@ -29,7 +26,6 @@ export default {
     data() {
         return {
             mainnew: undefined,
-            isAdmin: this.$store.getters.isAdmin
         }
     },
     props: {
@@ -39,12 +35,6 @@ export default {
         img: String
     },
     methods:{
-        editMainNew(){
-            router.push('/edit/main-new').then(() => {
-                var element = document.getElementById("navbar");
-                element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
-            }); 
-        },
         openNew(){
             router.push('/open-new/' + 0).then(() => {
                 var element = document.getElementById("navbar");

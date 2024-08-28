@@ -42,6 +42,22 @@
                         <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG, JPG or GIF (MAX. 800x400px).</p>
                     </div>
 
+                    <div class="flex items-center">
+                        <label class="inline-flex items-center cursor-pointer">
+                            <input type="checkbox" value="" class="sr-only peer" v-model="newNew.isMain">
+                            <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-red-600 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-['']
+                                after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-maingreen"></div>
+                            <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">Notícia Principal (Manchete) ?</span>
+                        </label>
+
+                        <div id="tip-div" class="border-2 border-transparent p-2" v-if="newNew.isMain">
+                            <label class="mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Dica</label>
+                            <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5" 
+                                type="text" id="tip" v-model="newNew.tip" placeholder="Ex: Novidade" required />
+                        </div>
+                    </div>
+  
+
                     <div class="flex justify-center gap-10 col-span-2">
                         <button class="text-white bg-maingreen hover:bg-govblue focus:ring-2 focus:outline-none focus:ring-red-600 font-medium rounded-lg text-sm w-full sm:w-auto px-36 py-3 text-center transition duration-200"
                             type="submit" @click.prevent="createNew()">Salvar</button>
@@ -80,7 +96,7 @@ export default {
         return {
             currentCard: 1,
             cardToSub: 'mainnew',
-            newNew:{
+            newNew: {
                 date: '',
                 title: '',
                 img1: {
@@ -92,7 +108,9 @@ export default {
                     code: ''
                 },
                 paragraph1: '',
-                paragraph2: ''
+                paragraph2: '',
+                isMain: false,
+                tip: 'Novidade'
             }
         }
     },

@@ -85,22 +85,18 @@
             return {
                 news: null,
                 isAdmin: false,
-                page: 1,
+                page: 0,
                 totalPages: 0,
                 totalElements: 0
             }
         },
         created() {
             this.isAdmin = this.$store.getters.isAdmin
-            this.pageSet(1)
+            this.pageSet(0)
         },
         methods: {
             createNew() {
                 router.push('/news/create')
-                // .then(() => {
-                //     var element = document.getElementById("news");
-                //     element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
-                // });
             },
             pageSet(page){
                 this.page = page
@@ -108,7 +104,7 @@
                     this.news = response.data.content
                     this.totalPages = response.data.totalPages
                     this.totalElements = response.data.totalElements
-                    console.log(this.news)
+                    console.log(this.news) 
                 })
             }
         },

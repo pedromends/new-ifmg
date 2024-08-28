@@ -31,7 +31,6 @@ export const createNew = (form) => api.request({
       'Content-Type': 'application/json',
     },
     method: 'get',
-
     data:obj.toString(),
     url: '/new/show-one/' + obj.id,
   });
