@@ -82,7 +82,7 @@
         <form class="bg-white p-10 rounded-lg max-sm:p-2">
             <AlertSuccessDelete/>
             <div class="flex flex-col gap-6 mb-6">
-                <div class="grid grid-cols-4 max-sm:grid-cols-1">
+                <div class="grid grid-cols-3 max-sm:grid-cols-1">
 
                     <!-- Projeto -->
                     <div id="project-name-div" class="border-2 border-transparent p-2 rounded-lg">
@@ -133,13 +133,13 @@
                     <!-- Situação -->
                     <div id="situation-div" class="border-2 border-transparent p-2 rounded-lg">
                         <label for="situation" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Situação</label>
-                            <select class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 w-full p-2.5"
-                                name="situation" v-model="newProject.situation" id="situation">
-                                <option value="" selected disabled hidden>Selecione uma opção</option>
-                                <option value="Concluído">Concluído</option>
-                                <option value="Em andamento">Em andamento</option>
-                                <option value="Cancelado">Cancelado</option>
-                            </select>
+                        <select class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 w-full p-2.5"
+                            name="situation" v-model="newProject.situation" id="situation">
+                            <option value="" selected disabled hidden>Selecione uma opção</option>
+                            <option value="Concluído">Concluído</option>
+                            <option value="Em andamento">Em andamento</option>
+                            <option value="Cancelado">Cancelado</option>
+                        </select>
                     </div>
 
                     <!-- Valor -->

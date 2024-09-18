@@ -14,14 +14,24 @@ import Sidebar from "@/components/layout/Sidebar.vue";
 import Footer from "@/components/layout/Footer.vue";
 import './index.css'
 
+
 import { onMounted } from 'vue'
 import { initFlowbite, initAccordions, 
     initCarousels, initCollapses, 
     initDials, initDismisses, 
     initDrawers, initDropdowns, 
     initModals, initPopovers, 
-    initTabs, initTooltips } from 'flowbite'
+    initTabs, initTooltips } from 'flowbite';
 
+  window.onload = function() {
+      if (navigator.userAgent.indexOf("Chrome") != -1) {
+          document.body.style.zoom = "80%";
+      }
+      else if (navigator.userAgent.indexOf("Edge") != -1) {
+            document.body.style.zoom = "125%";
+    }
+  };
+    
 onMounted(() => {
     initFlowbite(); initAccordions();
     initCarousels(); initCollapses();
@@ -30,6 +40,8 @@ onMounted(() => {
     initModals(); initPopovers();
     initTabs(); initTooltips();
 })
+
+
 </script>
 
 <style>

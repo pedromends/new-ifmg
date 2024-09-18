@@ -11,10 +11,10 @@
                             <span class="underline decoration-maingreen decoration-4">Polo de Inovação IFMG</span>
                         </span>
                     </h1>
-                    <p class="text-center text-gray-900 text-xl max-w-192 max-lg:w-auto max-lg:text-sm">
+                    <!-- <p class="text-center text-gray-900 text-xl max-w-192 max-lg:w-auto max-lg:text-sm">
                         O Polo de Inovação IFMG atua na aproximação das empresas com o setor acadêmico,
                         desenvolvendo projetos relacionados à diversas áreas do mercado.
-                    </p>
+                    </p> -->
                 </div>
                 <div class="flex justify-center gap-5 max-lg:gap-3 text-white max-lg:flex-col mb-12 max-sm:px-10"> 
                     <button class="bg-white text-maingreen px-6 py-3 rounded-3xl max-lg:px-3 font-semibold hover:bg-maingreen hover:text-white border hover:border-white transition duration-200"
@@ -25,7 +25,7 @@
                     </div>
                 </div>
             </div>
-            <div class="flex gap-4 p-10 bg-gray-200 border-16 max-lg:border-0 border-white rounded-3xl absolute top-112 max-lg:top-[33rem] max-lg:px-10">
+            <div class="flex gap-4 p-10 bg-gray-200 border-16 max-lg:border-0 border-white rounded-3xl absolute top-88 max-lg:top-[25rem] max-lg:px-10">
                 <div v-if="presenters" class="flex gap-4 max-sm:flex-col">
                     <PresenterCard v-for="(presenter, i) in presenters" :key="i" :num="presenter.num" :text="presenter.text" />
                 </div>
