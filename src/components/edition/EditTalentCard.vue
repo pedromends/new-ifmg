@@ -4,7 +4,8 @@
         <div role="status" class="flex max-sm:flex-col gap-24 justify-center items-center mt-10">
             <div class="left-4 flex flex-col gap-5">
                 <p class="font-semibold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen self-start mt-5 mb-10">Cards de Talentos</p>
-                <select v-model="inEdition.id" name="" id="" class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 w-full p-2.5">
+                <select class="bg-gray-50 border-0 text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 w-full p-2.5"
+                    v-model="inEdition.id" name="" id="">
                     <option class="bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen"
                         selected="selected" disabled value="0">Selecione um talento</option>
                     <option class="bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen"
@@ -125,11 +126,11 @@ export default {
             div.style.display = "flex"
         },
         updateCard(){
-            if(this.newTalent.name !== '' && this.newTalent.profession !== ''){
+            if(this.newTalent.name !== '' && this.newTalent.profession !== '' &&  this.newTalent.details !== ''){
                 this.newTalent.id = this.inEdition.id
 
                 if(this.inEdition.id == 0){
-                    console.log(this.newTalent)
+
                     createTalent(this.newTalent).then((response) => {
                         console.log(response)
                     })
@@ -146,7 +147,6 @@ export default {
                             return talent
                     })
                     
-                    console.log(objId)
                     if(this.newTalent.img.code != null){
                         this.newTalent.img.id = objId[0].img.id
                     }

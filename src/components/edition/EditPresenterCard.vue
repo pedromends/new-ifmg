@@ -1,7 +1,7 @@
 <template lang="">
     <section class="flex flex-col justify-center bg-lightgray gap-10">
         <div class="flex flex-col items-center gap-5 pt-10 max-sm:mb-12">
-            <p class="font-semibold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen self-start ml-6 mb-5">Sessão de Apresentação</p>
+            <p class="font-semibold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen self-start ml-6 mb-5">Sessão de Apresentação - Em edição: Card {{ cardToUpdate }}</p>
             <div class="relative max-sm:mt-10fff">
                 <!-- Box dos Cards -->
                 <div class="flex gap-5 max-sm:flex-col">
@@ -34,7 +34,7 @@
                     </div>
                 </div>
             </div>
-            <div @mouseover="onOffEffect('cover-div')" @mouseleave="onOffEffect('cover-div')" alt="Polo IFMG" class="rounded-lg border border-maingreen flex items-center px-5 border-transparent hover:border-red-700 absolute max-sm:mt-10">
+            <div alt="Polo IFMG" class="rounded-lg border border-maingreen flex items-center px-5 border-transparent hover:border-red-700 absolute max-sm:mt-10">
                 <svg class="w-32 h-32 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
                     <path d="M18 0H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm4.376 10.481A1 1 0 0 1 16 15H4a1 1 0 0 1-.895-1.447l3.5-7A1 1 0 0 1 7.468 6a.965.965 0 0 1 .9.5l2.775 4.757 1.546-1.887a1 1 0 0 1 1.618.1l2.541 4a1 1 0 0 1 .028 1.011Z"/>
                 </svg>
@@ -46,12 +46,12 @@
             <div class="flex flex-col gap-6 mb-2 justify-center">
                 <div class="flex flex-col gap-5">
                     <div id="number-div" class="flex flex-col gap-3 border border-transparent rounded-lg p-2">
-                        <label for="number" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Número Card {{ cardToUpdate }}</label>
+                        <label for="number" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Número do Card {{ cardToUpdate }}</label>
                         <input class="bg-gray-50 border border-gray-300 text-gray-900 focus:ring-red-600 focus:ring-2 text-sm rounded-lg w-full p-2.5" 
                             type="number" id="number" placeholder="45+, 10+, 20+ etc..." required v-model="newCard.num"/>
                     </div>
                     <div id="name-div" class="border border-transparent rounded-lg p-2">
-                        <label for="last_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Texto Card {{ cardToUpdate }}</label>
+                        <label for="last_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Texto do Card {{ cardToUpdate }}</label>
                         <input class="bg-gray-50 border border-gray-300 text-gray-900 focus:ring-red-600 focus:ring-2 text-sm rounded-lg w-full p-2.5"
                             type="text" id="last_name" placeholder="Projetos Publicados, Empresas Parceiras....." required v-model="newCard.text"/>
                     </div>
@@ -81,23 +81,18 @@ export default {
         return {
             bool: false,
             cardToUpdate: 1,
-            newCard:{
+            newCard: { // Card a ser atualizado
                 num: null,
                 text: '',
             },
             background: {
                 name:'presenter-background',
                 code: '',
-                id: 145
+                id: 145 // ID fixo da imagem de capa
             }
         }
     },
     methods: {
-        onOffEffect(div){
-            let target = document.getElementById(div);
-            this.bool ? target.style.borderColor = 'transparent' : target.style.borderColor = 'red'
-            this.bool = !this.bool
-        },
         updateCard(){
             this.newCard.id = this.cardToUpdate
             

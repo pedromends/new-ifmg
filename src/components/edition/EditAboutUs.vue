@@ -7,11 +7,11 @@
             <div class="flex max-sm:flex-col gap-24 w-full px-4">
                 <div class="flex flex-col">
                     <span class="text-maingreen font-bold text-sm underline decoration-red-600 decoration-2 mb-10">QUEM SOMOS</span>
-                    <div @mouseover="onOffEffect('title-div')" @mouseleave="onOffEffect('title-div')" class="border-2 border-transparent hover:border-red-700 p-2 rounded-lg">
+                    <div class="border-2 border-transparent hover:border-red-700 p-2 rounded-lg">
                         <div class="h-5 bg-black rounded-full max-sm:w-full w-96 mb-1 effect"></div>
                         <div class="h-5 bg-black rounded-full max-sm:w-full w-84 mb-4 effect"></div>
                     </div>
-                    <div @mouseover="onOffEffect('parag-div')" @mouseleave="onOffEffect('parag-div')" class="mb-10 border-2 border-transparent hover:border-red-700 p-2 rounded-lg">
+                    <div class="mb-10 border-2 border-transparent hover:border-red-700 p-2 rounded-lg">
                         <div class="h-1 bg-gray-500 rounded-full max-sm:w-full w-140 mb-1 effect"></div>
                         <div class="h-1 bg-gray-500 rounded-full max-sm:w-full w-124 mb-1 effect"></div>
                         <div class="h-1 bg-gray-500 rounded-full max-sm:w-full w-132 mb-1 effect"></div>
@@ -44,7 +44,7 @@
                 </div>
 
                 <!-- Imagem de capa -->
-                <div @mouseover="onOffEffect('image-div')" @mouseleave="onOffEffect('image-div')" alt="Polo IFMG" class="border-transparent hover:border-red-700 p-2 rounded-xl border bg-white flex items-center px-10 py-4">
+                <div alt="Polo IFMG" class="border-transparent hover:border-red-700 p-2 rounded-xl border bg-white flex items-center px-10 py-4">
                     <svg class="w-96 h-20 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
                         <path d="M18 0H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm4.376 10.481A1 1 0 0 1 16 15H4a1 1 0 0 1-.895-1.447l3.5-7A1 1 0 0 1 7.468 6a.965.965 0 0 1 .9.5l2.775 4.757 1.546-1.887a1 1 0 0 1 1.618.1l2.541 4a1 1 0 0 1 .028 1.011Z"/>
                     </svg>
@@ -103,11 +103,6 @@ export default {
         }
     },
     methods: {
-        onOffEffect(div){
-            let target = document.getElementById(div);
-            this.bool ? target.style.borderColor = 'transparent' : target.style.borderColor = 'red'
-            this.bool = !this.bool
-        },
         onFileChanged(e){
             const image = e.target.files[0];
             const reader = new FileReader();
@@ -119,16 +114,20 @@ export default {
         updateAboutUs(){
             if(this.newAboutUs.title !== '' && this.newAboutUs.parag !== ''){
                 updateWhoWeAre(this.newAboutUs).then((response) => {
-                    console.log(response)
+                    //console.log(response)
                 }).finally(() => {
                     router.push('/').then(() => {
                         window.location.reload()
                     }); 
                 })
+            } else {
+                // TODO: mostrar notificação de campos obrigatórios
             }
+
+
             if(this.newImage.code !== undefined){
                 updateImage(this.newImage).then((response) => {
-                    console.log(response)
+                    //console.log(response)
                 }).finally(() => {
                     router.push('/').then(() => {
                         window.location.reload()

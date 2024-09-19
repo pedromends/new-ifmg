@@ -118,22 +118,17 @@ export default {
             bool: false,
             currentForm: 1,
             capacitationCard:{
-                id: 1,
-                title: '',
-                subtitle: '',
+                id: null,
+                title: null,
+                subtitle: null,
                 img: {
-                    id: 1,
+                    id: null,
                     code: ''
                 }
             }
         }
     },
     methods: {
-        onOffEffect(div){
-            let target = document.getElementById(div);
-            this.bool ? target.style.borderColor = 'transparent' : target.style.borderColor = 'red'
-            this.bool = !this.bool
-        },
         changeForm(id, id_img){
             this.currentForm = this.capacitationCard.id = id
             this.capacitationCard.img.id = id_img
@@ -147,8 +142,7 @@ export default {
             };
         },
         updateCard(){
-            if(this.capacitationCard.img.code !== ''){
-                console.log(this.capacitationCard)
+            if(this.capacitationCard.img.code !== '' && this.capacitationCard.title !== '' && this.capacitationCard.subtitle !== ''){
                 updateCapacitation(this.capacitationCard).then((response) => {
                     console.log(response)
                 }).finally(() => {
@@ -156,6 +150,8 @@ export default {
                         window.location.reload();
                     }); 
                 })
+            } else {
+                // exibir notificação de preencher todos os campos
             }
         },
     },

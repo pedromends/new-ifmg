@@ -29,6 +29,8 @@
         </div>
 
         <AlertSuccessDelete/>
+        <AlertSuccessCompany/>
+        
         <!-- Formulário -->
         <form class="bg-white w-full px-24 max-sm:px-4 py-10 rounded-xl">
             <div class="grid grid-cols-2 max-sm:grid-cols-1 rounded-lg pt-10 mb-10">
@@ -72,6 +74,7 @@
 import router from '@/router/index.js'
 import { createCompany, listCompanies, updateCompany, deleteCompany } from '@/services/CompanyService.js';
 import AlertSuccessDelete from "@/components/alert/AlertSuccessDelete.vue";
+import AlertSuccessCompany from "@/components/alert/AlertSuccessCompany.vue";
 
 export default {
     name: 'EditCompany',
@@ -113,32 +116,42 @@ export default {
                 this.company.image.code = e.target.result;
             };
         },
+        showCompanySuccess(){
+            let div = document.getElementById("success-alert-company")
+            div.style.display = "flex"
+        },
         showDeleteSuccess(){
             let div = document.getElementById("success-delete-alert")
             div.style.display = "flex"
         },
         updateCompany(){ // TODO: trocar pra submit data
             console.log(this.company)
-            if(this.company.id == 0){
-                this.company.id = null
-                createCompany(this.company).then((response) => {
-                    console.log(response)
-                })
-                .finally(() => {
-                    router.push('/').then(() => {
-                        window.location.reload()
-                    }); 
-                })
+            if(this.company.name != '' && this.company.classification != '' && this.company.cnpj != ''){
+                if(this.company.id == 0){
+                    this.company.id = null
+                    createCompany(this.company).then((response) => {
+                        console.log(response)
+                    })
+                    .finally(() => {
+                        setInterval(() => {
+                            router.push('/').then(() => {
+                                window.location.reload();
+                            });
+                        }, 2500)
+                    })
+                } else {
+                    updateCompany(this.company).then((response) => {
+                        console.log(response)
+                    }).finally(() => {
+                        setInterval(() => {
+                            router.push('/').then(() => {
+                                window.location.reload();
+                            });
+                        }, 2500)
+                    })
+                }
             } else {
-                updateCompany(this.company).then((response) => {
-                    console.log(response)
-                })
-                
-                .finally(() => {
-                    router.push('/').then(() => {
-                        window.location.reload()
-                    }); 
-                })
+                alert('preencha todos os campos')
             }
             
         },

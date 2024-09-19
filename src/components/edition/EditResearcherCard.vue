@@ -1,11 +1,10 @@
 <template lang="">
     <section class="flex max-sm:flex-col justify-center bg-lightgray gap-10 my-10 mx-5">
         <div role="status" class="flex flex-col items-center gap-10">
-            <p
-                class="font-semibold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen self-start mt-5 mb-10">
-                Criar/Editar Pesquisadores</p>
+            <p class="font-semibold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen self-start mt-5 mb-10">
+                Criar/Editar Pesquisadores
+            </p>
 
-            <!-- Card Modelo -->
             <section class="hover:shadow-lg transition duration-300 rounded-lg border border-gray-200 bg-white">
                 <div class="border-t border-maingreen px-4 py-5 gap-48 flex items-center justify-between animate-pulse">
                     <div class="h-2.5 bg-black rounded-full w-48 border border-transparent hover:border-red-700"></div>
@@ -31,26 +30,25 @@
                 </div>
             </section>
 
-            <!-- Pesquisador-->
             <div>
                 <select v-model="inEditionResearcher.id" name="" id=""
                     class="bg-gray-50 border border-maingreen text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 w-full p-2.5">
                     <option
                         class="bg-white divide-y divide-gray-100 rounded-lg text-center shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen"
-                        value="0">Selecione um Pesquisador</option>
+                        value="0">Novo Pesquisador</option>
                     <option
                         class="bg-white divide-y divide-gray-100 text-start rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen"
                         :value="researcher.id" v-for="(researcher, i) in researchers" :key="i">{{ researcher.firstName +
                         ' ' + researcher.lastName }}</option>
                 </select>
             </div>
+            <AlertSuccessDelete />
+            <AlertSuccessResearcher />
         </div>
 
         <form class="bg-white p-10 rounded-2xl">
-            <AlertSuccessDelete />
             <div class="flex justify-between max-sm:flex-col">
                 <div class="flex gap-6 mb-6 flex-col">
-                    <!-- Nome -->
                     <div id="name-div" class="border-2 border-transparent p-2 rounded-lg">
                         <label for="name"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nome</label>
@@ -59,7 +57,6 @@
                             v-model="inEditionResearcher.firstName" type="text" id="lastname" required />
                     </div>
 
-                    <!-- Sobrenome -->
                     <div id="lastname-div" class="border-2 border-transparent p-2 rounded-lg">
                         <label for="lastname"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Sobrenome</label>
@@ -68,8 +65,6 @@
                             v-model="inEditionResearcher.lastName" type="text" id="lastname" required />
                     </div>
 
-
-                    <!-- Endereço -->
                     <div id="lastname-div" class="border-2 border-transparent p-2 rounded-lg">
                         <label for="lastname"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Endereço</label>
@@ -78,8 +73,6 @@
                             v-model="inEditionResearcher.address" type="text" id="lastname" required />
                     </div>
 
-
-                    <!-- Cidade -->
                     <div id="lastname-div" class="border-2 border-transparent p-2 rounded-lg">
                         <label for="lastname"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Cidade</label>
@@ -88,8 +81,6 @@
                             v-model="inEditionResearcher.city" type="text" id="lastname" required />
                     </div>
 
-
-                    <!-- Departamento -->
                     <div id="lastname-div" class="border-2 border-transparent p-2 rounded-lg">
                         <label for="lastname"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Departamento</label>
@@ -98,8 +89,6 @@
                             v-model="inEditionResearcher.department" type="text" id="lastname" required />
                     </div>
 
-
-                    <!-- Titulação -->
                     <div id="lastname-div" class="border-2 border-transparent p-2 rounded-lg">
                         <label for="lastname"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Titulação</label>
@@ -110,8 +99,6 @@
                 </div>
 
                 <div class="flex gap-6 mb-6 flex-col">
-
-                    <!-- Telefone -->
                     <div id="lastname-div" class="border-2 border-transparent p-2 rounded-lg">
                         <label for="lastname"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Telefone</label>
@@ -120,7 +107,6 @@
                             v-model="inEditionResearcher.phone" type="text" id="lastname" required />
                     </div>
 
-                    <!-- Curso -->
                     <div id="course-div" class="border-2 border-transparent p-2 rounded-lg">
                         <label for="course"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Curso</label>
@@ -129,7 +115,6 @@
                             required v-model="inEditionResearcher.course" type="text" id="course" />
                     </div>
 
-                    <!-- Email -->
                     <div id="email-div" class="border-2 border-transparent p-2 rounded-lg">
                         <label for="email"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
@@ -138,7 +123,6 @@
                             v-model="inEditionResearcher.email" type="text" id="email" required />
                     </div>
 
-                    <!-- Campus -->
                     <div id="campus-div" class="border-2 border-transparent p-2 rounded-lg">
                         <label for="campus"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Campus</label>
@@ -153,7 +137,6 @@
                         </select>
                     </div>
 
-                    <!-- Gênero -->
                     <div id="sex-div" class="border-2 border-transparent p-2 rounded-lg">
                         <label for="sex_link"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Gênero</label>
@@ -171,14 +154,6 @@
                         </select>
                     </div>
 
-                    <!-- Portfólio -->
-                    <!-- <div id="lattes-div" class="border-2 border-transparent p-2 rounded-lg">
-                        <label for="lattes_link" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Portfólio</label>
-                        <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5" 
-                            v-model="inEditionResearcher.name" type="tel" id="lattes_link" required />
-                    </div> -->
-
-                    <!-- Imagem -->
                     <div id="image-div" class="border-2 border-transparent p-2 rounded-lg col-span-2">
                         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                             for="file_input">Imagem de Perfil</label>
@@ -196,13 +171,13 @@
                     class="text-white bg-maingreen hover:bg-govblue focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm text-center px-36 py-3 transition duration-200"
                     @click.prevent="updateResearcher()" type="submit">Salvar</button>
 
-                <div class="flex items-center bg-red-600 hover:bg-maingray focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg transition duration-200"
+                <button class="flex items-center bg-red-600 hover:bg-maingray focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg transition duration-200"
                     @click.prevent="deleteResearcher()" type="submit">
                     <div class="flex w-full justify-start gap-3 items-center text-white px-32">
                         <img class="w-5" :src="require('@/assets/icons/trash.svg')" alt="">
-                        <p class="font-medium">Excluir</p>
+                        Excluir
                     </div>
-                </div>
+                </button>
             </div>
         </form>
     </section>
@@ -213,13 +188,15 @@
     import { createResearcher, listResearchers, updateResearcher, deleteResearcher } from '@/services/ResearcherService.js';
     import { listCampus } from '@/services/CampusService.js';
     import AlertSuccessDelete from "@/components/alert/AlertSuccessDelete.vue";
+    import AlertSuccessResearcher from "@/components/alert/AlertSuccessResearcher.vue";
     import { getResearcher } from '@/services/ResearcherService.js';
     import { useRoute } from "vue-router";
 
     export default {
         name: 'EditResearcherCard',
         components: {
-            AlertSuccessDelete
+            AlertSuccessDelete,
+            AlertSuccessResearcher
         },
         data() {
             return {
@@ -229,16 +206,6 @@
                 campuses: null,
                 inEditionResearcher: {
                     id: 0,
-                    campus: {
-                        id: 0,
-                        name: ''
-                    },
-                    firstName: null,
-                    lastName: '',
-                    img: {
-                        id: null,
-                        code: null
-                    },
                     about: '',
                     address: '',
                     city: '',
@@ -248,7 +215,17 @@
                     level: '',
                     phone: '',
                     sex: 0,
-                    active: 1
+                    active: 1,
+                    firstName: null,
+                    lastName: '',
+                    campus: {
+                        id: 0,
+                        name: ''
+                    },
+                    img: {
+                        id: null,
+                        code: null
+                    },
                 },
                 inEditionCampus: {
                     id: null,
@@ -257,7 +234,6 @@
             }
         },
         created() {
-
             const route = useRoute();
             const id = parseInt(route.params.id);
 
@@ -276,15 +252,8 @@
             listCampus().then((response) => {
                 this.campuses = response.data
             })
-
-
         },
         methods: {
-            onOffEffect(div) {
-                let target = document.getElementById(div);
-                this.bool ? target.style.borderColor = 'transparent' : target.style.borderColor = 'red'
-                this.bool = !this.bool
-            },
             onImageChange(e) {
                 const image = e.target.files[0];
                 const reader = new FileReader();
@@ -293,36 +262,38 @@
                     this.inEditionResearcher.img.code = e.target.result;
                 };
             },
+            showSuccessRegister() {
+                let div = document.getElementById("success-researcher-alert")
+                div.style.display = "flex"
+            },
             showDeleteSuccess() {
                 let div = document.getElementById("success-delete-alert")
                 div.style.display = "flex"
             },
             setImgId(img_id) {
-                console.log(this.inEditionResearcher)
                 this.inEditionResearcher.img.id = img_id
             },
             updateResearcher() {
-                if (this.inEditionResearcher.firstName !== '' && this.inEditionResearcher.campus !== '') {
+                if (this.inEditionResearcher.firstName !== '' && this.inEditionResearcher.lastName !== '' && this.inEditionResearcher.campus !== '' && this.inEditionResearcher.email !== '' && this.inEditionResearcher.course !== '') {
                     if (this.inEditionResearcher.id == 0) {
+                        this.showSuccessRegister()
+                        console.log(this.inEditionResearcher)
                         createResearcher(this.inEditionResearcher).then((response) => {
                             console.log(response)
                         }).finally(() => {
-                            router.push('/researchers').then(() => {
-                                window.location.reload();
-                            });
+                            setInterval(() => {
+                                router.push('/researchers').then(() => {
+                                    window.location.reload();
+                                });
+                            }, 2500)
                         })
                     } else {
-                        // console.log(this.researchers)
                         let objId = this.researchers.filter((researcher) => {
                             if (researcher.id == this.inEditionResearcher.id)
                                 return researcher
                         })
 
-                        console.log(objId)
-
                         this.inEditionResearcher.img.id = objId[0].img.id
-                        console.log(this.inEditionResearcher)
-
                         updateResearcher(this.inEditionResearcher).then((response) => {
                             console.log(response)
                         }).finally(() => {
@@ -333,6 +304,7 @@
                     }
                 } else {
                     // criar alert de erro
+                    alert('preencha os campos');
                 }
             },
             deleteResearcher() {
@@ -342,17 +314,17 @@
                     deleteResearcher(this.inEditionResearcher.id).then((response) => {
                         console.log(response)
                     })
-                    // .finally(() => {
-                    //     this.showDeleteSuccess()
-                    //     setInterval(() => {
-                    //         router.push('/').then(() => {
-                    //             window.location.reload();
-                    //         });
-                    //     }, 2000)
-                    // })
+                    .finally(() => {
+                        this.showDeleteSuccess()
+                        setInterval(() => {
+                            router.push('/researchers').then(() => {
+                                window.location.reload();
+                            });
+                        }, 2000)
+                    })
                 }
             }
-        },
+        }
     }
 </script>
 

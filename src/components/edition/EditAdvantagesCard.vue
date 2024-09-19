@@ -1,9 +1,8 @@
 <template lang="">
     <section class="flex flex-col justify-center bg-lightgray gap-10 rounded-lg">
         <div role="status" class="flex flex-col items-center gap-10 rounded-xl mb-10">
-            <p
-                class="font-semibold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen text-center mt-10 self-start ml-48 max-sm:ml-0">
-                Cards de Vantagens</p>
+            <p class="font-semibold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen text-center mt-10 self-start ml-48 max-sm:ml-0">
+                Cards de Vantagens - Em edição: Card {{ currentForm }}</p>
             <div class="flex max-sm:flex-col items-center gap-4 bg-white rounded-xl h-full p-4">
 
                 <!-- Imagem de capa -->
@@ -164,7 +163,7 @@
                         code: ''
                     }
                 },
-                newImage: {
+                bannerImage: {
                     id: 35,
                     code: undefined
                 },
@@ -181,7 +180,7 @@
                 const reader = new FileReader();
                 reader.readAsDataURL(image);
                 reader.onload = e => {
-                    this.newImage.code = e.target.result;
+                    this.bannerImage.code = e.target.result;
                 };
             },
             onImageChange(e) {
@@ -199,7 +198,7 @@
                 if (this.newAdvantages.differential !== '' && this.newAdvantages.description !== '' && this.newAdvantages.img.code !== '') {
                     this.newAdvantages.id = this.currentForm
                     this.newAdvantages.img.id = this.currentForm
-                    console.log(this.newAdvantages)
+
                     updateAdvantages(this.newAdvantages).then((response) => {
                         console.log(response)
                     }).finally(() => {
@@ -208,12 +207,12 @@
                         });
                     })
                 }else{
-                    // exibir alert mandando preencher campo
+                    // TODO: exibir alert mandando preencher campo
                 }
 
-                if (this.newImage.code !== undefined) {
-                    console.log(this.newImage)
-                    updateImage(this.newImage).then((response) => {
+                if (this.bannerImage.code !== undefined) {
+                    console.log(this.bannerImage)
+                    updateImage(this.bannerImage).then((response) => {
                         console.log(response)
                     }).finally(() => {
                         router.push('/').then(() => {

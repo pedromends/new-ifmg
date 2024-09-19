@@ -101,20 +101,15 @@ export default {
             bool: false,
             cardToUpdate: 1,
             newEventCard: {
-                month: '',
-                day: '',
-                title: '',
-                hour: '',
-                local: ''
+                month: null,
+                day: null,
+                title: null,
+                hour: null,
+                local: null
             },
         }
     },
     methods: {
-        onOffEffect(div){
-            let target = document.getElementById(div);
-            this.bool ? target.style.borderColor = 'transparent' : target.style.borderColor = 'red'
-            this.bool = !this.bool
-        },
         updateCard(){
             if(this.newEventCard.month !== null && this.newEventCard.day !== null && this.newEventCard.title !== null && this.newEventCard.hour !== null && this.newEventCard.local !== null){
                 this.newEventCard.id = this.cardToUpdate
