@@ -35,3 +35,13 @@ export const deleteDoc = (id) => api.request({
   method: 'delete',
   url: `/docs/delete/${id}`,
 });
+
+export const downloadDoc = (filename) => api.request({
+  headers: {
+    'Authorization': `Bearer ${window.localStorage.getItem('refresh_token')}`,
+    'Cache-Control': 'no-cache'
+  },
+  responseType: 'blob',
+  method: 'get',
+  url: '/docs/download/'+ filename,
+});

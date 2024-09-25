@@ -63,8 +63,8 @@
             </div>
             <div class="flex text-sm text-maingray gap-5 py-1  mr-14 max-lg:p-0 items-center">
                 <NavbarLink :func="goResearchers" :link="'/researchers'" :text="'PESQUISADORES'" />
-                <NavbarLink :link="'/edicts'" :text="'EDITAIS'" />
-                <NavbarLink :link="'/docs'" :text="'DOCUMENTOS'" />
+                <NavbarLink :func="edicts" :link="'/edicts'" :text="'EDITAIS'" />
+                <NavbarLink :func="docs" :link="'/docs'" :text="'DOCUMENTOS'" />
                 <NavbarLink :func="capacitation" :link="'/capacitation'" :text="'CAPACITAÇÃO'" />
                 <NavbarLink :func="faq" :link="'/capacitation'" :text="'FAQ'" />
                 <router-link to="/embrapii"
@@ -110,6 +110,16 @@
                             window.location.reload()
                         })
                     }
+                },
+                edicts: () => {
+                    router.push({ path: '/edicts' }).then(() => {
+                        window.location.reload()
+                    })
+                },
+                docs: () => {
+                    router.push({ path: '/docs' }).then(() => {
+                        window.location.reload()
+                    })
                 },
                 portfolio: () => {
                     router.push({ path: '/' }).then(() => {

@@ -51,7 +51,7 @@
                                         Documento</label>
                                     <input
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5"
-                                        type="text" id="tip" required />
+                                        type="text" id="tip" required v-model="docTitle"/>
 
                                 </div>
                                 <div id="tip-div" class="border-2 border-transparent p-2 col-span-2">
@@ -81,17 +81,10 @@
                             <button class="hover:bg-gray-300 text-white rounded-md" v-if="isAdmin">
                                 <img class="w-7 m-2" :src="require('@/assets/icons/trash.svg')" alt="">
                             </button>
-                            <a target="_blank" class="hover:underline">{{ doc.title }}</a>
+                            <button class="hover:underline" @click="download(doc.filename)">{{ doc.title }}</button>
                         </li>
                     </ul>
                 </div>
-                <!-- TODO: Criar CRUD de editais com as seguintes informações -->
-                <!-- Título do Edital -->
-                <!-- Número - Ano -->
-                <!-- Breve Descrição -->
-                <!-- Link p inscrição -->
-                <!-- Arquivo em PDF-->
-                <!-- Imagem p/ divulgação -->
             </div>
         </div>
         <BackToTop />
@@ -101,13 +94,14 @@
 
 <script>
     import router from '@/router/index.js'
-    import { listDocs, createDoc } from '@/services/DocsService.js';
+    import { listDocs, createDoc, downloadDoc } from '@/services/DocsService.js';
 
     export default {
         name: 'DocsPage',
         created() {
             listDocs().then((response) => {
                 this.docs = response.data
+                console.log(this.docs)
             })
         },
         data() {
@@ -115,6 +109,7 @@
                 docs: null,
                 isAdmin: this.$store.getters.isAdmin,
                 selectedFile: null,
+                docTitle: ''
             }
         },
         methods: {
@@ -127,22 +122,50 @@
             onFileChange(event) {
                 this.selectedFile = event.target.files[0]; // Seleciona o arquivo
             },
+            download(filename){
+                downloadDoc(filename).then((response) => {
+                    console.log(response)
+
+                    // Criar um Blob a partir da resposta
+                    const blob = new Blob([response.data], { type: response.headers['content-type'] });
+                    
+                    // Criar uma URL temporária para o Blob
+                    const url = window.URL.createObjectURL(blob);
+                    
+                    // Criar um link e forçar o download
+                    const link = document.createElement('a');
+                    link.href = url;
+                    link.setAttribute('download', filename); // O nome que será sugerido para o arquivo baixado
+                    document.body.appendChild(link);
+                    link.click();
+                    
+                    // Remover o link depois de clicar
+                    document.body.removeChild(link);
+                })
+            },
             uploadPdf() {
+                const formData = new FormData();
+
                 if (!this.selectedFile) {
                     this.message = 'Por favor, selecione um arquivo para upload.';
                     return;
                 }
 
-                const formData = new FormData();
+                if (!this.docTitle) {
+                    this.message = 'Por favor, crie um título.';
+                    return;
+                }
+
                 formData.append('file', this.selectedFile); // C TEM QUE ENVIAR FORMDATA, NÃO O SELECTED FILE SEU FILHO DA PUTA!
+                formData.append('title', this.docTitle);
                 
                 try {
                     createDoc(formData).then((response) => {
                         console.log(response.data)
                         console.log('Upload realizado com sucesso:', response.data);
                         this.message = response.data;
+                        window.location.reload()
                     });
-
                 } catch (error) {
                     this.message = 'Falha ao enviar o arquivo.';
                     console.error(error);
