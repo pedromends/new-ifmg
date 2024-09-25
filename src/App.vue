@@ -25,7 +25,7 @@ import { initFlowbite, initAccordions,
 
   window.onload = function() {
       if (navigator.userAgent.indexOf("Chrome") != -1) {
-          document.body.style.zoom = "80%";
+          document.body.style.zoom = "70%";
       }
       else if (navigator.userAgent.indexOf("Edge") != -1) {
             document.body.style.zoom = "125%";

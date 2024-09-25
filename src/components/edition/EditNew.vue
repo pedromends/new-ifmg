@@ -2,7 +2,9 @@
     <section class="flex flex-col px-24 py-10">
         <h1 class="text-4xl text-black font-semibold underline underline-offset-2 decoration-8 decoration-maingreen">Edição de Notícias</h1>
         <div class="px-52 pt-10">
+            <AlertSuccessDelete />
             <form class="bg-white p-10 rounded-lg">
+            
                 <div class="grid gap-6 mb-6 grid-cols-2">
                     <div id="tip-div" class="border-2 border-transparent p-2 col-span-2">
                         <label for="tip" class="mb-2 text-sm font-medium text-gray-900 dark:text-white">Título da Notícia</label>
@@ -78,9 +80,13 @@ import { useRoute } from "vue-router";
 import router from '@/router/index.js';
 import { updateNew, deleteNew } from '@/services/NewService.js';
 import { showOne } from '@/services/NewService.js';
+import AlertSuccessDelete from '@/components/alert/AlertSuccessDelete.vue';
 
 export default {
     name: 'NewsCreate',
+    components: {
+        AlertSuccessDelete
+    },
     created(){
         const route = useRoute();
         const id = route.params.id;
@@ -114,8 +120,6 @@ export default {
             }
         }
     },
-    components:{
-    },
     methods: {
         setImage(img, e){
             const image = e.target.files[0];
@@ -132,24 +136,33 @@ export default {
                 };
             }
         },
+        showDeleteSuccess(){
+            let div = document.getElementById("success-delete-alert")
+            console.log(div)
+            div.style.display = "flex"
+        },
         createNew(){
             console.log(this.newNew)
             updateNew(this.newNew).then((response) => {
                 console.log(response)
             }).finally(() => {
-                router.push('/news').then(() => {
-                    window.location.reload();
-                }); 
+                setInterval(() => {
+                    router.push('/news').then(() => {
+                        window.location.reload();
+                    });
+                }, 2500)
             })
         },
         deleteNew(){
             deleteNew(this.newNew.id).then((response) => {
                 console.log(response)
-            })
-            .finally(() => {
-                router.push('/news').then(() => {
-                    window.location.reload();
-                }); 
+                this.showDeleteSuccess()
+            }).finally(() => {
+                setInterval(() => {
+                    router.push('/news').then(() => {
+                        window.location.reload();
+                    });
+                }, 2500)
             })
         },
     }

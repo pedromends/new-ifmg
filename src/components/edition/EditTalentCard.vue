@@ -30,8 +30,11 @@
                 <div class="h-1.5 bg-black rounded-full w-28 border border-transparent hover:border-red-700"></div>
             </div>
         </div>
+
         <!-- Formulário -->
         <form class="bg-white p-10 rounded-lg mb-10">
+            <AlertSuccessDelete />
+            <AlertSuccessTalent />
             <div class="grid gap-6 mb-6 md:grid-cols-2 max-sm:grid-cols-1">
                 <div id="name-div" class="border-2 border-transparent p-2 rounded-lg">
                     <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nome</label>
@@ -75,11 +78,13 @@
 import router from '@/router/index.js'
 import { createTalent, updateTalent, getTalents, deleteTalent } from '@/services/TalentService.js';
 import AlertSuccessDelete from "@/components/alert/AlertSuccessDelete.vue"
+import AlertSuccessTalent from "@/components/alert/AlertSuccessTalent.vue";
 
 export default {
     name: 'EditnewTalent',
     components: {
-        AlertSuccessDelete
+        AlertSuccessDelete,
+        AlertSuccessTalent
     },
     data(){
         return {
@@ -125,37 +130,41 @@ export default {
             let div = document.getElementById("success-delete-alert")
             div.style.display = "flex"
         },
+        showTalentSuccess(){
+            let div = document.getElementById("success-alert-talent")
+            div.style.display = "flex"
+        },
         updateCard(){
             if(this.newTalent.name !== '' && this.newTalent.profession !== '' &&  this.newTalent.details !== ''){
                 this.newTalent.id = this.inEdition.id
-
                 if(this.inEdition.id == 0){
-
                     createTalent(this.newTalent).then((response) => {
-                        console.log(response)
-                    })
-                    .finally(() => {
-                        router.push('/').then(() => {
-                            var element = document.getElementById("talents");
-                            window.location.reload();
-                            element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
-                        }); 
+                        this.showTalentSuccess();
+                    }).finally(() => {
+                        setInterval(() => {
+                            router.push('/').then(() => {
+                                window.location.reload();
+                            });
+                        }, 2500)
                     })
                 } else {
                     let objId = this.talents.filter((talent) => {
                         if(talent.id == this.inEdition.id)
                             return talent
                     })
-                    
+
                     if(this.newTalent.img.code != null){
                         this.newTalent.img.id = objId[0].img.id
                     }
+
                     updateTalent(this.newTalent).then((response) => {
                         console.log(response)
                     }).finally(() => {
-                        router.push('/').then(() => {
-                            window.location.reload();
-                        }); 
+                        setInterval(() => {
+                            router.push('/').then(() => {
+                                window.location.reload();
+                            });
+                        }, 2500)
                     })
                 }
             }else{
@@ -166,10 +175,10 @@ export default {
             if(this.newTalent.id == 0){
                 alert('selecione um aluno primeiro')
             } else {
+                this.showDeleteSuccess();
                 deleteTalent(this.inEdition.id).then((response) => {
                     console.log(response)
                 }).finally(() => {
-                    this.showDeleteSuccess()
                     setInterval(() => {
                         router.push('/').then(() => {1
                             window.location.reload();

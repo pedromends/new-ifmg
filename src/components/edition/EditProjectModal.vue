@@ -325,8 +325,7 @@ export default {
                 console.log(this.newProject)
                 createProject(this.newProject).then((response) => {
                     console.log(response)
-                })
-                .finally(() => {
+                }).finally(() => {
                      router.push('/').then(() => {
                          var element = document.getElementById("ourclients");
                          element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });

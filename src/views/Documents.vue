@@ -27,9 +27,7 @@
                 <div id="default-modal" tabindex="-1" aria-hidden="true" v-if="isAdmin"
                     class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
                     <div class="relative p-4 w-full max-w-2xl max-h-full">
-                        <!-- Modal content -->
                         <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-                            <!-- Modal header -->
                             <div
                                 class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
                                 <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
@@ -46,7 +44,6 @@
                                     <span class="sr-only">Close modal</span>
                                 </button>
                             </div>
-                            <!-- Modal body -->
                             <div class="p-4 md:p-5 space-y-4">
                                 <div id="tip-div" class="border-2 border-transparent p-2 col-span-2">
                                     <label for="tip"
@@ -61,16 +58,12 @@
                                     <label for="tip"
                                         class="mb-2 text-sm font-medium text-gray-900 dark:text-white">Arquivo
                                         PDF</label>
-                                    <input
-                                        class="w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none"
-                                        aria-describedby="file_input_help" id="file_input" type="file"
-                                        @change="setImage(2, $event)" />
-                                </div>
-                                <!-- Modal footer -->
-                                <div class="flex justify-center gap-10">
-                                    <button
-                                        class="text-white bg-maingreen hover:bg-govblue focus:ring-2 focus:outline-none focus:ring-red-600 font-medium rounded-lg text-sm w-full sm:w-auto px-10 py-3 text-center transition duration-200"
-                                        type="submit" button data-modal-hide="default-modal">Salvar</button>
+                                    <form @submit.prevent="uploadPdf()" enctype="multipart/form-data">
+                                        <input type="file" @change="onFileChange($event)" />
+                                        <button
+                                            class="text-white bg-maingreen hover:bg-govblue focus:ring-2 focus:outline-none focus:ring-red-600 font-medium rounded-lg text-sm w-full sm:w-auto px-10 py-3 text-center transition duration-200"
+                                            type="submit" button data-modal-hide="default-modal">Salvar</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -81,7 +74,7 @@
             <div class="flex flex-col gap-5 text-maingray">
                 <div>
                     <ul class="flex flex-col gap-1 text-blue-700">
-                        <li v-for="(doc, i) in docs" :key="i" :href="doc.link"  class="flex items-center gap-1">
+                        <li v-for="(doc, i) in docs" :key="i" :href="doc.link" class="flex items-center gap-1">
                             <button class="hover:bg-gray-300 text-white rounded-md" v-if="isAdmin">
                                 <img class="w-7 m-2" :src="require('@/assets/icons/pencil-edit-maingreen.svg')" alt="">
                             </button>
@@ -108,7 +101,7 @@
 
 <script>
     import router from '@/router/index.js'
-    import { listDocs } from '@/services/DocsService.js';
+    import { listDocs, createDoc } from '@/services/DocsService.js';
 
     export default {
         name: 'DocsPage',
@@ -121,6 +114,7 @@
             return {
                 docs: null,
                 isAdmin: this.$store.getters.isAdmin,
+                selectedFile: null,
             }
         },
         methods: {
@@ -129,7 +123,31 @@
                     var element = document.getElementById("navbar");
                     element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
                 });
-            }
+            },
+            onFileChange(event) {
+                this.selectedFile = event.target.files[0]; // Seleciona o arquivo
+            },
+            uploadPdf() {
+                if (!this.selectedFile) {
+                    this.message = 'Por favor, selecione um arquivo para upload.';
+                    return;
+                }
+
+                const formData = new FormData();
+                formData.append('file', this.selectedFile); // C TEM QUE ENVIAR FORMDATA, NÃO O SELECTED FILE SEU FILHO DA PUTA!
+                
+                try {
+                    createDoc(formData).then((response) => {
+                        console.log(response.data)
+                        console.log('Upload realizado com sucesso:', response.data);
+                        this.message = response.data;
+                    });
+
+                } catch (error) {
+                    this.message = 'Falha ao enviar o arquivo.';
+                    console.error(error);
+                }
+            },
         },
     }
 </script>

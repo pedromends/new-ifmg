@@ -1,10 +1,7 @@
 <template>
   <div id="tiptap" class="divide-y divide-gray-400 rounded-md border border-gray-400 w-full">
     <div id="tiptap-toolbar" class="divide-x divide-gray-400">
-      
-      
       <TiptapToolbarGroup>
-        
         <TiptapToolbarButton label="Undo" @click="editorInstance?.chain().focus().undo().run()"
           :disabled="!editorInstance?.can().chain().focus().undo().run()">
           <IconArrowBackUp class="h-5 w-5" />
@@ -16,9 +13,7 @@
         </TiptapToolbarButton>
       </TiptapToolbarGroup>
       
-      
       <TiptapToolbarGroup>
-        
         <TiptapToolbarButton label="Heading 1" :is-active="editorInstance?.isActive('heading', { level: 1 })"
           @click="editorInstance?.chain().focus().toggleHeading({ level: 1 }).run()">
           <IconH1 class="h-5 w-5" />
@@ -35,9 +30,7 @@
         </TiptapToolbarButton>
       </TiptapToolbarGroup>
       
-      
       <TiptapToolbarGroup>
-        
         <TiptapToolbarButton label="Bold" :is-active="editorInstance?.isActive('bold')"
           @click="editorInstance?.chain().focus().toggleBold().run()">
           <IconBold class="h-5 w-5" />
@@ -59,9 +52,7 @@
         </TiptapToolbarButton>
       </TiptapToolbarGroup>
       
-      
       <TiptapToolbarGroup>
-        
         <TiptapToolbarButton label="Bold" :is-active="editorInstance?.isActive('bulletList')"
           @click="editorInstance?.chain().focus().toggleBulletList().run()">
           <IconListDetails class="h-5 w-5" />
@@ -73,9 +64,7 @@
         </TiptapToolbarButton>
       </TiptapToolbarGroup>
       
-      
       <TiptapToolbarGroup>
-        
         <TiptapToolbarButton label="Link" @click="openLinkDialog" :is-active="editorInstance?.isActive('link')">
           <IconLink class="h-5 w-5" />
         </TiptapToolbarButton>
@@ -175,7 +164,6 @@
 
     <div class="px-4 py-3 text-sm text-gray-700">
       {{ contentResult }}
-
     </div>
 
     <TiptapLinkDialog v-if="showLinkDialog" :show="showLinkDialog" :current-url="currentLinkInDialog"
