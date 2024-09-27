@@ -24,10 +24,13 @@
                 </div>
                 <hr class="bg-red-600 h-1" />
                 <div class="flex items-center gap-5">
-                    <input type="text" placeholder="Pesquisar..."
+                    <input type="text" placeholder="Pesquisar..." v-model="searchQuery"
                         class="w-full rounded-lg ring ring-transparent focus:ring-red-600" />
-                    <img alt="Laboratório de sistemas automotivos IFMG - Campus Formiga"
-                        class=" bg-maingreen px-4 rounded-lg" :src="require('@/assets/icons/hand-glass.svg')" />
+                        <button @click="searchItems">
+                            <img alt="Laboratório de sistemas automotivos IFMG - Campus Formiga"
+                            class=" bg-maingreen px-4 rounded-lg" :src="require('@/assets/icons/hand-glass.svg')" />
+                        </button>
+
                 </div>
             </div>
             <div class="grid grid-cols-3 gap-5 text-maingray max-lg:grid-cols-1">
@@ -73,7 +76,7 @@
     import router from '@/router/index.js'
     import NewCard from '@/components/cards/NewCard.vue';
     import BackToTop from '@/components/buttons/BackToTop.vue';
-    import { listNews } from '@/services/NewService.js';
+    import { listNews, searchNew } from '@/services/NewService.js';
 
     export default {
         name: 'NewsSection',
@@ -87,7 +90,8 @@
                 isAdmin: false,
                 page: 0,
                 totalPages: 0,
-                totalElements: 0
+                totalElements: 0,
+                searchQuery: ''
             }
         },
         created() {
@@ -106,6 +110,16 @@
                     this.totalElements = response.data.totalElements
                     console.log(this.news) 
                 })
+            },
+            searchItems() {
+                if (this.searchQuery.length > 2) {
+                    searchNew(this.searchQuery).then((response) => {
+                        console.log(response.data)
+                        this.news = response.data
+                    }).catch(error => {
+                        console.error("Erro ao buscar itens:", error);
+                    });
+                }
             }
         },
         props: {

@@ -105,11 +105,9 @@
                     })
                 },
                 capacitation: () => {
-                    if(this.$store.getters.isCapacitation != null){
-                        router.push({ path: '/' }).then(() => {
-                            window.location.reload()
-                        })
-                    }
+                    router.push({ path: '/capacitation' }).then(() => {
+                        window.location.reload()
+                    })
                 },
                 edicts: () => {
                     router.push({ path: '/edicts' }).then(() => {

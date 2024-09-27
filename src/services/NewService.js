@@ -31,7 +31,7 @@ export const createNew = (form) => api.request({
       'Content-Type': 'application/json',
     },
     method: 'get',
-    data:obj.toString(),
+    data: obj.toString(),
     url: '/new/show-one/' + obj.id,
   });
   
@@ -52,4 +52,13 @@ export const createNew = (form) => api.request({
     },
     method: 'delete',
     url: `/new/delete/${id}`,
+  });
+
+    
+  export const searchNew = (query) => api.request({
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    method: 'get',
+    url: `/new/search?query=` + query,
   });

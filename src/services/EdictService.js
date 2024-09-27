@@ -2,12 +2,11 @@ import api from '@/services/api';
 
 export const createEdict = (form) => api.request({
   headers: {
-    'Content-Type': 'application/json',
     'Authorization': `Bearer ${window.localStorage.getItem('refresh_token')}`,
   },
   method: 'post',
-  url: '/edicts/create',
-  data: form,
+  url: '/Edicts/create',
+  data: form
 });
 
 export const listEdicts = () => api.request({
@@ -20,7 +19,6 @@ export const listEdicts = () => api.request({
 
 export const updateEdict = (form) => api.request({
   headers: {
-    'Content-Type': 'application/json',
     'Authorization': `Bearer ${window.localStorage.getItem('refresh_token')}`,
   },
   method: 'put',
@@ -35,4 +33,13 @@ export const deleteEdict = (id) => api.request({
   },
   method: 'delete',
   url: `/edicts/delete/${id}`,
+});
+
+export const downloadEdict = (filename) => api.request({
+  headers: {
+    'Cache-Control': 'no-cache'
+  },
+  responseType: 'blob',
+  method: 'get',
+  url: '/edicts/download/'+ filename,
 });
