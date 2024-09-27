@@ -85,15 +85,15 @@ export default {
         return {
             companies: null,
             company: {
-                id: 0,
+                id: null,
                 image: {
                     id: null,
                     name: 'debug',
-                    code: ''
+                    code: null
                 },
-                name: '',
-                classification: '',
-                cnpj: '',
+                name: null,
+                classification: null,
+                cnpj: null,
                 active: 1
             },
         }
@@ -126,13 +126,11 @@ export default {
         },
         updateCompany(){ // TODO: trocar pra submit data
             console.log(this.company)
-            if(this.company.name != '' && this.company.classification != '' && this.company.cnpj != ''){
-                if(this.company.id == 0){
-                    this.company.id = null
+            if(this.company.name != null && this.company.classification != null && this.company.cnpj != null && this.company.image.code){
+                if(this.company.id == 0) {
                     createCompany(this.company).then((response) => {
                         console.log(response)
-                    })
-                    .finally(() => {
+                    }).finally(() => {
                         setInterval(() => {
                             router.push('/').then(() => {
                                 window.location.reload();

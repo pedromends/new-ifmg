@@ -4,6 +4,7 @@
 
         <!-- Box dos Cards-->
         <div role="status" class="animate-pulse flex max-sm:flex-col gap-1">
+
             <div @mouseover="changeForm(1, 4)" class="shadow-lg shadow-transparent hover:shadow-red-600 transition duration-200 hover:text-black hover:bg-white flex flex-col gap-3 px-8 py-8 rounded-3xl border-2 border-white bg-maingreen">
                 <div class="flex justify-between items-center ">
                     <svg class="w-8 h-8 text-gray-200 effect-1 border border-transparent hover:border-red-700 rounded-lg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
@@ -21,6 +22,7 @@
                 </div>
                 <a class="text-xs flex items-center gap-2 font-semibold bg-no-repeat hover:underline text-white effect-1" href="#">Explorar -> <div class="w-5 h-5"/></a>
             </div>
+
             <div @mouseover="changeForm(2, 5)" class="shadow-lg shadow-transparent hover:shadow-red-600 transition duration-200 hover:text-black hover:bg-white flex flex-col gap-3 px-8 py-8 rounded-3xl border-2 border-white bg-maingreen">
                 <div class="flex justify-between items-center ">
                     <svg class="w-8 h-8 text-gray-200 effect-1 border border-transparent hover:border-red-700 rounded-lg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
@@ -38,6 +40,7 @@
                 </div>
                 <a class="text-xs flex items-center gap-2 font-semibold bg-no-repeat hover:underline text-white effect-1" href="#">Explorar -> <div class="w-5 h-5"/></a>
             </div>
+
             <div @mouseover="changeForm(3, 6)" class="shadow-lg shadow-transparent hover:shadow-red-600 transition duration-200 hover:text-black hover:bg-white flex flex-col gap-3 px-8 py-8 rounded-3xl border-2 border-white bg-maingreen">
                 <div class="flex justify-between items-center ">
                     <svg class="w-8 h-8 text-gray-200 effect-1 border border-transparent hover:border-red-700 rounded-lg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
@@ -55,6 +58,7 @@
                 </div>
                 <a class="text-xs flex items-center gap-2 font-semibold bg-no-repeat hover:underline text-white effect-1" href="#">Explorar -> <div class="w-5 h-5"/></a>
             </div>
+
             <div @mouseover="changeForm(4, 7)" class="shadow-lg shadow-transparent hover:shadow-red-600 transition duration-200 hover:text-black hover:bg-white flex flex-col gap-3 px-8 py-8 rounded-3xl border-2 border-white bg-maingreen">
                 <div class="flex justify-between items-center ">
                     <svg class="w-8 h-8 text-gray-200 effect-1 border border-transparent hover:border-red-700 rounded-lg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
@@ -123,7 +127,7 @@ export default {
                 subtitle: null,
                 img: {
                     id: null,
-                    code: ''
+                    code: null
                 }
             }
         }
@@ -142,7 +146,7 @@ export default {
             };
         },
         updateCard(){
-            if(this.capacitationCard.img.code !== '' && this.capacitationCard.title !== '' && this.capacitationCard.subtitle !== ''){
+            if(this.capacitationCard.img.code !== null && this.capacitationCard.img.code !== null && this.capacitationCard.title !== null && this.capacitationCard.subtitle !== null){
                 updateCapacitation(this.capacitationCard).then((response) => {
                     console.log(response)
                 }).finally(() => {

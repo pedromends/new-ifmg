@@ -88,9 +88,9 @@
                     <div id="project-name-div" class="border-2 border-transparent p-2 rounded-lg">
                         <div class="flex flex-col">
                             <label for="researchers" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Projeto:</label>
-                            <select v-model="editProject.id" name="" id="" class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 w-full p-2.5">
+                            <select v-model="inEditProject.id" name="" id="" class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 w-full p-2.5">
                                 <option class="bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen"
-                                    selected disabled hidden value="0">Selecione um projeto</option>
+                                    selected disabled hidden value="0">--- Novo projeto ---</option>
                                 <option class="bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen"
                                     :value="project.id" v-for="(project, i) in projects" :key="i">{{ project.name }}</option>
                             </select>
@@ -108,7 +108,7 @@
                     <div id="company-name-div" class="border-2 border-transparent p-2 rounded-lg">
                         <div class="flex flex-col">
                             <label for="researchers" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Empresa:</label>
-                            <select v-model="editCompany.id" name="" id="" class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 w-full p-2.5">
+                            <select v-model="selectCompany.id" name="" id="" class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 w-full p-2.5">
                                 <option class="bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen"
                                     selected disabled hidden>Selecione uma empresa</option>
                                 <option class="bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen"
@@ -121,7 +121,7 @@
                     <div id="coor-name-div" class="border-2 border-transparent p-2 rounded-lg">
                         <div class="flex flex-col">
                             <label for="researchers" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Coordenador:</label>
-                            <select v-model="editCoordinator.id" name="" id="" class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 w-full p-2.5">
+                            <select v-model="selectCoordinator.id" name="" id="" class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 w-full p-2.5">
                                 <option class="bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen"
                                     selected disabled hidden>Selecione um coordenador</option>
                                 <option class="bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen"
@@ -153,7 +153,7 @@
                     <div id="researchers-div" class="border-2 border-transparent p-2 rounded-lg">
                         <div class="flex flex-col">
                             <label for="researchers" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Pesquisadores:</label>
-                            <select v-model="editResearchers.id" name="" id="" class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 w-full p-2.5">
+                            <select v-model="selectResearchers.id" name="" id="" class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 w-full p-2.5">
                                 <option class="bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen"
                                     selected disabled hidden>Selecione os pesquisadores</option>
                                 <option class="bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen"
@@ -166,7 +166,7 @@
                     <div id="students-div" class="border-2 border-transparent p-2 rounded-lg">
                         <div class="flex flex-col">
                             <label for="researchers" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Alunos:</label>
-                            <select v-model="editStudents.id" name="" id="" class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 w-full p-2.5">
+                            <select v-model="selectStudents.id" name="" id="" class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 w-full p-2.5">
                                 <option class="bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen"
                                     selected disabled hidden>Selecione os pesquisadores</option>
                                 <option class="bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen"
@@ -186,7 +186,7 @@
                 </div>
                 <div class="w-full flex max-sm:flex-col justify-center gap-10">
                     <button class="text-white bg-maingreen hover:bg-govblue focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm text-center px-36 py-3 transition duration-200"
-                        @click.prevent="updateCard()" type="submit">Salvar</button>
+                        @click.prevent="updateProject()" type="submit">Salvar</button>
                     
                     <div class="flex items-center bg-red-600 hover:bg-maingray focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg transition duration-200"
                         @click.prevent="deleteProject()" type="submit">
@@ -212,13 +212,12 @@ import { getTalents } from '@/services/TalentService.js'
 import AlertSuccessDelete from "@/components/alert/AlertSuccessDelete.vue";
 
 export default {
-    name: 'EditProjectModal',
+    name: 'inEditProjectModal',
     components: {
         AlertSuccessDelete
     },
     data(){
         return {
-            boolNewProject: false,
             bool: false,
             boolSaibaMais: true,
             companies: null,
@@ -226,30 +225,6 @@ export default {
             modalities: 1,
             researchers: null,
             projects: null,
-            editCompany:{
-                id: 'Selecione uma empresa',
-                name: 'Selecione uma Empresa',
-                id_img: null
-            },
-            editCoordinator:{
-                id: null,
-                name: 'Selecione um Coordenador',
-                id_img: null
-            },
-            editResearchers:{
-                id: null,
-                name: 'Selecione os Pesquisadores',
-                id_img: null
-            },
-            editStudents:{
-                id: null,
-                name: 'Selecione os Alunos',
-                id_img: null
-            },
-            editProject:{
-                id: 0,
-                name: 'Selecione o Projeto',
-            },
             newProject: {
                 modality:{
                     id: 1
@@ -259,9 +234,6 @@ export default {
                 },
                 company: {
                     id: null,
-                    img: {
-                        id: null
-                    }
                 },
                 students: {
                     id: null
@@ -269,12 +241,36 @@ export default {
                 researchers: {
                     id: null
                 },
-                name: '',
-                resume: '',
-                situation: '',
-                value: '',
+                name: null,
+                resume: null,
+                situation: null,
+                value: null,
                 active: 1
-            }
+            },
+            selectCompany:{
+                id: null,
+                name: 'Selecione uma Empresa',
+                id_img: null
+            },
+            selectCoordinator:{
+                id: null,
+                name: 'Selecione um Coordenador',
+                id_img: null
+            },
+            selectResearchers:{
+                id: null,
+                name: 'Selecione os Pesquisadores',
+                id_img: null
+            },
+            selectStudents:{
+                id: null,
+                name: 'Selecione os Alunos',
+                id_img: null
+            },
+            inEditProject:{
+                id: 0,
+                name: 'Selecione o Projeto',
+            },
         }
     },
     created(){
@@ -316,60 +312,61 @@ export default {
             let div = document.getElementById("success-delete-alert")
             div.style.display = "flex"
         },
-        updateCard(){
-            if(this.editProject.id == 0){
-                this.newProject.company.id = this.editCompany.id
-                this.newProject.coordinator.id = this.editCoordinator.id
-                this.newProject.researchers.id = this.editResearchers.id
-                
-                console.log(this.newProject)
-                createProject(this.newProject).then((response) => {
-                    console.log(response)
-                }).finally(() => {
-                     router.push('/').then(() => {
-                         var element = document.getElementById("ourclients");
-                         element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
-                     }); 
-                 })
+        updateProject(){
+            if(this.inEditProject.id == 0){
+                if(this.newProject.name !== '' && this.selectCompany.id !== null && this.selectCoordinator.id !== null 
+                    && this.newProject.situation !== null && this.newProject.value !== null && this.newProject.resume !== null){
+                        this.newProject.company.id = this.selectCompany.id
+                        this.newProject.coordinator.id = this.selectCoordinator.id
+                        this.newProject.researchers.id = this.selectResearchers.id
+        
+                        createProject(this.newProject).then((response) => {
+                            console.log(response)
+                        }).finally(() => {
+                             router.push('/').then(() => {
+                                 var element = document.getElementById("ourclients");
+                                 element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                             }); 
+                         })
+                }
             } else {
-                this.newProject.id = this.editProject.id
-                this.newProject.company.id = this.editCompany.id
-                this.newProject.company.img.id = this.editCompany.id_img
-                this.newProject.coordinator.id = this.editCoordinator.id
-                this.newProject.researchers.id = this.editResearchers.id
-                this.newProject.students.id = this.editStudents.id
-                console.log(this.newProject)
+                if(this.newProject.name !== '' && this.selectCompany.id !== null && this.selectCoordinator.id !== null 
+                    && this.newProject.situation !== null && this.newProject.value !== null && this.newProject.resume !== null) {
 
-                updateProject(this.newProject).then((response) => {
-                    console.log(response)
-                })
-                .finally(() => {
-                     router.push('/').then(() => {
-                         window.location.reload()
-                         var element = document.getElementById("ourclients");
-                         element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
-                     }); 
-                })
+                        this.newProject.id = this.inEditProject.id
+                        this.newProject.company.id = this.selectCompany.id
+                        this.newProject.company.img.id = this.selectCompany.id_img
+                        this.newProject.coordinator.id = this.selectCoordinator.id
+                        this.newProject.researchers.id = this.selectResearchers.id
+                        this.newProject.students.id = this.selectStudents.id
+        
+                        updateProject(this.newProject).then((response) => {
+                            console.log(response)
+                        }).finally(() => {
+                             router.push('/').then(() => {
+                                 window.location.reload()
+                                 var element = document.getElementById("ourclients");
+                                 element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                             }); 
+                        })
+                    }
             }
         },
         deleteProject(){
-            if(this.editProject.id != 0){
-                deleteProject(this.editProject.id).then((response) => {
+            if(this.inEditProject.id != 0){
+                deleteProject(this.inEditProject.id).then((response) => {
                 console.log(response)
-            })
-            .finally(() => {
+            }).finally(() => {
+                this.showDeleteSuccess()
                 setInterval(() => {
-                    this.showDeleteSuccess()
-                    setInterval(() => {
-                        router.push('/').then(() => {
-                            window.location.reload()
-                            var element = document.getElementById("ourclients");
-                            element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
-                        }); 
-                    }, 2000)
-                })
+                    router.push('/').then(() => {
+                        window.location.reload()
+                        var element = document.getElementById("ourclients");
+                        element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                    }); 
+                }, 2000)
             })     
-            }else{
+            } else {
                 alert('Selecione primeiro uma empresa pra deletar')
             }
         }

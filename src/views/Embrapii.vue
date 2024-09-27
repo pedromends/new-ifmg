@@ -35,15 +35,40 @@
 </template>
 
 <script>
-import BackToTop  from '@/components/buttons/BackToTop.vue';
+    import BackToTop from '@/components/buttons/BackToTop.vue';
+    import { updateParag, getText } from '@/services/CapacitationService.js';
 
-export default {
-    name:'HowItWorks',
-    components: {
-        BackToTop
+    export default {
+        name: 'CapacitationPage',
+        components: {
+            BackToTop
+        },
+        data() {
+            return {
+                currentParag: null,
+                isAdmin: false,
+                page: 0,
+                totalPages: 0,
+                totalElements: 0,
+                newParag: ''
+            }
+        },
+        created() {
+            this.isAdmin = this.$store.getters.isAdmin
+            getText().then((response) => {
+                console.log(response.data)
+                this.currentParag = response.data.text
+            }).catch((error) => console.log(error)) 
+        },
+        methods: {
+            updateParag(){
+                updateParag(this.newParag).then((response) => {
+                    console.log(response.data)
+                }).catch((error) => console.log(error))
+            }
+        }
     }
-}
 </script>
 <style lang="">
-    
+
 </style>
