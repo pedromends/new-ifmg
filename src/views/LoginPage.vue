@@ -1,15 +1,6 @@
 <template lang="">
     <section class="flex items-start justify-between px-32 py-10 bg-campus bg-no-repeat bg-bottom bg-cover">
         <div class="p-18 flex justify-end w-full gap-20">
-
-            <!-- Alertas -->
-            <div class="transition duration-200">
-                <AlertSuccessLogin/>
-                <AlertErrorLogin/>
-                <AlertSuccessRegister/>
-                <AlertErrorRegister/>
-            </div>
-
             <div class="flex items-center gap-10">
                 <div class="flex flex-col gap-36 justify-between">
                     <form v-if="boolForm" class="flex flex-col gap-5 rounded-2xl border-2 border-maingreen pt-10 bg-white">
@@ -108,19 +99,9 @@
 import router from '@/router/index.js';
 import { createUser, loginUser } from '@/services/UserService.js';
 import { mapMutations, mapActions } from "vuex";
-import AlertSuccessLogin from '@/components/alert/AlertSuccessLogin';
-import AlertErrorLogin from '@/components/alert/AlertErrorLogin';
-import AlertSuccessRegister from '@/components/alert/AlertSuccessRegister';
-import AlertErrorRegister from '@/components/alert/AlertErrorRegister';
 
 export default {
     name: 'LoginPage',
-    components:{
-        AlertSuccessLogin,
-        AlertErrorLogin,
-        AlertSuccessRegister,
-        AlertErrorRegister
-    },
     data(){
         return {
             isLoggedIn: this.$store.getters.isLoggedIn,
@@ -174,8 +155,6 @@ export default {
         },
         requestLogin(){
             loginUser(this.login).then((response) => {
-                console.log(response.data)
-                
                 const aux = response.data
                 let newToken = aux.token
 
@@ -184,6 +163,7 @@ export default {
                 this.$store.commit('setRole', aux.userVO.role)
 
                 window.localStorage.setItem("refresh_token", newToken)
+
                 this.showSuccessLogin()
             }).catch((e) => {
                 console.log(e)
@@ -193,6 +173,7 @@ export default {
         showSuccessLogin(){
             let div = document.getElementById("success-login-alert")
             div.style.display = "flex"
+
             setInterval(() => {
                 router.push("/").then(() => {
                     window.location.reload()
@@ -202,6 +183,7 @@ export default {
         showErrorLogin(){
             let div = document.getElementById("error-login-alert")
             div.style.display = "flex"
+
             setInterval(() => {
                 this.hide('error-login-alert')
             }, 3000)
@@ -209,6 +191,7 @@ export default {
         showSuccessRegister(){
             let div = document.getElementById("success-register-alert")
             div.style.display = "flex"
+
              setInterval(() => {
                 this.hide('success-register-alert')
             }, 3000)
@@ -216,7 +199,8 @@ export default {
         showErrorRegister(){
             let div = document.getElementById("error-register-alert")
             div.style.display = "flex"
-             setInterval(() => {
+
+            setInterval(() => {
                 this.hide('error-register-alert')
             }, 3000)
         },

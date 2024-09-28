@@ -2,7 +2,6 @@
     <section class="flex flex-col px-24 py-10">
         <h1 class="text-4xl text-black font-semibold underline underline-offset-2 decoration-8 decoration-maingreen">Edição de Notícias</h1>
         <div class="px-52 pt-10">
-            <AlertSuccessDelete />
             <form class="bg-white p-10 rounded-lg">
             
                 <div class="grid gap-6 mb-6 grid-cols-2">
@@ -80,12 +79,10 @@ import { useRoute } from "vue-router";
 import router from '@/router/index.js';
 import { updateNew, deleteNew } from '@/services/NewService.js';
 import { showOne } from '@/services/NewService.js';
-import AlertSuccessDelete from '@/components/alert/AlertSuccessDelete.vue';
 
 export default {
     name: 'NewsCreate',
     components: {
-        AlertSuccessDelete
     },
     created(){
         const route = useRoute();

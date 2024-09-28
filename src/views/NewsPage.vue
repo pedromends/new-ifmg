@@ -1,6 +1,6 @@
 <template lang="">
     <main class="flex justify-center items-center px-16 py-2 max-lg:p-2 max-lg:mt-20">
-        <div class="flex flex-col px-20 max-lg:px-4 gap-10">
+        <div class="flex flex-col px-20 max-lg:px-4 gap-10 w-full">
             <div class="flex items-center gap-2">
                 <img class="w-6" :src="require('@/assets/icons/house2.svg')" alt="">
                 <router-link to="/news" class="text-maingreen hover:underline">Home</router-link>
@@ -23,19 +23,24 @@
                         type="submit" @click.prevent="createNew()">Criar nova notícia</button>
                 </div>
                 <hr class="bg-red-600 h-1" />
-                <div class="flex items-center gap-5">
+                <div class="flex items-center">
                     <input type="text" placeholder="Pesquisar..." v-model="searchQuery"
-                        class="w-full rounded-lg ring ring-transparent focus:ring-red-600" />
-                        <button @click="searchItems">
+                        class="w-full rounded-l-lg ring ring-transparent focus:ring-red-600" />
+                        <button @click="searchItems" class="bg-maingreen rounded-r-lg">
                             <img alt="Laboratório de sistemas automotivos IFMG - Campus Formiga"
-                            class=" bg-maingreen px-4 rounded-lg" :src="require('@/assets/icons/hand-glass.svg')" />
+                            class="mx-4 my-1 rounded-lg" :src="require('@/assets/icons/hand-glass.svg')" />
                         </button>
 
                 </div>
             </div>
-            <div class="grid grid-cols-3 gap-5 text-maingray max-lg:grid-cols-1">
-                <NewCard v-for="(newNew, i) in news" :key="i" :tip="'Novidade'" :title="newNew.title"
+            <div v-if="news != null">
+                <div v-if="news.length > 0" class="grid grid-cols-3 gap-5 text-maingray max-lg:grid-cols-1">
+                    <NewCard v-for="(newNew, i) in news" :key="i" :tip="'Novidade'" :title="newNew.title"
                     :date="newNew.date" :read="'3 min de Leitura'" :img="newNew.img1.code" :newId="newNew.id" />
+                </div>
+                <div v-else>
+                    <h1>Não há notícias a serem exibidas</h1>
+                </div>
             </div>
             <nav aria-label="flex justify-center">
                 <ul class="flex items-center -space-x-px h-10 text-base justify-center">
@@ -95,8 +100,12 @@
             }
         },
         created() {
+            try{
+                this.pageSet(0)
+            }catch(e){
+                console.log(e)
+            }
             this.isAdmin = this.$store.getters.isAdmin
-            this.pageSet(0)
         },
         methods: {
             createNew() {
@@ -108,13 +117,11 @@
                     this.news = response.data.content
                     this.totalPages = response.data.totalPages
                     this.totalElements = response.data.totalElements
-                    console.log(this.news) 
                 })
             },
             searchItems() {
                 if (this.searchQuery.length > 2) {
                     searchNew(this.searchQuery).then((response) => {
-                        console.log(response.data)
                         this.news = response.data
                     }).catch(error => {
                         console.error("Erro ao buscar itens:", error);

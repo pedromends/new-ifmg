@@ -28,8 +28,7 @@
             </section>
         </div>
 
-        <AlertSuccessDelete/>
-        <AlertSuccessCompany/>
+
         
         <!-- Formulário -->
         <form class="bg-white w-full px-24 max-sm:px-4 py-10 rounded-xl">
@@ -73,14 +72,9 @@
 <script>
 import router from '@/router/index.js'
 import { createCompany, listCompanies, updateCompany, deleteCompany } from '@/services/CompanyService.js';
-import AlertSuccessDelete from "@/components/alert/AlertSuccessDelete.vue";
-import AlertSuccessCompany from "@/components/alert/AlertSuccessCompany.vue";
 
 export default {
     name: 'EditCompany',
-    components: {
-        AlertSuccessDelete
-    },
     data(){
         return {
             companies: null,

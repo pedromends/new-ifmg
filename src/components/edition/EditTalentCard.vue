@@ -33,8 +33,6 @@
 
         <!-- Formulário -->
         <form class="bg-white p-10 rounded-lg mb-10">
-            <AlertSuccessDelete />
-            <AlertSuccessTalent />
             <div class="grid gap-6 mb-6 md:grid-cols-2 max-sm:grid-cols-1">
                 <div id="name-div" class="border-2 border-transparent p-2 rounded-lg">
                     <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nome</label>
@@ -77,15 +75,9 @@
 <script>
 import router from '@/router/index.js'
 import { createTalent, updateTalent, getTalents, deleteTalent } from '@/services/TalentService.js';
-import AlertSuccessDelete from "@/components/alert/AlertSuccessDelete.vue"
-import AlertSuccessTalent from "@/components/alert/AlertSuccessTalent.vue";
 
 export default {
     name: 'EditnewTalent',
-    components: {
-        AlertSuccessDelete,
-        AlertSuccessTalent
-    },
     data(){
         return {
             bool: false,

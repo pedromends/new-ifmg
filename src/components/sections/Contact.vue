@@ -1,7 +1,6 @@
 <template lang="">
     <section id="contact" class="flex justify-center items-center text-white p-20">
         <div class="bg-maingreen flex max-lg:flex-col p-10 max-lg:p-14 rounded-3xl relative">
-            
             <div class="flex flex-col gap-4">
                 <h1 class="text-3xl w-112 max-lg:w-auto font-semibold">Vamos conversar sobre as oportunidades de inovação da sua empresa.</h1>
                 <span class="text-sm">Preencha o formulário e entraremos em contato.</span>
@@ -23,7 +22,6 @@
             <div class="w-128 max-lg:w-auto h-auto relative">
                 <div class="shadow-2xl bg-white p-5 rounded-lg text-black flex justify-start gap-10 absolute -top-28 max-lg:top-0">
                     <form class="flex flex-col gap-5 p-5 max-lg:gap-3">
-                        <ContactSent />
                         <div class="flex flex-col w-96 max-lg:w-auto">
                             <label class="text-maingray text-sm">Nome</label>
                             <input required v-model="contact.name" type="text" class="rounded-lg border-1 border-gray-1 max-lg:h-8">
@@ -56,13 +54,9 @@
 <script>
 
 import { createContactMessage } from '@/services/ContactService';
-import ContactSent from "@/components/alert/ContactSent";
 
 export default {
     name: 'ContactSection',
-    components:{
-        ContactSent
-    },
     data() {
         return {
             contact:{

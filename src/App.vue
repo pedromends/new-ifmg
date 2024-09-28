@@ -1,10 +1,10 @@
 <template>
-  <!-- Não entra sem as manha, xóven -->
   <main>
+    <Alerts/>
     <Navbar />
     <Sidebar />
     <router-view />
-    <Footer />
+    <Footer/>
   </main>
 </template>
 
@@ -12,6 +12,8 @@
 import Navbar from "@/components/layout/Navbar.vue";
 import Sidebar from "@/components/layout/Sidebar.vue";
 import Footer from "@/components/layout/Footer.vue";
+import Alerts from "@/components/layout/Alerts.vue";
+
 import './index.css'
 
 
@@ -25,7 +27,7 @@ import { initFlowbite, initAccordions,
 
   window.onload = function() {
       if (navigator.userAgent.indexOf("Chrome") != -1) {
-          document.body.style.zoom = "70%";
+          document.body.style.zoom = "80%";
       }
       else if (navigator.userAgent.indexOf("Edge") != -1) {
             document.body.style.zoom = "125%";
@@ -36,7 +38,7 @@ onMounted(() => {
     initFlowbite(); initAccordions();
     initCarousels(); initCollapses();
     initDials(); initDismisses();
-    initDrawers(); initDropdowns();
+    initDrawers(); initDropdowns(); 
     initModals(); initPopovers();
     initTabs(); initTooltips();
 })

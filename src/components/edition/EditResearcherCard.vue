@@ -42,8 +42,6 @@
                         ' ' + researcher.lastName }}</option>
                 </select>
             </div>
-            <AlertSuccessDelete />
-            <AlertSuccessResearcher />
         </div>
 
         <form class="bg-white p-10 rounded-2xl">
@@ -187,17 +185,11 @@
     import router from '@/router/index.js'
     import { createResearcher, listResearchers, updateResearcher, deleteResearcher } from '@/services/ResearcherService.js';
     import { listCampus } from '@/services/CampusService.js';
-    import AlertSuccessDelete from "@/components/alert/AlertSuccessDelete.vue";
-    import AlertSuccessResearcher from "@/components/alert/AlertSuccessResearcher.vue";
     import { getResearcher } from '@/services/ResearcherService.js';
     import { useRoute } from "vue-router";
 
     export default {
         name: 'EditResearcherCard',
-        components: {
-            AlertSuccessDelete,
-            AlertSuccessResearcher
-        },
         data() {
             return {
                 bool: false,

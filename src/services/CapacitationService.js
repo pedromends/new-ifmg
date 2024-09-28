@@ -30,8 +30,7 @@ export const updateParag = (form) => api.request({
 
 export const getText = () => api.request({
   headers: {
-    'Content-Type': 'application/json',
-    'Authorization': `Bearer ${window.localStorage.getItem('refresh_token')}`,
+    'Content-Type': 'application/json', 
   },
   method: 'get',
   url: '/capacitation/get-text',
