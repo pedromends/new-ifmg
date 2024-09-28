@@ -1,5 +1,5 @@
 <template>
-	<main >
+	<main>
 		<section v-if="haveAPI">
 			<Alerts />
 			<Navbar />
@@ -7,7 +7,7 @@
 			<router-view />
 			<Footer />
 		</section>
-		<section v-else-if="!haveAPI">
+		<section v-else-if="!haveAPI" id="backup-screen" class="hidden">
 			<h1>Não há conexão com a API (criar tela bonitinha de erro depois)</h1>
 		</section>
 	</main>
@@ -33,23 +33,18 @@
 	import './index.css'
 
 	const haveAPI = ref(false);
-	const successScreen = () => {
-		haveAPI.value = true
-	};
-	const errorScreen = () => {
-		haveAPI.value = false
+
+	window.onload = function () {
+		if (navigator.userAgent.indexOf("Chrome") != -1) {
+			document.body.style.zoom = "80%";
+		}
+		else if (navigator.userAgent.indexOf("Edge") != -1) {
+			document.body.style.zoom = "125%";
+		}
 	};
 
 	try {
 		handshake().then((response) => {
-			window.onload = function () {
-				if (navigator.userAgent.indexOf("Chrome") != -1) {
-					document.body.style.zoom = "80%";
-				}
-				else if (navigator.userAgent.indexOf("Edge") != -1) {
-					document.body.style.zoom = "125%";
-				}
-			};
 			onMounted(() => {
 				initFlowbite(); initAccordions();
 				initCarousels(); initCollapses();
@@ -58,15 +53,23 @@
 				initModals(); initPopovers();
 				initTabs(); initTooltips();
 			})
-			successScreen()
+			showSuccessScreen()
 		}).catch(e => {
-			errorScreen()
+			showErrorScreen()
 		})
 	} catch (e) {
 		console.log(e)
 	}
 
+	function showSuccessScreen(){
+		haveAPI.value = true
+		document.getElementById("backup-screen").style.display = 'none'
+	}
 
+	function showErrorScreen(){
+		haveAPI.value = false
+		document.getElementById("backup-screen").style.display = 'inline'
+	}
 </script>
 
 <style>
