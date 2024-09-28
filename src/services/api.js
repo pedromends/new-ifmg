@@ -8,6 +8,14 @@ const api = axios.create({
   },
 });
 
+export const handshake = () => api.request({
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  method: 'get',
+  url: '/user/handshake',
+});
+
 api.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
 api.defaults.headers.put['Access-Control-Allow-Origin'] = '*';
 api.defaults.headers.get['Access-Control-Allow-Origin'] = '*';
