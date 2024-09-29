@@ -13,10 +13,10 @@
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="m1 9 4-4-4-4" />
             </svg>
-            <p v-if="newBody.title != ''" class="pointer-events-none">{{ newBody.title }}</p>
+            <p v-if="newBody.title != ''" class="pointer-events-none">{{ newBody.title.substring(0, 40) + '...' }}</p>
         </div>
-        <h1 class="font-bold text-4xl text-center">{{ newBody.title }}</h1>
-        <div class="px-48 flex flex-col gap-10" v-html="newBody.code"></div>
+        <h1 class="font-bold text-4xl text-center self-center w-4/5">{{ newBody.title }}</h1>
+        <div class="px-48 flex flex-col gap-10 editor-render" v-html="newBody.code"></div>
     </section>
 </template>
 
@@ -45,13 +45,9 @@ export default {
         if(id != 0){
             showOne({ id:id }).then((response) => {
                 let res = response.data
-                console.log(res)
 
                 this.newBody.title = res.title
                 this.newBody.code = res.code
-                console.log(this.newBody)
-            }).then(()=>{
-
             })
         }else{
             listMainNews().then((response) => {
@@ -64,6 +60,13 @@ export default {
     }
 }
 </script>
-<style lang="">
-    
+<style>
+    .editor-render a{
+        color: blue;
+        text-decoration: underline;
+    }
+
+    .editor-render a:hover{
+        text-decoration: none;
+    }
 </style>

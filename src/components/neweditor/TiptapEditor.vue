@@ -235,7 +235,7 @@
 	
 		<div class="flex flex-col prose">
 
-			<EditorContent :editor="editorInstance" />
+			<EditorContent class="editor-content" :editor="editorInstance" />
 
 			<div class="mx-4 border-t border-gray-300 py-3 text-right text-sm text-gray-500">
 				{{ editorInstance?.storage.characterCount.characters() }} caracteres,
@@ -423,3 +423,14 @@
 		},
 	};
 </script>
+
+<style>
+.editor-content a {
+  color: blue;
+  text-decoration: underline;
+}
+
+.editor-content a:hover {
+  text-decoration: none;
+}
+</style>

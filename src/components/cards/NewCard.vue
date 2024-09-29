@@ -7,8 +7,7 @@
             <div class="flex items-center self-start">
                 <span class="border-2 border-maingreen rounded-lg text-start text-sm text-maingray px-10">{{ tip }}</span>
             </div>
-            <h1 class="text-base font-semibold mt-2 max-w-96">{{ title }}</h1>
-            <p class="text-sm">{{ date }} | {{ read }}</p>
+            <h1 class="text-base font-semibold mt-2 max-w-96 pointer-events-none">{{ title }}</h1>
             <div class="flex items-center justify-between">
                 <a href="#" class="text-xs text-maingreen hover:underline">Ler Mais -></a>
                 <button @click="editNewCard()" class="self-end" v-if="isAdmin">
