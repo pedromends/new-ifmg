@@ -138,6 +138,7 @@ export default {
             this.capacitationCard.img.id = id_img
         },
         onImageChange(e){
+            console.log(e.target.files[0])
             const image = e.target.files[0];
             const reader = new FileReader();
             reader.readAsDataURL(image);

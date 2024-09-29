@@ -20,6 +20,14 @@ export const createImageNews = (form) => api.request({
   data: form,
 });
 
+export const getLatest = () => api.request({
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  method: 'get',
+  url: '/image/getLatest',
+});
+
 export const getOneImage = (id) => api.request({
   headers: {
     'Content-Type': 'application/json',

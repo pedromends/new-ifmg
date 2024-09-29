@@ -59,43 +59,30 @@
 			this.isDragActive = isDragActive;
 		},
 		methods: {
-			onImageChange(file) {
-                const image = file[0];
-                const reader = new FileReader();
-                reader.readAsDataURL(image);
-                reader.onload = e => {
-                    this.newImage.code = e.target.result;
-                };
-            },
 			onDropImage(acceptedFiles) {
 				if (acceptedFiles.length === 0)
 					return;
 
 				this.onImageChange(acceptedFiles)
-
+			},
+			onImageChange(file) {
+                const image = file[0]
+                const reader = new FileReader();
+                
+				reader.readAsDataURL(image);
+                reader.onload = e => {
+                    this.newImage.code = e.target.result;
+					this.createNewImage()
+                };
+            },
+			createNewImage(){
 				createImageNews(this.newImage).then((response) => {
-					console.log(response.data)
-					this.closeDialog()
+					this.$emit("insert", response.data.code)
+					this.$emit("close");
 				}).catch(e => {
 					console.log(e)
 				})
 			},
-			loadData() {
-				// axios.get("http://localhost:8080/files").then((result) => {
-				//   imageListRef.value = result.data
-				// })
-			},
-			insertImage() {
-				//emit("insert", url)
-				this.closeDialog()
-			},
-			closeDialog() {
-				this.$emit("close");
-			},
-			update() {
-				this.$emit("update", this.inputLinkRef);
-				this.$emit("close");
-			}
 		},
 	}
 </script>

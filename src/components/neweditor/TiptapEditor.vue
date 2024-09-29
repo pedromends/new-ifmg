@@ -184,9 +184,10 @@
 <script>
 	/* eslint-disable vue/no-unused-components */
 	import { Editor, EditorContent } from "@tiptap/vue-3";
-	import { IconArrowBackUp,	IconArrowForwardUp,	IconBlockquote,	IconBold,	IconH1,	IconH2,	IconH3,
-		IconItalic,	IconLink,	IconListDetails,	IconListNumbers,	IconMovie,	IconPhoto,
-		IconStrikethrough,	IconUnderline,	IconMinus,} from "@tabler/icons-vue";
+	import { IconArrowBackUp, IconArrowForwardUp, IconBlockquote,
+		IconBold, IconH1, IconH2, IconH3, IconItalic, IconLink,
+		IconListDetails, IconListNumbers, IconMovie, IconPhoto,
+		IconStrikethrough, IconUnderline, IconMinus } from "@tabler/icons-vue";
 	import TiptapToolbarButton from "@/components/neweditor/nodes/TiptapToolbarButton.vue";
 	import TiptapToolbarGroup from "@/components/neweditor/nodes/TiptapToolbarGroup.vue";
 	import Paragraph from "@tiptap/extension-paragraph";
@@ -202,18 +203,18 @@
 	import BulletList from "@tiptap/extension-bullet-list";
 	import OrderedList from "@tiptap/extension-ordered-list";
 	import Link from "@tiptap/extension-link";
+	import Dropcursor from "@tiptap/extension-dropcursor";
+	import Gapcursor from "@tiptap/extension-gapcursor";
+	import Image from "@tiptap/extension-image";
 	import { Blockquote } from "@tiptap/extension-blockquote";
 	import { HardBreak } from "@tiptap/extension-hard-break";
 	import { CharacterCount } from "@tiptap/extension-character-count";
 	import { Youtube } from "@tiptap/extension-youtube";
-	import Dropcursor from "@tiptap/extension-dropcursor";
 	import { HorizontalRule } from "@tiptap/extension-horizontal-rule";
 	import { Table } from "@tiptap/extension-table";
 	import { TableHeader } from "@tiptap/extension-table-header";
 	import { TableRow } from "@tiptap/extension-table-row";
 	import { TableCell } from "@tiptap/extension-table-cell";
-	import Gapcursor from "@tiptap/extension-gapcursor";
-	import Image from "@tiptap/extension-image";
 
 	import TiptapLinkDialog from "@/components/neweditor/nodes/TiptapLinkDialog.vue";
 	import TiptapVideoDialog from "@/components/neweditor/nodes/TiptapVideoDialog.vue";
@@ -222,29 +223,13 @@
 
 	export default {
 		components: {
-			EditorContent,
-			TiptapToolbarButton,
-			TiptapToolbarGroup,
-			TiptapLinkDialog,
-			TiptapVideoDialog,
-			TiptapTableDialog,
-			TiptapImageDialog,
-			IconArrowBackUp,
-			IconArrowForwardUp,
-			IconBlockquote,
-			IconBold,
-			IconH1,
-			IconH2,
-			IconH3,
-			IconItalic,
-			IconLink,
-			IconListDetails,
-			IconListNumbers,
-			IconMovie,
-			IconPhoto,
-			IconStrikethrough,
-			IconUnderline,
-			IconMinus,
+			EditorContent, TiptapToolbarButton,	TiptapToolbarGroup,
+			TiptapLinkDialog, TiptapVideoDialog, TiptapTableDialog,
+			TiptapImageDialog, IconArrowBackUp, IconArrowForwardUp,
+			IconBlockquote,	IconBold, IconH1, IconH2, IconH3,
+			IconItalic,	IconLink, IconListDetails, IconListNumbers,
+			IconMovie, IconPhoto, IconStrikethrough, IconUnderline,
+			IconMinus
 		},
 		data() {
 			return {
