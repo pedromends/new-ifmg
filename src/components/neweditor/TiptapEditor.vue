@@ -71,32 +71,60 @@
 					:class="{ 'is-active': editorInstance?.isActive('textStyle', { color: '#958DF1' })}">
 					Purple
 				</button>
-				<button @click="console.log(editorInstance?.chain().focus()); editorInstance?.chain().focus().setColor('#F98181').run()"
+				<button
+					@click="console.log(editorInstance?.chain().focus()); editorInstance?.chain().focus().setColor('#F98181').run()"
 					:class="{ 'is-active': editorInstance?.isActive('textStyle', { color: '#F98181' })}">
 					Red
 				</button>
-				<button @click="console.log(editorInstance?.chain().focus()); editorInstance?.chain().focus().setColor('#FBBC88').run()"
+				<button
+					@click="console.log(editorInstance?.chain().focus()); editorInstance?.chain().focus().setColor('#FBBC88').run()"
 					:class="{ 'is-active': editorInstance?.isActive('textStyle', { color: '#FBBC88' })}">
 					Orange
 				</button>
-				<button @click="console.log(editorInstance?.chain().focus()); editorInstance?.chain().focus().setColor('#FAF594').run()"
+				<button
+					@click="console.log(editorInstance?.chain().focus()); editorInstance?.chain().focus().setColor('#FAF594').run()"
 					:class="{ 'is-active': editorInstance?.isActive('textStyle', { color: '#FAF594' })}">
 					Yellow
 				</button>
-				<button @click="console.log(editorInstance?.chain().focus()); editorInstance?.chain().focus().setColor('#70CFF8').run()"
+				<button
+					@click="console.log(editorInstance?.chain().focus()); editorInstance?.chain().focus().setColor('#70CFF8').run()"
 					:class="{ 'is-active': editorInstance?.isActive('textStyle', { color: '#70CFF8' })}">
 					Blue
 				</button>
-				<button @click="console.log(editorInstance?.chain().focus()); editorInstance?.chain().focus().setColor('#94FADB').run()"
+				<button
+					@click="console.log(editorInstance?.chain().focus()); editorInstance?.chain().focus().setColor('#94FADB').run()"
 					:class="{ 'is-active': editorInstance?.isActive('textStyle', { color: '#94FADB' })}">
 					Teal
 				</button>
-				<button @click="console.log(editorInstance?.chain().focus()); editorInstance?.chain().focus().setColor('#B9F18D').run()"
+				<button
+					@click="console.log(editorInstance?.chain().focus()); editorInstance?.chain().focus().setColor('#B9F18D').run()"
 					:class="{ 'is-active': editorInstance?.isActive('textStyle', { color: '#B9F18D' })}">
 					Green
 				</button>
 				<button @click="editorInstance?.chain().focus().unsetColor().run()">
 					Unset color
+				</button>
+			</TiptapToolbarGroup>
+
+			<TiptapToolbarGroup>
+				<button @click="editorInstance?.chain().focus().setTextAlign('left').run()"
+					:class="{ 'is-active': editorInstance?.isActive({ textAlign: 'left' }) }">
+					Left
+				</button>
+				<button @click="editorInstance?.chain().focus().setTextAlign('center').run()"
+					:class="{ 'is-active': editorInstance?.isActive({ textAlign: 'center' }) }">
+					Center
+				</button>
+				<button @click="editorInstance?.chain().focus().setTextAlign('right').run()"
+					:class="{ 'is-active': editorInstance?.isActive({ textAlign: 'right' }) }">
+					Right
+				</button>
+				<button @click="editorInstance?.chain().focus().setTextAlign('justify').run()"
+					:class="{ 'is-active': editorInstance?.isActive({ textAlign: 'justify' }) }">
+					Justify
+				</button>
+				<button @click="editorInstance?.chain().focus().unsetTextAlign().run()">
+					Unset text align
 				</button>
 			</TiptapToolbarGroup>
 
@@ -258,9 +286,9 @@
 	import Gapcursor from "@tiptap/extension-gapcursor";
 	import CustomImage from "./CustomImage.js";
 	import TextStyle from '@tiptap/extension-text-style'
+	import TextAlign from '@tiptap/extension-text-align'
+
 	import { Color } from '@tiptap/extension-color'
-
-
 	import { createNew } from '@/services/NewService.js';
 	import { Blockquote } from "@tiptap/extension-blockquote";
 	import { HardBreak } from "@tiptap/extension-hard-break";
@@ -312,12 +340,15 @@
 					},
 				},
 				extensions: [Paragraph, Document, Text, History, TextStyle,
+					TextAlign.configure({
+						types: ['heading', 'paragraph'],
+					}),
 					Heading.configure({ levels: [1, 2, 3], }), Bold, Italic, Underline, Strike, ListItem, BulletList, OrderedList,
 					Link.configure({ openOnClick: false, }), HardBreak, Blockquote, CharacterCount, Youtube,
 					Dropcursor.configure({ width: 2, color: "#2563eb", }), HorizontalRule,
 					Table.configure({ resizable: false, allowTableNodeSelection: true, }),
 					TableRow, TableHeader, TableCell, Gapcursor, CustomImage,
-					Color.configure({ types: ['textStyle']	})
+					Color.configure({ types: ['textStyle'] })
 				],
 				onUpdate: ({ editor }) => {
 					this.newNew.code = editor.getHTML();
