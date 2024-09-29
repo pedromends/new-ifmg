@@ -1,6 +1,6 @@
 <template lang="">
-    <div v-if="newBody != null" class="flex flex-col justify-between gap-3 hover:bg-gray-200 rounded-xl transition duration-300 pb-3 h-full max-sm:self-center">
-        <div v-if="img != null" @click.prevent="openNew()" class="w-full flex justify-center items-center px-3">
+    <div v-if="newBody != null" @click.prevent="openNew()" class="flex flex-col justify-between gap-3 hover:bg-gray-200 rounded-xl transition duration-300 pb-3 h-full max-sm:self-center">
+        <div v-if="img != null"  class="w-full flex justify-center items-center px-3">
             <img :src="img" alt="" class="mt-3 max-w-72 max-h-72"/>
         </div>
         <div class="px-8 flex flex-col justify-between gap-2">
@@ -21,16 +21,16 @@
 
 <script>
 import router from '@/router/index.js'
-import { listMainNews } from '@/services/MainNewService.js';
+import { showOne } from '@/services/NewService.js';
 
 export default {
     name: 'NewCard',
     beforeCreate() {
-        listMainNews().then((response) => {
+        console.log(this.newId)
+        showOne({id:this.newId}).then((response) => {
             let res = response.data
             this.newBody.title = res.title
-            this.newBody.img1.code = res.image.code
-            this.newBody.paragraph1 = res.paragraph
+            this.newBody.code = res.code
         })
     },
     components:{
@@ -51,8 +51,7 @@ export default {
         tip: String,
         title: String,
         date: String,
-        read: String,
-        img: String,
+        code: String,
         newId: Number
     },
     methods:{

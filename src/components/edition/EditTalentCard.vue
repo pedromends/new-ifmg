@@ -67,7 +67,7 @@
                         <p class="font-medium">Excluir</p>
                     </div>
                 </div>
-            </div>    
+            </div>
         </form>
     </section>
 </template>

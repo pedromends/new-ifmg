@@ -36,7 +36,7 @@
             <div v-if="news != null">
                 <div v-if="news.length > 0" class="grid grid-cols-3 gap-5 text-maingray max-lg:grid-cols-1">
                     <NewCard v-for="(newNew, i) in news" :key="i" :tip="'Novidade'" :title="newNew.title"
-                    :date="newNew.date" :read="'3 min de Leitura'" :img="newNew.img1.code" :newId="newNew.id" />
+                        :date="newNew.date" :read="'3 min de Leitura'" :code="newNew.code" :newId="newNew.id" />
                 </div>
                 <div v-else>
                     <h1>Não há notícias a serem exibidas</h1>
@@ -58,7 +58,7 @@
                     <li v-for="(page, i) in totalPages" :key="i">
                         <button  :class="this.page == i ? 'bg-maingreen text-white hover:bg-green-700' : 'bg-white text-gray-500 hover:text-gray-700'"
                             class="flex items-center justify-center px-4 h-10 leading-tight border border-gray-300"
-                            @click="pageSet(i)">{{ i + 1}}</button>
+                            @click="pageSet(i)">{{ i + 1 }}</button>
                     </li>
                     <li>
                         <button class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700" @click="pageSet(this.page + 1)">

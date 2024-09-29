@@ -164,7 +164,17 @@
 		</div>
 
 		<div class="px-4 py-3 text-sm text-gray-700">
-			{{ contentResult }}
+		<!-- {{ newNew.code }} -->
+			<button class="text-white bg-maingreen hover:bg-govblue focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm text-center px-36 py-3 transition duration-200"
+				@click.prevent="createNew()" type="submit">Salvar</button>
+			
+			<div class="flex items-center bg-red-600 hover:bg-maingray focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg transition duration-200"
+				>
+				<div class="flex w-full justify-start gap-3 items-center text-white px-32">
+					<img class="w-5" :src="require('@/assets/icons/trash.svg')" alt="">
+					<p class="font-medium">Excluir</p>
+				</div>
+			</div>
 		</div>
 
 		<TiptapLinkDialog v-if="showLinkDialog" :show="showLinkDialog" :current-url="currentLinkInDialog" :editor="editor"
@@ -188,6 +198,7 @@
 		IconBold, IconH1, IconH2, IconH3, IconItalic, IconLink,
 		IconListDetails, IconListNumbers, IconMovie, IconPhoto,
 		IconStrikethrough, IconUnderline, IconMinus } from "@tabler/icons-vue";
+
 	import TiptapToolbarButton from "@/components/neweditor/nodes/TiptapToolbarButton.vue";
 	import TiptapToolbarGroup from "@/components/neweditor/nodes/TiptapToolbarGroup.vue";
 	import Paragraph from "@tiptap/extension-paragraph";
@@ -205,7 +216,9 @@
 	import Link from "@tiptap/extension-link";
 	import Dropcursor from "@tiptap/extension-dropcursor";
 	import Gapcursor from "@tiptap/extension-gapcursor";
-	import Image from "@tiptap/extension-image";
+	import CustomImage  from  "./CustomImage.js";
+
+	import { createNew } from '@/services/NewService.js';
 	import { Blockquote } from "@tiptap/extension-blockquote";
 	import { HardBreak } from "@tiptap/extension-hard-break";
 	import { CharacterCount } from "@tiptap/extension-character-count";
@@ -229,17 +242,22 @@
 			IconBlockquote,	IconBold, IconH1, IconH2, IconH3,
 			IconItalic,	IconLink, IconListDetails, IconListNumbers,
 			IconMovie, IconPhoto, IconStrikethrough, IconUnderline,
-			IconMinus
+			IconMinus, CustomImage
 		},
 		data() {
 			return {
-				contentResult: "",
 				currentLinkInDialog: "",
 				showLinkDialog: null,
 				showAddYoutubeDialog: false,
 				showAddTableDialog: false,
 				showAddImageDialog: false,
 				editorInstance: null,
+				newNew: {
+					title: null,
+					code: null,
+					isMain: false,
+					tip: 'Novidade'
+				}
 			};
 		},
 		beforeMount() {
@@ -254,15 +272,15 @@
 					Heading.configure({ levels: [1, 2, 3], }), Bold, Italic, Underline, Strike, ListItem, BulletList, OrderedList,
 					Link.configure({ openOnClick: false, }), HardBreak, Blockquote, CharacterCount, Youtube,
 					Dropcursor.configure({ width: 2, color: "#2563eb", }), HorizontalRule,
-					Table.configure({ resizable: false, allowTableNodeSelection: true, }), TableRow, TableHeader, TableCell, Gapcursor, Image,
+					Table.configure({ resizable: false, allowTableNodeSelection: true, }), TableRow, TableHeader, TableCell, Gapcursor, CustomImage,
 				],
 				onUpdate: ({ editor }) => {
-					this.contentResult = editor.getHTML();
+					this.newNew.code = editor.getHTML();
 				},
 			});
 
 			setTimeout(() => {
-				this.contentResult = this.editorInstance?.getHTML();
+				this.newNew.code = this.editorInstance?.getHTML();
 			}, 250);
 		},
 		beforeUnmount() {
@@ -272,6 +290,18 @@
 			openLinkDialog() {
 				this.currentLinkInDialog = this.editorInstance?.getAttributes("link").href;
 				this.showLinkDialog = true;
+			},
+			createNew(){
+				createNew(this.newNew).then((response) => {
+					console.log(response)
+				})
+				// .finally(() => {
+				// 	setInterval(() => {
+				// 		router.push('/news').then(() => {
+				// 			window.location.reload();
+				// 		});
+				// 	}, 2500)
+				// })
 			},
 			updateLink(value) {
 				console.log(value)
@@ -284,6 +314,7 @@
 					?.chain().focus().extendMarkRange("link").setLink({ href: value }).run();
 			},
 			insertImage(url) {
+				console.log(this.editorInstance?.chain().focus().setImage({ src: url }))
 				this.editorInstance?.chain().focus().setImage({ src: url }).run();
 			},
 			insertYoutubeVideo(url) {

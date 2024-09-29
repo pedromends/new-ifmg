@@ -13,19 +13,9 @@
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="m1 9 4-4-4-4" />
             </svg>
-            <p class="">{{ newBody.title }}</p>
+            <p class="pointer-events-none">{{ newBody.title }}</p>
         </div>
-        <div class="px-48 flex flex-col gap-10">
-            <p class="font-semibold text-4xl">{{ newBody.title }}</p>
-            <div v-if="newBody.img1.code != undefined" class="flex justify-center">
-                <img :src="newBody.img1.code" alt="" class="max-w-216 max-h-216"/>
-            </div>
-            <p class="break-all text-lg">{{ newBody.paragraph1 }}</p>
-            <div v-if="newBody.img2.code != undefined" class="flex justify-center">
-                <img :src="newBody.img2.code" alt="" class="max-w-216 max-h-216"/>
-            </div>
-            <p class="break-all text-lg">{{ newBody.paragraph2 }}</p>
-        </div>
+        <div class="px-48 flex flex-col gap-10" v-html="newBody.code"></div>
     </section>
 </template>
 
@@ -42,17 +32,7 @@ export default {
             newBody: {
                 id: undefined,
                 title: '',
-                paragraph1: undefined,
-                img1:{
-                    id: null,
-                    code: 0,
-                    name: null
-                },
-                img2:{
-                    id: null,
-                    code: 0,
-                    name: null
-                }
+                code: null
             }
         }
     },
@@ -67,10 +47,11 @@ export default {
             })
         }else{
             listMainNews().then((response) => {
+                console.log(response.data)
                 let res = response.data
                 this.newBody.title = res.title
-                this.newBody.img1.code = res.image.code
-                this.newBody.paragraph1 = res.paragraph
+                this.newBody.code = res.code
+
             })
         }
         
