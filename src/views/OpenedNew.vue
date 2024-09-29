@@ -13,8 +13,9 @@
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="m1 9 4-4-4-4" />
             </svg>
-            <p class="pointer-events-none">{{ newBody.title }}</p>
+            <p v-if="newBody.title != ''" class="pointer-events-none">{{ newBody.title }}</p>
         </div>
+        <h1 class="font-bold text-4xl text-center">{{ newBody.title }}</h1>
         <div class="px-48 flex flex-col gap-10" v-html="newBody.code"></div>
     </section>
 </template>
@@ -33,28 +34,33 @@ export default {
                 id: undefined,
                 title: '',
                 code: null
-            }
+            },
+            res: null
         }
     },
-    beforeCreate() {
+    beforeMount() {
         const route = useRoute();
         const id = route.params.id;
 
         if(id != 0){
             showOne({ id:id }).then((response) => {
-                this.newBody = response.data
+                let res = response.data
+                console.log(res)
+
+                this.newBody.title = res.title
+                this.newBody.code = res.code
                 console.log(this.newBody)
+            }).then(()=>{
+
             })
         }else{
             listMainNews().then((response) => {
-                console.log(response.data)
-                let res = response.data
-                this.newBody.title = res.title
-                this.newBody.code = res.code
+                this.res = response.data
+                this.newBody.title = this.res.title.substring(0, 25) + '...'
+                this.newBody.code = this.res.code
 
             })
         }
-        
     }
 }
 </script>

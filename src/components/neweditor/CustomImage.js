@@ -5,8 +5,8 @@ const CustomImage = TiptapImage.extend({
       return {
         ...this.parent?.(),
         width: {
-          default: '300', // Valor padrão
-          parseHTML: element => element.getAttribute('width') || '300',
+          default: '500', // Valor padrão
+          parseHTML: element => element.getAttribute('width') || '500',
           renderHTML: attributes => {
             return {
               width: attributes.width,
@@ -19,6 +19,15 @@ const CustomImage = TiptapImage.extend({
           renderHTML: attributes => {
             return {
               height: attributes.height,
+            };
+          },
+        },
+        center: {
+          default: true,
+          parseHTML: element => element.style.display === 'block' && element.style.margin === '0 auto',
+          renderHTML: attributes => {
+            return {
+              style: attributes.center ? 'display: block; margin: 0 auto;' : '',
             };
           },
         },

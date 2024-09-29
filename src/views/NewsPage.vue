@@ -109,7 +109,8 @@
         },
         methods: {
             createNew() {
-                router.push('/news/create')
+                router.push('/news/create').then(()=>window.location.reload())
+                
             },
             pageSet(page){
                 this.page = page

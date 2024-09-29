@@ -1,4 +1,7 @@
 <template>
+	<section>
+		<input type="text" v-model="newNew.title">
+	</section>
 	<div id="tiptap" class="divide-y divide-gray-400 rounded-md border border-gray-400 w-full">
 		<div id="tiptap-toolbar" class="divide-x divide-gray-400">
 			<TiptapToolbarGroup>
@@ -67,65 +70,75 @@
 			<TiptapToolbarGroup>
 				<input type="color" @input="editorInstance?.chain().focus().setColor($event.target.value).run()"
 					:value="editorInstance?.getAttributes('textStyle').color">
-				<button @click="editorInstance?.chain().focus().setColor('#958DF1').run()"
-					:class="{ 'is-active': editorInstance?.isActive('textStyle', { color: '#958DF1' })}">
-					Purple
-				</button>
-				<button
-					@click="console.log(editorInstance?.chain().focus()); editorInstance?.chain().focus().setColor('#F98181').run()"
-					:class="{ 'is-active': editorInstance?.isActive('textStyle', { color: '#F98181' })}">
-					Red
-				</button>
-				<button
-					@click="console.log(editorInstance?.chain().focus()); editorInstance?.chain().focus().setColor('#FBBC88').run()"
-					:class="{ 'is-active': editorInstance?.isActive('textStyle', { color: '#FBBC88' })}">
-					Orange
-				</button>
-				<button
-					@click="console.log(editorInstance?.chain().focus()); editorInstance?.chain().focus().setColor('#FAF594').run()"
-					:class="{ 'is-active': editorInstance?.isActive('textStyle', { color: '#FAF594' })}">
-					Yellow
-				</button>
-				<button
-					@click="console.log(editorInstance?.chain().focus()); editorInstance?.chain().focus().setColor('#70CFF8').run()"
-					:class="{ 'is-active': editorInstance?.isActive('textStyle', { color: '#70CFF8' })}">
-					Blue
-				</button>
-				<button
-					@click="console.log(editorInstance?.chain().focus()); editorInstance?.chain().focus().setColor('#94FADB').run()"
-					:class="{ 'is-active': editorInstance?.isActive('textStyle', { color: '#94FADB' })}">
-					Teal
-				</button>
-				<button
-					@click="console.log(editorInstance?.chain().focus()); editorInstance?.chain().focus().setColor('#B9F18D').run()"
-					:class="{ 'is-active': editorInstance?.isActive('textStyle', { color: '#B9F18D' })}">
-					Green
-				</button>
-				<button @click="editorInstance?.chain().focus().unsetColor().run()">
-					Unset color
-				</button>
 			</TiptapToolbarGroup>
 
 			<TiptapToolbarGroup>
 				<button @click="editorInstance?.chain().focus().setTextAlign('left').run()"
 					:class="{ 'is-active': editorInstance?.isActive({ textAlign: 'left' }) }">
-					Left
+					<IconAlignLeft />
 				</button>
 				<button @click="editorInstance?.chain().focus().setTextAlign('center').run()"
 					:class="{ 'is-active': editorInstance?.isActive({ textAlign: 'center' }) }">
-					Center
+					<IconAlignCenter />
 				</button>
 				<button @click="editorInstance?.chain().focus().setTextAlign('right').run()"
 					:class="{ 'is-active': editorInstance?.isActive({ textAlign: 'right' }) }">
-					Right
+					<IconAlignRight />
 				</button>
-				<button @click="editorInstance?.chain().focus().setTextAlign('justify').run()"
-					:class="{ 'is-active': editorInstance?.isActive({ textAlign: 'justify' }) }">
-					Justify
+			</TiptapToolbarGroup>
+
+			<TiptapToolbarGroup>
+				<button	class="text-black focus:ring-2 focus:outline-none focus:ring-maingreen rounded-lg text-sm flex items-center"
+					type="button" id="dropdownDefaultButton" data-dropdown-toggle="dropdown">{{ currFont }}
+					<svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+						viewBox="0 0 10 6">
+						<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+							d="m1 1 4 4 4-4" />
+					</svg>
 				</button>
-				<button @click="editorInstance?.chain().focus().unsetTextAlign().run()">
-					Unset text align
-				</button>
+
+				<!-- Dropdown menu -->
+				<div id="dropdown"
+					class="z-10 hidden bg-white rounded-md shadow w-44 dark:bg-gray-700">
+					<ul class="p-2 text-sm flex flex-col gap-1" aria-labelledby="dropdownDefaultButton">
+						<li class="p-2 hover:bg-maingreen hover:text-white transition duration-150">
+							<button @click="editorInstance?.chain().focus().setFontFamily('Inter').run(); currFont = 'Inter' "
+								:class="{ 'is-active': editorInstance?.isActive('textStyle', { fontFamily: 'Inter' }) }" class="w-full">
+								Inter
+							</button>
+						</li>
+						<li class="p-2 hover:bg-maingreen hover:text-white transition duration-150">
+							<button
+								@click="editorInstance?.chain().focus().setFontFamily('Comic Sans MS, Comic Sans').run(); currFont = 'Comic Sans MS, Comic Sans'"
+								:class="{ 'is-active': editorInstance?.isActive('textStyle', { fontFamily: 'Comic Sans MS, Comic Sans' }) }" class="w-full">
+								Comic Sans
+							</button>
+						</li>
+						<li class="p-2 hover:bg-maingreen hover:text-white transition duration-150">
+							<button @click="editorInstance?.chain().focus().setFontFamily('serif').run(); currFont = 'Serif' "
+								:class="{ 'is-active': editorInstance?.isActive('textStyle', { fontFamily: 'serif' }) }" class="w-full">
+								Serif
+							</button>
+						</li>
+						<li class="p-2 hover:bg-maingreen hover:text-white transition duration-150">
+							<button @click="editorInstance?.chain().focus().setFontFamily('monospace').run(); currFont = 'Monospace'"
+								:class="{ 'is-active': editorInstance?.isActive('textStyle', { fontFamily: 'monospace' }) }" class="w-full">
+								Monospace
+							</button>
+						</li>
+						<li class="p-2 hover:bg-maingreen hover:text-white transition duration-150">
+							<button @click="editorInstance?.chain().focus().setFontFamily('cursive').run(); currFont = 'Cursive'"
+								:class="{ 'is-active': editorInstance?.isActive('textStyle', { fontFamily: 'cursive' }) }" class="w-full">
+								Cursive
+							</button>
+						</li>
+						<li class="p-2 hover:bg-maingreen hover:text-white transition duration-150">
+							<button @click="editorInstance?.chain().focus().unsetFontFamily().run(); currFont = 'Unset'" class="w-full">
+								Unset font family
+							</button>
+						</li>
+					</ul>
+				</div>
 			</TiptapToolbarGroup>
 
 			<TiptapToolbarGroup>
@@ -219,7 +232,9 @@
 			</TiptapToolbarGroup>
 		</div>
 
+	
 		<div class="flex flex-col prose">
+
 			<EditorContent :editor="editorInstance" />
 
 			<div class="mx-4 border-t border-gray-300 py-3 text-right text-sm text-gray-500">
@@ -228,19 +243,12 @@
 			</div>
 		</div>
 
-		<div class="px-4 py-3 text-sm text-gray-700">
+		<div class="px-4 py-3 text-sm text-gray-700 flex justify-center">
 			<!-- {{ newNew.code }} -->
 			<button
 				class="text-white bg-maingreen hover:bg-govblue focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm text-center px-36 py-3 transition duration-200"
 				@click.prevent="createNew()" type="submit">Salvar</button>
 
-			<div
-				class="flex items-center bg-red-600 hover:bg-maingray focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg transition duration-200">
-				<div class="flex w-full justify-start gap-3 items-center text-white px-32">
-					<img class="w-5" :src="require('@/assets/icons/trash.svg')" alt="">
-					<p class="font-medium">Excluir</p>
-				</div>
-			</div>
 		</div>
 
 		<TiptapLinkDialog v-if="showLinkDialog" :show="showLinkDialog" :current-url="currentLinkInDialog"
@@ -264,7 +272,7 @@
 		IconArrowBackUp, IconArrowForwardUp, IconBlockquote,
 		IconBold, IconH1, IconH2, IconH3, IconItalic, IconLink,
 		IconListDetails, IconListNumbers, IconMovie, IconPhoto,
-		IconStrikethrough, IconUnderline, IconMinus
+		IconStrikethrough, IconUnderline, IconMinus, IconAlignLeft, IconAlignRight, IconAlignCenter
 	} from "@tabler/icons-vue";
 
 	import TiptapToolbarButton from "@/components/neweditor/nodes/TiptapToolbarButton.vue";
@@ -284,9 +292,9 @@
 	import Link from "@tiptap/extension-link";
 	import Dropcursor from "@tiptap/extension-dropcursor";
 	import Gapcursor from "@tiptap/extension-gapcursor";
-	import CustomImage from "./CustomImage.js";
 	import TextStyle from '@tiptap/extension-text-style'
 	import TextAlign from '@tiptap/extension-text-align'
+	import FontFamily from '@tiptap/extension-font-family'
 
 	import { Color } from '@tiptap/extension-color'
 	import { createNew } from '@/services/NewService.js';
@@ -304,8 +312,12 @@
 	import TiptapVideoDialog from "@/components/neweditor/nodes/TiptapVideoDialog.vue";
 	import TiptapTableDialog from "@/components/neweditor/nodes/TiptapTableDialog.vue";
 	import TiptapImageDialog from "@/components/neweditor/nodes/TiptapImageDialog.vue";
+	
+	import CustomImage from "./CustomImage.js";
+	import router from '@/router/index.js'
 
 	export default {
+		name:'TiptapEditor',
 		components: {
 			EditorContent, TiptapToolbarButton, TiptapToolbarGroup,
 			TiptapLinkDialog, TiptapVideoDialog, TiptapTableDialog,
@@ -313,7 +325,8 @@
 			IconBlockquote, IconBold, IconH1, IconH2, IconH3,
 			IconItalic, IconLink, IconListDetails, IconListNumbers,
 			IconMovie, IconPhoto, IconStrikethrough, IconUnderline,
-			IconMinus, CustomImage
+			IconMinus, CustomImage, IconAlignLeft, IconAlignRight,
+			IconAlignCenter
 		},
 		data() {
 			return {
@@ -323,8 +336,9 @@
 				showAddTableDialog: false,
 				showAddImageDialog: false,
 				editorInstance: null,
+				currFont: 'Selecione uma fonte',
 				newNew: {
-					title: null,
+					title: 'Título da notícia',
 					code: null,
 					isMain: false,
 					tip: 'Novidade'
@@ -333,7 +347,7 @@
 		},
 		beforeMount() {
 			this.editorInstance = new Editor({
-				content: '<h1>Crie a sua notícia aqui</h1>',
+				content: `<h1>Crie a sua notícia aqui</h1>`,
 				editorProps: {
 					attributes: {
 						class: "blog",
@@ -345,7 +359,7 @@
 					}),
 					Heading.configure({ levels: [1, 2, 3], }), Bold, Italic, Underline, Strike, ListItem, BulletList, OrderedList,
 					Link.configure({ openOnClick: false, }), HardBreak, Blockquote, CharacterCount, Youtube,
-					Dropcursor.configure({ width: 2, color: "#2563eb", }), HorizontalRule,
+					Dropcursor.configure({ width: 2, color: "#2563eb", }), HorizontalRule, FontFamily,
 					Table.configure({ resizable: false, allowTableNodeSelection: true, }),
 					TableRow, TableHeader, TableCell, Gapcursor, CustomImage,
 					Color.configure({ types: ['textStyle'] })
@@ -370,14 +384,13 @@
 			createNew() {
 				createNew(this.newNew).then((response) => {
 					console.log(response)
+				}).finally(() => {
+					setInterval(() => {
+						router.push('/news').then(() => {
+							window.location.reload();
+						});
+					}, 2500)
 				})
-				// .finally(() => {
-				// 	setInterval(() => {
-				// 		router.push('/news').then(() => {
-				// 			window.location.reload();
-				// 		});
-				// 	}, 2500)
-				// })
 			},
 			updateLink(value) {
 				console.log(value)
