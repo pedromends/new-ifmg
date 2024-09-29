@@ -10,6 +10,16 @@ export const createImage = (form) => api.request({
   data: form,
 });
 
+export const createImageNews = (form) => api.request({
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${window.localStorage.getItem('refresh_token')}`,
+  },
+  method: 'post',
+  url: '/image/news',
+  data: form,
+});
+
 export const getOneImage = (id) => api.request({
   headers: {
     'Content-Type': 'application/json',
