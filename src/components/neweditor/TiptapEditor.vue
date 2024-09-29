@@ -65,6 +65,42 @@
 			</TiptapToolbarGroup>
 
 			<TiptapToolbarGroup>
+				<input type="color" @input="editorInstance?.chain().focus().setColor($event.target.value).run()"
+					:value="editorInstance?.getAttributes('textStyle').color">
+				<button @click="editorInstance?.chain().focus().setColor('#958DF1').run()"
+					:class="{ 'is-active': editorInstance?.isActive('textStyle', { color: '#958DF1' })}">
+					Purple
+				</button>
+				<button @click="console.log(editorInstance?.chain().focus()); editorInstance?.chain().focus().setColor('#F98181').run()"
+					:class="{ 'is-active': editorInstance?.isActive('textStyle', { color: '#F98181' })}">
+					Red
+				</button>
+				<button @click="console.log(editorInstance?.chain().focus()); editorInstance?.chain().focus().setColor('#FBBC88').run()"
+					:class="{ 'is-active': editorInstance?.isActive('textStyle', { color: '#FBBC88' })}">
+					Orange
+				</button>
+				<button @click="console.log(editorInstance?.chain().focus()); editorInstance?.chain().focus().setColor('#FAF594').run()"
+					:class="{ 'is-active': editorInstance?.isActive('textStyle', { color: '#FAF594' })}">
+					Yellow
+				</button>
+				<button @click="console.log(editorInstance?.chain().focus()); editorInstance?.chain().focus().setColor('#70CFF8').run()"
+					:class="{ 'is-active': editorInstance?.isActive('textStyle', { color: '#70CFF8' })}">
+					Blue
+				</button>
+				<button @click="console.log(editorInstance?.chain().focus()); editorInstance?.chain().focus().setColor('#94FADB').run()"
+					:class="{ 'is-active': editorInstance?.isActive('textStyle', { color: '#94FADB' })}">
+					Teal
+				</button>
+				<button @click="console.log(editorInstance?.chain().focus()); editorInstance?.chain().focus().setColor('#B9F18D').run()"
+					:class="{ 'is-active': editorInstance?.isActive('textStyle', { color: '#B9F18D' })}">
+					Green
+				</button>
+				<button @click="editorInstance?.chain().focus().unsetColor().run()">
+					Unset color
+				</button>
+			</TiptapToolbarGroup>
+
+			<TiptapToolbarGroup>
 				<TiptapToolbarButton label="Link" @click="openLinkDialog" :is-active="editorInstance?.isActive('link')">
 					<IconLink class="h-5 w-5" />
 				</TiptapToolbarButton>
@@ -89,7 +125,8 @@
 					<IconMovie class="h-5 w-5" />
 				</TiptapToolbarButton>
 
-				<TiptapToolbarButton @click="editorInstance?.chain().focus().setHorizontalRule().run()" label="Horizontal Line">
+				<TiptapToolbarButton @click="editorInstance?.chain().focus().setHorizontalRule().run()"
+					label="Horizontal Line">
 					<IconMinus class="h-5 w-5" />
 				</TiptapToolbarButton>
 			</TiptapToolbarGroup>
@@ -164,12 +201,13 @@
 		</div>
 
 		<div class="px-4 py-3 text-sm text-gray-700">
-		<!-- {{ newNew.code }} -->
-			<button class="text-white bg-maingreen hover:bg-govblue focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm text-center px-36 py-3 transition duration-200"
+			<!-- {{ newNew.code }} -->
+			<button
+				class="text-white bg-maingreen hover:bg-govblue focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm text-center px-36 py-3 transition duration-200"
 				@click.prevent="createNew()" type="submit">Salvar</button>
-			
-			<div class="flex items-center bg-red-600 hover:bg-maingray focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg transition duration-200"
-				>
+
+			<div
+				class="flex items-center bg-red-600 hover:bg-maingray focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg transition duration-200">
 				<div class="flex w-full justify-start gap-3 items-center text-white px-32">
 					<img class="w-5" :src="require('@/assets/icons/trash.svg')" alt="">
 					<p class="font-medium">Excluir</p>
@@ -177,8 +215,8 @@
 			</div>
 		</div>
 
-		<TiptapLinkDialog v-if="showLinkDialog" :show="showLinkDialog" :current-url="currentLinkInDialog" :editor="editor"
-			@close="showLinkDialog = false" @update="updateLink" />
+		<TiptapLinkDialog v-if="showLinkDialog" :show="showLinkDialog" :current-url="currentLinkInDialog"
+			:editor="editor" @close="showLinkDialog = false" @update="updateLink" />
 
 		<TiptapVideoDialog v-if="showAddYoutubeDialog" :show="showAddYoutubeDialog" @insert="insertYoutubeVideo"
 			@close="showAddYoutubeDialog = false" />
@@ -194,10 +232,12 @@
 <script>
 	/* eslint-disable vue/no-unused-components */
 	import { Editor, EditorContent } from "@tiptap/vue-3";
-	import { IconArrowBackUp, IconArrowForwardUp, IconBlockquote,
+	import {
+		IconArrowBackUp, IconArrowForwardUp, IconBlockquote,
 		IconBold, IconH1, IconH2, IconH3, IconItalic, IconLink,
 		IconListDetails, IconListNumbers, IconMovie, IconPhoto,
-		IconStrikethrough, IconUnderline, IconMinus } from "@tabler/icons-vue";
+		IconStrikethrough, IconUnderline, IconMinus
+	} from "@tabler/icons-vue";
 
 	import TiptapToolbarButton from "@/components/neweditor/nodes/TiptapToolbarButton.vue";
 	import TiptapToolbarGroup from "@/components/neweditor/nodes/TiptapToolbarGroup.vue";
@@ -216,7 +256,10 @@
 	import Link from "@tiptap/extension-link";
 	import Dropcursor from "@tiptap/extension-dropcursor";
 	import Gapcursor from "@tiptap/extension-gapcursor";
-	import CustomImage  from  "./CustomImage.js";
+	import CustomImage from "./CustomImage.js";
+	import TextStyle from '@tiptap/extension-text-style'
+	import { Color } from '@tiptap/extension-color'
+
 
 	import { createNew } from '@/services/NewService.js';
 	import { Blockquote } from "@tiptap/extension-blockquote";
@@ -236,11 +279,11 @@
 
 	export default {
 		components: {
-			EditorContent, TiptapToolbarButton,	TiptapToolbarGroup,
+			EditorContent, TiptapToolbarButton, TiptapToolbarGroup,
 			TiptapLinkDialog, TiptapVideoDialog, TiptapTableDialog,
 			TiptapImageDialog, IconArrowBackUp, IconArrowForwardUp,
-			IconBlockquote,	IconBold, IconH1, IconH2, IconH3,
-			IconItalic,	IconLink, IconListDetails, IconListNumbers,
+			IconBlockquote, IconBold, IconH1, IconH2, IconH3,
+			IconItalic, IconLink, IconListDetails, IconListNumbers,
 			IconMovie, IconPhoto, IconStrikethrough, IconUnderline,
 			IconMinus, CustomImage
 		},
@@ -268,11 +311,13 @@
 						class: "blog",
 					},
 				},
-				extensions: [Paragraph, Document, Text, History,
+				extensions: [Paragraph, Document, Text, History, TextStyle,
 					Heading.configure({ levels: [1, 2, 3], }), Bold, Italic, Underline, Strike, ListItem, BulletList, OrderedList,
 					Link.configure({ openOnClick: false, }), HardBreak, Blockquote, CharacterCount, Youtube,
 					Dropcursor.configure({ width: 2, color: "#2563eb", }), HorizontalRule,
-					Table.configure({ resizable: false, allowTableNodeSelection: true, }), TableRow, TableHeader, TableCell, Gapcursor, CustomImage,
+					Table.configure({ resizable: false, allowTableNodeSelection: true, }),
+					TableRow, TableHeader, TableCell, Gapcursor, CustomImage,
+					Color.configure({ types: ['textStyle']	})
 				],
 				onUpdate: ({ editor }) => {
 					this.newNew.code = editor.getHTML();
@@ -291,7 +336,7 @@
 				this.currentLinkInDialog = this.editorInstance?.getAttributes("link").href;
 				this.showLinkDialog = true;
 			},
-			createNew(){
+			createNew() {
 				createNew(this.newNew).then((response) => {
 					console.log(response)
 				})
