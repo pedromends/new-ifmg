@@ -16,7 +16,7 @@
 </template>
 <script>
     export default {
-        name: 'ContactSent'
+        name: 'AlertSucessDelete'
     }
 </script>
 <style lang="">

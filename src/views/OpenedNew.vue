@@ -63,10 +63,10 @@ export default {
 <style>
     .editor-render a{
         color: blue;
-        text-decoration: underline;
-    }
-
-    .editor-render a:hover{
         text-decoration: none;
+    }
+    
+    .editor-render a:hover{
+        text-decoration: underline;
     }
 </style>

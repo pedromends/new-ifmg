@@ -10,6 +10,7 @@
         <AlertSuccessTalent/>
         <ContactSent />
         <SignOutSuccess />
+        <AlertSuccessNew />
     </section>
 </template>
 
@@ -24,6 +25,7 @@ import AlertSuccessResearcher from "@/components/alert/AlertSuccessResearcher.vu
 import AlertSuccessTalent from "@/components/alert/AlertSuccessTalent.vue";
 import ContactSent from "@/components/alert/ContactSent";
 import SignOutSuccess from "@/components/alert/SignOutSuccess";
+import AlertSuccessNew from "@/components/alert/AlertSuccessNew";
 
 export default {
     name: 'AllAlerts',
@@ -37,7 +39,8 @@ export default {
         AlertSuccessResearcher,
         AlertSuccessTalent,
         ContactSent,
-        SignOutSuccess
+        SignOutSuccess,
+        AlertSuccessNew
     }
 }
 </script>
