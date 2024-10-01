@@ -1,12 +1,16 @@
 <template>
-	<section class="border border-gray-300 rounded-lg">
+	<section class="border border-maingreen rounded-lg">
+
+		<!-- Título da notícia -->
 		<div class="p-4 flex flex-col gap-1">
 			<label for="" class="text-2xl underline underline-offset-2 decoration-4 decoration-maingreen ">Título</label>
 			<input class="w-full border-none py-3 transition duration-150 ease-in-out focus:outline-none rounded-md focus:ring-2 focus:ring-maingreen"
 				type="text" placeholder="Dê um título pra sua notícia..." v-model="newNew.title"/>
 		</div>
-		<div id="tiptap" class="divide-y divide-gray-400 w-full">
-			<div id="tiptap-toolbar" class="divide-x divide-gray-400">
+		<div id="tiptap" class="divide-y divide-maingreen w-full">
+			<div id="tiptap-toolbar" class="divide-x divide-maingreen">
+
+				<!-- Undo / Redo -->
 				<TiptapToolbarGroup>
 					<TiptapToolbarButton label="Undo" @click="editorInstance?.chain().focus().undo().run()"
 						:disabled="!editorInstance?.can().chain().focus().undo().run()">
@@ -18,7 +22,8 @@
 						<IconArrowForwardUp class="h-5 w-5" />
 					</TiptapToolbarButton>
 				</TiptapToolbarGroup>
-	
+				
+				<!-- Heading 1,2 e 3 -->
 				<TiptapToolbarGroup>
 					<TiptapToolbarButton label="Heading 1" :is-active="editorInstance?.isActive('heading', { level: 1 })"
 						@click="editorInstance?.chain().focus().toggleHeading({ level: 1 }).run()">
@@ -35,7 +40,8 @@
 						<IconH3 class="h-5 w-5" />
 					</TiptapToolbarButton>
 				</TiptapToolbarGroup>
-	
+				
+				<!-- Font bold, Italic, Underline and Strikethrough -->
 				<TiptapToolbarGroup>
 					<TiptapToolbarButton label="Bold" :is-active="editorInstance?.isActive('bold')"
 						@click="editorInstance?.chain().focus().toggleBold().run()">
@@ -57,7 +63,8 @@
 						<IconStrikethrough class="h-5 w-5" />
 					</TiptapToolbarButton>
 				</TiptapToolbarGroup>
-	
+				
+				<!-- Ordered / Unordered list -->
 				<TiptapToolbarGroup>
 					<TiptapToolbarButton label="Bold" :is-active="editorInstance?.isActive('bulletList')"
 						@click="editorInstance?.chain().focus().toggleBulletList().run()">
@@ -69,12 +76,14 @@
 						<IconListNumbers class="h-5 w-5" />
 					</TiptapToolbarButton>
 				</TiptapToolbarGroup>
-	
+				
+				<!-- Text color -->
 				<TiptapToolbarGroup>
 					<input type="color" @input="editorInstance?.chain().focus().setColor($event.target.value).run()"
-						:value="editorInstance?.getAttributes('textStyle').color">
+						:value="editorInstance?.getAttributes('textStyle').color ?? '#000000'">
 				</TiptapToolbarGroup>
-	
+				
+				<!-- Text align -->
 				<TiptapToolbarGroup>
 					<button @click="editorInstance?.chain().focus().setTextAlign('left').run()"
 						:class="{ 'is-active': editorInstance?.isActive({ textAlign: 'left' }) }">
@@ -89,9 +98,10 @@
 						<IconAlignRight />
 					</button>
 				</TiptapToolbarGroup>
-	
+				
+				<!-- Font family select -->
 				<TiptapToolbarGroup>
-					<button	class="text-black focus:ring-2 focus:outline-none focus:ring-maingreen rounded-lg text-sm flex items-center p-2"
+					<button	class="text-black focus:ring-2 focus:outline-none focus:ring-maingreen rounded-lg text-sm flex items-center"
 						type="button" id="dropdownDefaultButton" data-dropdown-toggle="dropdown">{{ currFont }}
 						<svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
 							viewBox="0 0 10 6">
@@ -100,7 +110,6 @@
 						</svg>
 					</button>
 	
-					<!-- Dropdown menu -->
 					<div id="dropdown"
 						class="z-10 hidden bg-white rounded-md shadow w-44 dark:bg-gray-700">
 						<ul class="p-2 text-sm flex flex-col gap-1" aria-labelledby="dropdownDefaultButton">
@@ -143,7 +152,8 @@
 						</ul>
 					</div>
 				</TiptapToolbarGroup>
-	
+				
+				<!-- Link, Image, Quote, Table, Horizontal row -->
 				<TiptapToolbarGroup>
 					<TiptapToolbarButton label="Link" @click="openLinkDialog" :is-active="editorInstance?.isActive('link')">
 						<IconLink class="h-5 w-5" />
@@ -174,9 +184,8 @@
 						<IconMinus class="h-5 w-5" />
 					</TiptapToolbarButton>
 				</TiptapToolbarGroup>
-	
+				
 				<TiptapToolbarGroup v-if="editorInstance?.isActive('table')">
-	
 					<TiptapToolbarButton @click="editorInstance?.commands.deleteTable()" label="Remove table">
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-5 w-5" fill="currentColor">
 							<path
@@ -235,11 +244,9 @@
 				</TiptapToolbarGroup>
 			</div>
 	
-		
 			<div class="flex flex-col px-4 prose">
 				<EditorContent class="editor-content" :editor="editorInstance" />
-	
-				<div class="border-t border-gray-300 py-3 text-start text-sm text-gray-500">
+				<div class="border-t border-maingreen py-3 text-start text-sm text-gray-500">
 					{{ editorInstance?.storage.characterCount.characters() }} caracteres,
 					{{ editorInstance?.storage.characterCount.words() }} palavras
 				</div>
@@ -269,12 +276,11 @@
 <script>
 	/* eslint-disable vue/no-unused-components */
 	import { Editor, EditorContent } from "@tiptap/vue-3";
-	import {
-		IconArrowBackUp, IconArrowForwardUp, IconBlockquote,
+	import { IconArrowBackUp, IconArrowForwardUp, IconBlockquote,
 		IconBold, IconH1, IconH2, IconH3, IconItalic, IconLink,
 		IconListDetails, IconListNumbers, IconMovie, IconPhoto,
-		IconStrikethrough, IconUnderline, IconMinus, IconAlignLeft, IconAlignRight, IconAlignCenter
-	} from "@tabler/icons-vue";
+		IconStrikethrough, IconUnderline, IconMinus, IconAlignLeft,
+		IconAlignRight, IconAlignCenter	} from "@tabler/icons-vue";
 
 	import TiptapToolbarButton from "@/components/neweditor/nodes/TiptapToolbarButton.vue";
 	import TiptapToolbarGroup from "@/components/neweditor/nodes/TiptapToolbarGroup.vue";
@@ -342,8 +348,13 @@
 					title: '',
 					code: null,
 					isMain: false,
-					tip: 'Novidade'
-				}
+					tip: 'Novidade',
+					img: {
+						name: 'cover',
+						code: null
+					},
+				},
+				setCover: false
 			};
 		},
 		beforeMount() {
@@ -387,6 +398,8 @@
 				div.style.display = "flex"
 			},
 			createNew() {
+				console.log(this.newNew)
+
 				createNew(this.newNew).then((response) => {
 					console.log(response)
 					this.showCreateSuccess()
@@ -409,7 +422,10 @@
 					?.chain().focus().extendMarkRange("link").setLink({ href: value }).run();
 			},
 			insertImage(url) {
-				console.log(this.editorInstance?.chain().focus().setImage({ src: url }))
+				if(!this.setCover){
+					this.newNew.img.code = url
+					this.setCover = true
+				}
 				this.editorInstance?.chain().focus().setImage({ src: url }).run();
 			},
 			insertYoutubeVideo(url) {

@@ -1,7 +1,7 @@
 <template lang="">
-    <div v-if="newBody != null" @click.prevent="openNew()" class="flex flex-col justify-between gap-3 hover:bg-gray-200 rounded-xl transition duration-300 pb-3 h-full max-sm:self-center">
-        <div v-if="img != null"  class="w-full flex justify-center items-center px-3">
-            <img :src="img" alt="" class="mt-3 max-w-72 max-h-72"/>
+    <div v-if="newBody != null" @click.prevent="openNew()" class="flex flex-col justify-between hover:bg-gray-200 rounded-xl transition duration-300 pb-3 h-full max-sm:self-center pt-4">
+        <div v-if="img1 != null"  class="w-full flex justify-center items-center px-3">
+            <img :src="img1" alt="" class="mt-3 max-w-64 max-h-64"/>
         </div>
         <div class="px-8 flex flex-col justify-between gap-2">
             <div class="flex items-center self-start">
@@ -28,6 +28,8 @@ export default {
         console.log(this.newId)
         showOne({id:this.newId}).then((response) => {
             let res = response.data
+
+            console.log(res)
             this.newBody.title = res.title
             this.newBody.code = res.code
         })
@@ -49,6 +51,7 @@ export default {
     props: {
         tip: String,
         title: String,
+        img1: String,
         date: String,
         code: String,
         newId: Number

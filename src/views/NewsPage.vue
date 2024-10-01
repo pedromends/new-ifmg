@@ -35,7 +35,7 @@
             </div>
             <div v-if="news != null">
                 <div v-if="news.length > 0" class="grid grid-cols-3 gap-5 text-maingray max-lg:grid-cols-1">
-                    <NewCard v-for="(newNew, i) in news" :key="i" :tip="'Novidade'" :title="newNew.title"
+                    <NewCard v-for="(newNew, i) in news" :key="i" :tip="'Novidade'" :title="newNew.title" :img1="newNew.img.code"
                         :date="newNew.date" :read="'3 min de Leitura'" :code="newNew.code" :newId="newNew.id" />
                 </div>
                 <div v-else>
