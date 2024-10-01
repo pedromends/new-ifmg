@@ -100,16 +100,29 @@
 				</TiptapToolbarGroup>
 				
 				<!-- Font family select -->
-				<TiptapToolbarGroup>
-					<button	class="text-black focus:ring-2 focus:outline-none focus:ring-maingreen rounded-lg text-sm flex items-center"
+				<TiptapToolbarGroupCustom>
+					<div class="h-10 self-start">
+						<button	class="text-black hover:bg-maingreen hover:text-white transition duration-150 flex items-center h-full px-4"
 						type="button" id="dropdownDefaultButton" data-dropdown-toggle="dropdown">{{ currFont }}
-						<svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-							viewBox="0 0 10 6">
-							<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-								d="m1 1 4 4 4-4" />
-						</svg>
-					</button>
-	
+							<svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+								viewBox="0 0 10 6">
+								<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+									d="m1 1 4 4 4-4" />
+							</svg>
+						</button>
+					</div>
+										
+					<div class="flex justify-center gap-1">
+						<button	class="hover:bg-lightgray m-1"
+							@click="setFontSize(fontSize--)">
+							<IconMinus />
+						</button>
+						<input type="number" class="w-12 text-center border-none" v-model="fontSize">
+						<button	class="hover:bg-lightgray m-1"
+							@click="setFontSize(fontSize++)">
+							<IconPlus />
+						</button>
+					</div>
 					<div id="dropdown"
 						class="z-10 hidden bg-white rounded-md shadow w-44 dark:bg-gray-700">
 						<ul class="p-2 text-sm flex flex-col gap-1" aria-labelledby="dropdownDefaultButton">
@@ -151,7 +164,7 @@
 							</li>
 						</ul>
 					</div>
-				</TiptapToolbarGroup>
+				</TiptapToolbarGroupCustom>
 				
 				<!-- Link, Image, Quote, Table, Horizontal row -->
 				<TiptapToolbarGroup>
@@ -173,10 +186,6 @@
 							<path
 								d="M5,4H19A2,2 0 0,1 21,6V18A2,2 0 0,1 19,20H5A2,2 0 0,1 3,18V6A2,2 0 0,1 5,4M5,8V12H11V8H5M13,8V12H19V8H13M5,14V18H11V14H5M13,14V18H19V14H13Z" />
 						</svg>
-					</TiptapToolbarButton>
-	
-					<TiptapToolbarButton label="Youtube" @click="showAddYoutubeDialog = true">
-						<IconMovie class="h-5 w-5" />
 					</TiptapToolbarButton>
 	
 					<TiptapToolbarButton @click="editorInstance?.chain().focus().setHorizontalRule().run()"
@@ -261,9 +270,6 @@
 			<TiptapLinkDialog v-if="showLinkDialog" :show="showLinkDialog" :current-url="currentLinkInDialog"
 				:editor="editor" @close="showLinkDialog = false" @update="updateLink" />
 	
-			<TiptapVideoDialog v-if="showAddYoutubeDialog" :show="showAddYoutubeDialog" @insert="insertYoutubeVideo"
-				@close="showAddYoutubeDialog = false" />
-	
 			<TiptapTableDialog v-if="showAddTableDialog" :show="showAddTableDialog" @close="showAddTableDialog = false"
 				@insert="insertTable" />
 	
@@ -277,11 +283,13 @@
 	import { Editor, EditorContent } from "@tiptap/vue-3";
 	import { IconArrowBackUp, IconArrowForwardUp, IconBlockquote,
 		IconBold, IconH1, IconH2, IconH3, IconItalic, IconLink,
-		IconListDetails, IconListNumbers, IconMovie, IconPhoto,
-		IconStrikethrough, IconUnderline, IconMinus, IconAlignLeft,
-		IconAlignRight, IconAlignCenter	} from "@tabler/icons-vue";
+		IconListDetails, IconListNumbers, IconPhoto,
+		IconStrikethrough, IconUnderline, IconAlignLeft,
+		IconAlignRight, IconAlignCenter, IconMinus, IconPlus
+	} from "@tabler/icons-vue";
 
 	import TiptapToolbarButton from "@/components/neweditor/nodes/TiptapToolbarButton.vue";
+	import TiptapToolbarGroupCustom from "@/components/neweditor/nodes/TiptapToolbarGroupCustom.vue";
 	import TiptapToolbarGroup from "@/components/neweditor/nodes/TiptapToolbarGroup.vue";
 	import Paragraph from "@tiptap/extension-paragraph";
 	import Document from "@tiptap/extension-document";
@@ -315,24 +323,24 @@
 	import { TableCell } from "@tiptap/extension-table-cell";
 
 	import TiptapLinkDialog from "@/components/neweditor/nodes/TiptapLinkDialog.vue";
-	import TiptapVideoDialog from "@/components/neweditor/nodes/TiptapVideoDialog.vue";
 	import TiptapTableDialog from "@/components/neweditor/nodes/TiptapTableDialog.vue";
 	import TiptapImageDialog from "@/components/neweditor/nodes/TiptapImageDialog.vue";
 	
 	import CustomImage from "./CustomImage.js";
+	import FontSize from "./FontSize.js";
 	import router from '@/router/index.js'
 
 	export default {
 		name:'TiptapEditor',
 		components: {
 			EditorContent, TiptapToolbarButton, TiptapToolbarGroup,
-			TiptapLinkDialog, TiptapVideoDialog, TiptapTableDialog,
-			TiptapImageDialog, IconArrowBackUp, IconArrowForwardUp,
-			IconBlockquote, IconBold, IconH1, IconH2, IconH3,
-			IconItalic, IconLink, IconListDetails, IconListNumbers,
-			IconMovie, IconPhoto, IconStrikethrough, IconUnderline,
-			IconMinus, IconAlignLeft, IconAlignRight,
-			IconAlignCenter
+			TiptapLinkDialog, TiptapTableDialog, TiptapImageDialog,
+			IconArrowBackUp, IconArrowForwardUp, IconBlockquote,
+			IconBold, IconH1, IconH2, IconH3, IconItalic, IconLink,
+			IconListDetails, IconListNumbers, IconPhoto,
+			IconStrikethrough, IconUnderline, IconMinus, IconAlignLeft,
+			IconAlignRight, IconAlignCenter, TiptapToolbarGroupCustom,
+			IconPlus
 		},
 		data() {
 			return {
@@ -353,7 +361,8 @@
 						code: null
 					},
 				},
-				setCover: false
+				setCover: false,
+				fontSize: 12
 			};
 		},
 		beforeMount() {
@@ -373,7 +382,9 @@
 					Dropcursor.configure({ width: 2, color: "#2563eb", }), HorizontalRule, FontFamily,
 					Table.configure({ resizable: false, allowTableNodeSelection: true, }),
 					TableRow, TableHeader, TableCell, Gapcursor, CustomImage,
-					Color.configure({ types: ['textStyle'] })
+					Color.configure({ types: ['textStyle'] }),
+					FontSize
+
 				],
 				onUpdate: ({ editor }) => {
 					this.newNew.code = editor.getHTML();
@@ -440,12 +451,16 @@
 					cols: table.columns,
 					withHeaderRow: table.withHeader,
 				}).run();
+			},
+			setFontSize(value){
+				console.log(value)
+				this.editorInstance?.chain().focus().setFontSize(value).run();
 			}
 		}
 	};
 </script>
 
-<style>
+<style scoped>
 .editor-content a {
   color: blue;
   text-decoration: none;
@@ -453,5 +468,17 @@
 
 .editor-content a:hover {
 	text-decoration: underline;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }
 </style>

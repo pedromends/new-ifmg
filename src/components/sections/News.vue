@@ -8,7 +8,7 @@
             <div class="flex flex-col w-3/4 gap-5">
                 <p class="font-semibold text-3xl underline underline-offset-2 decoration-4 decoration-maingreen self-start ml-6">Últimas Notícias</p>
                 <div class="flex gap-3 items-end justify-between max-sm:flex-col">
-                    <NewCard  v-for="(newNew, i) in news" :key="i"
+                    <NewCard  v-for="(newNew, i) in news" :key="i" :img1="newNew.img.code"
                         :tip="'Novidade'" :title="newNew.title" :date="newNew.date" :read="'3 min de Leitura'"  :newId="newNew.id"/>
                 </div>
             </div>
