@@ -274,7 +274,6 @@
 </template>
 
 <script>
-	/* eslint-disable vue/no-unused-components */
 	import { Editor, EditorContent } from "@tiptap/vue-3";
 	import { IconArrowBackUp, IconArrowForwardUp, IconBlockquote,
 		IconBold, IconH1, IconH2, IconH3, IconItalic, IconLink,
@@ -332,7 +331,7 @@
 			IconBlockquote, IconBold, IconH1, IconH2, IconH3,
 			IconItalic, IconLink, IconListDetails, IconListNumbers,
 			IconMovie, IconPhoto, IconStrikethrough, IconUnderline,
-			IconMinus, CustomImage, IconAlignLeft, IconAlignRight,
+			IconMinus, IconAlignLeft, IconAlignRight,
 			IconAlignCenter
 		},
 		data() {
@@ -441,8 +440,8 @@
 					cols: table.columns,
 					withHeaderRow: table.withHeader,
 				}).run();
-			},
-		},
+			}
+		}
 	};
 </script>
 

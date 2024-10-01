@@ -1,5 +1,5 @@
 <template lang="">
-    <div v-if="newBody != null" @click.prevent="openNew()" class="flex flex-col justify-between hover:bg-gray-200 rounded-xl transition duration-300 pb-3 h-full max-sm:self-center pt-4">
+    <div v-if="newBody != null" @click.prevent="openNew()" class="flex flex-col gap-4 justify-between hover:bg-gray-200 rounded-xl transition duration-300 pb-3 h-full max-sm:self-center pt-4">
         <div v-if="img1 != null"  class="w-full flex justify-center items-center px-3">
             <img :src="img1" alt="" class="mt-3 max-w-64 max-h-64"/>
         </div>
