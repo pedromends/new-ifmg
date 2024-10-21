@@ -60,7 +60,7 @@
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Texto</label>
                             <textarea id="project_resume" rows="10" cols="50"
                                 class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border focus:ring-red-600 focus:border-red-600"
-                                required v-model="newParag" placeholder="Escreva sobre o projeto aqui..."></textarea>
+                                required v-model="newParag" placeholder="Escreva sobre as capacitações do IFMG"></textarea>
                         </div>
                     </div>
                     <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">

@@ -101,7 +101,7 @@
 				
 				<!-- Font family select -->
 				<TiptapToolbarGroupCustom>
-					<div class="h-10 self-start">
+					<div class="h-full">
 						<button	class="text-black hover:bg-maingreen hover:text-white transition duration-150 flex items-center h-full px-4"
 						type="button" id="dropdownDefaultButton" data-dropdown-toggle="dropdown">{{ currFont }}
 							<svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -112,17 +112,18 @@
 						</button>
 					</div>
 										
-					<div class="flex justify-center gap-1">
-						<button	class="hover:bg-lightgray m-1"
+					<div class="flex justify-center items-center gap-1 h-full px-2">
+						<button	class="hover:bg-maingreen h-full px-2 transition duration-200"
 							@click="setFontSize(fontSize--)">
 							<IconMinus />
 						</button>
 						<input type="number" class="w-12 text-center border-none" v-model="fontSize">
-						<button	class="hover:bg-lightgray m-1"
+						<button	class="hover:bg-maingreen h-full px-2 transition duration-200"
 							@click="setFontSize(fontSize++)">
 							<IconPlus />
 						</button>
 					</div>
+
 					<div id="dropdown"
 						class="z-10 hidden bg-white rounded-md shadow w-44 dark:bg-gray-700">
 						<ul class="p-2 text-sm flex flex-col gap-1" aria-labelledby="dropdownDefaultButton">
@@ -328,7 +329,9 @@
 	
 	import CustomImage from "./CustomImage.js";
 	import FontSize from "./FontSize.js";
-	import router from '@/router/index.js'
+	import router from '@/router/index.js';
+
+	//__________________________________________________________________________________________________
 
 	export default {
 		name:'TiptapEditor',
@@ -437,13 +440,6 @@
 					this.setCover = true
 				}
 				this.editorInstance?.chain().focus().setImage({ src: url }).run();
-			},
-			insertYoutubeVideo(url) {
-				this.editorInstance?.commands.setYoutubeVideo({
-					src: url,
-					width: 400,
-					height: 300,
-				});
 			},
 			insertTable(table) {
 				this.editorInstance?.chain().focus().insertTable({

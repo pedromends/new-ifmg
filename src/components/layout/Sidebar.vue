@@ -6,7 +6,7 @@
             </button>
         </section>
 
-        <section id="drawer-navigation" class="hidden max-lg:inline fixed font-raleway top-0 left-0 z-40 w-64 h-screen p-4 overflow-y-auto transition-transform -translate-x-full bg-maingreen dark:bg-gray-800" tabindex="-1" aria-labelledby="drawer-navigation-label">
+        <section id="drawer-navigation" class="h-full hidden max-lg:inline fixed font-raleway top-0 left-0 z-40 w-64 p-4 overflow-y-auto transition-transform -translate-x-full bg-maingreen dark:bg-gray-800" tabindex="-1" aria-labelledby="drawer-navigation-label">
             <div class="flex items-center gap-3 mt-3">
                 <img :src="require('@/assets/icons/if.png')" class="w-12 p-1 rounded-lg bg-white " alt="logo"/>
                 <h5 id="drawer-navigation-label" class="font-semibold  text-white">Polo de Inovação IFMG</h5>

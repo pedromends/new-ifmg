@@ -1,1 +1,11 @@
 - Edição de notícias Rich-text
+
+- Setar card de notícia principal puxando da coluna isMain de notícias
+
+- Operacionalizar barra de pesquisa da navbar
+
+- z-index dos alertas
+
+- z-index do carrossel
+
+- Operacionalizar barra de pesquisa de pesquisadores

@@ -15,7 +15,7 @@ export const createNew = (form) => api.request({
       'Content-Type': 'application/json',
     },
     method: 'get',
-    url: '/new/list?page='+ page + '&size=9',
+    url: '/new/list?page='+ page + '&size=12',
   });
 
   export const listThreeNews = () => api.request({

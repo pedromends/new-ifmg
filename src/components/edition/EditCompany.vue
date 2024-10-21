@@ -79,7 +79,7 @@ export default {
         return {
             companies: null,
             company: {
-                id: null,
+                id: 0,
                 image: {
                     id: null,
                     name: 'debug',

@@ -9,8 +9,9 @@
         <AlertSuccessResearcher/>
         <AlertSuccessTalent/>
         <ContactSent />
-        <SignOutSuccess />
         <AlertSuccessNew />
+        <SignOutSuccess />
+        <AlertMissingFields />
     </section>
 </template>
 
@@ -26,6 +27,7 @@ import AlertSuccessTalent from "@/components/alert/AlertSuccessTalent.vue";
 import ContactSent from "@/components/alert/ContactSent";
 import SignOutSuccess from "@/components/alert/SignOutSuccess";
 import AlertSuccessNew from "@/components/alert/AlertSuccessNew";
+import AlertMissingFields from "@/components/alert/AlertMissingFields.vue";
 
 export default {
     name: 'AllAlerts',
@@ -40,6 +42,7 @@ export default {
         AlertSuccessTalent,
         ContactSent,
         SignOutSuccess,
+        AlertMissingFields,
         AlertSuccessNew
     }
 }

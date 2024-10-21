@@ -1,5 +1,15 @@
 import api from '@/services/api';
 
+export const sendRegisterEmail = (form) => api.request({
+  headers: {
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*',
+  },
+  method: 'post',
+  url: '/email/send-register',
+  data: form,
+});
+
 export const createUser = (form) => api.request({
   headers: {
     'Content-Type': 'application/json',
