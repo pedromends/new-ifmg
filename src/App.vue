@@ -7,8 +7,8 @@
 			<router-view />
 			<Footer />
 		</section>
-		<section v-else-if="!haveAPI" id="backup-screen" class="hidden">
-			<h1>Não há conexão com a API (criar tela bonitinha de erro depois)</h1>
+		<section v-else-if="!haveAPI" id="backup-screen" class="hidden justify-center items-center h-screen">
+			<FallbackScreen />
 		</section>
 	</main>
 
@@ -19,6 +19,8 @@
 	import Sidebar from "@/components/layout/Sidebar.vue";
 	import Footer from "@/components/layout/Footer.vue";
 	import Alerts from "@/components/layout/Alerts.vue";
+	import FallbackScreen from "@/views/FallbackScreen.vue"
+	
 	import { handshake } from '@/services/api.js';
 	import { ref } from 'vue';	
 	import { onMounted } from 'vue'
@@ -68,7 +70,7 @@
 
 	function showErrorScreen(){
 		haveAPI.value = false
-		document.getElementById("backup-screen").style.display = 'inline'
+		document.getElementById("backup-screen").style.display = 'flex'
 	}
 </script>
 

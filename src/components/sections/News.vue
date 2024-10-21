@@ -2,7 +2,7 @@
     <section id="news" class="flex flex-col px-10 py-36 gap-16 max-lg:px-2">
         <h1 class="text-4xl font-semibold self-center underline underline-offset-2 decoration-4 decoration-maingreen">Notícias e Eventos</h1>
         <div v-if="mainnew">
-            <MainNew :tip="mainnew.tip" :title="mainnew.title" :parag="mainnew.paragraph" :img="mainnew.image.code"/>
+            <MainNew :tip="mainnew.tip" :title="mainnew.title" :parag="mainnew.paragraph" :img="mainnew.img.code"/>
         </div>
         <div class="flex max-sm:flex-col gap-5 items-center justify-between pl-10 max-sm:pl-0">
             <div class="flex flex-col w-3/4 gap-5">

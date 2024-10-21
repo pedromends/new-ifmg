@@ -14,15 +14,15 @@
             <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
 
                 <!-- Tìtulo do Modal -->
-                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t border-maingreen">
-                    <h3 class="text-xl font-bold font-raleway text-maingray tracking-wide">
+                <div class="relative flex justify-center items-center text-center p-4 md:p-5 border-b rounded-t border-maingreen w-full">
+                    <img :src="img" alt="" class="ml-6 w-auto h-auto max-h-12 absolute self-start left-0">
+                    <h3 class="text-xl font-bold font-raleway text-maingray self-center tracking-wide pt-2">
                         {{ company }}
                     </h3>
-                    <button type="button" class="bg-transparent rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center hover:bg-gray-500/50 transition duration-200" :data-modal-hide="modalname">
+                    <button type="button" class="flex justify-center items-center w-6 h-6 rounded-lg hover:bg-gray-500/50 transition duration-200 mr-6 absolute self-end right-0 top-X" :data-modal-hide="modalname">
                         <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
                             <path stroke="#E02424" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
                         </svg>
-                        <span class="sr-only">Close modal</span>
                     </button>
                 </div>
 
