@@ -1,14 +1,14 @@
 <template lang="">
     <section class="flex flex-col px-24 py-10">
         <h1 class="text-4xl text-black font-semibold underline underline-offset-2 decoration-8 decoration-maingreen mb-12">Criação de Notícias</h1>
-        <TiptapEditor/>
+        <TiptapCreate/>
     </section>
 </template>
 
 <script>
 import router from '@/router/index.js'
 import { createNew } from '@/services/NewService.js';
-import TiptapEditor from '@/components/neweditor/TiptapEditor.vue'
+import TiptapCreate from '@/components/neweditor/TiptapCreate.vue'
 
 export default {
     name: 'NewsCreate',
@@ -33,7 +33,7 @@ export default {
         }
     },
     components:{
-        TiptapEditor
+        TiptapCreate
     },
     methods: {
         setImage(img, e){
