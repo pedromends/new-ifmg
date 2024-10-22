@@ -1,5 +1,5 @@
 <template lang="">
-    <section class="py-10">
+    <section class="py-10 bg-white">
         <TiptapEdit :obj="newNew"/>
     </section>
 </template>
@@ -7,7 +7,6 @@
 <script>
 import { useRoute } from "vue-router";
 import router from '@/router/index.js';
-import { updateNew, deleteNew } from '@/services/NewService.js';
 import { showOne } from '@/services/NewService.js';
 import TiptapEdit from '@/components/neweditor/TiptapEdit.vue'
 
@@ -64,35 +63,6 @@ export default {
                     this.newNew.img2.code = e.target.result;
                 };
             }
-        },
-        showDeleteSuccess(){
-            let div = document.getElementById("success-delete-alert")
-            console.log(div)
-            div.style.display = "flex"
-        },
-        createNew(){
-            console.log(this.newNew)
-            updateNew(this.newNew).then((response) => {
-                console.log(response)
-            }).finally(() => {
-                setInterval(() => {
-                    router.push('/news').then(() => {
-                        window.location.reload();
-                    });
-                }, 2500)
-            })
-        },
-        deleteNew(){
-            deleteNew(this.newNew.id).then((response) => {
-                console.log(response)
-                this.showDeleteSuccess()
-            }).finally(() => {
-                setInterval(() => {
-                    router.push('/news').then(() => {
-                        window.location.reload();
-                    });
-                }, 2500)
-            })
         },
     }
 }

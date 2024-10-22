@@ -265,7 +265,7 @@
 			<div class="px-4 py-3 text-sm text-gray-700 flex justify-center">
 				<button
 					class="text-white bg-maingreen hover:bg-govblue focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm text-center px-36 py-3 transition duration-200"
-					@click.prevent="createNew()" type="submit">Salvar</button>
+					@click.prevent="updateNew()" type="submit">Salvar</button>
 			</div>
 	
 			<TiptapLinkDialog v-if="showLinkDialog" :show="showLinkDialog" :current-url="currentLinkInDialog"
@@ -312,7 +312,7 @@
 	import FontFamily from '@tiptap/extension-font-family'
 
 	import { Color } from '@tiptap/extension-color'
-	import { createNew } from '@/services/NewService.js';
+	import { updateNew } from '@/services/NewService.js';
 	import { Blockquote } from "@tiptap/extension-blockquote";
 	import { HardBreak } from "@tiptap/extension-hard-break";
 	import { CharacterCount } from "@tiptap/extension-character-count";
@@ -330,7 +330,6 @@
 	import CustomImage from "./CustomImage.js";
 	import FontSize from "./FontSize.js";
 	import router from '@/router/index.js';
-
 	//__________________________________________________________________________________________________
 
 	export default {
@@ -373,7 +372,10 @@
 		},
 		created() {
 			setTimeout(() => {
+				this.newNew.id = this.obj.id
 				this.newNew.title = this.obj.title
+				this.newNew.img = this.obj.img
+				
 				this.editorInstance = new Editor({
 					content: this.obj.code,
 					editorProps: {
@@ -413,10 +415,8 @@
 				let div = document.getElementById("success-register-alert-new")
 				div.style.display = "flex"
 			},
-			createNew() {
-				console.log(this.newNew)
-
-				createNew(this.newNew).then((response) => {
+			updateNew() {
+				updateNew(this.newNew).then((response) => {
 					console.log(response)
 					this.showCreateSuccess()
 				}).finally(() => {
