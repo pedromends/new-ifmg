@@ -29,6 +29,7 @@
                         <button class="text-start" @click="goTalents" to="/edit/talent-card" :class="linkCss">Cards de Talentos</button>
                         <button class="text-start" @click="goResearchers" to="/edit/researcher" :class="linkCss">Editar Pesquisadores</button>
                         <button class="text-start" @click="goCompany" to="/edit/company" :class="linkCss">Empresa Parceira</button>
+                        <button class="text-start" to="/edit/edit-new" :class="linkCss">Notícia</button>
                     </ul>
                 </div>
                 <div class="p-2 flex justify-center w-full bg-lightgray rounded-lg">

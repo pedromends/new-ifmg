@@ -28,18 +28,18 @@
             </div>
             <ul class="flex flex-col py-2 text-gray-700 dark:text-gray-200"
                 aria-labelledby="dropdownInformdropdownAvatarNameButtonationButton">
-                <router-link v-if="isAdmin" to="/edit/" class="flex items-center px-3 hover:bg-lightgray transition duration-200">
+                <button  @click="componentEdit()" v-if="isAdmin" to="/edit/" class="flex items-center px-3 hover:bg-lightgray transition duration-200">
                     <img :src="require('@/assets/icons/components.svg')" class="w-7 h-7" alt="">
                     <p class="text-start p-2 hover:text-black">Edição de Componentes</p>
-                </router-link>
-                <router-link to="/profile" class="flex items-center px-3 hover:bg-lightgray transition duration-200">
+                </button>
+                <button @click="profile()" to="/profile" class="flex items-center px-3 hover:bg-lightgray transition duration-200">
                     <img :src="require('@/assets/icons/profile.svg')" class="w-5 h-5" alt="">
                     <p class="text-start px-4 py-2 hover:text-black">Perfil</p>
-                </router-link>
-                <router-link to="/settings" class="flex items-center px-3 hover:bg-lightgray transition duration-200">
+                </button>
+                <button @click="settings()" to="/settings" class="flex items-center px-3 hover:bg-lightgray transition duration-200">
                     <img :src="require('@/assets/icons/settings.svg')" class="w-6 h-6" alt="">
                     <p class="text-start px-4 py-2 hover:text-black">Configurações</p>
-                </router-link>
+                </button>
             </ul>
             <div class="py-2 hover:text-white hover:bg-red-600 transition duration-200">
                 <button @click.prevent="logOut()" class="w-full px-4 py-2 text-sm">
@@ -79,7 +79,22 @@ export default {
             isAdmin: this.$store.getters.isAdmin,
             user: this.$store.getters.getUser,
             info: null,
-            loadImg: false
+            loadImg: false,
+            componentEdit: () => {
+                router.push({ path: '/edit' }).then(() => {
+                    window.location.reload()
+                })
+            },
+            profile: () => {
+                router.push({ path: '/profile' }).then(() => {
+                    window.location.reload()
+                })
+            },
+            settings: () => {
+                router.push({ path: '/settings' }).then(() => {
+                    window.location.reload()
+                })
+            },
         }
     },
     methods: {

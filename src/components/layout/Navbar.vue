@@ -5,8 +5,7 @@
             <img alt="" class="h-48 w-36 px-5 py-4" :src="require('@/assets/icons/main-logo.jpg')" />
         </a>
 
-        <section
-            class="bg-govblue flex justify-between items-center py-1 text-lightgray font-raleway font-bold uppercase">
+        <section class="bg-govblue flex justify-between items-center py-1 text-lightgray font-raleway font-bold uppercase">
             <div class="flex justify-end items-center text-center gap-5 text-xs ml-40">
                 <img :src="require('@/assets/icons/govbr.svg')" alt="" />
                 <router-link class="pr-2 hover:text-red-600" to="/">COMUNICA BR</router-link>
@@ -55,7 +54,7 @@
 
         <section class="flex justify-between items-center">
             <div class="flex text-sm text-maingray gap-5 p-4 ml-14 max-lg:p-0">
-                <router-link class="hover:text-red-600 hover:underline" to='/'>INÍCIO</router-link>
+                <NavbarLink :func="home" :link="'/'" :text="'HOME'"/>
                 <NavbarLink :func="aboutUs" :link="'/'" :text="'QUEM SOMOS'" />
                 <NavbarLink :func="advantages" :link="'/'" :text="'VANTAGENS'" />
                 <NavbarLink :link="'/news'" :text="'NOTÍCIAS'" />
@@ -92,6 +91,11 @@
         },
         data() {
             return {
+                home: () => {
+                    router.push({ path: '/' }).then(() => {
+                        window.location.reload()
+                    })
+                },
                 aboutUs: () => {
                     router.push({ path: '/' }).then(() => {
                         var element = document.getElementById("aboutus");

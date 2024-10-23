@@ -65,7 +65,7 @@
                 <p class="text-fttitle max-sm:text-center hover:underline decoration-maingreen">Política de Privacidade</p>
                 <p class="text-fttitle max-sm:text-center hover:underline decoration-maingreen">Termos e Condições</p>
                 <p class="text-fttitle max-sm:text-center">Desenvolvido por
-                    <span><a class="text-maingreen hover:underline decoration-maingreen" href="https://pedromends.github.io/" target="_blank">Dev Pedro</a></span>
+                    <span><a class="text-maingreen hover:underline decoration-maingreen" href="https://pedromends.github.io/" target="_blank">João Pedro Souza</a></span>
                 </p>
             </div>
         </div>

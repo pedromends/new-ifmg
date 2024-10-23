@@ -67,7 +67,7 @@
 
                             <!-- Open modal edit Button -->
                             <button data-modal-target="edit-modal"  class="hover:bg-gray-300 text-white rounded-md"
-                                data-modal-toggle="edit-modal" v-if="isAdmin" @click="setEdit(doc.id, 'set')">
+                                data-modal-toggle="edit-modal" v-if="isAdmin" @click="setEdit(doc)">
                                 <img class="w-7 m-2" :src="require('@/assets/icons/pencil-edit-maingreen.svg')" alt="">
                             </button>
 
@@ -91,7 +91,7 @@
                                         <div id="tip-div" class="border-2 border-transparent p-2 col-span-2">
                                             <label for="tip" class="mb-2 text-sm font-medium text-gray-900 dark:text-white">Título do Documento</label>
                                             <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5"
-                                                type="text" id="tip" required v-model="updatedTitle"/>
+                                                type="text" id="tip" required v-model="updatedTitle.title"/>
         
                                         </div>
                                         <div id="tip-div" class="border-2 border-transparent p-2 col-span-2">
@@ -103,7 +103,7 @@
                                         <button class="text-white bg-maingreen hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
                                             data-modal-hide="edit-modal" type="button" @click="updatePdf()">Salvar</button>
                                         <button class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-maingreen focus:z-10 focus:ring-4 focus:ring-gray-100"
-                                            data-modal-hide="edit-modal" type="button" @click="setEdit(null, 'clear')">Cancelar</button>
+                                            data-modal-hide="edit-modal" type="button">Cancelar</button>
                                     </div>
                                 </div>
                             </div>
@@ -161,7 +161,9 @@
                 inEdit: null,
                 inDelete: null,
                 updatedFile: null,
-                updatedTitle: null
+                updatedTitle: {
+                    title: ''
+                }
             }
         },
         methods: {
@@ -187,9 +189,10 @@
                     document.body.removeChild(link);
                 })
             },
-            setEdit(id, op){
-                op == 'set' ? this.inEdit = id : null
-                console.log('set edit: ' + this.inEdit)
+            setEdit(obj){
+                console.log(obj)
+                this.updatedTitle.title = obj.title
+                this.inEdit = obj.id
             },
             setDelete(id, op){
                 op == 'set' ? this.inDelete = id : null
@@ -210,12 +213,11 @@
                 }
 
                 formData.append('file', this.selectedFile); // C TEM QUE ENVIAR FORMDATA, NÃO O SELECTED FILE SEU FILHO DA PUTA!
-                formData.append('title', this.updatedTitle);
+                formData.append('title', this.updatedTitle.title);
                 formData.append('id', this.inEdit);
                 
                 try {
                     updateEdict(formData).then((response) => {
-                        console.log('Upload realizado com sucesso:', response.data);
                         this.message = response.data;
                         window.location.reload()
                     });

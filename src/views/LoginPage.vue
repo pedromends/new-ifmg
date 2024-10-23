@@ -81,11 +81,6 @@
                                 <input class="rounded-lg border border-maingreen w-full focus:border-red-600"
                                     v-model="newUser.confirmPassword" type="password" required />
                             </div>
-                            <div class="w-full">
-                                <label class="text-maingray font-medium">Aluno/Professor:</label>
-                                <input class="rounded-lg border border-maingreen focus:border-red-600 ml-1"
-                                    type="checkbox" required />
-                            </div>
                             <div class="w-full flex justify-center gap-10">
                                 <button
                                     class="text-white bg-maingreen hover:bg-govblue focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm text-center px-36 py-3 transition duration-200"
@@ -120,13 +115,13 @@
                     password: ''
                 },
                 newUser: {
-                    firstName: null,
-                    lastName: null,
+                    firstName: 'João Pedro',
+                    lastName: 'Souza',
                     role: 'USER',
-                    username: null,
-                    email: null,
-                    password: null,
-                    confirmPassword: null,
+                    username: 'pedro_j.css',
+                    email: 'joaopedromend14@gmail.com',
+                    password: 'joao@20091999',
+                    confirmPassword:'joao@20091999',
                 }
             }
         },
@@ -153,7 +148,7 @@
                 // }).catch(e => {
                 //     console.log(e)
                 // })
-                if(this.newUser.firstName != null && this.newUser.lastName != null && this.newUser.username != null && this.newUser.email != null && this.newUser.password != null && this.newUser.confirmPassword != null){
+                //if(this.newUser.firstName != null && this.newUser.lastName != null && this.newUser.username != null && this.newUser.email != null && this.newUser.password != null && this.newUser.confirmPassword != null){
                     createUser(this.newUser).then((response) => {
                         console.log(response.data)
                         const aux = JSON.stringify(response.data)
@@ -168,9 +163,9 @@
                         console.log(e)
                         this.showErrorRegister()
                     })
-                } else {
-                    this.showMissingFields()
-                }
+                // } else {
+                //     this.showMissingFields()
+                // }
             },
             requestLogin() {
                 loginUser(this.login).then((response) => {

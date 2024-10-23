@@ -21,19 +21,22 @@
             <div v-if="userInfo != null" class="grid grid-cols-2 gap-10">
                 <div class="flex flex-col gap-10">
                     <div class="bg-lightgray flex flex-col rounded-lg p-10 gap-10 border border-maingreen text-lg">
-                        <h1 class="text-3xl font-semibold underline decoration-maingreen underline-offset-2">Foto de
-                            Perfil</h1>
+                        <div class="flex justify-between">
+                            <h1 class="text-3xl font-semibold underline decoration-maingreen underline-offset-2">Foto de Perfil</h1>
+                            <button @click="editMode = !editMode" class="p-4" v-if="isAdmin">
+                                <img :src="require('@/assets/icons/pencil-edit-maingreen.svg')" alt="#" class="h-8"/>
+                            </button>
+                        </div>
                         <div class="flex flex-col gap-3">
                             <div class="flex justify-between items-center effect rounded-lg p-1">
                                 <div class="effect">
-                                    <img v-if="loadImg" :src="userInfo.img.code" class="w-36 h-36 rounded-full" alt="Profile Pic">
+                                    <img v-if="userInfo.img.code != undefined" :src="userInfo.img.code" class="w-36 h-36 rounded-full" alt="Profile Pic">
                                     <button @click="editMode = !editMode" v-if="isAdmin" class="w-36 h-36 rounded-full hidden bg-maingray justify-center items-center">
-                                        <img v-if="loadImg" :src="require('@/assets/icons/pencil-edit.svg')" alt="Profile Pic" class="w-12 h-12">
+                                        <img v-if="userInfo.img.code != undefined" :src="require('@/assets/icons/pencil-edit.svg')" alt="Profile Pic" class="w-12 h-12">
                                     </button>
                                 </div>
                             </div>
-                            <h1 class="text-2xl font-semibold underline decoration-maingreen underline-offset-2">{{
-                                userInfo.firstName }} {{ userInfo.lastName }}</h1>
+                            <h1 class="text-2xl font-semibold underline decoration-maingreen underline-offset-2">{{ userInfo.firstName }} {{ userInfo.lastName }}</h1>
                             <p class="underline decoration-maingreen underline-offset-2">{{ userInfo.profession }}</p>
                             <input v-if="editMode"
                                 class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none"
@@ -144,9 +147,11 @@ export default {
         this.user = this.$store.getters.getUser
         getUserInfo({email: this.user.email}).then((response) => {
             this.userInfo = response.data
-            if(this.userInfo.img.code != null)
-                this.loadImg = true
-            
+            if(this.userInfo.img.code == undefined){
+                this.userInfo.img = {
+                    code: null
+                }
+            }
             console.log(this.userInfo)
         }).catch((e) => {
             console.log(e)
@@ -155,6 +160,7 @@ export default {
     data() {
         return {
             userInfo: null,
+            newUser: null,
             editMode: false,
             css:{
                 input: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5",
@@ -166,11 +172,19 @@ export default {
     },
     methods: {
         updateUser() {
-            updateUserInfo(this.newUser).then((response) => {
+            updateUserInfo(this.userInfo).then((response) => {
                 console.log(response.data)
             }).catch((e) => {
                 console.log(e)
             }).finally(() => window.location.reload())
+        },
+        onFileChanged(e){
+            const image = e.target.files[0];
+            const reader = new FileReader();
+            reader.readAsDataURL(image);
+            reader.onload = e => {
+                this.userInfo.img.code = e.target.result;
+            };
         },
     }
 }
