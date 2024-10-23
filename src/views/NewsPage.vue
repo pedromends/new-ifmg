@@ -96,15 +96,27 @@
                 page: 0,
                 totalPages: 0,
                 totalElements: 0,
-                searchQuery: ''
+                searchQuery: '',
+                withSearch: null
             }
         },
-        created() {
+        mounted() {
+            const searchQuery = this.$route.query.q;
+            
+            if(searchQuery != undefined){
+                this.withSearch = true
+                this.searchQuery = searchQuery
+                this.searchItems()
+            }
             try{
-                this.pageSet(0)
+                if(!this.withSearch)
+                    this.pageSet(0)
             }catch(e){
                 console.log(e)
             }
+        },
+        created() {
+           
             this.isAdmin = this.$store.getters.isAdmin
         },
         methods: {

@@ -87,7 +87,7 @@ export default {
             },
             background: {
                 name:'presenter-background',
-                code: '',
+                code: null,
                 id: 145 // ID fixo da imagem de capa
             }
         }

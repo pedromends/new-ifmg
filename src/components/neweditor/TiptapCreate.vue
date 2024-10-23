@@ -262,7 +262,14 @@
 				</div>
 			</div>
 	
-			<div class="px-4 py-3 text-sm text-gray-700 flex justify-center">
+			<div class="px-4 py-3 text-sm text-gray-700 flex justify-start gap-10">
+				<div class="relative inline-block w-11 h-5">
+					<input type="checkbox" v-model="newNew.isMain"
+						class="peer appearance-none w-11 h-5 bg-slate-100 rounded-full checked:bg-maingreen cursor-pointer transition-colors duration-300" />
+					<label for="switch-component"
+						class="absolute top-0.01 left-0 w-5 h-5 bg-white rounded-full border border-slate-300 shadow-sm transition-transform duration-300 peer-checked:translate-x-6 peer-checked:border-maingreen cursor-pointer">
+					</label>
+				</div>
 				<button
 					class="text-white bg-maingreen hover:bg-govblue focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm text-center px-36 py-3 transition duration-200"
 					@click.prevent="createNew()" type="submit">Salvar</button>

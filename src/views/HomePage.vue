@@ -39,7 +39,6 @@
       BackToTop
     },
     mounted() {
-      console.log(this.$store.getters.isClient)
       if (this.$store.getters.isClient) {
         setInterval(() => {
           const element = document.getElementById('ourclients');

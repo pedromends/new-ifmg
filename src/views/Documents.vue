@@ -227,7 +227,10 @@
                 }
             },
             deletePdf(){
-                // POST pdf
+                deleteDoc(this.inDelete).then((response) => {
+                    console.log(response.data)
+                    setTimeout(window.location.reload(), 2000)
+                });
             },
             createPdf() {
                 const formData = new FormData();

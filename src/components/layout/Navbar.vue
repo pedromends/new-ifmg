@@ -43,8 +43,9 @@
                         <img alt="Youtube" class="h-10" :src="require('@/assets/icons/youtube.svg')" />
                     </a>
                 </div>
-                <input type="text"
-                    class="bg-handglass hover:bg-handglass-blue mx-3 focus:ring-2 focus:ring-maingreen focus:bg-white bg-maingreen bg-no-repeat bg-contain pl-10 h-10 w-72 rounded-xl border-white text-white transition duration-200" />
+                <input type="text" id="search-bar"
+                    class="bg-handglass hover:bg-handglass-blue mx-3 focus:ring-2 focus:ring-maingreen focus:bg-white bg-maingreen bg-no-repeat bg-contain pl-10 h-10 w-72 rounded-xl border-white text-black transition duration-200"
+                    v-model="searchQuery"/>
                 <ProfileDropdown />
                 <div class="flex items-center gap-3 px-3">
                     <NotificationDropdown />
@@ -84,6 +85,22 @@
 
     export default {
         name: 'NavBar',
+        mounted() {
+            // Obter o campo de input após o componente ser montado
+            var input = document.getElementById("search-bar");
+            
+            if (input) {
+            // Adicionar o evento de keypress ao campo de input
+            input.addEventListener("keypress", (event) => {
+                // Verifica se a tecla pressionada foi "Enter"
+                if (event.key === "Enter") {
+                    event.preventDefault(); // Previne a ação padrão
+                    // Aciona o clique no botão
+                    this.search()
+                }
+            });
+            }
+        },
         components: {
             NavbarLink,
             ProfileDropdown,
@@ -91,6 +108,10 @@
         },
         data() {
             return {
+                searchQuery: null, // q de query
+                search() {
+                    router.push({ path: '/news', query: { q: this.searchQuery } })
+                },
                 home: () => {
                     router.push({ path: '/' }).then(() => {
                         window.location.reload()

@@ -1,5 +1,5 @@
 <template lang="">
-    <section class="flex items-start justify-between px-32 py-10 bg-campus bg-no-repeat bg-bottom bg-cover">
+    <section id="login-screen" class="flex items-start justify-between px-32 py-10 bg-no-repeat bg-bottom bg-cover">
         <div class="p-18 flex justify-end w-full gap-20">
             <div class="flex items-center gap-10">
                 <div class="flex flex-col gap-36 justify-between">
@@ -12,7 +12,7 @@
                             class="px-10 text-2xl underline underline-offset-2 decoration-2 decoration-maingreen font-semibold">
                             Bem-vindo de volta!</p>
                         <div class="w-full px-10">
-                            <label class="text-maingray font-medium">Nome de Usuário:</label>
+                            <label class="text-maingray font-medium">Email:</label>
                             <input class="rounded-lg border border-maingreen w-full focus:border-red-600"
                                 v-model="login.email" type="text" />
                         </div>
@@ -103,9 +103,18 @@
     import router from '@/router/index.js';
     import { createUser, loginUser, sendRegisterEmail } from '@/services/UserService.js';
     import { mapMutations, mapActions } from "vuex";
+    import { getOneImage } from '@/services/ImageService';
 
     export default {
         name: 'LoginPage',
+        mounted() {
+            getOneImage(145).then((response) => {
+                this.img_obj = response.data
+
+                let div = document.getElementById("login-screen")
+                div.style.backgroundImage = `url(${this.img_obj.code})`
+            })
+        },
         data() {
             return {
                 isLoggedIn: this.$store.getters.isLoggedIn,
@@ -115,13 +124,13 @@
                     password: ''
                 },
                 newUser: {
-                    firstName: 'João Pedro',
-                    lastName: 'Souza',
+                    firstName: '',
+                    lastName: '',
                     role: 'USER',
-                    username: 'pedro_j.css',
-                    email: 'joaopedromend14@gmail.com',
-                    password: 'joao@20091999',
-                    confirmPassword:'joao@20091999',
+                    username: '',
+                    email: '',
+                    password: '',
+                    confirmPassword:'',
                 }
             }
         },
@@ -142,13 +151,7 @@
                 this.boolForm = !this.boolForm
             },
             requestCreateUser() {
-                // let payload = {to: 'joao.souza@conexao10.com.br', from: 'joaopedromend14@gmail.com', subject: 'Confirmação de Email'}
-                // sendRegisterEmail(payload).then((response) => {
-                //     console.log(response.data)
-                // }).catch(e => {
-                //     console.log(e)
-                // })
-                //if(this.newUser.firstName != null && this.newUser.lastName != null && this.newUser.username != null && this.newUser.email != null && this.newUser.password != null && this.newUser.confirmPassword != null){
+                if(this.newUser.firstName != null && this.newUser.lastName != null && this.newUser.username != null && this.newUser.email != null && this.newUser.password != null && this.newUser.confirmPassword != null){
                     createUser(this.newUser).then((response) => {
                         console.log(response.data)
                         const aux = JSON.stringify(response.data)
@@ -163,9 +166,9 @@
                         console.log(e)
                         this.showErrorRegister()
                     })
-                // } else {
-                //     this.showMissingFields()
-                // }
+                 } else {
+                     this.showMissingFields()
+                 }
             },
             requestLogin() {
                 loginUser(this.login).then((response) => {
