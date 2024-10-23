@@ -20,8 +20,8 @@
             </div>
             <hr class="bg-red-600 h-1"/>
             <div class="flex items-center gap-5">
-                <input type="text" placeholder="Pesquisar..." class="w-full rounded-lg"/>
-                <button class="">
+                <input v-model="searchQuery" type="text" placeholder="Pesquisar..." class="w-full rounded-lg"/>
+                <button @click="searchItems()">
                     <img alt="Laboratório de sistemas automotivos IFMG - Campus Formiga" :src="require('@/assets/icons/hand-glass.svg')" 
                     class="border border-maingreen bg-maingreen px-4 rounded-lg hover:bg-lightgray transition duration-200" />
                 </button>
@@ -38,7 +38,7 @@
 
 <script>
 import router from '@/router/index.js'
-import { listResearchers } from '@/services/ResearcherService.js';
+import { listResearchers, searchResearcher } from '@/services/ResearcherService.js';
 import ResearcherCard from '@/components/cards/ResearcherCard.vue'; 
 import BackToTop  from '@/components/buttons/BackToTop.vue';
 
@@ -57,6 +57,7 @@ export default {
         return {
             researchers: null,
             isAdmin: this.$store.getters.isAdmin,
+            searchQuery: ''
         }
     },
     methods: {
@@ -66,6 +67,15 @@ export default {
                 var element = document.getElementById("navbar");
                 element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
             }); 
+        },
+        searchItems() {
+            if (this.searchQuery.length > 2) {
+                searchResearcher(this.searchQuery).then((response) => {
+                    this.researchers = response.data
+                }).catch(error => {
+                    console.error("Erro ao buscar itens:", error);
+                });
+            }
         }
     }
 }

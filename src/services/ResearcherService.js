@@ -58,3 +58,11 @@ export const deleteResearcher = (id) => api.request({
   method: 'delete',
   url: `/researcher/delete/${id}`,
 });
+
+export const searchResearcher = (query) => api.request({
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  method: 'get',
+  url: `/researcher/search?query=` + query,
+});

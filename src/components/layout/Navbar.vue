@@ -44,7 +44,7 @@
                     </a>
                 </div>
                 <input type="text"
-                    class="bg-handglass hover:bg-handglass-blue mx-3  bg-maingreen bg-no-repeat bg-contain pl-10 h-10 w-72 rounded-xl border-white text-white hover:border-red-600 transition duration-200" />
+                    class="bg-handglass hover:bg-handglass-blue mx-3 focus:ring-2 focus:ring-maingreen focus:bg-white bg-maingreen bg-no-repeat bg-contain pl-10 h-10 w-72 rounded-xl border-white text-white transition duration-200" />
                 <ProfileDropdown />
                 <div class="flex items-center gap-3 px-3">
                     <NotificationDropdown />

@@ -55,7 +55,8 @@ module.exports = {
         '216': '54rem',
       },
       inset:{
-        'X': '1.90rem'
+        'X': '1.90rem',
+        '0.01': '1px'
       },
       spacing: {
         '84': '21rem',
