@@ -23,15 +23,20 @@
                         type="submit" @click.prevent="createNew()">Criar nova notícia</button>
                 </div>
                 <hr class="bg-red-600 h-1" />
-                <div class="flex items-center">
-                    <input type="text" placeholder="Pesquisar..." v-model="searchQuery"
-                        class="w-full rounded-l-lg ring ring-transparent focus:ring-red-600" />
-                        <button @click="searchItems" class="bg-maingreen rounded-r-lg">
-                            <img alt="Laboratório de sistemas automotivos IFMG - Campus Formiga"
-                            class="mx-4 my-1 rounded-lg" :src="require('@/assets/icons/hand-glass.svg')" />
+                <div class="flex items-center rounded-lg border-maingreen border-1">
+                    <div class="flex items-center w-full">
+                        <input v-model="searchQuery" type="text" placeholder="Pesquisar..." class="focus:ring-0 border-none w-full rounded-lg"/>
+                        <button v-if="searchQuery.length > 1" @click="searchQuery = ''; pageSet(0)" class="rounded-xl hover:bg-gray-200">
+                            <img :src="require('@/assets/icons/X.svg')" alt="" class="w-6 h-6 m-1">
                         </button>
-
-                </div>
+                    </div>
+                    <div class="h-full flex items-center">
+                        <button @click="searchItems()" class="h-full border bg-maingreen px-4 rounded-lg hover:bg-lightgray transition duration-200">
+                            <img alt="Laboratório de sistemas automotivos IFMG - Campus Formiga" :src="require('@/assets/icons/hand-glass.svg')" 
+                            class="" />
+                        </button>
+                    </div>
+                </div> 
             </div>
             <div v-if="news != null">
                 <div v-if="news.length > 0" class="grid grid-cols-4 gap-5 text-maingray max-lg:grid-cols-1">

@@ -19,12 +19,19 @@
                     type="submit" @click.prevent="createNewResearcher()">Gerenciar Pesquisadores</button>
             </div>
             <hr class="bg-red-600 h-1"/>
-            <div class="flex items-center gap-5">
-                <input v-model="searchQuery" type="text" placeholder="Pesquisar..." class="w-full rounded-lg"/>
-                <button @click="searchItems()">
-                    <img alt="Laboratório de sistemas automotivos IFMG - Campus Formiga" :src="require('@/assets/icons/hand-glass.svg')" 
-                    class="border border-maingreen bg-maingreen px-4 rounded-lg hover:bg-lightgray transition duration-200" />
-                </button>
+            <div class="flex items-center rounded-lg border-maingreen border-1">
+                <div class="flex items-center w-full">
+                    <input id="search-bar" v-model="searchQuery" type="text" placeholder="Pesquisar..." class="focus:ring-0 border-none w-full rounded-lg"/>
+                    <button v-if="searchQuery.length > 1" @click="searchQuery = ''; this.listResearchers()" class="rounded-xl hover:bg-gray-200">
+                        <img :src="require('@/assets/icons/X.svg')" alt="" class="w-6 h-6 m-1">
+                    </button>
+                </div>
+                <div class="h-full flex items-center">
+                    <button @click="searchItems()" class="h-full border bg-maingreen px-4 rounded-lg hover:bg-lightgray transition duration-200">
+                        <img alt="Laboratório de sistemas automotivos IFMG - Campus Formiga" :src="require('@/assets/icons/hand-glass.svg')" 
+                        class="" />
+                    </button>
+                </div>
             </div>  
             <div class="grid grid-cols-3 gap-7 max-sm:grid-cols-1">
                 <ResearcherCard v-for="(researcher, i) in researchers" :key="i"
@@ -45,14 +52,13 @@ import BackToTop  from '@/components/buttons/BackToTop.vue';
 export default {
     name: 'ResearchersPage',
     created(){
-        listResearchers().then((response) => {
-            this.researchers = response.data
-        })
+        this.listResearchers()
     },
     components: {
         ResearcherCard,
         BackToTop
     },
+   
     data(){
         return {
             researchers: null,
@@ -76,6 +82,11 @@ export default {
                     console.error("Erro ao buscar itens:", error);
                 });
             }
+        },
+        listResearchers(){
+            listResearchers().then((response) => {
+                this.researchers = response.data
+            })
         }
     }
 }

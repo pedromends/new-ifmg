@@ -10,8 +10,16 @@
         <!-- Dropdown menu -->
         <div class="z-10 hidden bg-white divide-y divide-maingreen rounded-xl shadow border border-maingreen"
             id="dropdownNotification">
-            <ul class="flex flex-col gap-1 divide divide-maingreen rounded-xl max-w-132 max-h-96 overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen">
+            <ul v-if="notifications.length > 0" class="flex flex-col gap-1 divide divide-maingreen rounded-xl max-w-132 max-h-96 overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen">
                 <NotificationCard v-for="(notification, i) in notifications" :key="i" :companyName="notification.externalCompany" :notificationId="notification.id" :readed="notification.readed"/>
+                <li class="flex flex-col effect text-maingreen hover:text-white px-10 py-2 cursor-pointer transition duration-200 hover:bg-red-500">
+                    <router-link to="/notifications">Ver todas as mensagens</router-link>
+                </li>
+            </ul>
+            <ul v-else>
+                <li class="flex effect text-maingreen hover:text-white px-10 py-2 cursor-pointer transition duration-200 hover:bg-red-500">
+                    <router-link to="/notifications">Sem mensagens novas,conferir todos os contatos ?</router-link>
+                </li>
             </ul>
         </div>
     </section>
@@ -40,7 +48,7 @@ export default {
         return {
             isAdmin: this.$store.getters.isAdmin,
             user: this.$store.getters.getUser,
-            notifications: null,
+            notifications: [],
             notiCount: null
         }
     },

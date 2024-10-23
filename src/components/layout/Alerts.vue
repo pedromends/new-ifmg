@@ -1,5 +1,5 @@
 <template lang="">
-    <section>
+    <section class="hidden">
         <AlertSuccessDelete/>
         <AlertSuccessLogin/>
         <AlertErrorLogin/>

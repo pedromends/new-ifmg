@@ -30,7 +30,7 @@
                 </div>
             </section>
 
-            <div>
+            <div class="flex flex-col gap-4">
                 <select v-model="inEditionResearcher.id" name="" id=""
                     class="bg-gray-50 border border-maingreen text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 w-full p-2.5">
                     <option
@@ -41,6 +41,36 @@
                         :value="researcher.id" v-for="(researcher, i) in researchers" :key="i">{{ researcher.firstName +
                         ' ' + researcher.lastName }}</option>
                 </select>
+
+                <button class="flex items-center bg-red-600 hover:bg-maingray focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg transition duration-200 text-center px-32 text-white"
+                    data-modal-target="delete-modal" data-modal-toggle="delete-modal">
+                        <img class="w-5 m-4" :src="require('@/assets/icons/trash.svg')" alt="">
+                        Excluir
+                </button>
+                <!-- Delete modal -->
+                <div id="delete-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                    <div class="relative p-4 w-full max-w-2xl max-h-full">
+                        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                            <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                                    Deseja REALMENTE deletar este Pesquisador ?
+                                </h3>
+                                <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="delete-modal">
+                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                                    </svg>
+                                    <span class="sr-only">Fechar</span>
+                                </button>
+                            </div>
+                            <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
+                                <button class="text-white bg-maingreen hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                                    data-modal-hide="delete-modal" type="button" @click.prevent="deleteResearcher()">Sim</button>
+                                <button class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-maingreen focus:z-10 focus:ring-4 focus:ring-gray-100"
+                                    data-modal-hide="delete-modal" type="button">Não</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -159,25 +189,22 @@
                             class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none"
                             aria-describedby="file_input_help" id="file_input" type="file"
                             @change="onImageChange($event)">
-                        <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG, JPG or
-                            GIF (MAX. 800x400px).</p>
+                        <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG, JPG or GIF (MAX. 800x400px).</p>
                     </div>
                 </div>
+            </div>
+            <div id="image-div" class="border-2 border-transparent p-2 rounded-lg">
+                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    for="file_input">Sobre:</label>
+                <textarea name="" id="" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none" rows="10" v-model="inEditionResearcher.about"></textarea>
             </div>
             <div class="w-full flex max-sm:flex-col justify-center gap-10">
                 <button
                     class="text-white bg-maingreen hover:bg-govblue focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm text-center px-36 py-3 transition duration-200"
                     @click.prevent="updateResearcher()" type="submit">Salvar</button>
-
-                <button class="flex items-center bg-red-600 hover:bg-maingray focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg transition duration-200"
-                    @click.prevent="deleteResearcher()" type="submit">
-                    <div class="flex w-full justify-start gap-3 items-center text-white px-32">
-                        <img class="w-5" :src="require('@/assets/icons/trash.svg')" alt="">
-                        Excluir
-                    </div>
-                </button>
             </div>
         </form>
+        
     </section>
 </template>
 

@@ -43,9 +43,14 @@
                         <img alt="Youtube" class="h-10" :src="require('@/assets/icons/youtube.svg')" />
                     </a>
                 </div>
-                <input type="text" id="search-bar"
-                    class="bg-handglass hover:bg-handglass-blue mx-3 focus:ring-2 focus:ring-maingreen focus:bg-white bg-maingreen bg-no-repeat bg-contain pl-10 h-10 w-72 rounded-xl border-white text-black transition duration-200"
-                    v-model="searchQuery"/>
+                <div class="h-10 flex items-center rounded-xl bg-maingreen border-white text-black transition duration-200 border-2 hover:ring-2 hover:ring-maingreen hover:bg-white mr-10">
+                    <input type="text" id="search-bar"
+                        class="bg-handglass border-none bg-transparent hover:bg-handglass-blue mx-3 bg-no-repeat bg-contain focus:ring-0 pl-10"
+                        v-model="searchQuery"/>
+                        <button v-if="searchQuery.length > 1" @click="searchQuery = ''" class="rounded-xl hover:bg-gray-200">
+                            <img :src="require('@/assets/icons/X.svg')" alt="" class="w-6 h-6 m-1">
+                        </button>
+                </div>
                 <ProfileDropdown />
                 <div class="flex items-center gap-3 px-3">
                     <NotificationDropdown />
@@ -108,7 +113,7 @@
         },
         data() {
             return {
-                searchQuery: null, // q de query
+                searchQuery: '', // q de query
                 search() {
                     router.push({ path: '/news', query: { q: this.searchQuery } })
                 },

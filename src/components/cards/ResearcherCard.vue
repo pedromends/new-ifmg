@@ -1,15 +1,15 @@
 <template lang="">
-    <div class="hover:shadow-md shadow-md hover:shadow-maingreen shadow-transparent transition duration-300 rounded-lg border border-gray-200">
-        <div class="border-t border-maingreen bg-lightgray px-4 py-5 flex items-center justify-between">
+    <div class="hover:shadow-md shadow-md hover:shadow-maingreen shadow-transparent transition duration-300 rounded-lg border border-gray-200"  @click.prevent="openResearcher()">
+        <div class="border-t border-maingreen bg-lightgray px-4 py-5 flex items-center justify-between relative">
             <h1 class="font-semibold">{{ name }}</h1>
             <div v-if="img != null" class="flex items-center gap-4">
-                <button @click="editResearcher()" class="self-end" v-if="isAdmin">
+                <button @click.stop="editResearcher()" class="self-end absolute z-30 right-24" v-if="isAdmin">
                     <img :src="require('@/assets/icons/pencil-edit-maingreen.svg')" alt="#" class="h-8"/>
                 </button>
                 <img alt="Polo IFMG" class="h-16 rounded-lg border border-maingreen" :src="img.code"/>
             </div>
         </div>
-        <div class="flex flex-col px-3 gap-3 py-3" @click.prevent="openResearcher()">
+        <div class="flex flex-col px-3 gap-3 py-3">
             <p class="font-semibold text-start">{{ course }}</p>
             <a :href="link" class="flex items-center gap-3">
                 <img alt="Polo IFMG" class="h-4" :src="require('@/assets/icons/email-green.svg')"/>
