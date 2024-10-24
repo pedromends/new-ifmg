@@ -169,67 +169,71 @@
                 this.boolForm = !this.boolForm
             },
             requestCreateUser() {
-                if(this.newUser.firstName != null && this.newUser.lastName != null && this.newUser.username != null
-                    && this.newUser.email != null && this.newUser.password != null && this.newUser.confirmPassword != null){
-                    createUser(this.newUser).then((response) => {
-                        const aux = JSON.stringify(response.data)
-                        this.$store.commit('setUser', aux)
-
-                        this.$store.commit('setAlert', true)
-                        this.showSuccessRegister()
-                        setInterval(() => {
-                            router.push("/").then(() => {
-                                this.$store.commit('setAlert', false)
-                                window.location.reload()
+                this.$store.commit('setAlert', true)
+                if(this.newUser.firstName.length > 0 && this.newUser.lastName.length > 0 && this.newUser.email.length > 0){
+                    if(this.newUser.password != null && this.newUser.confirmPassword != null) {
+                        if(this.newUser.password > 0 && this.newUser.confirmPassword > 0) {
+                            createUser(this.newUser).then((response) => {
+                                const aux = JSON.stringify(response.data)
+                                this.$store.commit('setUser', aux)
+                                
+                                this.$nextTick(() => {
+                                    this.showSuccessRegister()
+                                })
+                                
+                                setInterval(() => {
+                                    router.push("/").then(() => {
+                                        this.$store.commit('setAlert', false)
+                                        window.location.reload()
+                                    })
+                                }, 3000)
+                            }).catch(e => {
+                                console.log(e)
+                                this.$nextTick(() => {
+                                    this.showErrorRegister()
+                                })
                             })
-                        }, 3000)
-                    }).catch(e => {
-                        console.log(e)
-                        this.showErrorRegister()
-                    })
+                        }
+                    }
                  } else {
-                    this.$store.commit('setAlert', true)
-                     this.showMissingFields()
+                    this.$nextTick(() => {
+                        this.showMissingFields()
+                    })
                  }
             },
             requestLogin() {
-                loginUser(this.login).then((response) => {
-                    const aux = response.data
-                    let newToken = aux.token
-
-                    this.$store.commit('setUser', aux.userVO)
-                    this.$store.commit('setToken', newToken)
-                    this.$store.commit('setRole', aux.userVO.role)
-
-                    window.localStorage.setItem("refresh_token", newToken)
-
-                    
-                    this.showSuccessLogin()
-                    
-                }).catch((e) => {
-                    console.log(e)
-                    this.showErrorLogin()
-                })
+                this.$store.commit('setAlert', true)
+                if(this.login.email.length > 0 && this.login.password.length > 0){
+                    loginUser(this.login).then((response) => {
+                        const aux = response.data
+                        let newToken = aux.token
+    
+                        this.$store.commit('setUser', aux.userVO)
+                        this.$store.commit('setToken', newToken)
+                        this.$store.commit('setRole', aux.userVO.role)
+    
+                        window.localStorage.setItem("refresh_token", newToken)
+                        this.$nextTick(() => {
+                            this.showSuccessLogin()
+                        })
+                    }).catch((e) => {
+                        this.$nextTick(() => {
+                            this.showErrorLogin()
+                        })
+                    })
+                } else {
+                    this.$nextTick(() => {
+                        this.alertMissingFields()
+                    })
+                }
             },
             showSuccessLogin() {
-                this.$store.commit('setAlert', true);
+                let div = document.getElementById("success-login-alert")
+                div.style.display = "flex"
 
-                this.$nextTick(() => { // Garante que o DOM está atualizado
-                    let div = document.getElementById("success-login-alert");
-
-                    console.log(this.$store.getters.isAlertFired, div);
-
-                    if (div !== null) {
-                    div.style.display = "flex";
-
-                    setInterval(() => {
-                        router.push("/").then(() => {
-                            this.$store.commit('setAlert', false);
-                            window.location.reload();
-                        });
-                    }, 3000);
-                    }
-                });
+                setInterval(() => {
+                    window.location.reload()
+                }, 3000)
             },
             showMissingFields(){
                 let div = document.getElementById("alert-missing-fields")
@@ -237,7 +241,15 @@
 
                 setInterval(() => {
                     this.$store.commit('setAlert', false)
-                    window.location.reload()
+                }, 3000)
+            },
+            alertMissingFields() {
+                let div = document.getElementById("alert-missing-fields")
+                div.style.display = "flex"
+                
+                setInterval(() => {
+                    div.style.display = "none"
+                    //this.$store.commit('setAlert', false)
                 }, 3000)
             },
             showErrorLogin() {
@@ -245,7 +257,7 @@
                 div.style.display = "flex"
 
                 setInterval(() => {
-                    this.hide('error-login-alert')
+                    div.style.display = "none"
                     this.$store.commit('setAlert', false)
                 }, 3000)
             },
@@ -254,7 +266,8 @@
                 div.style.display = "flex"
 
                 setInterval(() => {
-                    this.hide('success-register-alert')
+                    div.style.display = "none"
+                    this.$store.commit('setAlert', false)
                 }, 3000)
             },
             showErrorRegister() {
@@ -262,14 +275,10 @@
                 div.style.display = "flex"
 
                 setInterval(() => {
-                    this.hide('error-register-alert')
+                    div.style.display = "none"
+                    this.$store.commit('setAlert', false)
                 }, 3000)
             },
-            hide(idClass) {
-                let div = document.getElementById(idClass)
-                div.style.display = "none"
-                this.$store.commit('setAlert', false)
-            }
         }
     }
 </script>

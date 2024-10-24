@@ -61,11 +61,11 @@ export default {
     data() {
         return {
             contact:{
-                name: null,
-                email: null,
-                externalCompany: null,
-                area: null,
-                message: null
+                name: '',
+                email: '',
+                externalCompany: '',
+                area: '',
+                message: ''
             }
         }
     },
@@ -76,23 +76,41 @@ export default {
         ...mapActions([
             "isAlertFired"
         ]),
-        sendContact(){
-            createContactMessage(this.contact).then((response) => {
-                console.log(response.data)
-                this.$store.commit('setAlert', true)
-                this.$nextTick(()=>{
-                    this.showSuccessSentMessage()
-                })
-            }).finally(() => {
-                setInterval(() => {
-                    window.location.reload()
-                }, 3000)
-            })
+        alertMissingFields() {
+            let div = document.getElementById("alert-missing-fields")
+            div.style.display = "flex"
+            
+            setInterval(() => {
+                div.style.display = "none"
+            }, 3000)
         },
-        showSuccessSentMessage(){
+        sendContact(){
+            if(this.contact.name.length > 0 && this.contact.email.length > 0 && this.contact.externalCompany.length > 0 && this.contact.area.length > 0 && this.contact.message.length > 0){
+                createContactMessage(this.contact).then((response) => {
+                    console.log(response.data)
+                    this.$store.commit('setAlert', true)
+                    this.$nextTick(()=>{
+                        this.showSuccessSentMessage()
+                    })
+                }).finally(() => {
+                    setInterval(() => {
+                        window.location.reload()
+                    }, 3000)
+                })
+            } else {
+                this.$store.commit('setAlert', true)
+                this.$nextTick(() => {
+                    this.alertMissingFields()
+                })
+            }
+        },
+        showSuccessSentMessage() {
             let div = document.getElementById("contact-sent-alert")
             div.style.display = "flex"
-            this.$store.commit('setAlert', false)
+            
+            setInterval(() => {
+                div.style.display = "none"
+            }, 3000)
         },
     }
 }

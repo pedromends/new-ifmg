@@ -93,6 +93,7 @@
 <script>
 import router from '@/router/index.js';
 import { updateEvent } from '@/services/EventService.js';
+import { mapMutations, mapActions } from "vuex";
 
 export default {
     name: 'EditNewCard',
@@ -110,6 +111,12 @@ export default {
         }
     },
     methods: {
+        ...mapMutations([
+            "setAlert"
+        ]),
+        ...mapActions([
+            "isAlertFired"
+        ]),
         updateCard(){
             if(this.newEventCard.month !== null && this.newEventCard.day !== null && this.newEventCard.title !== null && this.newEventCard.hour !== null && this.newEventCard.local !== null){
                 this.newEventCard.id = this.cardToUpdate
@@ -121,8 +128,18 @@ export default {
                     }); 
                 })
             }else{
-                alert('preencha todos os campos')
+                this.$store.commit('setAlert', true)
+                this.$nextTick(() => {
+                    this.alertMissingFields()
+                })
             }
+        },
+        alertMissingFields() {
+            let div = document.getElementById("alert-missing-fields")
+            div.style.display = "flex"
+            setInterval(() => {
+                this.$store.commit('setAlert', false)
+            }, 2000)
         },
         setCard(form){
             this.cardToUpdate = form

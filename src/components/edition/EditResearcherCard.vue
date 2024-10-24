@@ -291,17 +291,23 @@
             showSuccessRegister() {
                 let div = document.getElementById("success-researcher-alert")
                 div.style.display = "flex"
-                this.$store.commit('setAlert', false)
+                setInterval(() => {
+                    this.$store.commit('setAlert', false)
+                }, 2000)
             },
             alertMissingFields() {
                 let div = document.getElementById("alert-missing-fields")
                 div.style.display = "flex"
-                this.$store.commit('setAlert', false)
+                setInterval(() => {
+                    this.$store.commit('setAlert', false)
+                }, 2000)
             },
             showDeleteSuccess() {
                 let div = document.getElementById("success-delete-alert")
                 div.style.display = "flex"
-                this.$store.commit('setAlert', false)
+                setInterval(() => {
+                    this.$store.commit('setAlert', false)
+                }, 2000)
             },
             setImgId(img_id) {
                 this.inEditionResearcher.img.id = img_id
@@ -348,7 +354,7 @@
             },
             deleteResearcher() {
                 if (this.inEditionResearcher.id == 0) {
-                    alert('selecione um aluno primeiro')
+                    alert('Selecione um Pesquisador antes')
                 } else {
                     deleteResearcher(this.inEditionResearcher.id).then((response) => {
                         console.log(response)

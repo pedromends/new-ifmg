@@ -84,6 +84,7 @@
 import router from '@/router/index.js'
 import { updateWhoWeAre } from '@/services/WhoWeAreService.js'
 import { updateImage } from '@/services/ImageService.js'
+import { mapMutations, mapActions } from "vuex";
 
 export default {
     name: 'EditAboutUs',
@@ -103,6 +104,12 @@ export default {
         }
     },
     methods: {
+        ...mapMutations([
+            "setAlert"
+        ]),
+        ...mapActions([
+            "isAlertFired"
+        ]),
         onFileChanged(e){
             const image = e.target.files[0];
             const reader = new FileReader();
@@ -111,23 +118,32 @@ export default {
                 this.newImage.code = e.target.result;
             };
         },
+        alertMissingFields() {
+            let div = document.getElementById("alert-missing-fields")
+            div.style.display = "flex"
+            setInterval(() => {
+                this.$store.commit('setAlert', false)
+            }, 2000)
+        },
         updateAboutUs(){
             if(this.newAboutUs.title !== '' && this.newAboutUs.parag !== ''){
                 updateWhoWeAre(this.newAboutUs).then((response) => {
-                    //console.log(response)
+                    console.log(response)
                 }).finally(() => {
                     router.push('/').then(() => {
                         window.location.reload()
                     }); 
                 })
             } else {
-                // TODO: mostrar notificação de campos obrigatórios
+                this.$store.commit('setAlert', true)
+                this.$nextTick(() => {
+                    this.alertMissingFields()
+                })
             }
-
 
             if(this.newImage.code !== undefined){
                 updateImage(this.newImage).then((response) => {
-                    //console.log(response)
+                    console.log(response)
                 }).finally(() => {
                     router.push('/').then(() => {
                         window.location.reload()

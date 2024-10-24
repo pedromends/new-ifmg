@@ -74,6 +74,7 @@
 import router from '@/router/index.js'
 import { updateCard } from '@/services/PresenterCardService.js'
 import { updateImage } from '@/services/ImageService.js'
+import { mapMutations, mapActions } from "vuex";
 
 export default {
     name: 'EditPresenterCard',
@@ -81,7 +82,7 @@ export default {
         return {
             bool: false,
             cardToUpdate: 1,
-            newCard: { // Card a ser atualizado
+            newCard: {
                 num: null,
                 text: '',
             },
@@ -93,10 +94,16 @@ export default {
         }
     },
     methods: {
+        ...mapMutations([
+            "setAlert"
+        ]),
+        ...mapActions([
+            "isAlertFired"
+        ]),
         updateCard(){
             this.newCard.id = this.cardToUpdate
             
-            if (this.newCard.num != null) {
+            if (this.newCard.num != null && this.newCard.text.length > 5) {
                 updateCard(this.newCard).then((response) => {
                     console.log(response)
                 }).finally(() => {
@@ -104,6 +111,11 @@ export default {
                         var element = document.getElementById("navbar");
                         element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
                     }); 
+                })
+            } else {
+                this.$store.commit('setAlert', true)
+                this.$nextTick(() => {
+                    this.alertMissingFields()
                 })
             }
 
@@ -117,6 +129,14 @@ export default {
                     }); 
                 })
             }
+        },
+        alertMissingFields() {
+            let div = document.getElementById("alert-missing-fields")
+            div.style.display = "flex"
+            setInterval(() => {
+                this.$store.commit('setAlert', false)
+            }, 2000)
+           
         },
         setCard(card){
             this.cardToUpdate = card

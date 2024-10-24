@@ -1,8 +1,8 @@
 <template lang="">
-    <section v-if="$store.getters.isAlertFired" class="">
+    <section v-if="$store.getters.isAlertFired" class="z-50">
         <AlertSuccessDelete/>
         <AlertSuccessLogin/>
-        <AlertErrorLogin/>
+        <AlertErrorLogin :text="'Erro ao logar! Credenciais incorretas.'"/>
         <AlertSuccessRegister/> 
         <AlertErrorRegister/>
         <AlertSuccessCompany/>

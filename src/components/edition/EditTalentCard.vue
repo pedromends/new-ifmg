@@ -108,8 +108,6 @@ export default {
     methods: {
         ...mapMutations([
                 "setUser",
-                "setToken",
-                "setRole",
                 "setAlert"
             ]),
             ...mapActions([

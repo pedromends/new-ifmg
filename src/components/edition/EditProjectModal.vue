@@ -1,82 +1,82 @@
 <template lang="">
     <section class="flex max-sm:flex-col justify-center items-center bg-lightgray gap-10 max-sm:w-3/4">
-            <section role="status" class="flex flex-col justify-center gap-10 items-center mt-5 animate-pulse ">
-                <p class="font-semibold text-3xl underline underline-offset-2 decoration-4 decoration-maingreen self-start mt-10 pl-10 max-sm:ml-24">Modal de Projetos</p>
+        <div role="status" class="flex flex-col justify-center gap-10 items-center mt-5 animate-pulse ">
+            <p class="font-semibold text-3xl underline underline-offset-2 decoration-4 decoration-maingreen self-start mt-10 pl-10 max-sm:ml-24">Modal de Projetos</p>
 
-                <!-- Modal -->
-                <div class="relative p-4 w-full max-w-2xl max-h-full max-sm:w-3/4">
-                    <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-                        <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t border-maingreen">
-                            <div class="h-8 bg-black rounded-full w-36 mr-72 border border-transparent hover:border-red-700"></div>
-                            <button type="button" class="bg-transparent rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center hover:bg-gray-500/50 transition duration-200">
-                                <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                                    <path stroke="#E02424" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
-                                </svg>
-                                <span class="sr-only">Close modal</span>
-                            </button>
-                        </div>
-                        <div class="p-4 md:p-5 space-y-4 flex flex-col">
-                            <div>
-                                <h2 id="headName" class="text-maingray border border-transparent hover:border-red-700">
-                                    <button type="button" data-accordion-target="#headBody" aria-expanded="false" aria-controls="headBody"
-                                        class="flex items-center justify-between w-full p-5 font-medium rtl:text-right border border-maingreen rounded-t-xl hover:bg-blue-100 gap-3 transition duration-200">
-                                        <div class="h-3 bg-maingreen rounded-full w-48"></div>
-                                        <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                                            <path stroke="#2F9E40" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
-                                        </svg>
-                                    </button>
-                                </h2>
-                                <div class="border border-transparent hover:border-red-700">
-                                    <div class="p-5 border rounded-b-xl border-gray-200 gap-2 flex flex-col">
-                                        <div class="h-1 bg-black rounded-full w-96 max-sm:w-14"></div>
-                                        <div class="h-1 bg-black rounded-full w-96 max-sm:w-14"></div>
-                                        <div class="h-1 bg-black rounded-full w-96 max-sm:w-14"></div>
-                                        <div class="h-1 bg-black rounded-full w-96 max-sm:w-14"></div>
-                                        <div class="h-1 bg-black rounded-full w-96 max-sm:w-14"></div>
-                                        <div class="h-1 bg-black rounded-full w-96 max-sm:w-14"></div>
-                                        <div class="h-1 bg-black rounded-full w-96 max-sm:w-14"></div>
-                                        <div class="h-1 bg-black rounded-full w-96 max-sm:w-14"></div>
-                                        <div class="h-1 bg-black rounded-full w-96 max-sm:w-14"></div>
-                                    </div>
-                                </div>
-                            </div>
-    
-                            <div class="flex flex-col px-2 text-sm gap-1">
-                                <div class="flex gap-2 items-center max-lg:text-sm border border-transparent hover:border-red-700">
-                                    <p class="font-bold text-maingray">Coordenador: </p>
-                                    <div class="h-2 bg-black rounded-full w-24"></div>
-                                </div>
-                                <div class="flex gap-2 items-center max-lg:text-sm border border-transparent hover:border-red-700">
-                                    <p class="font-bold text-maingray">Pesquisador(es): </p>
-                                    <div class="h-2 bg-black rounded-full w-24"></div>
-                                </div>
-                                <div  class="flex gap-2 items-center max-lg:text-sm border border-transparent hover:border-red-700">
-                                    <p class="font-bold text-maingray">Aluno(s): </p>
-                                    <div class="h-2 bg-black rounded-full w-24"></div>
-                                </div>
-                                <div class="flex gap-2 items-center max-lg:text-sm border border-transparent hover:border-red-700">
-                                    <p class="font-bold text-maingray">Situação: </p>
-                                    <p>Situação</p>
-                                </div>
-                                <div class="flex gap-2 items-center max-lg:text-sm border border-transparent hover:border-red-700">
-                                    <p class="font-bold text-maingray">Valor:</p>
-                                    <div class="flex items-center gap-3">R$ <div class="h-2 bg-black rounded-full w-10"></div></div>
+            <!-- Desenho do Modal -->
+            <div class="relative p-4 w-full max-w-2xl max-h-full max-sm:w-3/4">
+                <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                    <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t border-maingreen">
+                        <div class="h-8 bg-black rounded-full w-36 mr-72 border border-transparent hover:border-red-700"></div>
+                        <button type="button" class="bg-transparent rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center hover:bg-gray-500/50 transition duration-200">
+                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                                <path stroke="#E02424" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                            </svg>
+                            <span class="sr-only">Close modal</span>
+                        </button>
+                    </div>
+                    <div class="p-4 md:p-5 space-y-4 flex flex-col">
+                        <div>
+                            <h2 id="headName" class="text-maingray border border-transparent hover:border-red-700">
+                                <button type="button" data-accordion-target="#headBody" aria-expanded="false" aria-controls="headBody"
+                                    class="flex items-center justify-between w-full p-5 font-medium rtl:text-right border border-maingreen rounded-t-xl hover:bg-blue-100 gap-3 transition duration-200">
+                                    <div class="h-3 bg-maingreen rounded-full w-48"></div>
+                                    <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                        <path stroke="#2F9E40" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+                                    </svg>
+                                </button>
+                            </h2>
+                            <div class="border border-transparent hover:border-red-700">
+                                <div class="p-5 border rounded-b-xl border-gray-200 gap-2 flex flex-col">
+                                    <div class="h-1 bg-black rounded-full w-96 max-sm:w-14"></div>
+                                    <div class="h-1 bg-black rounded-full w-96 max-sm:w-14"></div>
+                                    <div class="h-1 bg-black rounded-full w-96 max-sm:w-14"></div>
+                                    <div class="h-1 bg-black rounded-full w-96 max-sm:w-14"></div>
+                                    <div class="h-1 bg-black rounded-full w-96 max-sm:w-14"></div>
+                                    <div class="h-1 bg-black rounded-full w-96 max-sm:w-14"></div>
+                                    <div class="h-1 bg-black rounded-full w-96 max-sm:w-14"></div>
+                                    <div class="h-1 bg-black rounded-full w-96 max-sm:w-14"></div>
+                                    <div class="h-1 bg-black rounded-full w-96 max-sm:w-14"></div>
                                 </div>
                             </div>
                         </div>
-                        <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b">
-                            <button v-if="boolSaibaMais" class="text-white bg-maingreen border-2 border-maingreen hover:bg-white hover:text-maingray transition duration-300 rounded-lg text-sm px-5 py-2.5"
-                                type="button">
-                                Saiba Mais!
-                            </button>
-                            <button class="ms-3 text-maingray bg-white rounded-lg border border-gray-200 text-sm transition duration-300 px-5 py-2.5 hover:bg-maingray hover:text-white"
-                                type="button">
-                                Fechar
-                            </button>
+
+                        <div class="flex flex-col px-2 text-sm gap-1">
+                            <div class="flex gap-2 items-center max-lg:text-sm border border-transparent hover:border-red-700">
+                                <p class="font-bold text-maingray">Coordenador: </p>
+                                <div class="h-2 bg-black rounded-full w-24"></div>
+                            </div>
+                            <div class="flex gap-2 items-center max-lg:text-sm border border-transparent hover:border-red-700">
+                                <p class="font-bold text-maingray">Pesquisador(es): </p>
+                                <div class="h-2 bg-black rounded-full w-24"></div>
+                            </div>
+                            <div  class="flex gap-2 items-center max-lg:text-sm border border-transparent hover:border-red-700">
+                                <p class="font-bold text-maingray">Aluno(s): </p>
+                                <div class="h-2 bg-black rounded-full w-24"></div>
+                            </div>
+                            <div class="flex gap-2 items-center max-lg:text-sm border border-transparent hover:border-red-700">
+                                <p class="font-bold text-maingray">Situação: </p>
+                                <p>Situação</p>
+                            </div>
+                            <div class="flex gap-2 items-center max-lg:text-sm border border-transparent hover:border-red-700">
+                                <p class="font-bold text-maingray">Valor:</p>
+                                <div class="flex items-center gap-3">R$ <div class="h-2 bg-black rounded-full w-10"></div></div>
+                            </div>
                         </div>
                     </div>
+                    <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b">
+                        <button v-if="boolSaibaMais" class="text-white bg-maingreen border-2 border-maingreen hover:bg-white hover:text-maingray transition duration-300 rounded-lg text-sm px-5 py-2.5"
+                            type="button">
+                            Saiba Mais!
+                        </button>
+                        <button class="ms-3 text-maingray bg-white rounded-lg border border-gray-200 text-sm transition duration-300 px-5 py-2.5 hover:bg-maingray hover:text-white"
+                            type="button">
+                            Fechar
+                        </button>
+                    </div>
                 </div>
-            </section>
+            </div>
+        </div>
 
         <!-- Formulário -->
         <form class="bg-white p-10 rounded-lg max-sm:p-2">
@@ -243,8 +243,8 @@ export default {
                 researchers: {
                     id: null
                 },
-                name: null,
-                resume: null,
+                name: '',
+                resume: '',
                 situation: null,
                 value: null,
                 active: 1
@@ -322,62 +322,62 @@ export default {
             this.$store.commit('setAlert', false)
         },
         updateProject(){
-            if(this.inEditProject.id == 0){
+            if(this.inEditProject.id == 0) {
                 if(this.newProject.name !== '' && this.selectCompany.id !== null && this.selectCoordinator.id !== null 
-                    && this.newProject.situation !== null && this.newProject.value !== null && this.newProject.resume !== null){
-                        this.newProject.company.id = this.selectCompany.id
-                        this.newProject.coordinator.id = this.selectCoordinator.id
-                        this.newProject.researchers.id = this.selectResearchers.id
-        
-                        createProject(this.newProject).then((response) => {
-                            console.log(response)
-                        }).finally(() => {
-                             router.push('/').then(() => {
-                                 var element = document.getElementById("ourclients");
-                                 element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
-                             }); 
-                         })
+                    && this.newProject.situation !== null && this.newProject.value !== null && this.newProject.resume !== ''){
+                    this.newProject.company.id = this.selectCompany.id
+                    this.newProject.coordinator.id = this.selectCoordinator.id
+                    this.newProject.researchers.id = this.selectResearchers.id
+    
+                    createProject(this.newProject).then((response) => {
+                        console.log(response)
+                    }).finally(() => {
+                        router.push('/').then(() => {
+                            var element = document.getElementById("ourclients");
+                            element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                        }); 
+                    })
                 }
             } else {
                 if(this.newProject.name !== '' && this.selectCompany.id !== null && this.selectCoordinator.id !== null 
                     && this.newProject.situation !== null && this.newProject.value !== null && this.newProject.resume !== null) {
 
-                        this.newProject.id = this.inEditProject.id
-                        this.newProject.company.id = this.selectCompany.id
-                        this.newProject.company.img.id = this.selectCompany.id_img
-                        this.newProject.coordinator.id = this.selectCoordinator.id
-                        this.newProject.researchers.id = this.selectResearchers.id
-                        this.newProject.students.id = this.selectStudents.id
-        
-                        updateProject(this.newProject).then((response) => {
-                            console.log(response)
-                        }).finally(() => {
-                             router.push('/').then(() => {
-                                 window.location.reload()
-                                 var element = document.getElementById("ourclients");
-                                 element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
-                             }); 
-                        })
-                    }
-            }
-        },
-        deleteProject(){
-            if(this.inEditProject.id != 0){
-                deleteProject(this.inEditProject.id).then((response) => {
-                console.log(response)
-            }).finally(() => {
-                this.$store.commit('setAlert', true)
-                this.$nextTick(() => {
-                    this.showDeleteSuccess()
-                    setInterval(() => {
+                    this.newProject.id = this.inEditProject.id
+                    this.newProject.company.id = this.selectCompany.id
+                    this.newProject.company.img.id = this.selectCompany.id_img
+                    this.newProject.coordinator.id = this.selectCoordinator.id
+                    this.newProject.researchers.id = this.selectResearchers.id
+                    this.newProject.students.id = this.selectStudents.id
+    
+                    updateProject(this.newProject).then((response) => {
+                        console.log(response)
+                    }).finally(() => {
                         router.push('/').then(() => {
                             window.location.reload()
                             var element = document.getElementById("ourclients");
                             element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
                         }); 
-                    }, 2000)
+                    })
+                }
+            }
+        },
+        deleteProject(){
+            if(this.inEditProject.id != 0){
+                deleteProject(this.inEditProject.id).then((response) => {
+                    console.log(response)
+                }).finally(() => {
+                    this.$store.commit('setAlert', true)
+                    this.$nextTick(() => {
+                        this.showDeleteSuccess()
+                        setInterval(() => {
+                            router.push('/').then(() => {
+                                window.location.reload()
+                                var element = document.getElementById("ourclients");
+                                element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                            }); 
+                        }, 2000)
+                    })
                 })
-            })     
             } else {
                 alert('Selecione primeiro uma empresa pra deletar')
             }

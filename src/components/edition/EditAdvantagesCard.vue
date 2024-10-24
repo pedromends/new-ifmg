@@ -113,12 +113,9 @@
                     <div id="icon-div" class="border-2 border-transparent p-2">
                         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                             for="file_input">Ícone do Card {{ currentForm }}</label>
-                        <input
-                            class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none"
-                            aria-describedby="file_input_help" id="file_input" type="file"
-                            @change="onImageChange($event)">
-                        <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG, JPG or
-                            GIF (MAX. 800x400px).</p>
+                        <input aria-describedby="file_input_help" id="file_input" type="file" @change="onImageChange($event)"
+                            class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none">
+                        <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG, JPG or GIF (MAX. 800x400px).</p>
                     </div>
                     <div id="image-div" class="border-2 border-transparent p-2">
                         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -144,6 +141,7 @@
     import router from '@/router/index.js'
     import { updateAdvantages } from '@/services/AdvantagesService.js'
     import { updateImage } from '@/services/ImageService.js'
+    import { mapMutations, mapActions } from "vuex";
 
     export default {
         name: 'EditAdvantagesCard',
@@ -167,6 +165,12 @@
             }
         },
         methods: {
+            ...mapMutations([
+                "setAlert"
+            ]),
+            ...mapActions([
+                "isAlertFired"
+            ]),
             onOffEffect(div) {
                 let target = document.getElementById(div);
                 this.bool ? target.style.borderColor = 'transparent' : target.style.borderColor = 'red'
@@ -188,11 +192,18 @@
                     this.newAdvantages.img.code = e.target.result;
                 };
             },
+            alertMissingFields() {
+                let div = document.getElementById("alert-missing-fields")
+                div.style.display = "flex"
+                setInterval(() => {
+                    this.$store.commit('setAlert', false)
+                }, 2000)
+            },
             changeForm(form) {
                 this.currentForm = form
             },
             updateCards() {
-                if (this.newAdvantages.differential !== '' && this.newAdvantages.description !== '' && this.newAdvantages.img.code !== null) {
+                if (this.newAdvantages.differential !== '' && this.newAdvantages.description !== ''&& this.newAdvantages.img.code !== null) {
                     this.newAdvantages.id = this.currentForm
                     this.newAdvantages.img.id = this.currentForm
 
@@ -204,11 +215,13 @@
                         });
                     })
                 }else{
-                    // TODO: exibir alert mandando preencher campo
+                    this.$store.commit('setAlert', true)
+                    this.$nextTick(() => {
+                        this.alertMissingFields()
+                    })
                 }
 
                 if (this.bannerImage.code !== undefined) {
-                    console.log(this.bannerImage)
                     updateImage(this.bannerImage).then((response) => {
                         console.log(response)
                     }).finally(() => {

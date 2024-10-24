@@ -120,21 +120,27 @@ export default {
         showCompanySuccess(){
             let div = document.getElementById("success-alert-company")
             div.style.display = "flex"
-            this.$store.commit('setAlert', false)
+            setInterval(() => {
+                this.$store.commit('setAlert', false)
+            }, 2000)
             
         },
         showDeleteSuccess(){
             let div = document.getElementById("success-delete-alert")
             div.style.display = "flex"
-            this.$store.commit('setAlert', false)
+            setInterval(() => {
+                this.$store.commit('setAlert', false)
+            }, 2000)
         },
         alertMissingFields() {
             let div = document.getElementById("alert-missing-fields")
             div.style.display = "flex"
-            this.$store.commit('setAlert', false)
+            setInterval(() => {
+                this.$store.commit('setAlert', false)
+            }, 2000)
         },
         updateCompany(){
-            if(this.company.name != null && this.company.classification != null && this.company.cnpj != null && this.company.image.code){
+            if(this.company.name != null && this.company.classification != null && this.company.cnpj != null && this.company.image.code != null){
                 if(this.company.id == 0) {
                     createCompany(this.company).then((response) => {
                         console.log(response)

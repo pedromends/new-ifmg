@@ -8,7 +8,7 @@
             </svg>
             <span class="sr-only">Info</span>
             <div>
-                <span class="text-lg">Erro ao logar! Há campos vazios.</span>
+                <span class="text-lg">Há campos vazios, preencha todos os campos!</span>
             </div>
         </div>
     </div>

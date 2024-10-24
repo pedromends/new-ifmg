@@ -114,6 +114,7 @@
 <script>
 import router from '@/router/index.js'
 import { updateCapacitation } from '@/services/CapacitationService.js';
+import { mapMutations, mapActions } from "vuex";
 
 export default {
     name: 'EditCapacitation',
@@ -133,6 +134,12 @@ export default {
         }
     },
     methods: {
+        ...mapMutations([
+            "setAlert"
+        ]),
+        ...mapActions([
+            "isAlertFired"
+        ]),
         changeForm(id, id_img){
             this.currentForm = this.capacitationCard.id = id
             this.capacitationCard.img.id = id_img
@@ -146,6 +153,13 @@ export default {
                 this.capacitationCard.img.code = e.target.result;
             };
         },
+        alertMissingFields() {
+                let div = document.getElementById("alert-missing-fields")
+                div.style.display = "flex"
+                setInterval(() => {
+                    this.$store.commit('setAlert', false)
+                }, 2000)
+            },
         updateCard(){
             if(this.capacitationCard.img.code !== null && this.capacitationCard.img.code !== null && this.capacitationCard.title !== null && this.capacitationCard.subtitle !== null){
                 updateCapacitation(this.capacitationCard).then((response) => {
@@ -156,7 +170,10 @@ export default {
                     }); 
                 })
             } else {
-                // exibir notificação de preencher todos os campos
+                this.$store.commit('setAlert', true)
+                this.$nextTick(() => {
+                    this.alertMissingFields()
+                })
             }
         },
     },
