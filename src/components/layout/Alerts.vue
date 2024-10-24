@@ -1,5 +1,5 @@
 <template lang="">
-    <section class="hidden">
+    <section v-if="$store.getters.isAlertFired" class="">
         <AlertSuccessDelete/>
         <AlertSuccessLogin/>
         <AlertErrorLogin/>

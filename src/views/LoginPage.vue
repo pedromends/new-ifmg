@@ -35,8 +35,7 @@
                             <p class="cursor-pointer">Esqueceu sua senha?</p>
                         </div>
                         <div class="bg-gray-300 rounded-b-2xl w-full px-10 flex justify-center py-3">
-                            <div class="bg-gray-300 w-full px-10 flex justify-center py-3 text-gray-900">Não tem uma
-                                conta ?
+                            <div class="bg-gray-300 w-full px-10 flex justify-center py-3 text-gray-900">Não tem uma conta ?
                                 <button @click="switchForm()" class="hover:underline ml-2">Cadastre-se</button>
                             </div>
                         </div>
@@ -152,8 +151,17 @@
             }
         },
         methods: {
-            ...mapMutations(["setUser", "setToken", "setRole"]),
-            ...mapActions(["getToken", "getUser"]),
+            ...mapMutations([
+                "setUser",
+                "setToken",
+                "setRole",
+                "setAlert"
+            ]),
+            ...mapActions([
+                "getToken",
+                "getUser",
+                "isAlertFired"
+            ]),
             redirect() {
                 // 
             },
@@ -161,14 +169,17 @@
                 this.boolForm = !this.boolForm
             },
             requestCreateUser() {
-                if(this.newUser.firstName != null && this.newUser.lastName != null && this.newUser.username != null && this.newUser.email != null && this.newUser.password != null && this.newUser.confirmPassword != null){
+                if(this.newUser.firstName != null && this.newUser.lastName != null && this.newUser.username != null
+                    && this.newUser.email != null && this.newUser.password != null && this.newUser.confirmPassword != null){
                     createUser(this.newUser).then((response) => {
-                        console.log(response.data)
                         const aux = JSON.stringify(response.data)
                         this.$store.commit('setUser', aux)
+
+                        this.$store.commit('setAlert', true)
                         this.showSuccessRegister()
                         setInterval(() => {
                             router.push("/").then(() => {
+                                this.$store.commit('setAlert', false)
                                 window.location.reload()
                             })
                         }, 3000)
@@ -177,6 +188,7 @@
                         this.showErrorRegister()
                     })
                  } else {
+                    this.$store.commit('setAlert', true)
                      this.showMissingFields()
                  }
             },
@@ -191,27 +203,40 @@
 
                     window.localStorage.setItem("refresh_token", newToken)
 
+                    
                     this.showSuccessLogin()
+                    
                 }).catch((e) => {
                     console.log(e)
                     this.showErrorLogin()
                 })
             },
             showSuccessLogin() {
-                let div = document.getElementById("success-login-alert")
-                div.style.display = "flex"
+                this.$store.commit('setAlert', true);
 
-                setInterval(() => {
-                    router.push("/").then(() => {
-                        window.location.reload()
-                    })
-                }, 3000)
+                this.$nextTick(() => { // Garante que o DOM está atualizado
+                    let div = document.getElementById("success-login-alert");
+
+                    console.log(this.$store.getters.isAlertFired, div);
+
+                    if (div !== null) {
+                    div.style.display = "flex";
+
+                    setInterval(() => {
+                        router.push("/").then(() => {
+                            this.$store.commit('setAlert', false);
+                            window.location.reload();
+                        });
+                    }, 3000);
+                    }
+                });
             },
             showMissingFields(){
                 let div = document.getElementById("alert-missing-fields")
                 div.style.display = "flex"
 
                 setInterval(() => {
+                    this.$store.commit('setAlert', false)
                     window.location.reload()
                 }, 3000)
             },
@@ -221,6 +246,7 @@
 
                 setInterval(() => {
                     this.hide('error-login-alert')
+                    this.$store.commit('setAlert', false)
                 }, 3000)
             },
             showSuccessRegister() {
@@ -242,6 +268,7 @@
             hide(idClass) {
                 let div = document.getElementById(idClass)
                 div.style.display = "none"
+                this.$store.commit('setAlert', false)
             }
         }
     }

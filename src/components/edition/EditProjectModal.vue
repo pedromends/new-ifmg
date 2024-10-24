@@ -211,6 +211,8 @@ import { createProject, listProjects, updateProject, deleteProject } from '@/ser
 import { getTalents } from '@/services/TalentService.js'
 import AlertSuccessDelete from "@/components/alert/AlertSuccessDelete.vue";
 
+import { mapMutations, mapActions } from "vuex";
+
 export default {
     name: 'inEditProjectModal',
     components: {
@@ -295,6 +297,12 @@ export default {
         }).catch((error) => console.log(error))
     },
     methods: {
+        ...mapMutations([
+            "setAlert"
+        ]),
+        ...mapActions([
+            "isAlertFired"
+        ]),
         onOffEffect(div){
             let target = document.getElementById(div);
             this.bool ? target.style.borderColor = 'transparent' : target.style.borderColor = 'red'
@@ -311,6 +319,7 @@ export default {
         showDeleteSuccess(){
             let div = document.getElementById("success-delete-alert")
             div.style.display = "flex"
+            this.$store.commit('setAlert', false)
         },
         updateProject(){
             if(this.inEditProject.id == 0){
@@ -357,14 +366,17 @@ export default {
                 deleteProject(this.inEditProject.id).then((response) => {
                 console.log(response)
             }).finally(() => {
-                this.showDeleteSuccess()
-                setInterval(() => {
-                    router.push('/').then(() => {
-                        window.location.reload()
-                        var element = document.getElementById("ourclients");
-                        element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
-                    }); 
-                }, 2000)
+                this.$store.commit('setAlert', true)
+                this.$nextTick(() => {
+                    this.showDeleteSuccess()
+                    setInterval(() => {
+                        router.push('/').then(() => {
+                            window.location.reload()
+                            var element = document.getElementById("ourclients");
+                            element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                        }); 
+                    }, 2000)
+                })
             })     
             } else {
                 alert('Selecione primeiro uma empresa pra deletar')

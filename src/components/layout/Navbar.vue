@@ -5,6 +5,7 @@
             <img alt="" class="h-48 w-36 px-5 py-4" :src="require('@/assets/icons/main-logo.jpg')" />
         </a>
 
+        <!-- Barra do governo -->
         <section class="bg-govblue flex justify-between items-center py-1 text-lightgray font-raleway font-bold uppercase">
             <div class="flex justify-end items-center text-center gap-5 text-xs ml-40">
                 <img :src="require('@/assets/icons/govbr.svg')" alt="" />
@@ -18,6 +19,7 @@
             </div>
         </section>
 
+        <!-- Barra verde -->
         <section class="flex justify-between bg-maingreen">
             <div class="flex justify-between items-center gap-10 px-32 text-lightgray text-sm">
                 <router-link class="hover:underline hover:text-govblue transition duration-200"
@@ -45,7 +47,7 @@
                 </div>
                 <div class="h-10 flex items-center rounded-xl bg-maingreen border-white text-black transition duration-200 border-2 hover:ring-2 hover:ring-maingreen hover:bg-white mr-10">
                     <input type="text" id="search-bar"
-                        class="bg-handglass border-none bg-transparent hover:bg-handglass-blue mx-3 bg-no-repeat bg-contain focus:ring-0 pl-10"
+                        class="bg-handglass border-none bg-transparent hover:bg-handglass-blue mx-1 bg-no-repeat bg-contain focus:ring-0 pl-10"
                         v-model="searchQuery"/>
                         <button v-if="searchQuery.length > 1" @click="searchQuery = ''" class="rounded-xl hover:bg-gray-200">
                             <img :src="require('@/assets/icons/X.svg')" alt="" class="w-6 h-6 m-1">
@@ -58,6 +60,7 @@
             </div>
         </section>
 
+        <!-- Barra branca -->
         <section class="flex justify-between items-center">
             <div class="flex text-sm text-maingray gap-5 p-4 ml-14 max-lg:p-0">
                 <NavbarLink :func="home" :link="'/'" :text="'HOME'"/>

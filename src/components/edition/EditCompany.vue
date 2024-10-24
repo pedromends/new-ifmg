@@ -72,6 +72,7 @@
 <script>
 import router from '@/router/index.js'
 import { createCompany, listCompanies, updateCompany, deleteCompany } from '@/services/CompanyService.js';
+import { mapMutations, mapActions } from "vuex";
 
 export default {
     name: 'EditCompany',
@@ -99,6 +100,12 @@ export default {
         })
     },
     methods: {
+        ...mapMutations([
+            "setAlert"
+        ]),
+        ...mapActions([
+            "isAlertFired"
+        ]),
         showEditCompany(){
             console.log(this.company)
         },
@@ -113,13 +120,20 @@ export default {
         showCompanySuccess(){
             let div = document.getElementById("success-alert-company")
             div.style.display = "flex"
+            this.$store.commit('setAlert', false)
+            
         },
         showDeleteSuccess(){
             let div = document.getElementById("success-delete-alert")
             div.style.display = "flex"
+            this.$store.commit('setAlert', false)
         },
-        updateCompany(){ // TODO: trocar pra submit data
-            console.log(this.company)
+        alertMissingFields() {
+            let div = document.getElementById("alert-missing-fields")
+            div.style.display = "flex"
+            this.$store.commit('setAlert', false)
+        },
+        updateCompany(){
             if(this.company.name != null && this.company.classification != null && this.company.cnpj != null && this.company.image.code){
                 if(this.company.id == 0) {
                     createCompany(this.company).then((response) => {
@@ -143,7 +157,10 @@ export default {
                     })
                 }
             } else {
-                alert('preencha todos os campos')
+                this.$store.commit('setAlert', true)
+                this.$nextTick(() => {
+                    this.alertMissingFields()
+                })
             }
             
         },
@@ -151,12 +168,15 @@ export default {
             deleteCompany(this.company.id).then((response) => {
                 console.log(response)
             }).finally(() => {
-                this.showDeleteSuccess()
-                setInterval(() => {
-                    router.push('/').then(() => {1
-                       window.location.reload()
-                    }); 
-                }, 2000)
+                this.$store.commit('setAlert', true)
+                this.$nextTick(() => {
+                    this.showDeleteSuccess()
+                    setInterval(() => {
+                        router.push('/').then(() => {1
+                           window.location.reload()
+                        }); 
+                    }, 2000)
+                })
             })
         }
     },

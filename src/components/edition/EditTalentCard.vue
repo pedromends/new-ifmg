@@ -75,6 +75,7 @@
 <script>
 import router from '@/router/index.js'
 import { createTalent, updateTalent, getTalents, deleteTalent } from '@/services/TalentService.js';
+import { mapMutations, mapActions } from "vuex";
 
 export default {
     name: 'EditnewTalent',
@@ -105,6 +106,17 @@ export default {
         })
     },
     methods: {
+        ...mapMutations([
+                "setUser",
+                "setToken",
+                "setRole",
+                "setAlert"
+            ]),
+            ...mapActions([
+                "getToken",
+                "getUser",
+                "isAlertFired"
+            ]),
         onOffEffect(div){
             let target = document.getElementById(div);
             this.bool ? target.style.borderColor = 'transparent' : target.style.borderColor = 'red'
@@ -121,17 +133,22 @@ export default {
         showDeleteSuccess(){
             let div = document.getElementById("success-delete-alert")
             div.style.display = "flex"
+            this.$store.commit('setAlert', false)
         },
         showTalentSuccess(){
             let div = document.getElementById("success-alert-talent")
             div.style.display = "flex"
+            this.$store.commit('setAlert', false)
         },
         updateCard(){
             if(this.newTalent.name !== '' && this.newTalent.profession !== '' &&  this.newTalent.details !== ''){
                 this.newTalent.id = this.inEdition.id
                 if(this.inEdition.id == 0){
                     createTalent(this.newTalent).then((response) => {
-                        this.showTalentSuccess();
+                        this.$store.commit('setAlert', true)
+                        this.$nextTick(()=>{
+                            this.showTalentSuccess();
+                        })
                     }).finally(() => {
                         setInterval(() => {
                             router.push('/').then(() => {
@@ -167,15 +184,18 @@ export default {
             if(this.newTalent.id == 0){
                 alert('selecione um aluno primeiro')
             } else {
-                this.showDeleteSuccess();
-                deleteTalent(this.inEdition.id).then((response) => {
-                    console.log(response)
-                }).finally(() => {
-                    setInterval(() => {
-                        router.push('/').then(() => {1
-                            window.location.reload();
-                        }); 
-                    }, 2000)
+                this.$store.commit('setAlert', true)
+                this.$nextTick(()=>{
+                    this.showDeleteSuccess();
+                    deleteTalent(this.inEdition.id).then((response) => {
+                        console.log(response)
+                    }).finally(() => {
+                        setInterval(() => {
+                            router.push('/').then(() => {1
+                                window.location.reload();
+                            }); 
+                        }, 2000)
+                    })
                 })
             }
         }

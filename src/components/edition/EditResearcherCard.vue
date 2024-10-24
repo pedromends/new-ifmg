@@ -214,6 +214,7 @@
     import { listCampus } from '@/services/CampusService.js';
     import { getResearcher } from '@/services/ResearcherService.js';
     import { useRoute } from "vue-router";
+	import { mapMutations, mapActions } from "vuex";
 
     export default {
         name: 'EditResearcherCard',
@@ -273,6 +274,12 @@
             })
         },
         methods: {
+            ...mapMutations([
+                "setAlert"
+            ]),
+            ...mapActions([
+                "isAlertFired"
+            ]),
             onImageChange(e) {
                 const image = e.target.files[0];
                 const reader = new FileReader();
@@ -284,21 +291,32 @@
             showSuccessRegister() {
                 let div = document.getElementById("success-researcher-alert")
                 div.style.display = "flex"
+                this.$store.commit('setAlert', false)
+            },
+            alertMissingFields() {
+                let div = document.getElementById("alert-missing-fields")
+                div.style.display = "flex"
+                this.$store.commit('setAlert', false)
             },
             showDeleteSuccess() {
                 let div = document.getElementById("success-delete-alert")
                 div.style.display = "flex"
+                this.$store.commit('setAlert', false)
             },
             setImgId(img_id) {
                 this.inEditionResearcher.img.id = img_id
             },
             updateResearcher() {
-                if (this.inEditionResearcher.firstName !== '' && this.inEditionResearcher.lastName !== '' && this.inEditionResearcher.campus !== '' && this.inEditionResearcher.email !== '' && this.inEditionResearcher.course !== '') {
+                this.$store.commit('setAlert', true)
+                if (this.inEditionResearcher.firstName !== '' && this.inEditionResearcher.lastName !== '' &&
+                    this.inEditionResearcher.campus !== '' && this.inEditionResearcher.email !== '' && this.inEditionResearcher.course !== '') {
                     if (this.inEditionResearcher.id == 0) {
-                        this.showSuccessRegister()
-                        console.log(this.inEditionResearcher)
                         createResearcher(this.inEditionResearcher).then((response) => {
                             console.log(response)
+                            this.$store.commit('setAlert', true)
+                            this.$nextTick(() => {
+                                this.showSuccessRegister()
+                            })
                         }).finally(() => {
                             setInterval(() => {
                                 router.push('/researchers').then(() => {
@@ -322,8 +340,10 @@
                         })
                     }
                 } else {
-                    // criar alert de erro
-                    alert('preencha os campos');
+                    this.$store.commit('setAlert', true)
+                    this.$nextTick(() => {
+                        this.alertMissingFields()
+                    })
                 }
             },
             deleteResearcher() {
@@ -334,7 +354,10 @@
                         console.log(response)
                     })
                     .finally(() => {
-                        this.showDeleteSuccess()
+                        this.$store.commit('setAlert', true)
+                        this.$nextTick(() => {
+                            this.showDeleteSuccess()
+                        })
                         setInterval(() => {
                             router.push('/researchers').then(() => {
                                 window.location.reload();

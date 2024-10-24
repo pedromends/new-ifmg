@@ -54,6 +54,7 @@
 <script>
 
 import { createContactMessage } from '@/services/ContactService';
+import { mapMutations, mapActions } from "vuex";
 
 export default {
     name: 'ContactSection',
@@ -69,10 +70,19 @@ export default {
         }
     },
     methods: {
+        ...mapMutations([
+            "setAlert"
+        ]),
+        ...mapActions([
+            "isAlertFired"
+        ]),
         sendContact(){
             createContactMessage(this.contact).then((response) => {
                 console.log(response.data)
-                this.showSuccessSentMessage()
+                this.$store.commit('setAlert', true)
+                this.$nextTick(()=>{
+                    this.showSuccessSentMessage()
+                })
             }).finally(() => {
                 setInterval(() => {
                     window.location.reload()
@@ -82,6 +92,7 @@ export default {
         showSuccessSentMessage(){
             let div = document.getElementById("contact-sent-alert")
             div.style.display = "flex"
+            this.$store.commit('setAlert', false)
         },
     }
 }

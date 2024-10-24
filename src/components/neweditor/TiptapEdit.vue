@@ -355,6 +355,9 @@
 	import CustomImage from "./CustomImage.js";
 	import FontSize from "./FontSize.js";
 	import router from '@/router/index.js';
+
+	import { mapMutations, mapActions } from "vuex";
+	
 	//__________________________________________________________________________________________________
 
 	export default {
@@ -432,6 +435,12 @@
 			this.editorInstance?.destroy();
 		},
 		methods: {
+			...mapMutations([
+                "setAlert"
+            ]),
+            ...mapActions([
+                "isAlertFired"
+            ]),
 			openLinkDialog() {
 				this.currentLinkInDialog = this.editorInstance?.getAttributes("link").href;
 				this.showLinkDialog = true;
@@ -439,19 +448,21 @@
 			showCreateSuccess() {
 				let div = document.getElementById("success-register-alert-new")
 				div.style.display = "flex"
+				this.$store.commit('setAlert', false)
 			},
 			updateNew() {
 				updateNew(this.newNew).then((response) => {
 					console.log(response)
-					this.showCreateSuccess()
+					this.$nextTick(()=>{
+						this.showCreateSuccess()
+					})
+				}).finally(() => {
+					setInterval(() => {
+						router.push('/news').then(() => {
+							window.location.reload();
+						});
+					}, 2500)
 				})
-				// .finally(() => {
-				// 	setInterval(() => {
-				// 		router.push('/news').then(() => {
-				// 			window.location.reload();
-				// 		});
-				// 	}, 2500)
-				// })
 			},
 			updateLink(value) {
 				console.log(value)

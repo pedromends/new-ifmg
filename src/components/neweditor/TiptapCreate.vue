@@ -338,6 +338,8 @@
 	import FontSize from "./FontSize.js";
 	import router from '@/router/index.js';
 
+	import { mapMutations, mapActions } from "vuex";
+
 	//__________________________________________________________________________________________________
 
 	export default {
@@ -409,6 +411,12 @@
 			this.editorInstance?.destroy();
 		},
 		methods: {
+			...mapMutations([
+                "setAlert"
+            ]),
+            ...mapActions([
+                "isAlertFired"
+            ]),
 			openLinkDialog() {
 				this.currentLinkInDialog = this.editorInstance?.getAttributes("link").href;
 				this.showLinkDialog = true;
@@ -416,13 +424,15 @@
 			showCreateSuccess(){
 				let div = document.getElementById("success-register-alert-new")
 				div.style.display = "flex"
+
+				this.$store.commit('setAlert', false)
 			},
 			createNew() {
-				console.log(this.newNew)
-
 				createNew(this.newNew).then((response) => {
-					console.log(response)
-					this.showCreateSuccess()
+					this.$store.commit('setAlert', true)
+					this.$nextTick(() => {
+						this.showCreateSuccess()
+					})
 				}).finally(() => {
 					setInterval(() => {
 						router.push('/news').then(() => {
@@ -432,7 +442,6 @@
 				})
 			},
 			updateLink(value) {
-				console.log(value)
 				if (!value) {
 					this.editorInstance?.chain().focus().extendMarkRange("link").unsetLink().run();
 					return;
@@ -456,7 +465,6 @@
 				}).run();
 			},
 			setFontSize(value){
-				console.log(value)
 				this.editorInstance?.chain().focus().setFontSize(value).run();
 			}
 		}

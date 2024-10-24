@@ -98,7 +98,12 @@ export default {
         }
     },
     methods: {
-        ...mapMutations(["setUser", "setToken",  "setRole"]),
+        ...mapMutations([
+            "setUser",
+            "setToken",
+            "setRole",
+            "setAlert"
+        ]),
         showSignOutSuccess(){
             let div = document.getElementById("success-logout-alert")
             div.style.display = "flex"
@@ -107,14 +112,20 @@ export default {
             this.setUser(null);
             this.setToken(null);
             this.setRole('USER')
+            
             window.localStorage.setItem("refresh_token", null)
             document.cookie = `refresh_token = ${null}`
-            this.showSignOutSuccess()
-            setInterval(() => {
-                router.push("/").then(() => {
-                    window.location.reload()
-                })
-            }, 3000)
+
+            this.$store.commit('setAlert', true)
+            this.$nextTick(() => {
+                this.showSignOutSuccess()
+                setInterval(() => {
+                    router.push("/").then(() => {
+                        this.$store.commit('setAlert', false)
+                        window.location.reload()
+                    })
+                }, 3000)
+            })
         }
     }
 }

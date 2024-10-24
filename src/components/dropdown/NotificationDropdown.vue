@@ -29,7 +29,7 @@
 import router from '@/router/index.js'
 import NotificationCard from "@/components/cards/NotificationCard"
 import { listContacts } from "@/services/ContactService"
-import { mapMutations } from "vuex";
+import { mapActions, mapMutations } from "vuex";
 
 export default {
     name: 'NotificationDropdown',
@@ -53,22 +53,31 @@ export default {
         }
     },
     methods: {
-        ...mapMutations(["setUser", "setToken"]),
+        ...mapMutations([
+            "setAlert"
+        ]),
+        ...mapActions([
+            "isAlertFired"
+        ]),
         showSignOutSuccess(){
             let div = document.getElementById("success-logout-alert")
             div.style.display = "flex"
         },
-        logOut(){ // TODO: passar para botão de logout na navbar depois
+        logOut(){
             this.setUser(null);
             this.setToken(null);
+            
             window.localStorage.setItem("refresh_token", null)
             document.cookie = `refresh_token = ${null}`
-            this.showSignOutSuccess()
-            setInterval(() => {
-                router.push("/").then(() => {
-                    window.location.reload()
-                })
-            }, 3000)
+            
+            this.$nextTick(() => {
+                this.showSignOutSuccess()
+                setInterval(() => {
+                    router.push("/").then(() => {
+                        window.location.reload()
+                    })
+                }, 3000)
+            })
         }
     }
 }
