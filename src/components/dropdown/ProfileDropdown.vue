@@ -23,7 +23,7 @@
         <div v-if="isLoggedIn" class="z-10 hidden bg-white divide-y divide-maingreen rounded-lg shadow border-maingreen border"
             id="dropdownAvatarName">
             <div class="px-4 py-3 text-sm text-gray-900 dark:text-white bg-maingreen">
-                <div class="font-bold text-white">Codemaster</div>
+                <div class="font-bold text-white">{{ user.role.charAt(0).toUpperCase() + user.role.slice(1).toLowerCase() }}</div>
                 <div class="truncate text-white">{{ user.email }}</div>
             </div>
             <ul class="flex flex-col py-2 text-gray-700 dark:text-gray-200"
@@ -58,7 +58,7 @@ import { getUserInfo } from '@/services/UserService'
 
 export default {
     name: 'ProfileDropdown',
-    created() {
+    mounted() {
         if(this.isLoggedIn){
             getUserInfo({email: this.user.email}).then((response) => {
                 this.info = response.data
@@ -66,7 +66,10 @@ export default {
                     this.loadImg = true
                 }
             }).catch((e) => {
-                console.log(e)
+                if(e.status == 403){
+                    console.log(e)
+                    this.logOut()
+                }
             })
         } 
     },
@@ -130,6 +133,7 @@ export default {
     }
 }
 </script>
-<style lang="">
+
+<style>
 
 </style>
