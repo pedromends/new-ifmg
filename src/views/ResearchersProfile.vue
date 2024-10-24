@@ -22,7 +22,7 @@
                 <img :src="require('@/assets/icons/profile.svg')" class="w-8 h-8 mt-1" alt="">
                 <h1 class="text-3xl font-semibold underline decoration-maingreen decoration-4">Perfil</h1>
             </div>
-            <div class="grid grid-cols-2 gap-10">
+            <div class="grid grid-cols-2 max-sm:grid-cols-1 gap-10">
                 <div class="flex flex-col gap-10">
                     <div class="bg-lightgray flex flex-col rounded-lg p-10 gap-10 border border-maingreen text-lg">
                         <div>

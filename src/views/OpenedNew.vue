@@ -16,7 +16,7 @@
             <p v-if="newBody.title != ''" class="pointer-events-none">{{ newBody.title.substring(0, 40) + '...' }}</p>
         </div>
         <h1 class="font-bold text-4xl text-center self-center w-4/5">{{ newBody.title }}</h1>
-        <div class="px-48 flex flex-col gap-10 editor-render" v-html="newBody.code"></div>
+        <div class="px-48 flex flex-col gap-10 editor-render max-sm:px-4" v-html="newBody.code"></div>
     </section>
 </template>
 

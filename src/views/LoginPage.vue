@@ -1,5 +1,5 @@
 <template lang="">
-    <section id="login-screen" class="flex items-start justify-between px-32 py-10 bg-no-repeat bg-bottom bg-cover">
+    <section id="login-screen" class="flex items-start justify-between p-10">
         <div class="p-18 flex justify-end w-full gap-20">
             <div class="flex items-center gap-10">
                 <div class="flex flex-col gap-36 justify-between">
@@ -34,7 +34,7 @@
                         <div class="flex justify-center items-center text-govblue hover:underline">
                             <p class="cursor-pointer">Esqueceu sua senha?</p>
                         </div>
-                        <div class="bg-gray-300 w-full px-10 flex justify-center py-3">
+                        <div class="bg-gray-300 rounded-b-2xl w-full px-10 flex justify-center py-3">
                             <div class="bg-gray-300 w-full px-10 flex justify-center py-3 text-gray-900">Não tem uma
                                 conta ?
                                 <button @click="switchForm()" class="hover:underline ml-2">Cadastre-se</button>
@@ -87,7 +87,7 @@
                                     @click.prevent="requestCreateUser()" type="submit">Salvar</button>
                             </div>
                         </div>
-                        <div class="bg-gray-300 w-full px-10 flex justify-center py-3 text-gray-900">
+                        <div class="bg-gray-300 rounded-b-2xl w-full px-10 flex justify-center py-3 text-gray-900">
                             <div>Já tem conta ?
                                 <button @click.prevent="switchForm()" class="hover:underline">Faça Login</button>
                             </div>
@@ -109,11 +109,21 @@
         name: 'LoginPage',
         mounted() {
             getOneImage(145).then((response) => {
-                this.img_obj = response.data
+                this.img_obj = response.data;
 
-                let div = document.getElementById("login-screen")
-                div.style.backgroundImage = `url(${this.img_obj.code})`
-            })
+                let div = document.getElementById("login-screen");
+
+                let dynamicStyle = document.createElement('style');
+                dynamicStyle.innerHTML = `
+                    .dyna-bg-image {
+                        background-image: url('${this.img_obj.code}');
+                    }
+                `;
+                document.head.appendChild(dynamicStyle);
+
+                // Adiciona as classes ao elemento
+                div.classList.add('dyna-bg-image');
+            });
         },
         data() {
             return {
@@ -236,6 +246,11 @@
         }
     }
 </script>
-<style lang="">
 
+<style>
+    .dyna-bg-image {
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
 </style>

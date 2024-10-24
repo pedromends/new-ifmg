@@ -1,6 +1,6 @@
 <template lang="">
-    <main class="flex justify-center items-center px-10">
-        <div class="flex flex-col gap-10 px-20 w-full">
+    <main class="flex justify-center items-center px-10 max-sm:px-0">
+        <div class="flex flex-col gap-10 px-20 w-full max-sm:px-4">
             <div class="flex items-center gap-2">
                 <img class="w-6" :src="require('@/assets/icons/house2.svg')" alt="">
                 <router-link to="/" class="text-maingreen hover:underline">Home</router-link>

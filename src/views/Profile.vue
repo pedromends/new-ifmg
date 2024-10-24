@@ -147,12 +147,11 @@ export default {
         this.user = this.$store.getters.getUser
         getUserInfo({email: this.user.email}).then((response) => {
             this.userInfo = response.data
-            if(this.userInfo.img.code == undefined){
+            if(this.userInfo.img == undefined){
                 this.userInfo.img = {
                     code: null
                 }
             }
-            console.log(this.userInfo)
         }).catch((e) => {
             console.log(e)
         })

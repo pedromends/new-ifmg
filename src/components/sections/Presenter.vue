@@ -1,7 +1,7 @@
 <template lang="">
     <!-- TODO: Atualizar papel de parede via ADM -->
      <!-- bg-campus bg-bottom -->
-    <section id="home" class="bg-cover bg-no-repeat bg-center">
+    <section id="home">
         <div class=" flex flex-col justify-center items-center pt-12 gap-96 rounded-b-3xl relative">
             <div class="flex flex-col gap-12 pb-28">
                 <div class="flex flex-col gap-10 pt-16">
@@ -42,13 +42,24 @@ import { getOneImage } from '@/services/ImageService';
 
 export default {
     name: 'MainPresenter',
-    mounted() {
+    mounted() {   
         getOneImage(145).then((response) => {
-            this.img_obj = response.data
+            this.img_obj = response.data;
 
-            let div = document.getElementById("home")
-            div.style.backgroundImage = `url(${this.img_obj.code})`
-        })
+            let div = document.getElementById("home");
+            div.className = ''; 
+
+            let dynamicStyle = document.createElement('style');
+            dynamicStyle.innerHTML = `
+                .dyna-bg-image {
+                    background-image: url('${this.img_obj.code}');
+                }
+            `;
+            document.head.appendChild(dynamicStyle);
+
+            // Adiciona as classes ao elemento
+            div.classList.add('dyna-bg-image');
+        });
     },
     components:{
         PresenterCard
@@ -76,6 +87,11 @@ export default {
     }
 }
 </script>
-<style lang="">
-    
+
+<style>
+    .dyna-bg-image {
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
 </style>

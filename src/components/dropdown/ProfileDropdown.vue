@@ -62,7 +62,7 @@ export default {
         if(this.isLoggedIn){
             getUserInfo({email: this.user.email}).then((response) => {
                 this.info = response.data
-                if(this.info.img.code != null){
+                if(this.info.img != undefined){
                     this.loadImg = true
                 }
             }).catch((e) => {
