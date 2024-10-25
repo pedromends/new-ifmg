@@ -1,5 +1,5 @@
 <template lang="">
-    <div v-if="newBody != null" class="relative flex flex-col justify-end">
+    <div v-if="newBody != null" class="relative flex flex-col self-center">
         <div @click.prevent="goTo(1)" class="flex flex-col gap-4 justify-between hover:bg-gray-200 rounded-xl transition duration-300 pb-3 h-full max-sm:self-center pt-4">
             <div v-if="img1 != null"  class="w-full flex justify-center items-center px-3">
                 <img :src="img1" alt="" class="mt-3 max-w-64 max-h-64"/>
@@ -14,7 +14,7 @@
                 </div>
             </div>
         </div>
-        <button @click.prevent="goTo(2)" class="self-end z-30 absolute p-4" v-if="isAdmin">
+        <button @click.prevent="goTo(2)" class="bottom-1 right-1 z-30 absolute p-4" v-if="isAdmin">
             <img :src="require('@/assets/icons/pencil-edit-maingreen.svg')" alt="#" class="h-8"/>
         </button>
     </div>

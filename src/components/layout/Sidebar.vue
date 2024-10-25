@@ -25,13 +25,14 @@
                         <SidebarLink :link="'/'" :text="'Início'" :icon="'homepage'"/>
                         <SidebarLink :link="''" :text="'Quem somos'" :icon="'people'"/>
                         <SidebarLink :link="''" :text="'Vantagens'" :icon="'up-arrow'"/>
-                        <SidebarLink :link="'/news'" :text="'Notícias'" :icon="'news'"/>
+                        <SidebarLink :link="'/news'" :text="'Blog do Polo'" :icon="'news'"/>
                         <SidebarLink :link="''" :text="'Nossos Cursos'" :icon="'book-search'"/>
+                        <SidebarLink :link="''" :text="'Portfólio'" :icon="'book-search'"/>
                         <SidebarLink :link="'/researchers'" :text="'Pesquisadores'" :icon="'research'"/>
                         <SidebarLink :link="'/edicts'" :text="'Editais'" :icon="'annotate'"/>
                         <SidebarLink :link="'/docs'" :text="'Documentos'" :icon="'doc'"/>
                         <SidebarLink :link="'/capacitation'" :text="'Capacitação'" :icon="'book'"/>
-                        <SidebarLink :link="'/contact'" :text="'Contato'" :icon="'phone'"/>
+                        <SidebarLink :link="'/embrapii'" :text="'Embrapii'" :icon="'phone'"/>
                     </li>
                 </ul>
             </div>

@@ -1,18 +1,20 @@
 <template lang="">
     <li @click="readNote()" class="flex max-sm:flex-col items-center gap-5 text-maingreen hover:text-white px-10 py-5 cursor-pointer transition duration-200 bg-lightgray hover:bg-maingreen border border-red-600 rounded-lg" :class="!read ? 'font-bold':''">
-        <div class="flex flex-col gap-2 effect w-2/5">
-            <div class="flex gap-2 items-center">
-                <img v-if="!read" :src="require('@/assets/icons/dot.svg')" class="w-4" alt=""/>
-                <img :src="require('@/assets/icons/info.svg')" class="w-5" alt="">
+        <div class="w-full h-full flex gap-2 effect">
+            <img v-if="!read" :src="require('@/assets/icons/dot.svg')" class="w-4" alt=""/>
+            <img :src="require('@/assets/icons/info.svg')" class="w-5" alt="">
+            <div class="">
+                <h1 class="mb-2">Uma empresa nova fez contato!</h1>
+                <p>A {{ externalCompany }} mandou uma mensagem:</p>
             </div>
-            <h1>Uma empresa nova fez contato!</h1>
-            <p class="w-3/5">A {{ externalCompany }} mandou uma mensagem:</p>
         </div>
-        <div class="flex flex-col">
-            <p>Área: {{ area }}</p>
-            <p>Email: {{ email }}</p>
+        <div class="w-full h-full flex">
+            <div>
+                <p class="mb-2">Área: {{ area }}</p>
+                <p>Email: {{ email }}</p>
+            </div>
         </div>
-        <p class="w-3/5">{{ message }}</p>
+        <p>"{{ message }}"</p>
         
     </li>
 </template>

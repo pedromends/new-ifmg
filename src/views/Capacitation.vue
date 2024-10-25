@@ -1,6 +1,6 @@
 <template lang="">
     <main class="flex justify-center items-center px-10 max-sm:px-0">
-        <div class="flex flex-col gap-10 px-20 w-full max-sm:px-4">
+        <div class="flex flex-col gap-10 px-20 w-full max-sm:px-8 max-sm:py-4">
             <div class="flex items-center gap-2">
                 <img class="w-6" :src="require('@/assets/icons/house2.svg')" alt="">
                 <router-link to="/" class="text-maingreen hover:underline">Home</router-link>
@@ -14,19 +14,15 @@
                 </p>
             </div>
             <div class="flex justify-between">
-                <h1
-                    class="text-4xl text-black font-semibold underline underline-offset-2 decoration-8 decoration-maingreen">
-                    Capacitação</h1>
+                <h1 class="text-4xl max-sm:text-2xl text-black font-semibold underline underline-offset-2 decoration-8 decoration-maingreen">Capacitação</h1>
                 <button v-if="isAdmin" data-modal-target="edit-modal" data-modal-toggle="edit-modal"
                     class="text-white bg-maingreen hover:bg-govblue focus:ring-4 focus:outline-none focus:ring-red-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center transition duration-200">Editar
                     Parágrafo</button>
             </div>
             <hr class="bg-red-600 h-1" />
-            <div class="flex flex-col gap-5 text-maingray">
-                <div class="flex gap-10 max-lg:flex-col">
-                    <div class="w-3/4 flex flex-col gap-10 max-lg:w-auto">
-                        {{ currentParag }}
-                    </div>
+            <div class="flex gap-10 max-lg:flex-col">
+                <div class="w-3/4 flex flex-col gap-10 max-lg:w-auto">
+                    {{ currentParag }}
                 </div>
             </div>
         </div>

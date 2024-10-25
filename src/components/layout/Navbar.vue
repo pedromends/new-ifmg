@@ -66,7 +66,7 @@
                 <NavbarLink :func="home" :link="'/'" :text="'HOME'"/>
                 <NavbarLink :func="aboutUs" :link="'/'" :text="'QUEM SOMOS'" />
                 <NavbarLink :func="advantages" :link="'/'" :text="'VANTAGENS'" />
-                <NavbarLink :link="'/news'" :text="'NOTÍCIAS'" />
+                <NavbarLink :link="'/news'" :text="'BLOG DO POLO'" />
                 <NavbarLink :func="portfolio" :link="'/'" :text="'PORTFÓLIO DE PROJETOS'" />
             </div>
             <div class="flex text-sm text-maingray gap-5 py-1  mr-14 max-lg:p-0 items-center">

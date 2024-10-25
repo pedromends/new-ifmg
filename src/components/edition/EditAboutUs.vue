@@ -1,41 +1,41 @@
 <template lang="">
-    <section class="flex flex-col justify-center bg-lightgray gap-10 pt-10 max-sm:w-3/4">
+    <section class="flex flex-col justify-center bg-lightgray gap-10">
         <p class="font-semibold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen self-start mt-5">Sobre Nós</p>
         <div role="status" class="animate-pulse flex bg-white py-10">
 
             <!-- Esqueleto do componente -->
-            <div class="flex max-sm:flex-col gap-24 w-full px-4">
+            <div class="flex max-sm:flex-col  px-4">
                 <div class="flex flex-col">
                     <span class="text-maingreen font-bold text-sm underline decoration-red-600 decoration-2 mb-10">QUEM SOMOS</span>
                     <div class="border-2 border-transparent hover:border-red-700 p-2 rounded-lg">
-                        <div class="h-5 bg-black rounded-full max-sm:w-full w-96 mb-1 effect"></div>
-                        <div class="h-5 bg-black rounded-full max-sm:w-full w-84 mb-4 effect"></div>
+                        <div class="h-5 bg-black rounded-full max-sm:w-72 w-96 mb-1 effect"></div>
+                        <div class="h-5 bg-black rounded-full max-sm:w-64 w-84 mb-4 effect"></div>
                     </div>
                     <div class="mb-10 border-2 border-transparent hover:border-red-700 p-2 rounded-lg">
-                        <div class="h-1 bg-gray-500 rounded-full max-sm:w-full w-140 mb-1 effect"></div>
-                        <div class="h-1 bg-gray-500 rounded-full max-sm:w-full w-124 mb-1 effect"></div>
-                        <div class="h-1 bg-gray-500 rounded-full max-sm:w-full w-132 mb-1 effect"></div>
-                        <div class="h-1 bg-gray-500 rounded-full max-sm:w-full w-140 mb-1 effect"></div>
-                        <div class="h-1 bg-gray-500 rounded-full max-sm:w-full w-128 mb-1 effect"></div>
-                        <div class="h-1 bg-gray-500 rounded-full max-sm:w-full w-132 mb-1 effect"></div>
-                        <div class="h-1 bg-gray-500 rounded-full max-sm:w-full w-140 mb-1 effect"></div>
-                        <div class="h-1 bg-gray-500 rounded-full max-sm:w-full w-124 mb-1 effect"></div>
-                        <div class="h-1 bg-gray-500 rounded-full max-sm:w-full w-132 mb-1 effect"></div>
-                        <div class="h-1 bg-gray-500 rounded-full max-sm:w-full w-140 mb-1 effect"></div>
-                        <div class="h-1 bg-gray-500 rounded-full max-sm:w-full w-128 mb-1 effect"></div>
-                        <div class="h-1 bg-gray-500 rounded-full max-sm:w-full w-132 mb-1 effect"></div>
-                        <div class="h-1 bg-gray-500 rounded-full max-sm:w-full w-140 mb-1 effect"></div>
-                        <div class="h-1 bg-gray-500 rounded-full max-sm:w-full w-124 mb-1 effect"></div>
-                        <div class="h-1 bg-gray-500 rounded-full max-sm:w-full w-132 mb-1 effect"></div>
-                        <div class="h-1 bg-gray-500 rounded-full max-sm:w-full w-140 mb-1 effect"></div>
-                        <div class="h-1 bg-gray-500 rounded-full max-sm:w-full w-128 mb-1 effect"></div>
-                        <div class="h-1 bg-gray-500 rounded-full max-sm:w-full w-132 mb-1 effect"></div>
-                        <div class="h-1 bg-gray-500 rounded-full max-sm:w-full w-140 mb-1 effect"></div>
-                        <div class="h-1 bg-gray-500 rounded-full max-sm:w-full w-124 mb-1 effect"></div>
-                        <div class="h-1 bg-gray-500 rounded-full max-sm:w-full w-132 mb-1 effect"></div>
-                        <div class="h-1 bg-gray-500 rounded-full max-sm:w-full w-140 mb-1 effect"></div>
-                        <div class="h-1 bg-gray-500 rounded-full max-sm:w-full w-128 mb-1 effect"></div>
-                        <div class="h-1 bg-gray-500 rounded-full max-sm:w-full w-132 mb-1 effect"></div>
+                        <div class="h-1 bg-gray-500 rounded-full max-sm:w-96 w-140 mb-1 effect"></div>
+                        <div class="h-1 bg-gray-500 rounded-full max-sm:w-84 w-124 mb-1 effect"></div>
+                        <div class="h-1 bg-gray-500 rounded-full max-sm:w-88 w-132 mb-1 effect"></div>
+                        <div class="h-1 bg-gray-500 rounded-full max-sm:w-96 w-140 mb-1 effect"></div>
+                        <div class="h-1 bg-gray-500 rounded-full max-sm:w-80 w-128 mb-1 effect"></div>
+                        <div class="h-1 bg-gray-500 rounded-full max-sm:w-88 w-132 mb-1 effect"></div>
+                        <div class="h-1 bg-gray-500 rounded-full max-sm:w-96 w-140 mb-1 effect"></div>
+                        <div class="h-1 bg-gray-500 rounded-full max-sm:w-84 w-124 mb-1 effect"></div>
+                        <div class="h-1 bg-gray-500 rounded-full max-sm:w-88 w-132 mb-1 effect"></div>
+                        <div class="h-1 bg-gray-500 rounded-full max-sm:w-96 w-140 mb-1 effect"></div>
+                        <div class="h-1 bg-gray-500 rounded-full max-sm:w-80 w-128 mb-1 effect"></div>
+                        <div class="h-1 bg-gray-500 rounded-full max-sm:w-88 w-132 mb-1 effect"></div>
+                        <div class="h-1 bg-gray-500 rounded-full max-sm:w-96 w-140 mb-1 effect"></div>
+                        <div class="h-1 bg-gray-500 rounded-full max-sm:w-84 w-124 mb-1 effect"></div>
+                        <div class="h-1 bg-gray-500 rounded-full max-sm:w-88 w-132 mb-1 effect"></div>
+                        <div class="h-1 bg-gray-500 rounded-full max-sm:w-96 w-140 mb-1 effect"></div>
+                        <div class="h-1 bg-gray-500 rounded-full max-sm:w-80 w-128 mb-1 effect"></div>
+                        <div class="h-1 bg-gray-500 rounded-full max-sm:w-88 w-132 mb-1 effect"></div>
+                        <div class="h-1 bg-gray-500 rounded-full max-sm:w-96 w-140 mb-1 effect"></div>
+                        <div class="h-1 bg-gray-500 rounded-full max-sm:w-84 w-124 mb-1 effect"></div>
+                        <div class="h-1 bg-gray-500 rounded-full max-sm:w-88 w-132 mb-1 effect"></div>
+                        <div class="h-1 bg-gray-500 rounded-full max-sm:w-96 w-140 mb-1 effect"></div>
+                        <div class="h-1 bg-gray-500 rounded-full max-sm:w-80 w-128 mb-1 effect"></div>
+                        <div class="h-1 bg-gray-500 rounded-full max-sm:w-88 w-132 mb-1 effect"></div>
                     </div>
                     <div class="bg-maingreen text-white w-40 py-3 rounded-lg border-2 border-white font-semibold hover:border-maingreen hover:bg-white hover:text-maingreen transition duration-300 text-center"
                         to="/institutional">
@@ -53,8 +53,8 @@
         </div>
 
         <!-- Formulário -->
-        <form class="bg-white p-10 rounded-lg mb-10">
-            <div class="grid gap-6 mb-6 md:grid-cols-2">
+        <form class="bg-white p-10 rounded-lg mb-10 max-sm:px-1">
+            <div class="grid gap-6 mb-6 max-sm:grid-cols-1">
                 <div id="title-div" class="border border-transparent rounded-lg p-1">
                     <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Título</label>
                     <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5 "

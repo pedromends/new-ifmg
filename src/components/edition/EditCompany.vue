@@ -1,5 +1,5 @@
 <template lang="">
-    <section class="bg-lightgray gap-10 w-full flex flex-col py-5 px-10">
+    <section class="bg-lightgray gap-10 w-full flex flex-col py-5 px-10 max-sm:px-0">
         <div role="status" class="">
             <section class="flex max-sm:flex-col justify-center gap-10 items-center">
                 <div class="flex flex-col ">
@@ -31,7 +31,7 @@
 
         
         <!-- Formulário -->
-        <form class="bg-white w-full px-24 max-sm:px-4 py-10 rounded-xl">
+        <form class="bg-white w-full px-24 max-sm:px-0 py-10 rounded-xl">
             <div class="grid grid-cols-2 max-sm:grid-cols-1 rounded-lg pt-10 mb-10">
                 <div id="name-div" class="border-2 border-transparent py-2 rounded-lg px-6">
                     <label for="name" class="mb-2 text-sm font-medium text-gray-900 dark:text-white">Nome</label>
@@ -59,7 +59,7 @@
                     @click.prevent="updateCompany()" type="submit">Salvar</button>
                 <div class="flex items-center bg-red-600 hover:bg-maingray focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg transition duration-200"
                     @click.prevent="deleteCompany()" type="submit">
-                    <div class="flex w-full justify-start gap-3 items-center text-white px-32">
+                    <div class="flex w-full justify-start gap-3 items-center text-white px-32 py-4">
                         <img class="w-5" :src="require('@/assets/icons/trash.svg')" alt="">
                         <p class="font-medium">Excluir</p>
                     </div>

@@ -1,5 +1,5 @@
 <template lang="">
-    <main class="flex justify-start items-center px-10 max-sm:mt-4">
+    <main class="flex justify-start items-center px-10 max-sm:mt-20">
         <div class="flex flex-col gap-10 px-20 w-full max-sm:px-0">
             <div class="flex items-center gap-2">
                 <img class="w-6" :src="require('@/assets/icons/house2.svg')" alt="">
@@ -15,7 +15,7 @@
             </div>
             
             <div class="flex justify-between">
-                <h1 class="text-4xl text-black font-semibold underline underline-offset-2 decoration-8 decoration-maingreen">Editais</h1>
+                <h1 class="text-4xl max-sm:text-2xl text-black font-semibold underline underline-offset-2 decoration-8 decoration-maingreen">Editais</h1>
                 <button class="text-white bg-maingreen hover:bg-govblue focus:ring-4 focus:outline-none focus:ring-red-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center transition duration-200"
                     data-modal-target="default-modal" data-modal-toggle="default-modal" v-if="isAdmin" type="button">Inserir novo edital</button>
 

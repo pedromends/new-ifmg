@@ -1,5 +1,5 @@
 <template lang="">
-    <main class="px-10 pt-6 max-sm:mt-20" id="main-edition">
+    <main class="px-10 pt-6 max-sm:mt-20 max-sm:px-0" id="main-edition">
         <div class="flex items-center gap-2 px-5">
             <img class="w-6" :src="require('@/assets/icons/house2.svg')" alt="">
             <router-link to="/news" class="text-maingreen hover:underline">Home</router-link>
@@ -15,7 +15,7 @@
         <div class="flex flex-col gap-10 p-4">
             <div class="flex items-center gap-2 mt-3">
                 <img :src="require('@/assets/icons/components.svg')" class="w-10 h-10 mt-1" alt="">
-                <h1 class="text-3xl font-semibold underline decoration-maingreen decoration-4">Edição de Componentes</h1>
+                <h1 class="text-3xl max-sm:text-xl font-semibold underline decoration-maingreen decoration-4">Edição de Componentes</h1>
             </div>
             <div class="flex max-sm:flex-col gap-5 rounded-2xl">
                 <div class="flex flex-col">
@@ -29,10 +29,9 @@
                         <button class="text-start" @click="goTalents" to="/edit/talent-card" :class="linkCss">Cards de Talentos</button>
                         <button class="text-start" @click="goResearchers" to="/edit/researcher" :class="linkCss">Editar Pesquisadores</button>
                         <button class="text-start" @click="goCompany" to="/edit/company" :class="linkCss">Empresa Parceira</button>
-                        <button class="text-start" to="/edit/edit-new" :class="linkCss">Notícia</button>
                     </ul>
                 </div>
-                <div class="p-2 flex justify-center w-full bg-lightgray rounded-lg">
+                <div class="p-2 flex justify-center w-full bg-lightgray rounded-lg max-sm:inline-block">
                     <router-view></router-view>
                 </div>
             </div>

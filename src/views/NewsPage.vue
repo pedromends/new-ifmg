@@ -1,6 +1,6 @@
 <template lang="">
     <main class="flex justify-center items-center px-16 py-2 max-lg:p-2 max-lg:mt-20">
-        <div class="flex flex-col px-20 max-lg:px-4 gap-10 w-full">
+        <div class="flex flex-col px-20 max-lg:px-4 gap-4 w-full">
             <div class="flex items-center gap-2">
                 <img class="w-6" :src="require('@/assets/icons/house2.svg')" alt="">
                 <router-link to="/news" class="text-maingreen hover:underline">Home</router-link>
@@ -10,17 +10,21 @@
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="m1 9 4-4-4-4" />
                     </svg>
-                    <span>Notícias</span>
+                    <span>Blog do Polo</span>
                 </p>
             </div>
             <div class="flex flex-col gap-10 mb-10 pt-5">
-                <div class="flex items-center justify-between">
-                    <h1
-                        class="text-4xl text-black font-semibold underline underline-offset-2 decoration-8 decoration-maingreen">
-                        Blog do Polo</h1>
-                    <button v-if="isAdmin"
-                        class="text-white bg-maingreen hover:bg-govblue focus:ring-4 focus:outline-none focus:ring-red-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center transition duration-200 mb-10"
-                        type="submit" @click.prevent="createNew()">Criar nova notícia</button>
+                <div class="flex justify-between">
+                    <div class="flex items-center">
+                        <h1
+                            class="text-4xl max-sm:text-2xl text-black font-semibold underline underline-offset-2 decoration-8 decoration-maingreen">
+                            Blog do Polo</h1>
+                    </div>
+                    <div class="flex items-center">
+                        <button v-if="isAdmin"
+                            class="text-white bg-maingreen hover:bg-govblue focus:ring-4 focus:outline-none focus:ring-red-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center transition duration-200"
+                            type="submit" @click.prevent="createNew()">Criar nova notícia</button>
+                    </div>
                 </div>
                 <hr class="bg-red-600 h-1" />
                 <div class="flex items-center rounded-lg border-maingreen border-1">
