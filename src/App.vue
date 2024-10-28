@@ -59,6 +59,7 @@
 		}).catch(e => {
 			showErrorScreen()
 		})
+
 	} catch (e) {
 		console.log(e)
 	}

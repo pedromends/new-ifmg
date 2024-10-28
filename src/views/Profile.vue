@@ -23,7 +23,7 @@
                     <div class="bg-lightgray flex flex-col rounded-lg p-10 gap-10 border border-maingreen text-lg">
                         <div class="flex justify-between">
                             <h1 class="text-3xl font-semibold underline decoration-maingreen underline-offset-2">Foto de Perfil</h1>
-                            <button @click="editMode = !editMode" class="p-4" v-if="isAdmin">
+                            <button @click="editMode = !editMode" class="p-4" v-if="getUser">
                                 <img :src="require('@/assets/icons/pencil-edit-maingreen.svg')" alt="#" class="h-8"/>
                             </button>
                         </div>
@@ -44,22 +44,6 @@
                                 @change="onFileChanged($event)" accept="image/*">
                         </div>
                     </div>
-                    
-                    <!-- <div class="bg-lightgray p-4 flex flex-col gap-4 border border-maingreen rounded-lg">
-                        <h1 class="text-2xl font-semibold underline decoration-maingreen underline-offset-2">Hobbies</h1>
-                        <div class="flex gap-3">
-                            <kbd :class="css.kbd">Futebol</kbd>
-                            <kbd :class="css.kbd">Pets</kbd>
-                            <kbd :class="css.kbd">Jogos</kbd>
-                            <kbd :class="css.kbd">Filmes</kbd>
-                        </div>
-                        <div class="flex gap-3">
-                            <kbd :class="css.kbd">Viagens</kbd>
-                            <kbd :class="css.kbd">Surf</kbd>
-                            <kbd :class="css.kbd">Ski</kbd>
-                            <kbd :class="css.kbd">The Witcher</kbd>
-                        </div>
-                    </div> -->
                 </div>
                 <div class="flex flex-col gap-10">
                     <div class="bg-lightgray p-8 flex flex-col gap-10 rounded-lg border border-maingreen">
@@ -166,7 +150,8 @@ export default {
                 kbd: "p-3 text-lg font-semibold text-white bg-maingreen border border-gray-200 rounded-lg"
             },
             loadImg: false,
-            isAdmin: this.$store.getters.isAdmin
+            isAdmin: this.$store.getters.isAdmin,
+            getUser: this.$store.getters.getUser
         }
     },
     methods: {

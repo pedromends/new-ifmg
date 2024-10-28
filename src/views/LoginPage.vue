@@ -1,8 +1,10 @@
 <template lang="">
     <section id="login-screen" class="flex items-start justify-between p-10">
         <div class="p-18 flex justify-end w-full gap-20">
-            <div class="flex items-center gap-10">
+            <div class="flex items-center gap-10 pt-10">
                 <div class="flex flex-col gap-36 justify-between">
+
+                    <!-- Formulário Login -->
                     <form v-if="boolForm"
                         class="flex flex-col gap-5 rounded-2xl border-2 border-maingreen pt-10 bg-white">
                         <div class="flex justify-center">
@@ -21,7 +23,7 @@
                             <input class="rounded-lg border border-maingreen w-full focus:border-red-600"
                                 v-model="login.password" type="password" />
                         </div>
-                        <div class="w-full px-10 flex justify-center gap-10">
+                        <div class="w-full px-10 flex flex-col justify-center gap-10">
                             <button
                                 class="text-white bg-maingreen hover:bg-govblue focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm text-center px-36 py-3 transition duration-200"
                                 @click.prevent="requestLogin()" type="submit">Login</button>
@@ -35,12 +37,14 @@
                             <p class="cursor-pointer">Esqueceu sua senha?</p>
                         </div>
                         <div class="bg-gray-300 rounded-b-2xl w-full px-10 flex justify-center py-3">
-                            <div class="bg-gray-300 w-full px-10 flex justify-center py-3 text-gray-900">Não tem uma conta ?
+                            <div class="bg-gray-300 w-full px-10 flex justify-center py-3 text-gray-900">Não tem uma
+                                conta ?
                                 <button @click="switchForm()" class="hover:underline ml-2">Cadastre-se</button>
                             </div>
                         </div>
                     </form>
 
+                    <!-- Formulário Cadastro -->
                     <form v-if="!boolForm"
                         class="flex flex-col rounded-2xl border-2 border-maingreen pt-10 gap-5 bg-white">
                         <div class="flex justify-center">
@@ -59,11 +63,6 @@
                                 <label class="text-maingray font-medium">Sobrenome:</label>
                                 <input class="rounded-lg border border-maingreen w-full focus:border-red-600"
                                     v-model="newUser.lastName" required type="text" />
-                            </div>
-                            <div class="w-full">
-                                <label class="text-maingray font-medium">Nome de Usuário:</label>
-                                <input class="rounded-lg border border-maingreen w-full focus:border-red-600"
-                                    v-model="newUser.username" required type="text" />
                             </div>
                             <div class="w-full">
                                 <label for="" class="text-maingray font-medium">Email:</label>
@@ -108,19 +107,11 @@
         name: 'LoginPage',
         mounted() {
             getOneImage(145).then((response) => {
-                this.img_obj = response.data;
-
                 let div = document.getElementById("login-screen");
 
-                let dynamicStyle = document.createElement('style');
-                dynamicStyle.innerHTML = `
-                    .dyna-bg-image {
-                        background-image: url('${this.img_obj.code}');
-                    }
-                `;
-                document.head.appendChild(dynamicStyle);
+                this.img_obj = response.data;
+                this.loadBackground()
 
-                // Adiciona as classes ao elemento
                 div.classList.add('dyna-bg-image');
             });
         },
@@ -136,10 +127,9 @@
                     firstName: '',
                     lastName: '',
                     role: 'USER',
-                    username: '',
                     email: '',
                     password: '',
-                    confirmPassword:'',
+                    confirmPassword: '',
                 }
             }
         },
@@ -162,56 +152,52 @@
                 "getUser",
                 "isAlertFired"
             ]),
-            redirect() {
-                // 
-            },
-            switchForm() {
-                this.boolForm = !this.boolForm
-            },
+           
             requestCreateUser() {
                 this.$store.commit('setAlert', true)
-                if(this.newUser.firstName.length > 0 && this.newUser.lastName.length > 0 && this.newUser.email.length > 0){
-                    if(this.newUser.password != null && this.newUser.confirmPassword != null) {
-                        if(this.newUser.password > 0 && this.newUser.confirmPassword > 0) {
-                            createUser(this.newUser).then((response) => {
-                                const aux = JSON.stringify(response.data)
-                                this.$store.commit('setUser', aux)
-                                
-                                this.$nextTick(() => {
-                                    this.showSuccessRegister()
-                                })
-                                
-                                setInterval(() => {
-                                    router.push("/").then(() => {
-                                        this.$store.commit('setAlert', false)
-                                        window.location.reload()
-                                    })
-                                }, 3000)
-                            }).catch(e => {
-                                console.log(e)
-                                this.$nextTick(() => {
-                                    this.showErrorRegister()
-                                })
+                console.log(this.newUser.firstName.length, this.newUser.lastName.length, this.newUser.email.length, this.newUser.password.length, this.newUser.confirmPassword.length)
+                if (this.newUser.firstName.length > 0 && this.newUser.lastName.length > 0 && this.newUser.email.length > 0 && this.newUser.password.length > 0 && this.newUser.confirmPassword.length > 0) {
+                    if (this.newUser.password == this.newUser.confirmPassword) {
+                        createUser(this.newUser).then((response) => {
+                            const aux = JSON.stringify(response.data)
+                            this.$store.commit('setUser', aux)
+
+                            this.$nextTick(() => {
+                                this.showSuccessRegister()
                             })
-                        }
+
+                            setInterval(() => {
+                                router.push("/").then(() => {
+                                    this.$store.commit('setAlert', false)
+                                    window.location.reload()
+                                })
+                            }, 3000)
+                        }).catch(e => {
+                            console.log(e)
+                            this.$nextTick(() => {
+                                this.showErrorRegister()
+                            })
+                        })
+                    } else {
+                        alert('As senhas precisam ser iguais')
                     }
-                 } else {
+                } else {
                     this.$nextTick(() => {
                         this.showMissingFields()
                     })
-                 }
+                }
             },
             requestLogin() {
                 this.$store.commit('setAlert', true)
-                if(this.login.email.length > 0 && this.login.password.length > 0){
+                if (this.login.email.length > 0 && this.login.password.length > 0) {
                     loginUser(this.login).then((response) => {
                         const aux = response.data
                         let newToken = aux.token
-    
+
                         this.$store.commit('setUser', aux.userVO)
                         this.$store.commit('setToken', newToken)
                         this.$store.commit('setRole', aux.userVO.role)
-    
+
                         window.localStorage.setItem("refresh_token", newToken)
                         this.$nextTick(() => {
                             this.showSuccessLogin()
@@ -227,6 +213,15 @@
                     })
                 }
             },
+            loadBackground() {
+                let dynamicStyle = document.createElement('style');
+                dynamicStyle.innerHTML = `
+                    .dyna-bg-image {
+                        background-image: url('${this.img_obj.code}');
+                    }
+                `;
+                document.head.appendChild(dynamicStyle);
+            },
             showSuccessLogin() {
                 let div = document.getElementById("success-login-alert")
                 div.style.display = "flex"
@@ -235,7 +230,7 @@
                     window.location.reload()
                 }, 3000)
             },
-            showMissingFields(){
+            showMissingFields() {
                 let div = document.getElementById("alert-missing-fields")
                 div.style.display = "flex"
 
@@ -246,10 +241,9 @@
             alertMissingFields() {
                 let div = document.getElementById("alert-missing-fields")
                 div.style.display = "flex"
-                
+
                 setInterval(() => {
                     div.style.display = "none"
-                    //this.$store.commit('setAlert', false)
                 }, 3000)
             },
             showErrorLogin() {
@@ -278,6 +272,9 @@
                     div.style.display = "none"
                     this.$store.commit('setAlert', false)
                 }, 3000)
+            },
+            switchForm() {
+                this.boolForm = !this.boolForm
             },
         }
     }
