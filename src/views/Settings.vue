@@ -117,7 +117,6 @@
                 </div>
             </div>
         </div>
-        
     </main>
 </template>
 
@@ -128,7 +127,8 @@
         name: 'SettingsPage',
         created() {
             this.user = this.$store.getters.getUser
-            getUserInfo({ email: this.user.email }).then((response) => {
+
+            getUserInfo({ email: this.user }).then((response) => {
                 this.info = response.data
                 this.setForm()
                 if (this.info.img.code != null) {

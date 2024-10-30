@@ -129,7 +129,7 @@ export default {
     name:'ProfilePage',
     created() {
         this.user = this.$store.getters.getUser
-        getUserInfo({email: this.user.email}).then((response) => {
+        getUserInfo({email: this.user}).then((response) => {
             this.userInfo = response.data
             if(this.userInfo.img == undefined){
                 this.userInfo.img = {
@@ -173,6 +173,7 @@ export default {
     }
 }
 </script>
-<style lang="">
+
+<style>
 
 </style>
