@@ -23,7 +23,7 @@
         <div v-if="isLoggedIn" class="z-10 hidden bg-white divide-y divide-maingreen rounded-lg shadow border-maingreen border"
             id="dropdownAvatarName">
             <div class="px-4 py-3 text-sm text-gray-900 dark:text-white bg-maingreen">
-                <div class="font-bold text-white">{{ user.role.charAt(0).toUpperCase() + user.role.slice(1).toLowerCase() }}</div>
+                <div class="font-bold text-white">{{ user.role }}</div>
                 <div class="truncate text-white">{{ user.email }}</div>
             </div>
             <ul class="flex flex-col py-2 text-gray-700 dark:text-gray-200"
@@ -61,6 +61,7 @@ export default {
     mounted() {
         if(this.isLoggedIn){
             getUserInfo({email: this.user.email}).then((response) => {
+                console.log(response.data)
                 this.info = response.data
                 if(this.info.img != undefined){
                     this.loadImg = true

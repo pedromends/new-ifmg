@@ -15,7 +15,6 @@ const store = new createStore({
         user: null,
         token: null,
         role: null,
-        clients: false,
         fireAlert: false
     },
     mutations: {
@@ -28,9 +27,6 @@ const store = new createStore({
         setRole(state, role) {
             state.role = role
         },
-        setClients(state, focus) {
-            state.clients = focus
-        },
         setAlert(state, alert) {
             state.fireAlert = alert
         },
@@ -38,7 +34,6 @@ const store = new createStore({
     plugins: [ vuexLocal.plugin ],
     getters: {
         isLoggedIn(state) {
-            // !! stand for return true or false
             return state.token != null ? true : false
         },
         getUser(state) {
@@ -49,9 +44,6 @@ const store = new createStore({
         },
         isAdmin(state) {
             return state.role == "CODEMASTER" || state.role == "ADMIN" ? true : false
-        },
-        isClient(state) {
-            return state.clients
         },
         isAlertFired(state) {
             return state.fireAlert

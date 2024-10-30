@@ -99,7 +99,7 @@
 
 <script>
     import router from '@/router/index.js';
-    import { createUser, loginUser, sendRegisterEmail } from '@/services/UserService.js';
+    import { createUser, loginUser, sendRegisterEmail, getUserInfo } from '@/services/UserService.js';
     import { mapMutations, mapActions } from "vuex";
     import { getOneImage } from '@/services/ImageService';
 
@@ -152,26 +152,35 @@
                 "getUser",
                 "isAlertFired"
             ]),
-           
             requestCreateUser() {
-                this.$store.commit('setAlert', true)
-                console.log(this.newUser.firstName.length, this.newUser.lastName.length, this.newUser.email.length, this.newUser.password.length, this.newUser.confirmPassword.length)
                 if (this.newUser.firstName.length > 0 && this.newUser.lastName.length > 0 && this.newUser.email.length > 0 && this.newUser.password.length > 0 && this.newUser.confirmPassword.length > 0) {
                     if (this.newUser.password == this.newUser.confirmPassword) {
                         createUser(this.newUser).then((response) => {
-                            const aux = JSON.stringify(response.data)
-                            this.$store.commit('setUser', aux)
+                            const res = response.data
+                            
+                            this.$store.commit('setAlert', true)
+                            this.$store.commit('setUser', res.userVO.email)
+                            this.$store.commit('setRole', 'USER')
 
                             this.$nextTick(() => {
                                 this.showSuccessRegister()
-                            })
 
-                            setInterval(() => {
-                                router.push("/").then(() => {
-                                    this.$store.commit('setAlert', false)
-                                    window.location.reload()
-                                })
-                            }, 3000)
+                                let obj = {
+                                    email: res.userVO.email,
+                                    firstName: res.userVO.firstName,
+                                    lastName: res.userVO.lastName,
+                                    token: res.token
+                                }
+
+                                sendRegisterEmail(obj).then(() =>
+                                    setInterval(() => {
+                                        router.push("/").then(() => {
+                                            this.$store.commit('setAlert', false)
+                                            window.location.reload()
+                                        })
+                                    }, 3000)
+                                )
+                            })
                         }).catch(e => {
                             console.log(e)
                             this.$nextTick(() => {
@@ -187,18 +196,23 @@
                     })
                 }
             },
+            getInicialInfo(){
+                getUserInfo({email: this.login.email}).then((response) => {
+                    let res = response.data
+                    console.log(res)
+                    this.$store.commit('setUser', res.email)
+                    this.$store.commit('setRole', res.role)
+                })
+            },
             requestLogin() {
                 this.$store.commit('setAlert', true)
                 if (this.login.email.length > 0 && this.login.password.length > 0) {
                     loginUser(this.login).then((response) => {
-                        const aux = response.data
-                        let newToken = aux.token
+                        
+                        this.$store.commit('setToken', response.data)
+                        window.localStorage.setItem("refresh_token", response.data)
+                        this.getInicialInfo()
 
-                        this.$store.commit('setUser', aux.userVO)
-                        this.$store.commit('setToken', newToken)
-                        this.$store.commit('setRole', aux.userVO.role)
-
-                        window.localStorage.setItem("refresh_token", newToken)
                         this.$nextTick(() => {
                             this.showSuccessLogin()
                         })
