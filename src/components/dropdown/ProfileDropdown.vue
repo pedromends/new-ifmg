@@ -8,7 +8,7 @@
 
         <div v-if="loaded">
             <button v-if="isLoggedIn" id="dropdownAvatarNameButton" data-dropdown-toggle="dropdownAvatarName"
-                class="flex items-center gap-2 text-lg font-medium text-maingreen rounded-lg hover:bg-white hover:text-maingreen transition duration-200"
+                class="flex items-center gap-2 text-lg font-medium text-maingreen rounded-lg hover:bg-white hover:text-maingreen transition duration-200 m-3"
                 type="button">
                 <div v-if="loadImg">
                     <img :src="info.img.code" class="w-10 h-10 rounded-full" alt="">
@@ -27,7 +27,7 @@
                 id="dropdownAvatarName">
                 <div class="px-4 py-3 text-sm text-gray-900 dark:text-white bg-maingreen">
                     <div class="font-bold text-white">{{ info.role }}</div>
-                    <div class="truncate text-white">{{ info.email }}</div>
+                    <div class="truncate text-white">{{ info.firstName }}</div>
                 </div>
                 <ul class="flex flex-col py-2 text-gray-700 dark:text-gray-200"
                     aria-labelledby="dropdownInformdropdownAvatarNameButtonationButton">
@@ -142,7 +142,3 @@
         }
     }
 </script>
-
-<style>
-
-</style>

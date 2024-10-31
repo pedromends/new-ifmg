@@ -183,8 +183,9 @@
                             })
                         }).catch(e => {
                             console.log(e)
+                            this.$store.commit('setAlert', true)
                             this.$nextTick(() => {
-                                this.showErrorRegister()
+                                this.showEqualFields()
                             })
                         })
                     } else {
@@ -280,6 +281,15 @@
             },
             showErrorRegister() {
                 let div = document.getElementById("error-register-alert")
+                div.style.display = "flex"
+
+                setInterval(() => {
+                    div.style.display = "none"
+                    this.$store.commit('setAlert', false)
+                }, 3000)
+            },
+            showEqualFields() {
+                let div = document.getElementById("alert-equal-fields")
                 div.style.display = "flex"
 
                 setInterval(() => {
