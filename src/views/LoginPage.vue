@@ -108,11 +108,12 @@
         mounted() {
             getOneImage(145).then((response) => {
                 let div = document.getElementById("login-screen");
+                if (div) {
+                    this.img_obj = response.data;
+                    this.loadBackground()
 
-                this.img_obj = response.data;
-                this.loadBackground()
-
-                div.classList.add('dyna-bg-image');
+                    div.classList.add('dyna-bg-image');
+                }
             });
         },
         data() {
@@ -157,7 +158,7 @@
                     if (this.newUser.password == this.newUser.confirmPassword) {
                         createUser(this.newUser).then((response) => {
                             const res = response.data
-                            
+
                             this.$store.commit('setAlert', true)
                             this.$store.commit('setUser', res.userVO.email)
                             this.$store.commit('setRole', 'USER')
@@ -197,8 +198,8 @@
                     })
                 }
             },
-            getInicialInfo(){
-                getUserInfo({email: this.login.email}).then((response) => {
+            getInicialInfo() {
+                getUserInfo({ email: this.login.email }).then((response) => {
                     let res = response.data
                     console.log(res)
                     this.$store.commit('setUser', res.email)
@@ -206,18 +207,28 @@
                 })
             },
             requestLogin() {
-                this.$store.commit('setAlert', true)
                 if (this.login.email.length > 0 && this.login.password.length > 0) {
                     loginUser(this.login).then((response) => {
-                        
-                        this.$store.commit('setToken', response.data)
-                        window.localStorage.setItem("refresh_token", response.data)
-                        this.getInicialInfo()
+                        console.log(response.data)
+                        if (parseInt(response.data) !== 403) {
 
-                        this.$nextTick(() => {
-                            this.showSuccessLogin()
-                        })
+                            this.$store.commit('setToken', response.data)
+                            window.localStorage.setItem("refresh_token", response.data)
+                            
+                            this.getInicialInfo()
+
+                            this.$store.commit('setAlert', true)
+                            this.$nextTick(() => {
+                                this.showSuccessLogin()
+                            })
+                        } else {
+                            this.$store.commit('setAlert', true)
+                            this.$nextTick(() => {
+                                this.showErrorLogin()
+                            })
+                        }
                     }).catch((e) => {
+                        this.$store.commit('setAlert', true)
                         this.$nextTick(() => {
                             this.showErrorLogin()
                         })

@@ -121,23 +121,23 @@
                 div.style.display = "flex"
             },
             logOut() {
-                this.setUser(null);
-                this.setToken(null);
-                this.setRole('USER');
+               this.setUser(null);
+               this.setToken(null);
+               this.setRole('USER');
 
-                window.localStorage.setItem("refresh_token", null)
-                document.cookie = `refresh_token = ${null}`
+               window.localStorage.setItem("refresh_token", null)
+               document.cookie = `refresh_token = ${null}`
 
-                this.$store.commit('setAlert', true)
-                this.$nextTick(() => {
-                    this.showSignOutSuccess()
-                    setInterval(() => {
-                        router.push("/").then(() => {
-                            this.$store.commit('setAlert', false)
-                            window.location.reload()
-                        })
-                    }, 3000)
-                })
+               this.$store.commit('setAlert', true)
+               this.$nextTick(() => {
+                   this.showSignOutSuccess()
+                   setInterval(() => {
+                       router.push("/").then(() => {
+                           this.$store.commit('setAlert', false)
+                           window.location.reload()
+                       })
+                   }, 3000)
+               })
             }
         }
     }

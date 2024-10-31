@@ -64,20 +64,20 @@ export default {
             div.style.display = "flex"
         },
         logOut(){
-            this.setUser(null);
-            this.setToken(null);
+            // this.setUser(null);
+            // this.setToken(null);
             
-            window.localStorage.setItem("refresh_token", null)
-            document.cookie = `refresh_token = ${null}`
+            // window.localStorage.setItem("refresh_token", null)
+            // document.cookie = `refresh_token = ${null}`
             
-            this.$nextTick(() => {
-                this.showSignOutSuccess()
-                setInterval(() => {
-                    router.push("/").then(() => {
-                        window.location.reload()
-                    })
-                }, 3000)
-            })
+            // this.$nextTick(() => {
+            //     this.showSignOutSuccess()
+            //     setInterval(() => {
+            //         router.push("/").then(() => {
+            //             window.location.reload()
+            //         })
+            //     }, 3000)
+            // })
         }
     }
 }
