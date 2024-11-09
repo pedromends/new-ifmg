@@ -1,5 +1,5 @@
 <template lang="">
-    <div class="bg-white border-b-4 border-maingreen flex flex-col text-center items-center px-2 py-6 transition duration-400 relative z-20"
+    <div class="border-b-4 border-maingreen flex flex-col text-center items-center px-2 py-6 transition duration-400 relative z-20"
         :class="isAdmin ? 'edit' : 'user'">
         <button @click="editPresenterCard()">
             <img :src="require('@/assets/icons/pencil-edit.svg')" alt="#" class="h-10 mx-24 mt-5 z-20" />
@@ -47,6 +47,9 @@ export default {
     pointer-events: none;
 }
 
+.edit {
+    background-color: white;
+}
 .edit:hover{
     background-color: #4b5563 ;
     --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);

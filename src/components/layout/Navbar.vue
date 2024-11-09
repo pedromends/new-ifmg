@@ -53,8 +53,8 @@
                             <img :src="require('@/assets/icons/X.svg')" alt="" class="w-6 h-6 m-1">
                         </button>
                 </div>
-                <ProfileDropdown />
-                <div class="flex items-center gap-3 px-3">
+                <div class="flex items-center h-full gap-3 px-3">
+                    <ProfileDropdown />
                     <NotificationDropdown />
                 </div>
             </div>
@@ -63,22 +63,21 @@
         <!-- Barra branca -->
         <section class="flex justify-between items-center">
             <div class="flex text-sm text-maingray gap-5 p-4 ml-14 max-lg:p-0">
-                <NavbarLink :func="home" :link="'/'" :text="'HOME'"/>
+                <a href="/" class="hover:text-red-600 hover:underline hover:decoration-red-600 transition duration-200">HOME</a>
                 <NavbarLink :func="aboutUs" :link="'/'" :text="'QUEM SOMOS'" />
                 <NavbarLink :func="advantages" :link="'/'" :text="'VANTAGENS'" />
                 <NavbarLink :link="'/news'" :text="'BLOG DO POLO'" />
                 <NavbarLink :func="portfolio" :link="'/'" :text="'PORTFÓLIO DE PROJETOS'" />
             </div>
             <div class="flex text-sm text-maingray gap-5 py-1  mr-14 max-lg:p-0 items-center">
-                <NavbarLink :func="goResearchers" :link="'/researchers'" :text="'PESQUISADORES'" />
-                <NavbarLink :func="edicts" :link="'/edicts'" :text="'EDITAIS'" />
-                <NavbarLink :func="docs" :link="'/docs'" :text="'DOCUMENTOS'" />
-                <NavbarLink :func="capacitation" :link="'/capacitation'" :text="'CAPACITAÇÃO'" />
-                <NavbarLink :func="faq" :link="'/capacitation'" :text="'FAQ'" />
-                <router-link to="/embrapii"
-                    class="hover:underline shadow shadow-transparent hover:shadow-red-600 transition duration-200 rounded-lg">
+                <a href="/researchers" class="hover:text-red-600 hover:underline hover:decoration-red-600 transition duration-200">PESQUISADORES</a>
+                <a href="/edicts" class="hover:text-red-600 hover:underline hover:decoration-red-600 transition duration-200">EDITAIS</a>
+                <a href="/docs" class="hover:text-red-600 hover:underline hover:decoration-red-600 transition duration-200">DOCUMENTOS</a>
+                <a href="/capacitation" class="hover:text-red-600 hover:underline hover:decoration-red-600 transition duration-200">CAPACITAÇÃO</a>
+                <a href="/faq" class="hover:text-red-600 hover:underline hover:decoration-red-600 transition duration-200">FAQ</a>
+                <a href="/embrapii" class="hover:underline shadow shadow-transparent hover:shadow-red-600 transition duration-200 rounded-lg">
                     <img :src="require('@/assets/icons/embrapii.png')" class="w-16" alt="">
-                </router-link>
+                </a>
             </div>
         </section>
     </nav>

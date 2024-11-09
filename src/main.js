@@ -5,6 +5,8 @@ import router from "@/router/index.js"
 import AnimatedCounter from "vue-animated-counter"
 import { createStore } from 'vuex';
 import VuexPersistence from 'vuex-persist'
+import vuetify from './plugins/vuetify';
+
 
 const vuexLocal = new VuexPersistence({
     storage: window.localStorage
@@ -52,7 +54,7 @@ const store = new createStore({
 })
 
 const app = createApp(App)
-    .use(router).use(store).use(vuexLocal)
+    .use(router).use(store).use(vuexLocal).use(vuetify)
     .component("AnimatedCounter", AnimatedCounter)
 
 app.config.warnHandler = function () {

@@ -1,17 +1,20 @@
 <template>
-	<main>
-		<section v-if="haveAPI">
-			<Alerts />
-			<Navbar />
-			<Sidebar />
-			<router-view />
-			<Footer />
-		</section>
-		<section v-else-if="!haveAPI" id="backup-screen" class="hidden justify-center items-center h-screen">
-			<FallbackScreen />
-		</section>
-	</main>
-
+	<section data-app>
+		<v-app>
+			<v-main>
+				<section v-if="haveAPI">
+					<Alerts />
+					<Navbar />
+					<Sidebar />
+					<router-view />
+					<Footer />
+				</section>
+				<section v-else-if="!haveAPI" id="backup-screen" class="hidden justify-center items-center h-screen">
+					<FallbackScreen />
+				</section>
+			</v-main>
+		</v-app>
+	</section>
 </template>
 
 <script setup>
@@ -76,6 +79,9 @@
 </script>
 
 <style>
+	* {
+		font-family: OpenSans;
+	}
 	@font-face {
 		font-family: OpenSans;
 		src: url('@/assets/fonts/OpenSans-Italic.ttf')
