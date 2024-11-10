@@ -1,9 +1,9 @@
 <template>
     <v-card @click.prevent="goTo(1)" v-if="newBody != null" max-width="400">
         <v-img v-if="img1 != null" height="200px" :src="img1" cover></v-img>
-        <v-card-title>
-            {{ title }}
-        </v-card-title>
+        <div class="p-4">
+            <h1 class="text-xl">{{ title }}</h1>
+        </div>
         <v-card-subtitle>
             {{ tip }}
         </v-card-subtitle>

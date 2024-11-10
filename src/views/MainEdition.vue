@@ -27,11 +27,11 @@
                         <a href="/edit/project-modal" :class="linkCss">Modal de Projetos</a>
                         <a href="/edit/capacitation-card" :class="linkCss">Cards de Capacitação</a>
                         <a href="/edit/talent-card" :class="linkCss">Cards de Talentos</a>
-                        <a href="/edit/researcher" :class="linkCss">Editar Pesquisadores</a>
+                        <a href="/edit/researcher/0" :class="linkCss">Editar Pesquisadores</a>
                         <a href="/edit/company" :class="linkCss">Empresa Parceira</a>
                     </ul>
                 </div>
-                <div class="p-2 flex justify-center w-full bg-lightgray rounded-lg max-sm:inline-block">
+                <div class="px-10 flex justify-center w-full bg-lightgray rounded-lg max-sm:inline-block">
                     <router-view></router-view>
                 </div>
             </div>

@@ -27,14 +27,6 @@
 	import { handshake } from '@/services/api.js';
 	import { ref } from 'vue';	
 	import { onMounted } from 'vue'
-	import {
-		initFlowbite, initAccordions,
-		initCarousels, initCollapses,
-		initDials, initDismisses,
-		initDrawers, initDropdowns,
-		initModals, initPopovers,
-		initTabs, initTooltips
-	} from 'flowbite';
 	import './index.css'
 
 	const haveAPI = ref(false);
@@ -50,14 +42,6 @@
 
 	try {
 		handshake().then((response) => {
-			onMounted(() => {
-				initFlowbite(); initAccordions();
-				initCarousels(); initCollapses();
-				initDials(); initDismisses();
-				initDrawers(); initDropdowns();
-				initModals(); initPopovers();
-				initTabs(); initTooltips();
-			})
 			showSuccessScreen()
 		}).catch(e => {
 			showErrorScreen()

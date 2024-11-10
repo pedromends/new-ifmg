@@ -1,4 +1,4 @@
-<template lang="">
+ <template lang="">
     <section class="flex flex-col justify-center bg-lightgray gap-10">
         <div class="flex flex-col items-center gap-5 pt-10 max-sm:mb-12">
             <p
@@ -67,7 +67,7 @@
             </div>
         </div>
 
-        <form>
+        <v-form>
             <v-text-field v-model="newCard.num" :counter="10" :rules="[rules.num]"  class="text-maingreen" color="#2F9E40"
                 :label="'Número do Card ' + cardToUpdate "></v-text-field>
 
@@ -83,7 +83,7 @@
             <v-btn @click="handleReset" color="error" dark>
                 Limpar
             </v-btn>
-        </form>
+        </v-form>
     </section>
 </template>
 

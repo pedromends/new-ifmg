@@ -47,9 +47,6 @@ export default {
     pointer-events: none;
 }
 
-.edit {
-    background-color: white;
-}
 .edit:hover{
     background-color: #4b5563 ;
     --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);

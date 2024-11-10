@@ -70,7 +70,7 @@
                     color="#2F9E40" :label="'Título do Card' + cardToUpdate" />
 
                 <v-text-field v-model="newEventCard.local" :counter="10" :rules="[rules.text]" class="text-maingreen"
-                    color="#2F9E40" :label="'Local' + cardToUpdate" />
+                    color="#2F9E40" :label="'Local ' + cardToUpdate" />
 
                 <v-dialog width="500">
                     <template v-slot:activator="{ props: activatorProps }">

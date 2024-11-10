@@ -1,5 +1,5 @@
 <template lang="">
-    <section class="flex max-sm:flex-col justify-center items-center bg-lightgray gap-10 max-sm:w-3/4">
+    <section class="flex max-sm:flex-col justify-between w-full items-center bg-lightgray gap-4 max-sm:w-3/4">
         <div role="status" class="flex flex-col justify-center gap-10 items-center mt-5 animate-pulse ">
             <p
                 class="font-semibold text-3xl underline underline-offset-2 decoration-4 decoration-maingreen self-start mt-10 pl-10 max-sm:ml-24">
@@ -98,115 +98,52 @@
         </div>
 
         <!-- Formulário -->
-        <v-form ref="form" class="bg-white p-10 rounded-lg max-sm:p-2">
-            <AlertSuccessDelete />
-            <div class="flex flex-col gap-6 mb-6">
-                <div class="grid grid-cols-3 max-sm:grid-cols-1">
-
-
-                    <v-select v-if="projects" v-model="inEditProject.id" :items="mappedProjects" item-text="name"
-                        item-value="id" :rules="[v => !!v || 'Item Necessário']" required label="Nome do Projeto"></v-select>
-
-                    <v-text-field v-model="newProject.name" :rules="[rules.name]" label="Nome" required/>
-
-                    <v-select v-if="companies" v-model="selectCompany.id" :items="mappedCompanies" label="Empresa"
-                        item-text="name" item-value="id" :rules="[v => !!v || 'Item Necessário']"  required/>
-
-                    <v-select v-if="researchers" v-model="selectCoordinator.id" :items="mappedResearchers" label="Coordenador"
-                        item-text="name" item-value="id" :rules="[v => !!v || 'Item Necessário']"  required/>
-
-                    <!-- Situação -->
-                    <div id="situation-div" class="border-2 border-transparent p-2 rounded-lg">
-                        <label for="situation"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Situação</label>
-                        <select
-                            class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 w-full p-2.5"
-                            name="situation" v-model="newProject.situation" id="situation">
-                            <option value="" selected disabled hidden>Selecione uma opção</option>
-                            <option value="Concluído">Concluído</option>
-                            <option value="Em andamento">Em andamento</option>
-                            <option value="Cancelado">Cancelado</option>
-                        </select>
-                    </div>
-                    <!-- <v-select v-model="select" :items="items" :rules="[v => !!v || 'Item Necessário']" label="Item"
-                        required></v-select> -->
-
-                    <!-- Valor -->
-                    <div id="value-div" class="border-2 border-transparent p-2 rounded-lg">
-                        <label for="value" class="mb-2 text-sm font-medium text-gray-900 dark:text-white">Valor</label>
-                        <input
-                            class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 w-full p-2.5"
-                            v-model="newProject.value" type="number" id="value" min="0" placeholder="" required />
-                    </div>
-                    <!-- <v-text-field v-model="name" :counter="10" :rules="nameRules" label="Name"
-                        required>
-                    </v-text-field> -->
-
-                    <!-- Pesquisadores -->
-                    <div id="researchers-div" class="border-2 border-transparent p-2 rounded-lg">
-                        <div class="flex flex-col">
-                            <label for="researchers"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Pesquisadores:</label>
-                            <select v-model="selectResearchers.id" name="" id=""
-                                class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 w-full p-2.5">
-                                <option
-                                    class="bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen"
-                                    selected disabled hidden>Selecione os pesquisadores</option>
-                                <option
-                                    class="bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen"
-                                    :value="researcher.id" v-for="(researcher, i) in researchers" :key="i">{{
-                                    researcher.firstName + ' ' + researcher.lastName }}</option>
-                            </select>
-                        </div>
-                    </div>
-                    <!-- <v-select v-model="select" :items="items" :rules="[v => !!v || 'Item Necessário']" label="Item"
-                        required></v-select> -->
-
-                    <!-- Alunos -->
-                    <div id="students-div" class="border-2 border-transparent p-2 rounded-lg">
-                        <div class="flex flex-col">
-                            <label for="researchers"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Alunos:</label>
-                            <select v-model="selectStudents.id" name="" id=""
-                                class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 w-full p-2.5">
-                                <option
-                                    class="bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen"
-                                    selected disabled hidden>Selecione os pesquisadores</option>
-                                <option
-                                    class="bg-white divide-y divide-gray-100 rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen"
-                                    value="" v-for="(talent, i) in talents" :key="i">{{ talent.name }}</option>
-                            </select>
-                        </div>
-                    </div>
-                    <!-- <v-select v-model="select" :items="items" :rules="[v => !!v || 'Item Necessário']" label="Item"
-                        required></v-select> -->
-                </div>
-
-
-                <div class="flex flex-col">
-                    <!-- Sobre o Projeto -->
-                    <div id="about-project-div" class="border-2 border-transparent p-2 rounded-lg col-span-2 w-full">
-                        <v-textarea v-model="newProject.resume" :counter="7" :rules="[rules.text]"
-                            class="text-maingreen" color="#2F9E40" label="Parágrafo"></v-textarea>
-                    </div>
-
-
-                    <div class="w-full flex max-sm:flex-col justify-center gap-10">
-                        <button
-                            class="text-white bg-maingreen hover:bg-govblue focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm text-center px-36 py-3 transition duration-200"
-                            @click.prevent="updateProject()" type="submit">Salvar</button>
-
-                        <div class="flex items-center bg-red-600 hover:bg-maingray focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg transition duration-200"
-                            @click.prevent="deleteProject()" type="submit">
-                            <div class="flex w-full justify-start gap-3 items-center text-white px-32">
-                                <img class="w-5" :src="require('@/assets/icons/trash.svg')" alt="">
-                                <p class="font-medium">Excluir</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </v-form>
+         <div class="w-full">
+             <v-form ref="form" class="bg-white p-10 rounded-lg max-sm:p-2">
+                 <AlertSuccessDelete />
+                 <div class="flex flex-col gap-6 mb-6">
+                     <div class="grid grid-cols-3 max-sm:grid-cols-1 gap-4">
+                         <v-select v-if="projects" v-model="inEditProject.id" :items="mappedProjects" item-text="name"
+                             item-value="id" :rules="[v => !!v || 'Item Necessário']" required color="#2F9E40"
+                             label="Nome do Projeto"></v-select>
+     
+                         <v-text-field v-model="newProject.name" :rules="[rules.name]" label="Nome" required />
+     
+                         <v-select v-if="companies" v-model="selectCompany.id" :items="mappedCompanies" label="Empresa"
+                             item-text="name" item-value="id" :rules="[v => !!v || 'Item Necessário']" required color="#2F9E40" />
+     
+                         <v-select v-if="researchers" v-model="selectCoordinator.id" :items="mappedResearchers"
+                             label="Coordenador" item-text="name" item-value="id" :rules="[v => !!v || 'Item Necessário']"
+                             required color="#2F9E40" />
+     
+                         <v-select v-model="newProject.situation" :items="['Concluído', 'Em andamento', 'Cancelado']"
+                             :rules="[v => !!v || 'Item Necessário']" label="Situação" required color="#2F9E40"></v-select>
+     
+                         <v-text-field v-model="newProject.value" :rules="[rules.num]" label="Valor" required color="#2F9E40" />
+     
+                         <v-select v-if="researchers" v-model="selectResearchers.id" :items="mappedResearchers"
+                             label="Pesquisador" item-text="name" item-value="id" :rules="[v => !!v || 'Item Necessário']"
+                             required color="#2F9E40" />
+     
+                         <v-select v-if="talents" v-model="selectStudents.id" :items="mappedStudents"
+                             :rules="[v => !!v || 'Item Necessário']" label="Alunos" required color="#2F9E40"></v-select>
+                     </div>
+     
+     
+                     <div class="flex flex-col">
+                         <!-- Sobre o Projeto -->
+                         <div id="about-project-div" class="border-2 border-transparent p-2 rounded-lg col-span-2 w-full">
+                             <v-textarea v-model="newProject.resume" :counter="7" :rules="[rules.text]"
+                                 class="text-maingreen" color="#2F9E40" label="Parágrafo"></v-textarea>
+                         </div>
+                         <div class="w-full flex max-sm:flex-col justify-center gap-10">
+                             <v-btn color="#2F9E40" dark @click.prevent="updateProject()" type="submit">Salvar</v-btn>
+                             <v-btn color="error" dark @click.prevent="deleteProject()" type="submit">Deletar</v-btn>
+                         </div>
+                     </div>
+                 </div>
+             </v-form>
+         </div>
     </section>
 </template>
 
@@ -229,13 +166,6 @@
         },
         data() {
             return {
-                bool: false,
-                boolSaibaMais: true,
-                companies: null,
-                talents: null,
-                modalities: 1,
-                researchers: null,
-                projects: null,
                 newProject: {
                     modality: {
                         id: 1
@@ -257,6 +187,17 @@
                     situation: null,
                     value: null,
                     active: 1
+                },
+                rules: {
+                    text(value) {
+                        if (value?.length >= 0) return true;
+                        return 'Texto obrigatório';
+                    },
+                    num(value) {
+                        if (/[^0-9]/.test(value)) return true
+
+                        return 'Last name can not contain digits.'
+                    }
                 },
                 selectCompany: {
                     id: null,
@@ -281,16 +222,13 @@
                 inEditProject: {
                     name: 'Selecione o Projeto',
                 },
-                rules: {
-                    num(value) {
-                        if (value?.length >= 0) return true;
-                        return false;
-                    },
-                    text(value) {
-                        if (value?.length >= 0) return true;
-                        return 'Texto obrigatório';
-                    }
-                },
+                bool: false,
+                boolSaibaMais: true,
+                companies: null,
+                talents: null,
+                modalities: 1,
+                researchers: null,
+                projects: null
             }
         },
         computed: {
@@ -321,13 +259,14 @@
             },
             mappedResearchers() {
                 return this.researchers.map(researcher => {
-                
+
                     return researcher.firstName + ' ' + researcher.lastName;
                 });
             },
             mappedStudents() {
-                return this.talents.map(project => {
-                    return project.name;
+                return this.talents.map(talent => {
+                    console.log(talent)
+                    return talent.name;
                 });
             }
         },

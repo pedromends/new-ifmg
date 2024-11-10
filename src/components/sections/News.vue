@@ -1,19 +1,19 @@
 <template lang="">
-    <section id="news" class="flex flex-col px-10 py-36 gap-16 max-lg:px-2">
+    <section id="news" class="flex flex-col py-36 gap-16 max-lg:px-2">
         <h1 class="text-4xl font-semibold self-center underline underline-offset-2 decoration-4 decoration-maingreen">Notícias e Eventos</h1>
         <div v-if="mainnew">
             <MainNew :tip="mainnew.tip" :title="mainnew.title" :parag="mainnew.paragraph" :img="mainnew.img.code"/>
         </div>
-        <div class="flex max-sm:flex-col gap-5 items-center justify-between pl-10 max-sm:pl-0">
-            <div class="flex flex-col w-3/4 gap-5">
+        <div class="flex max-sm:flex-col gap-2 items-center justify-between">
+            <div class="flex flex-col gap-2">
                 <p class="font-semibold text-3xl underline underline-offset-2 decoration-4 decoration-maingreen self-start ml-6">Últimas Notícias</p>
-                <div class="flex gap-3 items-end justify-between max-sm:flex-col">
+                <div class="flex gap-4 px-4 items-end justify-between max-sm:flex-col">
                     <NewCard  v-for="(newNew, i) in news" :key="i" :img1="newNew.img.code"
                         :tip="'Novidade'" :title="newNew.title" :date="newNew.date" :read="'3 min de Leitura'"  :newId="newNew.id"/>
                 </div>
             </div>
             <div class="flex flex-col gap-4">
-                <EventCard v-for="(event, i) in events" :key="i" :month="event.month" :day="event.day" :title="event.title" :hour="event.hour" :local="event.local"/>
+                <EventCard v-for="(event, i)  in events" :key="i" :month="event.month" :day="event.day" :title="event.title" :hour="event.hour" :local="event.local"/>
             </div>
         </div>
         <GenericLink :classEx="'px-5 py-2 bg-maingreen text-white mx-auto rounded-lg font-bold hover:bg-white hover:text-maingreen transition duration-300 border-2 border-maingreen cursor-pointer'"

@@ -30,7 +30,6 @@
     "@tiptap/vue-3": "^2.6.6",
     "axios": "^1.6.8",
     "core-js": "^3.8.3",
-    "flowbite": "^2.2.1",
     "roboto-fontface": "*",
     "sass-loader": "^16.0.3",
     "tiptap-extension-font-size": "^1.2.0",

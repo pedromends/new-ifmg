@@ -8,10 +8,10 @@
         <div class="flex max-lg:flex-col justify-center gap-7 text-white">
             <CapacitationCard  v-for="(capacitationInfo, i) in capacitationInfos" :key="i" :title="capacitationInfo.title" :subtitle="capacitationInfo.subtitle" :icon="capacitationInfo.img.code"/>
         </div>
-        <router-link class="px-5 py-2 bg-white text-center border-2 border-white text-maingreen w-36 mx-auto rounded-lg font-bold hover:bg-govblue hover:text-white transition duration-300"
-            to="/capacitation">
+        <a class="px-5 py-2 bg-white text-center border-2 border-white text-maingreen w-36 mx-auto rounded-lg font-bold hover:bg-govblue hover:text-white transition duration-300"
+            href="/capacitation">
             Ver Mais
-        </router-link>
+        </a>
     </section>
 </template>
 

@@ -45,7 +45,7 @@
                         <img alt="Youtube" class="h-10" :src="require('@/assets/icons/youtube.svg')" />
                     </a>
                 </div>
-                <div class="h-10 flex items-center rounded-xl bg-maingreen border-white text-black transition duration-200 border-2 hover:ring-2 hover:ring-maingreen hover:bg-white mr-10">
+                <div class="h-10 flex items-center rounded-xl bg-maingreen border-white text-black transition duration-200 border-2 hover:ring-2 hover:ring-maingreen hover:bg-white">
                     <input type="text" id="search-bar"
                         class="bg-handglass border-none bg-transparent hover:bg-handglass-blue mx-1 bg-no-repeat bg-contain focus:ring-0 pl-10"
                         v-model="searchQuery"/>
