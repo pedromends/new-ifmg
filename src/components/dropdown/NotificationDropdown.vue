@@ -3,7 +3,7 @@
         <v-menu>
             <template v-slot:activator="{ props }">
                 <v-btn class="flex items-center rounded-lg relative" v-bind="props">
-                    <img :src="require('@/assets/icons/bell.svg')" class="w-7 mx-3" alt="" />
+                    <img :src="require('@/assets/icons/bell.svg')" class="w-7 m-1.5" alt="" />
                     <img v-if="notiCount > 0" :src="require('@/assets/icons/dot.svg')"
                         class="w-4 absolute right-6 bottom-4" alt="" />
                 </v-btn>

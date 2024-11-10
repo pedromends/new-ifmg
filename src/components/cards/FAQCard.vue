@@ -1,17 +1,13 @@
 <template lang="">
-    <div>
-        <!-- Card 1 -->
-        <h2 :id="accordionId" class="min-w-216">
-            <div class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border gap-3 rounded-xl">
-                <span v-if="!inEdit">{{ question }}</span>
-                <div class="flex">
-                    <input v-if="inEdit" type="text" v-model="FAQ.question" class="rounded-md">
-                    <button @click="save()" class="hover:bg-gray-300 rounded-md">
-                        <img :src="require('@/assets/icons/save.svg')" alt="" class="h-7 m-2" v-if="inEdit" />
-                    </button>
-                </div>
-                <div class="self-end flex gap-10 items-center">
-                    <div class="flex gap-4 items-center" v-if="isAdmin">
+    <v-expansion-panels>
+        <v-expansion-panel :title="question" :text="answer">
+            <template v-slot:title>
+                <div class="flex justify-between items-center w-full relative m-2">
+                    <!-- Título da pergunta -->
+                    <span>{{ question }}</span>
+
+                    <!-- Botões de ação -->
+                    <div class="flex gap-4 items-center absolute z-30 right-0" v-if="isAdmin">
                         <button @click="editing()">
                             <img :src="require('@/assets/icons/pencil-edit-maingreen.svg')" alt=""
                                 class="h-10 m-2 hover:bg-gray-300 rounded-lg" />
@@ -20,25 +16,13 @@
                             <img :src="require('@/assets/icons/trash.svg')" alt="" class="h-7 m-2" v-if="!inEdit" />
                         </button>
                     </div>
-                    <button :data-accordion-target="`#${bodyId}`" :aria-controls="bodyId" type="button" aria-expanded="true" title="Expandir">
-                        <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0 m-4" aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M9 5 5 1 1 5" />
-                        </svg>
-                    </button>
                 </div>
-            </div>
-        </h2>
-        <div :id="bodyId" class="hidden" :aria-labelledby="accordionId">
-            <div class="p-5 border border-gray-200 dark:border-gray-700 dark:bg-gray-900 rounded-lg">
-                <p v-if="!inEdit" class="mb-2 text-gray-500 dark:text-gray-400 max-w-216">{{ answer }}</p>
-                <textarea class="rounded-md" v-if="inEdit" type="text" v-model="FAQ.answer" cols="50"
-                    rows="10"></textarea>
-            </div>
-        </div>
-    </div>
+            </template>
+        </v-expansion-panel>
+    </v-expansion-panels>
 </template>
+
+
 
 <script>
     import { updateFAQ, deleteFAQ } from '@/services/FAQService.js';

@@ -1,59 +1,70 @@
-this.activePopover<template lang="">
-    <section class="flex justify-center items-start relative">
-        <button title="edit" :id="`popover-${id}`" class="absolute p-3 rounded-lg bg-gray-200 -top-16 hidden z-50" @mouseleave="showHidPopover()" @click="editTalent()">
-            <img :src="require('@/assets/icons/pencil-edit-maingreen.svg')" alt="#" class="h-10"/>
-        </button>
-
-        <div @mouseover="showHidPopover()" class="transition duration-300 shadow-lg bg-white flex flex-col gap-3 rounded-3xl border-2 border-white p-3 px-5 hover:shadow-md hover:shadow-govblue z-20">
-            <div class="flex justify-between items-start">
-                <img :src="image" class="w-1/3" alt="Profile Pic"/>
-                <img :src="require('@/assets/icons/linkedin.svg')"  class="" alt="Linkedin"/>
-            </div> 
-            <div class="flex flex-col">
-                <p class="font-bold">{{ name }}</p>
-                <span class="text-sm tracking-wide">{{ profession }}</span>
-            </div>
-            <p class="mt-2 w-52 text-sm">{{ details }}</p>
+<template>
+    <v-card class="mx-auto" min-width="250" max-width="300">
+        <div class="p-2">
+            <v-img height="100px" max-width="100" :src="image" cover></v-img>
         </div>
-    </section>
+
+        <v-card-title>
+            {{ name }}
+        </v-card-title>
+
+        <v-card-subtitle>
+            {{ profession }}
+        </v-card-subtitle>
+
+        <v-card-actions>
+            <v-btn @click="show = !show" color="#2F9E40" text="Ver mais"></v-btn>
+            <v-spacer></v-spacer>
+            <v-btn :icon="show ? 'mdi-chevron-up text-maingreen' : 'mdi-chevron-down text-maingreen'" @click="show = !show"></v-btn>
+        </v-card-actions>
+
+        <v-expand-transition>
+            <div v-show="show">
+                <v-card-text>
+                    {{ details }}
+                </v-card-text>
+            </div>
+        </v-expand-transition>
+    </v-card>
 </template>
 
 <script>
-import router from "@/router/index.js"
+    import router from "@/router/index.js"
 
-export default {
-    name: 'TalentCard',
-    props: {
-        image: String,
-        name: String,
-        profession: String,
-        details: String,
-        id:Number
-    },
-    data(){
-        return {
-            activePopover: false,
-            isAdmin: this.$store.getters.isAdmin
-        }
-    },
-    methods: {
-        showHidPopover(){
-            if(this.isAdmin){
-                let popover = document.getElementById(`popover-${this.id}`)
-                this.activePopover ? popover.style.display = 'none' : popover.style.display = 'inline'
-                this.activePopover = !this.activePopover
+    export default {
+        name: 'TalentCard',
+        props: {
+            image: String,
+            name: String,
+            profession: String,
+            details: String,
+            id: Number
+        },
+        data() {
+            return {
+                activePopover: false,
+                isAdmin: this.$store.getters.isAdmin,
+                show: false
             }
         },
-        editTalent(){
-            router.push('/edit/talent-card').then(() => {
-                var element = document.getElementById("navbar");
-                window.location.reload();
-                element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
-            }); 
-        }
-    },
-}
+        methods: {
+            showHidPopover() {
+                if (this.isAdmin) {
+                    let popover = document.getElementById(`popover-${this.id}`)
+                    this.activePopover ? popover.style.display = 'none' : popover.style.display = 'inline'
+                    this.activePopover = !this.activePopover
+                }
+            },
+            editTalent() {
+                router.push('/edit/talent-card').then(() => {
+                    var element = document.getElementById("navbar");
+                    window.location.reload();
+                    element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                });
+            }
+        },
+    }
 </script>
 <style lang="">
-    
+
 </style>

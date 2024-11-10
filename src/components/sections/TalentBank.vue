@@ -9,27 +9,26 @@
         </div>
         <TalentCarousel />
         <p class="mx-auto text-maingray">Nosso time de pesquisadores, mestre e doutores são especializados nas mais distintas áreas, conheça um pouco mais:</p>
-        <GenericLink :classEx="'px-10 py-2 text-maingreen mx-auto rounded-lg font-bold border-2 border-maingreen hover:bg-maingreen hover:text-white transition duration-300 cursor-pointer'"
-            :text="'Ver Mais'" :func="goTo">
-        </GenericLink>
+        <a class="px-10 py-2 text-maingreen mx-auto rounded-lg font-bold border-2 border-maingreen hover:bg-maingreen hover:text-white transition duration-300 cursor-pointer"
+            href="/researchers" >
+            Ver Mais
+        </a>
     </section>
 </template>
 
 <script>
 import router from '@/router/index.js'
 import TalentCarousel from '@/components/carousel/TalentCarousel.vue';
-import GenericLink from '@/components/links/GenericLink';
 
 export default {
     name: 'TalentBank',
     components:{
         TalentCarousel,
-        GenericLink
     },
     data() {
         return {
             goTo: () => {
-                router.push('/researchers').then(() => {
+                router.push('/').then(() => {
                     window.location.reload()
                     var element = document.getElementById("navbar");
                     element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });

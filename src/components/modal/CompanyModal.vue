@@ -1,31 +1,40 @@
 <template lang="">
-	<section>
-		<v-btn color="none" class="p-0" style="width: 90%; padding:1rem; height: auto;" @click="isActive.value = true">
+		<v-btn color="none" class="p-0" style="width: 70%; padding:1rem; height: auto;" @click="isActive.value = true">
 			<img :src="img" alt="#" class="w-full h-full object-cover rounded-lg" />
 		</v-btn>
 		<v-dialog width="800" v-model="isActive.value" v-if="isActive">
 			<v-card class="divide-y-2 divide-maingreen gap-4">
-				<div class="flex items-center justify-center relative px-2 pt-4 gap-4">
+				<div class="flex items-center justify-center relative p-2 pt-8 gap-4">
 					<div class="flex justify-between items-center absolute w-full px-4">
-						<img :src="img" alt="" class="max-h-14" />
-						<button @click="isActive.value = false">
-							<img :src="require('@/assets/icons/X.svg')" class="w-7 h-7" alt="">
-						</button>
+						<div class="flex gap-4 items-center">
+							<img :src="img" alt="" class="max-h-10" />
+							<button @click="editModal()" class="" v-if="isAdmin">
+								<img :src="require('@/assets/icons/pencil-edit-maingreen.svg')" alt="#" class="h-10" />
+							</button>
+						</div>
+						
+						<v-btn @click="isActive.value = false"
+							icon="$close"
+							size="large"
+							variant="text"
+							color="#2F9E40"
+						></v-btn>
 					</div>
-					<h1 class="text-2xl">{{ company }}</h1>
+					<h1 class="text-2xl font-bold">{{ company }}</h1>
 				</div>
 				<div class="flex flex-col p-4 gap-4">
-					<v-expansion-panels>
-						<v-expansion-panel>
-							<v-expansion-panel-title
-								class="flex items-center justify-between w-full p-5 font-medium rtl:text-right border border-maingreen rounded-t-xl hover:bg-blue-100 gap-3 transition duration-200">
-								{{ projName }}
-							</v-expansion-panel-title>
-							<v-expansion-panel-text>
-								{{ resume }}
-							</v-expansion-panel-text>
-						</v-expansion-panel>
-					</v-expansion-panels>
+					<div class="p-4">
+						<v-expansion-panels class="">
+							<v-expansion-panel class="rounded-t-xl">
+								<v-expansion-panel-title class="text-maingreen text-xl">
+									{{ projName }}
+								</v-expansion-panel-title>
+								<v-expansion-panel-text>
+									{{ resume }}
+								</v-expansion-panel-text>
+							</v-expansion-panel>
+						</v-expansion-panels>
+					</div>
 					<div class="flex flex-col px-2 text-sm gap-2">
 						<div class="flex gap-2 items-center max-lg:text-sm">
 							<p class="font-bold text-maingray">Coordenador: </p>
@@ -51,21 +60,18 @@
 				</div>
 				<v-card-actions>
 					<v-spacer></v-spacer>
-					<div class="flex justify-between items-center p-4 md:p-5 border-t border-gray-200 rounded-b">
+					<div class="flex justify-between items-center p-4 md:p-5 rounded-b">
 						<div class="flex gap-5">
 							<button
 								class="text-white bg-maingreen border-2 border-maingreen hover:bg-white hover:text-maingray transition duration-300 rounded-lg text-sm px-5 py-2.5" type="button">
 								Saiba Mais!
 							</button>
 						</div>
-						<button @click="editModal()" class="" v-if="isAdmin">
-							<img :src="require('@/assets/icons/pencil-edit-maingreen.svg')" alt="#" class="h-10" />
-						</button>
+						
 					</div>
 				</v-card-actions>
 			</v-card>
 		</v-dialog>
-	</section>
 </template>
 
 <script>

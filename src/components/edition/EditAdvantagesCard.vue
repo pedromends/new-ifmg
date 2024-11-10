@@ -1,7 +1,8 @@
 <template lang="">
     <section class="flex flex-col justify-center bg-lightgray gap-10 rounded-lg">
         <div role="status" class="flex flex-col items-center gap-10 rounded-xl mb-10">
-            <p class="font-semibold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen text-center mt-10 self-start ml-48 max-sm:ml-0">
+            <p
+                class="font-semibold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen text-center mt-10 self-start ml-48 max-sm:ml-0">
                 Cards de Vantagens - Em edição: Card {{ currentForm }}</p>
             <div class="flex max-sm:flex-col items-center gap-4 bg-white rounded-xl h-full p-4">
 
@@ -27,8 +28,7 @@
                         </div>
                         <div class="flex gap-1 edit items-center relative transition duration-500">
                             <div class="flex flex-col gap-2 ">
-                                <div
-                                    class="flex flex-col gap-2 mb-2 border-2 border-transparent p-2">
+                                <div class="flex flex-col gap-2 mb-2 border-2 border-transparent p-2">
                                     <div class="ml-4 h-2.5 bg-black rounded-full w-56"></div>
                                     <div class="ml-4 h-2.5 bg-black rounded-full w-48"></div>
                                 </div>
@@ -52,8 +52,7 @@
                         </div>
                         <div class="flex gap-1 edit items-center relative transition duration-500">
                             <div class="flex flex-col gap-2 ">
-                                <div
-                                    class="flex flex-col gap-2 mb-2 border-2 border-transparent p-2">
+                                <div class="flex flex-col gap-2 mb-2 border-2 border-transparent p-2">
                                     <div class="ml-4 h-2.5 bg-black rounded-full w-56"></div>
                                     <div class="ml-4 h-2.5 bg-black rounded-full w-48"></div>
                                 </div>
@@ -77,8 +76,7 @@
                         </div>
                         <div class="flex gap-1 edit items-center relative transition duration-500">
                             <div class="flex flex-col gap-2 ">
-                                <div
-                                    class="flex flex-col gap-2 mb-2 border-2 border-transparent p-2">
+                                <div class="flex flex-col gap-2 mb-2 border-2 border-transparent p-2">
                                     <div class="ml-4 h-2.5 bg-black rounded-full w-56"></div>
                                     <div class="ml-4 h-2.5 bg-black rounded-full w-48"></div>
                                 </div>
@@ -94,45 +92,27 @@
                 </div>
             </div>
 
-            <!-- Formulário -->
-            <form class="bg-white p-10 rounded-lg">
-                <div class="grid gap-6 mb-6 md:grid-cols-3">
-                    <div id="title-div" class="border-2 border-transparent p-2">
-                        <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Título do Card {{ currentForm }}</label>
-                        <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5"
-                            type="text" id="title" placeholder="Título do card" required
-                            v-model="newAdvantages.differential" />
-                    </div>
-                    <div id="resume-div" class="border-2 border-transparent p-2">
-                        <label for="resume" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Resumo Card {{ currentForm }}</label>
-                        <textarea
-                            class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-red-600 focus:border-red-600"
-                            id="resume" cols="20" v-model="newAdvantages.description"
-                            placeholder="Introdução..."></textarea>
-                    </div>
-                    <div id="icon-div" class="border-2 border-transparent p-2">
-                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                            for="file_input">Ícone do Card {{ currentForm }}</label>
-                        <input aria-describedby="file_input_help" id="file_input" type="file" @change="onImageChange($event)"
-                            class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none">
-                        <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG, JPG or GIF (MAX. 800x400px).</p>
-                    </div>
-                    <div id="image-div" class="border-2 border-transparent p-2">
-                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                            for="file_input">Imagem de Capa</label>
-                        <input
-                            class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none"
-                            aria-describedby="file_input_help" id="file_input" type="file"
-                            @change="onBannerChange($event)" accept="image/*">
-                        <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG, JPG or
-                            GIF (MAX. 800x400px).</p>
-                    </div>
-                    <div class="flex items-center w-full">
-                        <button class="text-white bg-maingreen hover:bg-govblue focus:ring-2 focus:outline-none focus:ring-red-600 font-medium rounded-xl text-sm px-36 py-2 sm:w-auto text-center transition duration-200"
-                            type="submit" @click.prevent="updateCards()">Salvar</button>
-                    </div>
-                </div>
-            </form>
+            <v-form class="w-full bg-white p-10 rounded-lg mb-10 max-sm:px-1">
+                <v-text-field v-model="newAdvantages.differential" :counter="10" :rules="[rules.text]" class="text-maingreen"
+                    color="#2F9E40" :label="'Título do card ' + currentForm"></v-text-field>
+
+                <v-text-field v-model="newAdvantages.description" :counter="10" :rules="[rules.text]" class="text-maingreen"
+                    color="#2F9E40" :label="'Resumo Card ' + currentForm "></v-text-field>
+
+                <v-file-input accept="image/*" color="#2F9E40" :label="'Ícone do Card ' + currentForm "
+                    @change="onFileChanged($event)"></v-file-input>
+
+                <v-file-input accept="image/*" color="#2F9E40" label="Imagem de Capa"
+                    @change="onBannerChange($event)"></v-file-input>
+
+                <v-btn class="me-4" color="#2F9E40" type="submit" dark @click.prevent="updateCards()">
+                    Salvar
+                </v-btn>
+
+                <v-btn @click="handleReset" color="error" dark>
+                    Limpar
+                </v-btn>
+            </v-form>
         </div>
     </section>
 </template>
@@ -147,8 +127,6 @@
         name: 'EditAdvantagesCard',
         data() {
             return {
-                bool: false,
-                currentForm: 1,
                 newAdvantages: {
                     id: null,
                     differential: '',
@@ -158,10 +136,18 @@
                         code: ''
                     }
                 },
+                rules: {
+                    text(value) {
+                        if (value?.length >= 0) return true;
+                        return 'Texto obrigatório';
+                    }
+                },
                 bannerImage: {
                     id: 35,
                     code: undefined
                 },
+                bool: false,
+                currentForm: 1
             }
         },
         methods: {
@@ -203,7 +189,7 @@
                 this.currentForm = form
             },
             updateCards() {
-                if (this.newAdvantages.differential !== '' && this.newAdvantages.description !== ''&& this.newAdvantages.img.code !== null) {
+                if (this.newAdvantages.differential !== '' && this.newAdvantages.description !== '' && this.newAdvantages.img.code !== null) {
                     this.newAdvantages.id = this.currentForm
                     this.newAdvantages.img.id = this.currentForm
 
@@ -214,7 +200,7 @@
                             window.location.reload()
                         });
                     })
-                }else{
+                } else {
                     this.$store.commit('setAlert', true)
                     this.$nextTick(() => {
                         this.alertMissingFields()

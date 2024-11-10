@@ -21,9 +21,8 @@
                             Blog do Polo</h1>
                     </div>
                     <div class="flex items-center">
-                        <button v-if="isAdmin"
-                            class="text-white bg-maingreen hover:bg-govblue focus:ring-4 focus:outline-none focus:ring-red-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center transition duration-200"
-                            type="submit" @click.prevent="createNew()">Criar nova notícia</button>
+                            <a class="text-white bg-maingreen hover:bg-govblue focus:ring-4 focus:outline-none focus:ring-red-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center transition duration-200"
+                            href="/news/create">Criar nova notícia</a>
                     </div>
                 </div>
                 <hr class="bg-red-600 h-1" />
@@ -43,7 +42,7 @@
                 </div> 
             </div>
             <div v-if="news != null">
-                <div v-if="news.length > 0" class="grid grid-cols-4 gap-5 text-maingray max-lg:grid-cols-1">
+                <div v-if="news.length > 0" class="grid grid-cols-3 gap-10 text-maingray max-lg:grid-cols-1">
                     <NewCard v-for="(newNew, i) in news" :key="i" :tip="'Novidade'" :title="newNew.title" :img1="newNew.img.code"
                         :date="newNew.date" :read="'3 min de Leitura'" :code="newNew.code" :newId="newNew.id" />
                 </div>
@@ -65,7 +64,7 @@
                         </button>
                     </li>
                     <li v-for="(page, i) in totalPages" :key="i">
-                        <button  :class="this.page == i ? 'bg-maingreen text-white hover:bg-green-700' : 'bg-white text-gray-500 hover:text-gray-700'"
+                        <button  :class="this.page == i ? 'bg-maingreen text-white hover:bg-green-700' : 'bg-white text-maingreen hover:text-gray-700'"
                             class="flex items-center justify-center px-4 h-10 leading-tight border border-gray-300"
                             @click="pageSet(i)">{{ i + 1 }}</button>
                     </li>
