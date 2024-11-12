@@ -1,11 +1,12 @@
  <template lang="">
-    <section class="flex flex-col justify-center bg-lightgray gap-10">
+    <section class="flex flex-col gap-4 m-4">
         <div class="flex flex-col items-center gap-5 pt-10 max-sm:mb-12">
             <p
                 class="font-semibold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen self-start mb-5">
                 Sessão de Apresentação - Em edição: Card {{ cardToUpdate }}</p>
-            <div class="relative max-sm:mt-10 z-30">
+
                 <!-- Box dos Cards -->
+            <div class="relative mt-16 z-30">
                 <div class="flex gap-5 max-sm:flex-col">
                     <div @mouseover="setCard(1)"
                         class="bg-white border-b-4 border-maingreen flex flex-col text-center items-center px-2 py-6 shadow-lg shadow-transparent hover:shadow-red-600 transition duration-400 relative z-20">
@@ -57,7 +58,8 @@
                 </div>
             </div>
 
-            <div class="rounded-lg border border-maingreen flex items-center px-5 border-transparent z-20 hover:border-red-700 absolute max-sm:mt-20"
+            <!-- Imagem de fundo -->
+            <div class="rounded-lg border border-maingreen flex items-center px-5 border-transparent z-20 hover:border-red-700 absolute mt-20"
                 alt="Polo IFMG">
                 <svg class="w-32 h-32 text-gray-200 dark:text-gray-600" aria-hidden="true"
                     xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
@@ -74,15 +76,19 @@
             <v-text-field v-model="newCard.text" :counter="7" :rules="[rules.text]" class="text-maingreen" color="#2F9E40"
                 :label="'Texto do Card ' + cardToUpdate"></v-text-field>
 
+            <hr class="bg-maingreen h-1 mb-5"/>
+
             <v-file-input accept="image/*"  color="#2F9E40" label="Imagem de Capa" @change="onFileChanged($event)"></v-file-input>
 
-            <v-btn class="me-4" color="#2F9E40" type="submit" dark @click="updateCard()">
-                Salvar
-            </v-btn>
-
-            <v-btn @click="handleReset" color="error" dark>
-                Limpar
-            </v-btn>
+            <div class="flex justify-center gap-4">
+                <v-btn class="me-4" color="#2F9E40" type="submit" dark @click="updateCard()">
+                    Salvar
+                </v-btn>
+    
+                <v-btn @click="handleReset" color="error" dark>
+                    Limpar
+                </v-btn>
+            </div>
         </v-form>
     </section>
 </template>

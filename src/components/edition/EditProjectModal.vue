@@ -24,7 +24,7 @@
                     </div>
                     <div class="p-4 md:p-5 space-y-4 flex flex-col">
                         <div>
-                            <h2 id="headName" class="text-maingray border border-transparent hover:border-red-700">
+                            <h2 id="headName" class="text-maingray border border-transparent hover:border-red-700 rounded-t-xl">
                                 <button type="button" data-accordion-target="#headBody" aria-expanded="false"
                                     aria-controls="headBody"
                                     class="flex items-center justify-between w-full p-5 font-medium rtl:text-right border border-maingreen rounded-t-xl hover:bg-blue-100 gap-3 transition duration-200">
@@ -36,7 +36,7 @@
                                     </svg>
                                 </button>
                             </h2>
-                            <div class="border border-transparent hover:border-red-700">
+                            <div class="border border-transparent hover:border-red-700 rounded-b-xl">
                                 <div class="p-5 border rounded-b-xl border-gray-200 gap-2 flex flex-col">
                                     <div class="h-1 bg-black rounded-full w-96 max-sm:w-14"></div>
                                     <div class="h-1 bg-black rounded-full w-96 max-sm:w-14"></div>
@@ -53,27 +53,27 @@
 
                         <div class="flex flex-col px-2 text-sm gap-1">
                             <div
-                                class="flex gap-2 items-center max-lg:text-sm border border-transparent hover:border-red-700">
+                                class="flex gap-2 items-center max-lg:text-sm">
                                 <p class="font-bold text-maingray">Coordenador: </p>
                                 <div class="h-2 bg-black rounded-full w-24"></div>
                             </div>
-                            <div
-                                class="flex gap-2 items-center max-lg:text-sm border border-transparent hover:border-red-700">
+                            <!-- <div
+                                class="flex gap-2 items-center max-lg:text-sm">
                                 <p class="font-bold text-maingray">Pesquisador(es): </p>
                                 <div class="h-2 bg-black rounded-full w-24"></div>
                             </div>
                             <div
-                                class="flex gap-2 items-center max-lg:text-sm border border-transparent hover:border-red-700">
+                                class="flex gap-2 items-center max-lg:text-sm">
                                 <p class="font-bold text-maingray">Aluno(s): </p>
                                 <div class="h-2 bg-black rounded-full w-24"></div>
-                            </div>
+                            </div> -->
                             <div
-                                class="flex gap-2 items-center max-lg:text-sm border border-transparent hover:border-red-700">
+                                class="flex gap-2 items-center max-lg:text-sm">
                                 <p class="font-bold text-maingray">Situação: </p>
                                 <p>Situação</p>
                             </div>
                             <div
-                                class="flex gap-2 items-center max-lg:text-sm border border-transparent hover:border-red-700">
+                                class="flex gap-2 items-center max-lg:text-sm">
                                 <p class="font-bold text-maingray">Valor:</p>
                                 <div class="flex items-center gap-3">R$ <div class="h-2 bg-black rounded-full w-10">
                                     </div>

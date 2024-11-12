@@ -47,8 +47,7 @@
                 </div>
 
                 <!-- Imagem de capa -->
-                <div alt="Polo IFMG"
-                    class="border-transparent hover:border-red-700 p-2 rounded-xl border bg-white flex items-center px-10 py-4">
+                <div alt="Polo IFMG" class="flex items-center justify-center">
                     <svg class="w-96 h-20 text-gray-200 dark:text-gray-600" aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
                         <path
@@ -64,17 +63,21 @@
 
             <v-textarea v-model="newAboutUs.parag" :counter="7" :rules="[rules.text]" class="text-maingreen"
                 color="#2F9E40" label="Parágrafo"></v-textarea>
+            
+            <hr class="bg-maingreen h-1 mb-5"/>
 
             <v-file-input accept="image/*" color="#2F9E40" label="Imagem de Capa"
                 @change="onFileChanged($event)"></v-file-input>
 
-            <v-btn class="me-4" color="#2F9E40" type="submit" dark @click.prevent="updateAboutUs()">
-                Salvar
-            </v-btn>
-
-            <v-btn @click="handleReset" color="error" dark>
-                Limpar
-            </v-btn>
+            <div class="flex justify-center gap-4">
+                <v-btn class="me-4" color="#2F9E40" type="submit" dark @click.prevent="updateAboutUs()">
+                    Salvar
+                </v-btn>
+    
+                <v-btn @click="handleReset" color="error" dark>
+                    Limpar
+                </v-btn>
+            </div>
         </v-form>
     </section>
 </template>

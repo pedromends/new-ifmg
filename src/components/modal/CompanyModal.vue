@@ -1,7 +1,9 @@
 <template lang="">
-	<v-btn color="none" class="p-0" style="width: 70%; padding:1rem; height: auto;" @click="isActive.value = true">
-		<img :src="img" alt="#" class="w-full h-full object-cover rounded-lg" />
-	</v-btn>
+	<div class="pl-1 pb-1 bg-gradient-to-r from-maingreen to-white shadow-lg hover:shadow-red-600 rounded-lg transition duration-200">
+		<v-btn color="none" class="w-full h-auto" @click="isActive.value = true">
+			<img :src="img" alt="#" class="w-auto h-full object-cover rounded-lg my-1" />
+		</v-btn>
+	</div>
 	<v-dialog width="800" v-model="isActive.value" v-if="isActive">
 		<v-card class="divide-y-2 divide-maingreen gap-4">
 			<div class="flex items-center justify-center relative p-2 pt-8 gap-4">

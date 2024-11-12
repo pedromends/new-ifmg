@@ -39,13 +39,15 @@
 
                     <v-textarea color="#2F9E40" label="Mensagem" v-model="contact.message" :rules="[rules.message]"></v-textarea>
 
-                    <v-btn dark color="#2F9E40" @click.prevent="sendContact()" class="me-4" type="submit">
-                        Enviar
-                    </v-btn>
-
-                    <v-btn dark color="error" @click="handleReset">
-                        Limpar
-                    </v-btn>
+                    <div class="flex justify-center gap-4">
+                        <v-btn dark color="#2F9E40" @click.prevent="sendContact()" class="me-4" type="submit">
+                            Enviar
+                        </v-btn>
+    
+                        <v-btn dark color="error" @click="handleReset">
+                            Limpar
+                        </v-btn>
+                    </div>
                 </v-form>
             </div>
         </div>

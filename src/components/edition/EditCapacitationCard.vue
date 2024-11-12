@@ -114,7 +114,9 @@
             <v-text-field :counter="7" :rules="[rules.text]" class="text-maingreen"
                 color="#2F9E40" :label="'Link do Card ' + currentForm"></v-text-field>
 
-            <v-file-input accept="image/*" color="#2F9E40" label="Imagem do Ícone" @change="onFileChanged($event)"/>
+            <hr class="bg-maingreen h-1 mb-5"/>
+
+            <v-file-input accept="image/*" color="#2F9E40" :label="'Ícone do Card ' + currentForm " @change="onFileChanged($event)"/>
 
             <v-btn class="me-4" color="#2F9E40" type="submit" dark @click="updateCard()">
                 Salvar

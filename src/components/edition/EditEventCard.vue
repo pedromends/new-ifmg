@@ -1,5 +1,5 @@
 <template lang="">
-    <section class="flex max-sm:flex-col  justify-center bg-lightgray gap-10 my-10">
+    <section class="flex w-4/5 max-sm:flex-col justify-center bg-lightgray gap-10 my-10">
         <div role="status" class="max-w-sm animate-pulse self-center flex flex-col gap-3">
             <p
                 class="font-semibold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen self-start mt-8 mb-5">
@@ -67,10 +67,10 @@
                 Em edição: Card {{ cardToUpdate }}</p>
             <div class="flex gap-6 flex-col">
                 <v-text-field v-model="newEventCard.title" :counter="10" :rules="[rules.text]" class="text-maingreen"
-                    color="#2F9E40" :label="'Título do Card' + cardToUpdate" />
+                    color="#2F9E40" :label="'Título do Card ' + cardToUpdate" />
 
                 <v-text-field v-model="newEventCard.local" :counter="10" :rules="[rules.text]" class="text-maingreen"
-                    color="#2F9E40" :label="'Local ' + cardToUpdate" />
+                    color="#2F9E40" :label="'Local do Evento ' + cardToUpdate" />
 
                 <v-dialog width="500">
                     <template v-slot:activator="{ props: activatorProps }">

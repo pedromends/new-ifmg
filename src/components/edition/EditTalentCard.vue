@@ -1,12 +1,35 @@
 <template lang="">
-    <section class="flex flex-col justify-center bg-lightgray gap-10">
-        <AlertSuccessDelete />
-        <div role="status" class="flex max-sm:flex-col gap-24 justify-center items-center mt-10">
-            <div class="left-4 flex flex-col gap-5">
-                <p
-                    class="font-semibold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen self-start mt-5 mb-10">
-                    Cards de Talentos</p>
+    <div class="flex flex-col w-full">
+        <p
+            class="font-semibold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen self-start mt-5 mb-10">
+            Cards de Talentos</p>
+        <section class="w-full flex justify-center bg-lightgray gap-10">
 
+            <div role="status" class="flex flex-col gap-24 justify-center items-center mt-10">
+
+
+                <!-- Esqueleto do Card -->
+                <div
+                    class="transition duration-300 shadow-lg bg-white flex flex-col gap-5 rounded-3xl border-2 border-white p-3 px-10 hover:shadow-md hover:shadow-red-600 z-20 animate-pulse">
+                    <div class="flex justify-between items-start gap-24">
+                        <div alt="Polo IFMG"
+                            class="h-16 rounded-lg border border-maingreen flex items-center px-5 border-transparent hover:border-red-700">
+                            <svg class="w-8 h-8 text-gray-200 dark:text-gray-600" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
+                                <path
+                                    d="M18 0H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm4.376 10.481A1 1 0 0 1 16 15H4a1 1 0 0 1-.895-1.447l3.5-7A1 1 0 0 1 7.468 6a.965.965 0 0 1 .9.5l2.775 4.757 1.546-1.887a1 1 0 0 1 1.618.1l2.541 4a1 1 0 0 1 .028 1.011Z" />
+                            </svg>
+                        </div>
+                        <img :src="require('@/assets/icons/linkedin.svg')" class="" alt="Linkedin" />
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <div class="h-2.5 bg-black rounded-full w-36 border border-transparent hover:border-red-700">
+                        </div>
+                        <div class="h-1.5 bg-black rounded-full w-32 border border-transparent hover:border-red-700">
+                        </div>
+                    </div>
+                    <div class="h-1.5 bg-black rounded-full w-28 border border-transparent hover:border-red-700"></div>
+                </div>
                 <v-menu transition="slide-x-transition">
                     <template v-slot:activator="{ props }">
                         <v-btn type="text" color="#2F9E40" v-bind="props">
@@ -14,58 +37,41 @@
                         </v-btn>
 
                     </template>
-                        <v-list>
-                            <v-list-item v-for="(talent, i) in talents" :key="i" :value="index">
-                                <v-list-item-title>{{ talent.name }}</v-list-item-title>
-                            </v-list-item>
-                        </v-list>
+                    <v-list>
+                        <v-list-item v-for="(talent, i) in talents" :key="i" :value="index">
+                            <v-list-item-title>{{ talent.name }}</v-list-item-title>
+                        </v-list-item>
+                    </v-list>
                 </v-menu>
+
             </div>
 
-            <!-- Esqueleto do Card -->
-            <div
-                class="transition duration-300 shadow-lg bg-white flex flex-col gap-5 rounded-3xl border-2 border-white p-3 px-10 hover:shadow-md hover:shadow-red-600 z-20 animate-pulse">
-                <div class="flex justify-between items-start gap-24">
-                    <div alt="Polo IFMG"
-                        class="h-16 rounded-lg border border-maingreen flex items-center px-5 border-transparent hover:border-red-700">
-                        <svg class="w-8 h-8 text-gray-200 dark:text-gray-600" aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
-                            <path
-                                d="M18 0H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm4.376 10.481A1 1 0 0 1 16 15H4a1 1 0 0 1-.895-1.447l3.5-7A1 1 0 0 1 7.468 6a.965.965 0 0 1 .9.5l2.775 4.757 1.546-1.887a1 1 0 0 1 1.618.1l2.541 4a1 1 0 0 1 .028 1.011Z" />
-                        </svg>
-                    </div>
-                    <img :src="require('@/assets/icons/linkedin.svg')" class="" alt="Linkedin" />
-                </div>
-                <div class="flex flex-col gap-1">
-                    <div class="h-2.5 bg-black rounded-full w-36 border border-transparent hover:border-red-700"></div>
-                    <div class="h-1.5 bg-black rounded-full w-32 border border-transparent hover:border-red-700"></div>
-                </div>
-                <div class="h-1.5 bg-black rounded-full w-28 border border-transparent hover:border-red-700"></div>
+            <div class="w-2/5">
+                <v-form class="bg-white p-8 rounded-lg mb-10">
+                    <v-text-field v-model="newTalent.name" :counter="10" :rules="[rules.num]" class="text-maingreen"
+                        color="#2F9E40" label="Nome"></v-text-field>
+    
+                    <v-text-field v-model="newTalent.profession" :counter="7" :rules="[rules.text]" class="text-maingreen"
+                        color="#2F9E40" label="Profisssão"></v-text-field>
+    
+                    <v-text-field v-model="newTalent.details" :counter="7" :rules="[rules.text]" class="text-maingreen"
+                        color="#2F9E40" label="Descrição de atividades"></v-text-field>
+    
+                    <v-file-input accept="image/*" color="#2F9E40" label="Imagem do Perfil"
+                        @change="onFileChanged($event)" />
+    
+                    <v-btn class="me-4" color="#2F9E40" type="submit" dark @click="updateCard()">
+                        Salvar
+                    </v-btn>
+    
+                    <v-btn @click.prevent="deleteTalent()" color="error" dark>
+                        Excluir
+                    </v-btn>
+                </v-form>
             </div>
-        </div>
 
-        <v-form class="bg-white p-8 rounded-lg mb-10">
-            <v-text-field v-model="newTalent.name" :counter="10" :rules="[rules.num]" class="text-maingreen"
-                color="#2F9E40" label="Nome"></v-text-field>
-
-            <v-text-field v-model="newTalent.profession" :counter="7" :rules="[rules.text]" class="text-maingreen"
-                color="#2F9E40" label="Profisssão"></v-text-field>
-
-            <v-text-field v-model="newTalent.details" :counter="7" :rules="[rules.text]" class="text-maingreen"
-                color="#2F9E40" label="Descrição de atividades"></v-text-field>
-
-            <v-file-input accept="image/*" color="#2F9E40" label="Imagem do Perfil" @change="onFileChanged($event)"/>
-
-            <v-btn class="me-4" color="#2F9E40" type="submit" dark @click="updateCard()">
-                Salvar
-            </v-btn>
-
-            <v-btn  @click.prevent="deleteTalent()" color="error" dark>
-                Excluir
-            </v-btn>
-        </v-form>
-
-    </section>
+        </section>
+    </div>
 </template>
 
 <script>

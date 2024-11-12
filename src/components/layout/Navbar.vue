@@ -66,7 +66,7 @@
                 <a href="/" class="hover:text-red-600 hover:underline hover:decoration-red-600 transition duration-200">HOME</a>
                 <NavbarLink :func="aboutUs" :link="'/'" :text="'QUEM SOMOS'" />
                 <NavbarLink :func="advantages" :link="'/'" :text="'VANTAGENS'" />
-                <NavbarLink :link="'/blog'" :text="'BLOG DO POLO'" />
+                <a href="/blog" class="hover:text-red-600 hover:underline hover:decoration-red-600 transition duration-200">BLOG DO POLO</a>
                 <NavbarLink :func="portfolio" :link="'/'" :text="'PORTFÓLIO DE PROJETOS'" />
             </div>
             <div class="flex text-sm text-maingray gap-5 py-1  mr-14 max-lg:p-0 items-center">

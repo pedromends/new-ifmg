@@ -15,8 +15,8 @@
             </div>
             <div class="flex items-center justify-between max-sm:gap-4">
                 <h1 class="text-2xl text-black font-semibold underline underline-offset-2 decoration-8 decoration-maingreen max-sm:self-start">Pesquisadores</h1>
-                <button v-if="isAdmin" class="text-white bg-maingreen hover:bg-govblue focus:ring-4 focus:outline-none focus:ring-red-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center transition duration-200 max-sm:self-start"
-                    type="submit" @click.prevent="createNewResearcher()">Gerenciar Pesquisadores</button>
+                <a class="text-white bg-maingreen hover:bg-govblue focus:ring-4 focus:outline-none focus:ring-red-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center transition duration-200 max-sm:self-start"
+                    href="/editar/pesquisador/0" v-if="isAdmin" >Gerenciar Pesquisadores</a>
             </div>
             <hr class="bg-red-600 h-1"/>
             <div class="flex items-center rounded-lg border-maingreen border-1">
@@ -91,7 +91,3 @@ export default {
     }
 }
 </script>
-
-<style lang="">
-    
-</style>
