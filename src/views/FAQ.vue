@@ -4,7 +4,7 @@
         <div class="flex flex-col gap-10 px-20 w-full">
             <div class="flex items-center gap-2">
                 <img class="w-6" :src="require('@/assets/icons/house2.svg')" alt="">
-                <router-link to="/news" class="text-maingreen hover:underline">Home</router-link>
+                <router-link to="/blog" class="text-maingreen hover:underline">Home</router-link>
                 <p class="flex items-center">
                     <svg class="rtl:rotate-180 w-3 h-3 text-gray-400 mx-1" aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">

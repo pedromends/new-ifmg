@@ -47,7 +47,7 @@ export default {
     },
     methods:{
         editAboutUs(){
-            router.push('/edit/about-us').then(() => {
+            router.push('/editar/sobre-nos').then(() => {
                 var element = document.getElementById("navbar");
                 element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
             }); 

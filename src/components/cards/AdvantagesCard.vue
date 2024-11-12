@@ -40,7 +40,7 @@ export default {
     },
     methods:{
         editAdvantages(){
-            router.push('/edit/advantages-card').then(() => {
+            router.push('/editar/card-vantagens').then(() => {
                 var element = document.getElementById("navbar");
                 element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
             }); 

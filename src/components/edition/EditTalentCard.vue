@@ -9,7 +9,7 @@
 
                 <v-menu transition="slide-x-transition">
                     <template v-slot:activator="{ props }">
-                        <v-btn color="#2F9E40" v-bind="props">
+                        <v-btn type="text" color="#2F9E40" v-bind="props">
                             Selecione um talento
                         </v-btn>
 

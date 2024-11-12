@@ -92,7 +92,7 @@
 		},
 		methods: {
 			editModal() {
-				router.push('/edit/project-modal').then(() => {
+				router.push('/editar/modal-projetos').then(() => {
 					window.location.reload();
 					this.isActive.value = false
 				}).finally(() => {

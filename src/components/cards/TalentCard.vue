@@ -56,7 +56,7 @@
                 }
             },
             editTalent() {
-                router.push('/edit/talent-card').then(() => {
+                router.push('/editar/card-talento').then(() => {
                     var element = document.getElementById("navbar");
                     window.location.reload();
                     element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });

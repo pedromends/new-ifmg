@@ -3,7 +3,7 @@
         <div class="flex flex-col px-20 max-lg:px-4 gap-4 w-full">
             <div class="flex items-center gap-2">
                 <img class="w-6" :src="require('@/assets/icons/house2.svg')" alt="">
-                <router-link to="/news" class="text-maingreen hover:underline">Home</router-link>
+                <router-link to="/noticia" class="text-maingreen hover:underline">Home</router-link>
                 <p class="flex items-center">
                     <svg class="rtl:rotate-180 w-3 h-3 text-gray-400 mx-1" aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
@@ -22,7 +22,7 @@
                     </div>
                     <div class="flex items-center">
                             <a class="text-white bg-maingreen hover:bg-govblue focus:ring-4 focus:outline-none focus:ring-red-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center transition duration-200"
-                            href="/news/create">Criar nova notícia</a>
+                            href="/noticia/criar">Criar nova notícia</a>
                     </div>
                 </div>
                 <hr class="bg-red-600 h-1" />
@@ -129,7 +129,7 @@
         },
         methods: {
             createNew() {
-                router.push('/news/create').then(()=>window.location.reload())
+                router.push('/noticia/criar').then(()=>window.location.reload())
                 
             },
             pageSet(page){

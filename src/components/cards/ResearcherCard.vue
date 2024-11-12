@@ -44,12 +44,12 @@ export default {
     },
     methods: {
         openResearcher(){
-            router.push('/researchers/' + this.email).then(() => {
+            router.push('/pesquisador/' + this.email).then(() => {
                 window.location.reload()
             }); 
         },
         editResearcher(){
-            router.push('/edit/researcher/' + this.id).then(() => {
+            router.push('/editar/pesquisador/' + this.id).then(() => {
                 window.location.reload()
             }); 
         }

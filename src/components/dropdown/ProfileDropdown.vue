@@ -31,19 +31,19 @@
                         <div class="truncate text-white">{{ info.firstName }}</div>
                     </v-list-item>
                     <v-list-item class="flex items-center px-3 hover:bg-lightgray transition duration-200">
-                        <a href="/edit" v-if="isAdmin"  class="flex items-center">
+                        <a href="/editar" v-if="isAdmin"  class="flex items-center">
                             <img :src="require('@/assets/icons/components.svg')" class="w-7 h-7" alt="">
                             <p class="text-start p-2 hover:text-black">Edição de Componentes</p>
                         </a>
                     </v-list-item>
                     <v-list-item class="flex items-center px-3 hover:bg-lightgray transition duration-200">
-                        <a href="/profile" class="flex items-center">
+                        <a href="/perfil" class="flex items-center">
                             <img :src="require('@/assets/icons/profile.svg')" class="w-5 h-5" alt="">
                             <p class="text-start px-4 py-2 hover:text-black">Perfil</p>
                         </a>
                     </v-list-item>
                     <v-list-item class="flex items-center px-3 hover:bg-lightgray transition duration-200">
-                        <a href="/settings" class="flex items-center">
+                        <a href="/configuracoes" class="flex items-center">
                             <img :src="require('@/assets/icons/settings.svg')" class="w-6 h-6" alt="">
                             <p class="text-start px-4 py-2 hover:text-black">Configurações</p>
                         </a>
@@ -109,7 +109,7 @@
                 ],
                 location: 'end',
                 componentEdit: () => {
-                    router.push({ path: '/edit' }).then(() => {
+                    router.push({ path: '/editar' }).then(() => {
                         window.location.reload()
                     })
                 },
@@ -208,7 +208,7 @@
                 </div>
                 <ul class="flex flex-col py-2 text-gray-700 dark:text-gray-200"
                     aria-labelledby="dropdownInformdropdownAvatarNameButtonationButton">
-                    <button @click="componentEdit()" v-if="isAdmin" to="/edit/"
+                    <button @click="componentEdit()" v-if="isAdmin" to="/editar/"
                         class="flex items-center px-3 hover:bg-lightgray transition duration-200">
                         <img :src="require('@/assets/icons/components.svg')" class="w-7 h-7" alt="">
                         <p class="text-start p-2 hover:text-black">Edição de Componentes</p>

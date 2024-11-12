@@ -10,7 +10,7 @@
         <TalentCarousel />
         <p class="mx-auto text-maingray">Nosso time de pesquisadores, mestre e doutores são especializados nas mais distintas áreas, conheça um pouco mais:</p>
         <a class="px-10 py-2 text-maingreen mx-auto rounded-lg font-bold border-2 border-maingreen hover:bg-maingreen hover:text-white transition duration-300 cursor-pointer"
-            href="/researchers" >
+            href="/pesquisadores" >
             Ver Mais
         </a>
     </section>

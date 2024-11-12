@@ -49,7 +49,7 @@ export default {
             events: undefined,
             news: undefined,
             goTo: () => {
-                router.push({ path: '/news' }).then(() => {
+                router.push({ path: '/notblogicias' }).then(() => {
                     window.location.reload();
                     var element = document.getElementById("navbar");
                     element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });

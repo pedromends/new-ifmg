@@ -46,7 +46,7 @@ export default {
     },
     methods: {
         editMobSys() {
-            router.push('/edit/edit-new/' + 58).then(() => {
+            router.push('/ediart/noticia/' + 58).then(() => {
                 var element = document.getElementById("navbar");
                 element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
             }); 

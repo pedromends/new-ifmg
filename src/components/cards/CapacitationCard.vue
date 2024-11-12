@@ -32,7 +32,7 @@ export default {
     },
     methods:{
         editCapacitation(){
-            router.push('/edit/capacitation-card').then(() => {
+            router.push('/editar/card-capacitacao').then(() => {
                 var element = document.getElementById("navbar");
                 element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
             }); 

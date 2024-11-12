@@ -54,7 +54,7 @@
         methods: {
             editNewCard() {
                 // levar para editar notícia
-                router.push('/edit/edit-new/' + this.newId).then(() => {
+                router.push('/editar/noticia/' + this.newId).then(() => {
                     var element = document.getElementById("navbar");
                     element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
                 });

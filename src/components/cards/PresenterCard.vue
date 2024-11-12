@@ -31,7 +31,7 @@ export default {
     methods:{
         editPresenterCard(){
             if(this.isAdmin){
-                router.push('/edit/presenter-card').then(() => {
+                router.push('/editar/card-apresentacao').then(() => {
                     var element = document.getElementById("navbar");
                     element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
                 }); 

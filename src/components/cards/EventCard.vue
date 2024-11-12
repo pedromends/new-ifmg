@@ -37,7 +37,7 @@ export default {
     },
     methods:{
         editAdvantages(){
-            router.push('/edit/event-card').then(() => {
+            router.push('/editar/card-eventos').then(() => {
                 var element = document.getElementById("navbar");
                 element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
             });

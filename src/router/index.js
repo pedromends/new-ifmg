@@ -36,162 +36,162 @@ import Edition from "@/components/edition/Edition.vue";
 import EditNew from "@/components/edition/EditNew.vue";
 
 const routes = [
-  {
-      path: '/',
-      component: HomePage
-  },
-  {
-    path: '/institutional',
-    component: Institutional
-  },
-  {
-    path: '/mobility-smart-systems',
-    component: MobSys
-  },
-  {
-    path: '/how-it-works',
-    component: HowItWorks
-  },
-  {
-    path: '/embrapii',
-    component: Embrapii
-  },
-  {
-    path: '/news',
-    component: NewsPage
-  },
-  {
-    path: '/news/create',
-    component: NewsCreate
-  },
-  {
-    path: '/open-new/:id',
-    component: OpenedNew
-  },
-  {
-    path: '/edicts',
-    component: Edicts
-  },
-  {
-    path: '/capacitation',
-    component: Capacitation
-  },
-  {
-    path: '/docs',
-    component: Documents
-  },
-  {
-    path: '/contact',
-    component: Contact
-  },
-  {
-    path: '/researchers',
-    component: Researchers
-  },
-  {
-    path: '/login',
-    component: LoginPage
-  },
-  {
-    path: '/profile',
-    component: Profile
-  },
-  {
-    path: '/settings',
-    component: Settings
-  },
-  {
-    path: '/researchers/:id',
-    component: ResearchersProfile
-  },
-  {
-    path: '/notifications',
-    component: Notifications
-  },
-  {
-    path: '/FAQ',
-    component: FAQ
-  },
-  {
-    path: '/create-faq',
-    component: CreateFAQ
-  },
-  {
-    path: '/edit',
-    component: MainEdition,
-    children: [
-      {
-        path: "/edit/",
-        name: 'Index',
-        component: Edition
-      },
-      {
-        path: "/edit/presenter-card",
-        name: 'EditPresenterCard',
-        component: EditPresenterCard
-      },
-      {
-        path: "/edit/event-card",
-        name: 'EditEventCard',
-        component: EditEventCard
-      },
-      {
-        path: "/edit/main-new",
-        name: 'EditMainNewCard',
-        component: EditMainNewCard
-      },
-      {
-        path: "/edit/news-card",
-        name: 'EditNewCard',
-        component: EditNewCard
-      },
-      {
-        path: "/edit/researcher/:id",
-        name: 'EditResearcherCard',
-        component: EditResearcherCard
-      },
-      {
-        path: "/edit/talent-card",
-        name: 'EditTalentCard',
-        component: EditTalentCard
-      },
-      {
-        path: "/edit/advantages-card",
-        name: 'EditAdvantagesCard',
-        component: EditAdvantagesCard
-      },
-      {
-        path: "/edit/project-modal",
-        name: 'EditProjectModal',
-        component: EditProjectModal
-      },
-      {
-        path: "/edit/capacitation-card",
-        name: 'EditCapacitationCard',
-        component: EditCapacitationCard
-      },
-      {
-        path: "/edit/about-us",
-        name: 'EditAboutUs',
-        component: EditAboutUs
-      },
-      {
-        path: "/edit/company",
-        name: 'EditCompany',
-        component: EditCompany
-      },
-      {
-        path: "/edit/edit-new/:id",
-        name: 'EditNew',
-        component: EditNew
-      },
-    ]
-  }
+	{
+		path: '/',
+		component: HomePage
+	},
+	{
+		path: '/institucional',
+		component: Institutional
+	},
+	{
+		path: '/mobilidade-sistemas-inteligentes',
+		component: MobSys
+	},
+	{
+		path: '/como-funciona',
+		component: HowItWorks
+	},
+	{
+		path: '/embrapii',
+		component: Embrapii
+	},
+	{
+		path: '/blog',
+		component: NewsPage
+	},
+	{
+		path: '/noticia/criar',
+		component: NewsCreate
+	},
+	{
+		path: '/noticia/:id',
+		component: OpenedNew
+	},
+	{
+		path: '/editais',
+		component: Edicts
+	},
+	{
+		path: '/capacitacao',
+		component: Capacitation
+	},
+	{
+		path: '/documentos',
+		component: Documents
+	},
+	{
+		path: '/contatos',
+		component: Contact
+	},
+	{
+		path: '/pesquisadores',
+		component: Researchers
+	},
+	{
+		path: '/login',
+		component: LoginPage
+	},
+	{
+		path: '/perfil',
+		component: Profile
+	},
+	{
+		path: '/configuracoes',
+		component: Settings
+	},
+	{
+		path: '/pesquisadores/:id',
+		component: ResearchersProfile
+	},
+	{
+		path: '/notificacoes',
+		component: Notifications
+	},
+	{
+		path: '/FAQ',
+		component: FAQ
+	},
+	{
+		path: '/create-faq',
+		component: CreateFAQ
+	},
+	{
+		path: '/editar',
+		component: MainEdition,
+		children: [
+			{
+				path: "",
+				name: 'Index',
+				component: Edition
+			},
+			{
+				path: "/editar/card-apresentacao",
+				name: 'EditPresenterCard',
+				component: EditPresenterCard
+			},
+			{
+				path: "/editar/card-eventos",
+				name: 'EditEventCard',
+				component: EditEventCard
+			},
+			{
+				path: "/editar/noticia",
+				name: 'EditMainNewCard',
+				component: EditMainNewCard
+			},
+			{
+				path: "/editar/news-card",
+				name: 'EditNewCard',
+				component: EditNewCard
+			},
+			{
+				path: "/editar/pesquisador/:id",
+				name: 'EditResearcherCard',
+				component: EditResearcherCard
+			},
+			{
+				path: "/editar/card-talentos",
+				name: 'EditTalentCard',
+				component: EditTalentCard
+			},
+			{
+				path: "/editar/card-vantagens",
+				name: 'EditAdvantagesCard',
+				component: EditAdvantagesCard
+			},
+			{
+				path: "/editar/modal-projetos",
+				name: 'EditProjectModal',
+				component: EditProjectModal
+			},
+			{
+				path: "/editar/card-capacitacao",
+				name: 'EditCapacitationCard',
+				component: EditCapacitationCard
+			},
+			{
+				path: "/editar/sobre-nos",
+				name: 'EditAboutUs',
+				component: EditAboutUs
+			},
+			{
+				path: "/editar/empresa",
+				name: 'EditCompany',
+				component: EditCompany
+			},
+			{
+				path: "/editar/noticia/:id",
+				name: 'EditNew',
+				component: EditNew
+			},
+		]
+	}
 ];
 
 const router = createRouter({
-  history: createWebHistory(),
-  routes,
+	history: createWebHistory(),
+	routes,
 });
 
 export default router;

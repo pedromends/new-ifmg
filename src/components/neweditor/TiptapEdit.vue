@@ -458,7 +458,7 @@
 					})
 				}).finally(() => {
 					setInterval(() => {
-						router.push('/news').then(() => {
+						router.push('/blog').then(() => {
 							window.location.reload();
 						});
 					}, 2500)

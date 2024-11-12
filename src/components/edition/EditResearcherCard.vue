@@ -1,7 +1,8 @@
 <template lang="">
-    <section class="flex max-sm:flex-col justify-center bg-lightgray gap-10 my-10 mx-5">
+    <section class="flex max-sm:flex-col justify-between bg-lightgray gap-10 m-10 w-full">
         <div role="status" class="flex flex-col items-center gap-10">
-            <p class="font-semibold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen self-start mt-5 mb-10">
+            <p
+                class="font-semibold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen self-start mt-5 mb-10">
                 Criar/Editar Pesquisadores
             </p>
 
@@ -30,181 +31,75 @@
                 </div>
             </section>
 
-            <div class="flex flex-col gap-4">
-                <select v-model="inEditionResearcher.id" name="" id=""
-                    class="bg-gray-50 border border-maingreen text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 w-full p-2.5">
-                    <option
-                        class="bg-white divide-y divide-gray-100 rounded-lg text-center shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen"
-                        value="0">Novo Pesquisador</option>
-                    <option
-                        class="bg-white divide-y divide-gray-100 text-start rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen"
-                        :value="researcher.id" v-for="(researcher, i) in researchers" :key="i">{{ researcher.firstName +
-                        ' ' + researcher.lastName }}</option>
-                </select>
+            <div class="flex flex-col gap-4 w-4/5">
+                <v-select v-model="inEditionResearcher.id" :items="mappedResearchers" v-if="researchers != null"
+                    :rules="[v => !!v || 'Item Necessário']" label="Pesquisador" required color="#2F9E40"></v-select>
 
-                <button class="flex items-center bg-red-600 hover:bg-maingray focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg transition duration-200 text-center px-32 text-white"
-                    data-modal-target="delete-modal" data-modal-toggle="delete-modal">
-                        <img class="w-5 m-4" :src="require('@/assets/icons/trash.svg')" alt="">
-                        Excluir
-                </button>
-                <!-- Delete modal -->
-                <div id="delete-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-                    <div class="relative p-4 w-full max-w-2xl max-h-full">
-                        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-                            <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-                                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                                    Deseja REALMENTE deletar este Pesquisador ?
-                                </h3>
-                                <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="delete-modal">
-                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
-                                    </svg>
-                                    <span class="sr-only">Fechar</span>
-                                </button>
-                            </div>
-                            <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
-                                <button class="text-white bg-maingreen hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
-                                    data-modal-hide="delete-modal" type="button" @click.prevent="deleteResearcher()">Sim</button>
-                                <button class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-maingreen focus:z-10 focus:ring-4 focus:ring-gray-100"
-                                    data-modal-hide="delete-modal" type="button">Não</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <v-dialog max-width="500" v-if="inEditionResearcher.id != null">
+                    <template v-slot:activator="{ props: activatorProps }">
+                        <v-btn v-bind="activatorProps" color="error" text="Excluir"
+                            variant="flat"></v-btn>
+                    </template>
+
+                    <template v-slot:default="{ isActive }">
+                        <v-card title="Excluir Pesquisador">
+                            <v-card-text>
+                                Deseja MESMO deletar este Pesquisador ?
+                            </v-card-text>
+
+                            <v-card-actions>
+                                <v-spacer></v-spacer>
+                                <v-btn text="Excluir" dark  type="submit" color="#2F9E40" @click="updateResearcher()"></v-btn>
+                                <v-btn text="Fechar" dark  type="submit" color="error" @click="isActive.value = false"></v-btn>
+                            </v-card-actions>
+                        </v-card>
+                    </template>
+                </v-dialog>
             </div>
         </div>
 
-        <form class="bg-white p-10 rounded-2xl">
-            <div class="flex justify-between max-sm:flex-col">
-                <div class="flex gap-6 mb-6 flex-col">
-                    <div id="name-div" class="border-2 border-transparent p-2 rounded-lg">
-                        <label for="name"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nome</label>
-                        <input
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5"
-                            v-model="inEditionResearcher.firstName" type="text" id="lastname" required />
-                    </div>
+        <v-form class="bg-white p-10 rounded-2xl">
+            <div class="grid grid-cols-2 gap-2">
+                <v-text-field v-model="inEditionResearcher.firstName" :counter="10" :rules="[rules.text]" width="250"
+                    class="text-maingreen" color="#2F9E40" label="Nome"></v-text-field>
 
-                    <div id="lastname-div" class="border-2 border-transparent p-2 rounded-lg">
-                        <label for="lastname"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Sobrenome</label>
-                        <input
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5"
-                            v-model="inEditionResearcher.lastName" type="text" id="lastname" required />
-                    </div>
+                <v-text-field v-model="inEditionResearcher.lastName" :counter="10" :rules="[rules.text]" width="250"
+                    class="text-maingreen" color="#2F9E40" label="Sobrenome"></v-text-field>
 
-                    <div id="lastname-div" class="border-2 border-transparent p-2 rounded-lg">
-                        <label for="lastname"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Endereço</label>
-                        <input
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5"
-                            v-model="inEditionResearcher.address" type="text" id="lastname" required />
-                    </div>
+                <v-text-field v-model="inEditionResearcher.email" :counter="10" :rules="[rules.text]"
+                    class="text-maingreen" width="250" color="#2F9E40" label="Email"></v-text-field>
 
-                    <div id="lastname-div" class="border-2 border-transparent p-2 rounded-lg">
-                        <label for="lastname"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Cidade</label>
-                        <input
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5"
-                            v-model="inEditionResearcher.city" type="text" id="lastname" required />
-                    </div>
+                <v-text-field v-model="inEditionResearcher.address" :counter="10" :rules="[rules.text]" width="250"
+                    class="text-maingreen" color="#2F9E40" label="Endereço"></v-text-field>
 
-                    <div id="lastname-div" class="border-2 border-transparent p-2 rounded-lg">
-                        <label for="lastname"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Departamento</label>
-                        <input
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5"
-                            v-model="inEditionResearcher.department" type="text" id="lastname" required />
-                    </div>
+                <v-text-field v-model="inEditionResearcher.city" :counter="10" :rules="[rules.text]"
+                    class="text-maingreen" width="250" color="#2F9E40" label="Cidade"></v-text-field>
 
-                    <div id="lastname-div" class="border-2 border-transparent p-2 rounded-lg">
-                        <label for="lastname"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Titulação</label>
-                        <input
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5"
-                            v-model="inEditionResearcher.level" type="text" id="lastname" required />
-                    </div>
-                </div>
+                <v-text-field v-model="inEditionResearcher.department" :counter="10" :rules="[rules.text]" width="250"
+                    class="text-maingreen" color="#2F9E40" label="Departamento"></v-text-field>
 
-                <div class="flex gap-6 mb-6 flex-col">
-                    <div id="lastname-div" class="border-2 border-transparent p-2 rounded-lg">
-                        <label for="lastname"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Telefone</label>
-                        <input
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5"
-                            v-model="inEditionResearcher.phone" type="text" id="lastname" required />
-                    </div>
+                <v-text-field v-model="inEditionResearcher.level" :counter="10" :rules="[rules.text]"
+                    class="text-maingreen" width="250" color="#2F9E40" label="Titulação"></v-text-field>
 
-                    <div id="course-div" class="border-2 border-transparent p-2 rounded-lg">
-                        <label for="course"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Curso</label>
-                        <input
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5"
-                            required v-model="inEditionResearcher.course" type="text" id="course" />
-                    </div>
+                <v-text-field v-model="inEditionResearcher.phone" :counter="10" :rules="[rules.text]"
+                    class="text-maingreen" width="250" color="#2F9E40" label="Telefone"></v-text-field>
 
-                    <div id="email-div" class="border-2 border-transparent p-2 rounded-lg">
-                        <label for="email"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
-                        <input
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5"
-                            v-model="inEditionResearcher.email" type="text" id="email" required />
-                    </div>
+                <v-text-field v-model="inEditionResearcher.course" :counter="10" :rules="[rules.text]"
+                    class="text-maingreen" width="250" color="#2F9E40" label="Curso"></v-text-field>
 
-                    <div id="campus-div" class="border-2 border-transparent p-2 rounded-lg">
-                        <label for="campus"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Campus</label>
-                        <select v-model="inEditionResearcher.campus.id" name="" id=""
-                            class="bg-gray-50 border border-maingreen text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 w-full p-2.5">
-                            <option
-                                class="bg-white divide-y divide-gray-100 rounded-lg text-center shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen"
-                                value="0" disabled>Selecione um Campus</option>
-                            <option
-                                class="bg-white divide-y divide-gray-100 text-start rounded-lg shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen"
-                                :value="campus.id" v-for="(campus, i) in campuses" :key="i">{{ campus.name }}</option>
-                        </select>
-                    </div>
+                <v-select v-model="inEditionCampus.campus" :items="mappedCampus" v-if="campuses != null"
+                    :rules="[v => !!v || 'Item Necessário']" label="Campus" required color="#2F9E40"></v-select>
 
-                    <div id="sex-div" class="border-2 border-transparent p-2 rounded-lg">
-                        <label for="sex_link"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Gênero</label>
-                        <select v-model="inEditionResearcher.sex" name="" id=""
-                            class="bg-gray-50 border border-maingreen text-gray-900 text-sm rounded-lg focus:ring-red-600 focus:border-red-600 w-full p-2.5">
-                            <option
-                                class="bg-white divide-y divide-gray-100 rounded-lg text-center shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen"
-                                value="0" disabled>Selecione</option>
-                            <option
-                                class="bg-white divide-y divide-gray-100 rounded-lg text-center shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen"
-                                value="F">Feminino</option>
-                            <option
-                                class="bg-white divide-y divide-gray-100 rounded-lg text-center shadow overflow-scroll h-72 overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen"
-                                value="M">Masculino</option>
-                        </select>
-                    </div>
+                <div class="col-span-2 w-full">
+                    <v-file-input accept="image/*" color="#2F9E40" label="Imagem de Perfil"
+                        @change="onImageChange($event)"></v-file-input>
 
-                    <div id="image-div" class="border-2 border-transparent p-2 rounded-lg col-span-2">
-                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                            for="file_input">Imagem de Perfil</label>
-                        <input
-                            class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none"
-                            aria-describedby="file_input_help" id="file_input" type="file"
-                            @change="onImageChange($event)">
-                        <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG, JPG or GIF (MAX. 800x400px).</p>
-                    </div>
+                    <v-btn color="#2F9E40" dark class="w-full" @click.prevent="updateResearcher()"
+                        type="submit">Salvar</v-btn>
                 </div>
             </div>
-            <div id="image-div" class="border-2 border-transparent p-2 rounded-lg">
-                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                    for="file_input">Sobre:</label>
-                <textarea name="" id="" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none" rows="10" v-model="inEditionResearcher.about"></textarea>
-            </div>
-            <div class="w-full flex max-sm:flex-col justify-center gap-10">
-                <button
-                    class="text-white bg-maingreen hover:bg-govblue focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm text-center px-36 py-3 transition duration-200"
-                    @click.prevent="updateResearcher()" type="submit">Salvar</button>
-            </div>
-        </form>
-        
+        </v-form>
+
     </section>
 </template>
 
@@ -214,18 +109,14 @@
     import { listCampus } from '@/services/CampusService.js';
     import { getResearcher } from '@/services/ResearcherService.js';
     import { useRoute } from "vue-router";
-	import { mapMutations, mapActions } from "vuex";
+    import { mapMutations, mapActions } from "vuex";
 
     export default {
         name: 'EditResearcherCard',
         data() {
             return {
-                bool: false,
-                researchers: null,
-                researcher: null,
-                campuses: null,
                 inEditionResearcher: {
-                    id: 0,
+                    id: null,
                     about: '',
                     address: '',
                     city: '',
@@ -251,14 +142,40 @@
                     id: null,
                     name: 'Selecione um Campus',
                 },
+                rules: {
+                    num(value) {
+                        if (value?.length >= 0) return true;
+                        return 'Número obrigatório';
+                    },
+                    text(value) {
+                        if (value?.length >= 0) return true;
+                        return 'Texto obrigatório';
+                    }
+                },
+                bool: false,
+                researchers: null,
+                researcher: null,
+                campuses: null,
             }
         },
-        created() {
+        computed: {
+            mappedCampus() {
+                return this.campuses.map(campus => {
+                    return campus.name;
+                });
+            },
+            mappedResearchers() {
+                return this.researchers.map(researcher => {
+                    return researcher.firstName + ' ' + researcher.lastName;
+                });
+            }
+        },
+        beforeCreate() {
             const route = useRoute();
             const id = parseInt(route.params.id);
 
             if (id != 0) {
-                getResearcher({id: id}).then((response) => {
+                getResearcher({ id: id }).then((response) => {
                     this.researcher = response.data
                     this.inEditionResearcher = this.researcher
                     console.log(this.researcher)
@@ -325,7 +242,7 @@
                             })
                         }).finally(() => {
                             setInterval(() => {
-                                router.push('/researchers').then(() => {
+                                router.push('/pesquisadores').then(() => {
                                     window.location.reload();
                                 });
                             }, 2500)
@@ -340,7 +257,7 @@
                         updateResearcher(this.inEditionResearcher).then((response) => {
                             console.log(response)
                         }).finally(() => {
-                            router.push('/researchers').then(() => {
+                            router.push('/pesquisadores').then(() => {
                                 window.location.reload();
                             });
                         })
@@ -359,17 +276,17 @@
                     deleteResearcher(this.inEditionResearcher.id).then((response) => {
                         console.log(response)
                     })
-                    .finally(() => {
-                        this.$store.commit('setAlert', true)
-                        this.$nextTick(() => {
-                            this.showDeleteSuccess()
+                        .finally(() => {
+                            this.$store.commit('setAlert', true)
+                            this.$nextTick(() => {
+                                this.showDeleteSuccess()
+                            })
+                            setInterval(() => {
+                                router.push('/pesquisadores').then(() => {
+                                    window.location.reload();
+                                });
+                            }, 2000)
                         })
-                        setInterval(() => {
-                            router.push('/researchers').then(() => {
-                                window.location.reload();
-                            });
-                        }, 2000)
-                    })
                 }
             }
         }

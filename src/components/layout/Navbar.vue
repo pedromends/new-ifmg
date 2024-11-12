@@ -23,7 +23,7 @@
         <section class="flex justify-between bg-maingreen">
             <div class="flex justify-between items-center gap-10 px-32 text-lightgray text-sm">
                 <router-link class="hover:underline hover:text-govblue transition duration-200"
-                    to="/contact">CONTATO</router-link>
+                    to="/contatos">CONTATO</router-link>
                 <a class="hover:underline hover:text-govblue transition duration-200"
                     href="https://www2.ifmg.edu.br/portal/processo-seletivo" target="_blank">INGRESSO</a>
                 <a class="hover:underline hover:text-govblue transition duration-200"
@@ -66,14 +66,14 @@
                 <a href="/" class="hover:text-red-600 hover:underline hover:decoration-red-600 transition duration-200">HOME</a>
                 <NavbarLink :func="aboutUs" :link="'/'" :text="'QUEM SOMOS'" />
                 <NavbarLink :func="advantages" :link="'/'" :text="'VANTAGENS'" />
-                <NavbarLink :link="'/news'" :text="'BLOG DO POLO'" />
+                <NavbarLink :link="'/blog'" :text="'BLOG DO POLO'" />
                 <NavbarLink :func="portfolio" :link="'/'" :text="'PORTFÓLIO DE PROJETOS'" />
             </div>
             <div class="flex text-sm text-maingray gap-5 py-1  mr-14 max-lg:p-0 items-center">
-                <a href="/researchers" class="hover:text-red-600 hover:underline hover:decoration-red-600 transition duration-200">PESQUISADORES</a>
-                <a href="/edicts" class="hover:text-red-600 hover:underline hover:decoration-red-600 transition duration-200">EDITAIS</a>
-                <a href="/docs" class="hover:text-red-600 hover:underline hover:decoration-red-600 transition duration-200">DOCUMENTOS</a>
-                <a href="/capacitation" class="hover:text-red-600 hover:underline hover:decoration-red-600 transition duration-200">CAPACITAÇÃO</a>
+                <a href="/pesquisadores" class="hover:text-red-600 hover:underline hover:decoration-red-600 transition duration-200">PESQUISADORES</a>
+                <a href="/editais" class="hover:text-red-600 hover:underline hover:decoration-red-600 transition duration-200">EDITAIS</a>
+                <a href="/documentos" class="hover:text-red-600 hover:underline hover:decoration-red-600 transition duration-200">DOCUMENTOS</a>
+                <a href="/capacitacao" class="hover:text-red-600 hover:underline hover:decoration-red-600 transition duration-200">CAPACITAÇÃO</a>
                 <a href="/faq" class="hover:text-red-600 hover:underline hover:decoration-red-600 transition duration-200">FAQ</a>
                 <a href="/embrapii" class="hover:underline shadow shadow-transparent hover:shadow-red-600 transition duration-200 rounded-lg">
                     <img :src="require('@/assets/icons/embrapii.png')" class="w-16" alt="">
@@ -117,7 +117,7 @@
             return {
                 searchQuery: '', // q de query
                 search() {
-                    router.push({ path: '/news', query: { q: this.searchQuery } })
+                    router.push({ path: '/blog', query: { q: this.searchQuery } })
                 },
                 home: () => {
                     router.push({ path: '/' }).then(() => {

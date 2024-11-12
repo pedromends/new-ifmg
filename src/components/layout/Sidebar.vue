@@ -25,13 +25,13 @@
                         <SidebarLink :link="'/'" :text="'Início'" :icon="'homepage'"/>
                         <SidebarLink :link="''" :text="'Quem somos'" :icon="'people'"/>
                         <SidebarLink :link="''" :text="'Vantagens'" :icon="'up-arrow'"/>
-                        <SidebarLink :link="'/news'" :text="'Blog do Polo'" :icon="'news'"/>
+                        <SidebarLink :link="'/blog'" :text="'Blog do Polo'" :icon="'news'"/>
                         <SidebarLink :link="''" :text="'Nossos Cursos'" :icon="'book-search'"/>
                         <SidebarLink :link="''" :text="'Portfólio'" :icon="'book-search'"/>
-                        <SidebarLink :link="'/researchers'" :text="'Pesquisadores'" :icon="'research'"/>
-                        <SidebarLink :link="'/edicts'" :text="'Editais'" :icon="'annotate'"/>
-                        <SidebarLink :link="'/docs'" :text="'Documentos'" :icon="'doc'"/>
-                        <SidebarLink :link="'/capacitation'" :text="'Capacitação'" :icon="'book'"/>
+                        <SidebarLink :link="'/pesquisadores'" :text="'Pesquisadores'" :icon="'research'"/>
+                        <SidebarLink :link="'/editais'" :text="'Editais'" :icon="'annotate'"/>
+                        <SidebarLink :link="'/documentos'" :text="'Documentos'" :icon="'doc'"/>
+                        <SidebarLink :link="'/capacitacao'" :text="'Capacitação'" :icon="'book'"/>
                         <SidebarLink :link="'/embrapii'" :text="'Embrapii'" :icon="'phone'"/>
                     </li>
                 </ul>

@@ -57,7 +57,7 @@ export default {
                 console.log(response)
             })
             .finally(() => {
-                router.push('/news').then(() => {
+                router.push('/blog').then(() => {
                     var element = document.getElementById("navbar");
                     element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
                     window.location.reload();
