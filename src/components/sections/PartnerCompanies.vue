@@ -13,7 +13,7 @@
                             alt="Laboratório de sistemas automotivos IFMG - Campus Formiga" :src="require('@/assets/icons/hand-glass.svg')"/>
                     </div>
                 </div>
-                <div v-if="projects != undefined" class="grid grid-cols-6 w-full max-sm:grid-cols-1 justify-center gap-3 items-center overflow-y-auto py-5 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen px-24">
+                <div v-if="projects != undefined" class="grid grid-cols-6 max-sm:grid-cols-1 justify-center gap-6 px-12 items-center overflow-y-auto py-5 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-maingreen">
                     <CompanyModal v-for="(project, i) in projects" :key="i"
                         :img="project.company.img.code"
                         :company="project.company.name"

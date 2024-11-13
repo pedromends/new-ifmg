@@ -1,11 +1,12 @@
 <template lang="">
     <section class="w-full flex flex-col justify-center bg-lightgray gap-10 rounded-lg">
-        <p class="font-semibold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen text-center mt-10 self-start max-sm:ml-0">
+        <p
+            class="font-semibold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen text-center mt-10 self-start max-sm:ml-0">
             Cards de Vantagens
         </p>
 
         <div role="status" class="flex items-center gap-10 rounded-xl mb-10">
-            
+
             <div class="flex max-sm:flex-col items-center gap-4 bg-white rounded-xl h-full p-4">
 
                 <!-- Imagem de capa -->
@@ -20,7 +21,7 @@
                 <!-- Cards verticais -->
                 <div class="animate-pulse flex flex-col gap-5">
                     <div @mouseover="changeForm(1)"
-                        class="text-black hover:bg-maingreen flex items-center px-6 py-6 gap-10 rounded-xl transition duration-300 hover:text-white bg-white border-gray-100 max-lg:w-auto max-lg:px-0">
+                        class="text-black hover:bg-maingreen flex items-center px-6 py-6 gap-10 rounded-lg transition duration-300 hover:text-white border-gray-100 max-lg:w-auto max-lg:px-0">
                         <div class="border-2 border-transparent p-2">
                             <svg class="w-16 h-12 text-gray-200 dark:text-gray-600" aria-hidden="true"
                                 xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
@@ -43,8 +44,9 @@
                             </div>
                         </div>
                     </div>
-                    <div @mouseover="changeForm(2)"
-                        class="text-black hover:bg-maingreen flex items-center px-6 py-6 gap-10 rounded-xl transition duration-300 hover:text-white bg-white border-gray-100 max-lg:w-auto max-lg:px-0">
+                    <div class="text-black hover:bg-maingreen flex items-center px-6 py-6 gap-10 rounded-lg transition duration-300 hover:text-white border-gray-100 max-lg:w-auto max-lg:px-0"
+                        @mouseover="changeForm(2)">
+
                         <div class="border-2 border-transparent p-2">
                             <svg class="w-16 h-12 text-gray-200 dark:text-gray-600" aria-hidden="true"
                                 xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
@@ -67,8 +69,8 @@
                             </div>
                         </div>
                     </div>
-                    <div @mouseover="changeForm(3)"
-                        class="text-black hover:bg-maingreen flex items-center px-6 py-6 gap-10 rounded-xl transition duration-300 hover:text-white bg-white border-gray-100 max-lg:w-auto max-lg:px-0">
+                    <div class="text-black hover:bg-maingreen flex items-center px-6 py-6 gap-10 rounded-lg transition duration-300 hover:text-white border-gray-100 max-lg:w-auto max-lg:px-0"
+                        @mouseover="changeForm(3)">
                         <div class="border-2 border-transparent p-2">
                             <svg class="w-16 h-12 text-gray-200 dark:text-gray-600" aria-hidden="true"
                                 xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
@@ -95,24 +97,25 @@
             </div>
 
             <v-form class="w-full flex flex-col gap-1 bg-white p-10 rounded-lg max-sm:px-1">
-                <p class="font-semibold text-xl underline underline-offset-2 decoration-4 decoration-maingreen text-center">
+                <p
+                    class="font-semibold text-xl underline underline-offset-2 decoration-4 decoration-maingreen text-center">
                     Em edição: Card {{ currentForm }}
                 </p>
-                <v-text-field v-model="newAdvantages.differential" :counter="10" :rules="[rules.text]" class="text-maingreen"
-                    color="#2F9E40" :label="'Título do card ' + currentForm"></v-text-field>
+                <v-text-field v-model="newAdvantages.differential" :counter="10" :rules="[rules.text]"
+                    class="text-maingreen" color="#2F9E40" :label="'Título do card ' + currentForm"></v-text-field>
 
-                <v-text-field v-model="newAdvantages.description" :counter="10" :rules="[rules.text]" class="text-maingreen"
-                    color="#2F9E40" :label="'Resumo Card ' + currentForm "></v-text-field>
+                <v-text-field v-model="newAdvantages.description" :counter="10" :rules="[rules.text]"
+                    class="text-maingreen" color="#2F9E40" :label="'Resumo Card ' + currentForm "></v-text-field>
 
                 <v-file-input accept="image/*" color="#2F9E40" :label="'Ícone do Card ' + currentForm "
                     @change="onFileChanged($event)"></v-file-input>
 
-                <hr class="bg-maingreen h-1 mb-5"/>
+                <hr class="bg-maingreen h-1 mb-5" />
 
                 <v-file-input accept="image/*" color="#2F9E40" label="Imagem de Capa"
                     @change="onBannerChange($event)"></v-file-input>
 
-               <div class="flex justify-center">
+                <div class="flex justify-center">
                     <v-btn class="me-4" color="#2F9E40" type="submit" dark @click.prevent="updateCards()">
                         Salvar
                     </v-btn>
@@ -120,7 +123,7 @@
                     <v-btn @click="handleReset" color="error" dark>
                         Limpar
                     </v-btn>
-               </div>
+                </div>
             </v-form>
         </div>
     </section>

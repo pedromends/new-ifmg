@@ -1,6 +1,6 @@
 <template lang="">
     <section class="bg-gradient-to-r from-maingreen to-transparent p-0.5 rounded-xl sectionc">
-        <div class="flex hover:bg-maingreen bg-white rounded-xl z-10 px-6 transition duration-200">
+        <div class="flex hover:bg-maingreen rounded-xl z-10 transition duration-200 px-10 inside-card">
             <button @click="goTo()" to="/mobility-smart-systems" class="text-black text-start flex max-md:flex-col items-center py-6 gap-10 transition duration-300 max-lg:w-auto max-lg:px-0">
                 <img v-bind:src="icon" alt="" class="w-16 max-lg:self-center border border-maingreen rounded-lg"/>
                 <div class="flex gap-1 edit items-center relative transition duration-500">
@@ -58,6 +58,14 @@ export default {
 <style scoped>
 
     .sectionc:hover >>> .text-card {
-        color: white 
+        color: white;
+    }
+
+    .sectionc:hover > .inside-card {
+        background-color: #2F9E40;
+    }
+
+    .sectionc > .inside-card {
+        background-color: white;
     }
 </style>

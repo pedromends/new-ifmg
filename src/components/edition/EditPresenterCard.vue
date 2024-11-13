@@ -1,11 +1,17 @@
- <template lang="">
+<template lang="">
     <section class="flex flex-col gap-4 m-4">
         <div class="flex flex-col items-center gap-5 pt-10 max-sm:mb-12">
-            <p
-                class="font-semibold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen self-start mb-5">
-                Sessão de Apresentação - Em edição: Card {{ cardToUpdate }}</p>
+            <div class="flex justify-between w-full">
+                <p
+                    class="font-semibold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen self-start mb-5">
+                    Sessão de Apresentação</p>
+                <p
+                    class="font-semibold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen self-start mb-5">
+                    Em edição: Card {{ cardToUpdate }}
+                </p>
+            </div>
 
-                <!-- Box dos Cards -->
+            <!-- Box dos Cards -->
             <div class="relative mt-16 z-30">
                 <div class="flex gap-5 max-sm:flex-col">
                     <div @mouseover="setCard(1)"
@@ -70,21 +76,22 @@
         </div>
 
         <v-form>
-            <v-text-field v-model="newCard.num" :counter="10" :rules="[rules.num]"  class="text-maingreen" color="#2F9E40"
-                :label="'Número do Card ' + cardToUpdate "></v-text-field>
+            <v-text-field v-model="newCard.num" :counter="10" :rules="[rules.num]" class="text-maingreen"
+                color="#2F9E40" :label="'Número do Card ' + cardToUpdate "></v-text-field>
 
-            <v-text-field v-model="newCard.text" :counter="7" :rules="[rules.text]" class="text-maingreen" color="#2F9E40"
-                :label="'Texto do Card ' + cardToUpdate"></v-text-field>
+            <v-text-field v-model="newCard.text" :counter="7" :rules="[rules.text]" class="text-maingreen"
+                color="#2F9E40" :label="'Texto do Card ' + cardToUpdate"></v-text-field>
 
-            <hr class="bg-maingreen h-1 mb-5"/>
+            <hr class="bg-maingreen h-1 mb-5" />
 
-            <v-file-input accept="image/*"  color="#2F9E40" label="Imagem de Capa" @change="onFileChanged($event)"></v-file-input>
+            <v-file-input accept="image/*" color="#2F9E40" label="Imagem de Capa"
+                @change="onFileChanged($event)"></v-file-input>
 
             <div class="flex justify-center gap-4">
                 <v-btn class="me-4" color="#2F9E40" type="submit" dark @click="updateCard()">
                     Salvar
                 </v-btn>
-    
+
                 <v-btn @click="handleReset" color="error" dark>
                     Limpar
                 </v-btn>

@@ -1,7 +1,7 @@
 <template lang="">
-    <section class="flex flex-col justify-center bg-lightgray gap-10">
+    <section class="flex flex-col justify-center bg-lightgray gap-10 pt-10">
         <p
-            class="font-semibold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen self-start mt-5">
+            class="font-semibold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen self-start">
             Sobre Nós</p>
         <div role="status" class="animate-pulse flex bg-white py-10">
 
@@ -41,7 +41,7 @@
                         <div class="h-1 bg-gray-500 rounded-full max-sm:w-88 w-132 mb-1 effect"></div>
                     </div>
                     <div class="bg-maingreen text-white w-40 py-3 rounded-lg border-2 border-white font-semibold hover:border-maingreen hover:bg-white hover:text-maingreen transition duration-300 text-center"
-                        to="/institutional">
+                        to="/institucional">
                         Saiba Mais
                     </div>
                 </div>
@@ -58,10 +58,10 @@
         </div>
 
         <v-form class="bg-white p-10 rounded-lg mb-10 max-sm:px-1">
-            <v-text-field v-model="newAboutUs.title" :counter="10" :rules="[rules.num]" class="text-maingreen"
+            <v-text-field v-model="newAboutUs.title" :rules="[rules.num]" class="text-maingreen"
                 color="#2F9E40" label="Título"></v-text-field>
 
-            <v-textarea v-model="newAboutUs.parag" :counter="7" :rules="[rules.text]" class="text-maingreen"
+            <v-textarea v-model="newAboutUs.parag" :rules="[rules.text]" class="text-maingreen"
                 color="#2F9E40" label="Parágrafo"></v-textarea>
             
             <hr class="bg-maingreen h-1 mb-5"/>
@@ -141,6 +141,11 @@
                 if (this.newAboutUs.title !== '' && this.newAboutUs.parag !== '') {
                     updateWhoWeAre(this.newAboutUs).then((response) => {
                         console.log(response)
+                        if (this.newImage.code !== undefined) {
+                            updateImage(this.newImage).then((response) => {
+                                console.log(response)
+                            })
+                        }
                     }).finally(() => {
                         router.push('/').then(() => {
                             window.location.reload()
@@ -153,17 +158,8 @@
                     })
                 }
 
-                if (this.newImage.code !== undefined) {
-                    updateImage(this.newImage).then((response) => {
-                        console.log(response)
-                    }).finally(() => {
-                        router.push('/').then(() => {
-                            window.location.reload()
-                        });
-                    })
-                }
-            },
-        },
+            }
+        }
     }
 </script>
 

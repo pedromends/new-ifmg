@@ -1,11 +1,11 @@
 <template lang="">
     <section id="news" class="flex flex-col py-36 gap-16 max-lg:px-2">
         <h1 class="text-4xl font-semibold self-center underline underline-offset-2 decoration-4 decoration-maingreen">Notícias e Eventos</h1>
-        <div v-if="mainnew">
+        <div v-if="mainnew" class="px-20">
             <MainNew :tip="mainnew.tip" :title="mainnew.title" :parag="mainnew.paragraph" :img="mainnew.img.code"/>
         </div>
-        <div class="flex max-sm:flex-col gap-2 items-center justify-between">
-            <div class="flex flex-col gap-2">
+        <div class="flex max-sm:flex-col gap-2 items-center justify-between w-full p-10">
+            <div class="flex flex-col gap-2 w-full">
                 <p class="font-semibold text-3xl underline underline-offset-2 decoration-4 decoration-maingreen self-start ml-6">Últimas Notícias</p>
                 <div class="flex gap-4 px-4 items-end justify-between max-sm:flex-col">
                     <NewCard  v-for="(newNew, i) in news" :key="i" :img1="newNew.img.code"

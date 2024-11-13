@@ -1,9 +1,11 @@
 <template lang="">
-	<div class="pl-1 pb-1 bg-gradient-to-r from-maingreen to-white shadow-lg hover:shadow-red-600 rounded-lg transition duration-200">
-		<v-btn color="none" class="w-full h-auto" @click="isActive.value = true">
-			<img :src="img" alt="#" class="w-auto h-full object-cover rounded-lg my-1" />
-		</v-btn>
-	</div>
+	<section title="Abrir Modal" class="flex justify-center">
+        <button  @click="isActive.value = true"  class="bg-gradient-to-r from-maingreen to-transparent pl-1 pb-1 rounded-lg flex items-center shadow-lg shadow-transparent hover:shadow-maingreen transition duration-200"
+            type="button">
+            <img :src="img" class="py-5 rounded-lg bg-white shadow-lg self-center px-10 eauto" alt="#" :class="extraClass"/>
+        </button>
+    </section>
+
 	<v-dialog width="800" v-model="isActive.value" v-if="isActive">
 		<v-card class="divide-y-2 divide-maingreen gap-4">
 			<div class="flex items-center justify-center relative p-2 pt-8 gap-4">
@@ -20,7 +22,7 @@
 			<div class="flex flex-col p-4 gap-4">
 				<div class="p-4">
 					<v-expansion-panels class="">
-						<v-expansion-panel class="rounded-t-xl text-maingreen">
+						<v-expansion-panel class="rounded-t-lg text-maingreen">
 							<v-expansion-panel-title class="text-lg">
 								{{ projName }}
 							</v-expansion-panel-title>
