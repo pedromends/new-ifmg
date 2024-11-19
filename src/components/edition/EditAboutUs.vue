@@ -1,7 +1,6 @@
 <template lang="">
     <section class="flex flex-col justify-center bg-lightgray gap-10 pt-10">
-        <p
-            class="font-semibold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen self-start">
+        <p class="font-semibold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen self-start">
             Sobre Nós</p>
         <div role="status" class="animate-pulse flex bg-white py-10">
 
@@ -58,13 +57,13 @@
         </div>
 
         <v-form class="bg-white p-10 rounded-lg mb-10 max-sm:px-1">
-            <v-text-field v-model="newAboutUs.title" :rules="[rules.num]" class="text-maingreen"
-                color="#2F9E40" label="Título"></v-text-field>
+            <v-text-field v-model="newAboutUs.title" :rules="[rules.num]" class="text-maingreen" color="#2F9E40"
+                label="Título"></v-text-field>
 
-            <v-textarea v-model="newAboutUs.parag" :rules="[rules.text]" class="text-maingreen"
-                color="#2F9E40" label="Parágrafo"></v-textarea>
-            
-            <hr class="bg-maingreen h-1 mb-5"/>
+            <v-textarea v-model="newAboutUs.parag" :rules="[rules.text]" class="text-maingreen" color="#2F9E40"
+                label="Parágrafo"></v-textarea>
+
+            <hr class="bg-maingreen h-1 mb-5" />
 
             <v-file-input accept="image/*" color="#2F9E40" label="Imagem de Capa"
                 @change="onFileChanged($event)"></v-file-input>
@@ -73,7 +72,7 @@
                 <v-btn class="me-4" color="#2F9E40" type="submit" dark @click.prevent="updateAboutUs()">
                     Salvar
                 </v-btn>
-    
+
                 <v-btn @click="handleReset" color="error" dark>
                     Limpar
                 </v-btn>
@@ -141,23 +140,16 @@
                 if (this.newAboutUs.title !== '' && this.newAboutUs.parag !== '') {
                     updateWhoWeAre(this.newAboutUs).then((response) => {
                         console.log(response)
-                        if (this.newImage.code !== undefined) {
-                            updateImage(this.newImage).then((response) => {
-                                console.log(response)
-                            })
-                        }
-                    }).finally(() => {
-                        router.push('/').then(() => {
-                            window.location.reload()
-                        });
-                    })
-                } else {
-                    this.$store.commit('setAlert', true)
-                    this.$nextTick(() => {
-                        this.alertMissingFields()
                     })
                 }
-
+                if (this.newImage.code !== undefined) {
+                    updateImage(this.newImage).then((response) => {
+                        console.log(response)
+                    })
+                }
+                router.push('/').then(() => {
+                    window.location.reload()
+                });
             }
         }
     }

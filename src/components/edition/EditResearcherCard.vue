@@ -1,5 +1,5 @@
 <template lang="">
-    <section class="flex max-sm:flex-col justify-between bg-lightgray gap-10 m-10 w-full">
+    <section class="flex max-sm:flex-col justify-center bg-lightgray gap-10 m-10 w-full">
         <div role="status" class="flex flex-col items-center gap-10">
             <p
                 class="font-semibold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen self-start mt-5 mb-10">
@@ -8,9 +8,9 @@
 
             <section class="hover:shadow-lg transition duration-300 rounded-lg border border-gray-200 bg-white">
                 <div class="border-t border-maingreen px-4 py-5 gap-48 flex items-center justify-between animate-pulse">
-                    <div class="h-2.5 bg-black rounded-full w-48 border border-transparent hover:border-red-700"></div>
+                    <div class="h-2.5 bg-black rounded-full w-48 hover:border-red-700"></div>
                     <div alt="Polo IFMG"
-                        class="h-16 rounded-lg border border-maingreen flex items-center px-5 border-transparent hover:border-red-700">
+                        class="h-16 rounded-lg flex items-center px-5">
                         <svg class="w-8 h-8 text-gray-200 dark:text-gray-600" aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
                             <path
@@ -19,12 +19,12 @@
                     </div>
                 </div>
                 <div class="flex flex-col px-3 gap-3 py-3 animate-pulse">
-                    <div class="h-2 bg-black rounded-full w-40 border border-transparent hover:border-red-700"></div>
-                    <a class="flex items-center gap-3 border border-transparent hover:border-red-700 rounded-lg p-1">
+                    <div class="h-2 bg-black rounded-full w-40 border border-transparen"></div>
+                    <a class="flex items-center gap-3 rounded-lg p-1">
                         <img alt="Polo IFMG" class="h-4" :src="require('@/assets/icons/email-green.svg')" />
                         <div class="h-1.5 bg-maingreen rounded-full w-40"></div>
                     </a>
-                    <a class="flex items-center gap-3 border border-transparent hover:border-red-700 rounded-lg p-1">
+                    <a class="flex items-center gap-3 rounded-lg p-1">
                         <img alt="Polo IFMG" class="h-4" :src="require('@/assets/icons/book-green.svg')" />
                         <div class="h-1.5 bg-maingreen rounded-full w-40"></div>
                     </a>
@@ -60,31 +60,31 @@
 
         <v-form class="bg-white p-10 rounded-2xl">
             <div class="grid grid-cols-2 gap-2">
-                <v-text-field v-model="inEditionResearcher.firstName" :counter="10" :rules="[rules.text]" width="250"
+                <v-text-field v-model="inEditionResearcher.firstName" :rules="[rules.text]" width="250"
                     class="text-maingreen" color="#2F9E40" label="Nome"></v-text-field>
 
-                <v-text-field v-model="inEditionResearcher.lastName" :counter="10" :rules="[rules.text]" width="250"
+                <v-text-field v-model="inEditionResearcher.lastName" :rules="[rules.text]" width="250"
                     class="text-maingreen" color="#2F9E40" label="Sobrenome"></v-text-field>
 
-                <v-text-field v-model="inEditionResearcher.email" :counter="10" :rules="[rules.text]"
+                <v-text-field v-model="inEditionResearcher.email" :rules="[rules.text]"
                     class="text-maingreen" width="250" color="#2F9E40" label="Email"></v-text-field>
 
-                <v-text-field v-model="inEditionResearcher.address" :counter="10" :rules="[rules.text]" width="250"
+                <v-text-field v-model="inEditionResearcher.address" :rules="[rules.text]" width="250"
                     class="text-maingreen" color="#2F9E40" label="Endereço"></v-text-field>
 
-                <v-text-field v-model="inEditionResearcher.city" :counter="10" :rules="[rules.text]"
+                <v-text-field v-model="inEditionResearcher.city" :rules="[rules.text]"
                     class="text-maingreen" width="250" color="#2F9E40" label="Cidade"></v-text-field>
 
-                <v-text-field v-model="inEditionResearcher.department" :counter="10" :rules="[rules.text]" width="250"
+                <v-text-field v-model="inEditionResearcher.department" :rules="[rules.text]" width="250"
                     class="text-maingreen" color="#2F9E40" label="Departamento"></v-text-field>
 
-                <v-text-field v-model="inEditionResearcher.level" :counter="10" :rules="[rules.text]"
+                <v-text-field v-model="inEditionResearcher.level" :rules="[rules.text]"
                     class="text-maingreen" width="250" color="#2F9E40" label="Titulação"></v-text-field>
 
-                <v-text-field v-model="inEditionResearcher.phone" :counter="10" :rules="[rules.text]"
+                <v-text-field v-model="inEditionResearcher.phone" :rules="[rules.text]"
                     class="text-maingreen" width="250" color="#2F9E40" label="Telefone"></v-text-field>
 
-                <v-text-field v-model="inEditionResearcher.course" :counter="10" :rules="[rules.text]"
+                <v-text-field v-model="inEditionResearcher.course" :rules="[rules.text]"
                     class="text-maingreen" width="250" color="#2F9E40" label="Curso"></v-text-field>
 
                 <v-select v-model="inEditionCampus.campus" :items="mappedCampus" v-if="campuses != null"

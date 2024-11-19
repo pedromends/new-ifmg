@@ -1,7 +1,8 @@
 <template lang="">
     <section class="w-full flex flex-col justify-center bg-lightgray gap-10 rounded-lg">
-        <p
-            class="font-semibold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen text-center mt-10 self-start max-sm:ml-0">
+        <Alert :id="'alert-saved'" v-if="showAlertSave" :title="'Salvo com sucesso'"
+			:message="'Menu adicionado com sucesso!'" :bg_color="'bg-primary'" :duration="3000" />
+        <p class="font-semibold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen text-center mt-10 self-start max-sm:ml-0">
             Cards de Vantagens
         </p>
 
@@ -21,7 +22,7 @@
                 <!-- Cards verticais -->
                 <div class="animate-pulse flex flex-col gap-5">
                     <div @mouseover="changeForm(1)"
-                        class="text-black hover:bg-maingreen flex items-center px-6 py-6 gap-10 rounded-lg transition duration-300 hover:text-white border-gray-100 max-lg:w-auto max-lg:px-0">
+                        class="text-black hover:bg-maingreen flex items-center px-6 py-6 gap-10 rounded-lg transition duration-300 hover:text-white border-gray-100 max-lg:w-auto max-lg:px-0 father">
                         <div class="border-2 border-transparent p-2">
                             <svg class="w-16 h-12 text-gray-200 dark:text-gray-600" aria-hidden="true"
                                 xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
@@ -32,19 +33,19 @@
                         <div class="flex gap-1 edit items-center relative transition duration-500">
                             <div class="flex flex-col gap-2 ">
                                 <div class="flex flex-col gap-2 mb-2 border-2 border-transparent p-2">
-                                    <div class="ml-4 h-2.5 bg-black rounded-full w-56"></div>
-                                    <div class="ml-4 h-2.5 bg-black rounded-full w-48"></div>
+                                    <div class="ml-4 h-2.5 bg-black rounded-full w-56 son"></div>
+                                    <div class="ml-4 h-2.5 bg-black rounded-full w-48 son"></div>
                                 </div>
                                 <div class="flex flex-col gap-1 border-2 border-transparent p-2">
-                                    <div class="ml-4 h-1 bg-black rounded-full w-48"></div>
-                                    <div class="ml-4 h-1 bg-black rounded-full w-36"></div>
-                                    <div class="ml-4 h-1 bg-black rounded-full w-40"></div>
-                                    <div class="ml-4 h-1 bg-black rounded-full w-44"></div>
+                                    <div class="ml-4 h-1 bg-black rounded-full w-48 son"></div>
+                                    <div class="ml-4 h-1 bg-black rounded-full w-36 son"></div>
+                                    <div class="ml-4 h-1 bg-black rounded-full w-40 son"></div>
+                                    <div class="ml-4 h-1 bg-black rounded-full w-44 son"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="text-black hover:bg-maingreen flex items-center px-6 py-6 gap-10 rounded-lg transition duration-300 hover:text-white border-gray-100 max-lg:w-auto max-lg:px-0"
+                    <div class="text-black hover:bg-maingreen flex items-center px-6 py-6 gap-10 rounded-lg transition duration-300 hover:text-white border-gray-100 max-lg:w-auto max-lg:px-0 father"
                         @mouseover="changeForm(2)">
 
                         <div class="border-2 border-transparent p-2">
@@ -57,19 +58,19 @@
                         <div class="flex gap-1 edit items-center relative transition duration-500">
                             <div class="flex flex-col gap-2 ">
                                 <div class="flex flex-col gap-2 mb-2 border-2 border-transparent p-2">
-                                    <div class="ml-4 h-2.5 bg-black rounded-full w-56"></div>
-                                    <div class="ml-4 h-2.5 bg-black rounded-full w-48"></div>
+                                    <div class="ml-4 h-2.5 bg-black rounded-full w-56 son"></div>
+                                    <div class="ml-4 h-2.5 bg-black rounded-full w-48 son"></div>
                                 </div>
                                 <div class="flex flex-col gap-1 border-2 border-transparent p-2">
-                                    <div class="ml-4 h-1 bg-black rounded-full w-48"></div>
-                                    <div class="ml-4 h-1 bg-black rounded-full w-36"></div>
-                                    <div class="ml-4 h-1 bg-black rounded-full w-40"></div>
-                                    <div class="ml-4 h-1 bg-black rounded-full w-44"></div>
+                                    <div class="ml-4 h-1 bg-black rounded-full w-48 son"></div>
+                                    <div class="ml-4 h-1 bg-black rounded-full w-36 son"></div>
+                                    <div class="ml-4 h-1 bg-black rounded-full w-40 son"></div>
+                                    <div class="ml-4 h-1 bg-black rounded-full w-44 son"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="text-black hover:bg-maingreen flex items-center px-6 py-6 gap-10 rounded-lg transition duration-300 hover:text-white border-gray-100 max-lg:w-auto max-lg:px-0"
+                    <div class="text-black hover:bg-maingreen flex items-center px-6 py-6 gap-10 rounded-lg transition duration-300 hover:text-white border-gray-100 max-lg:w-auto max-lg:px-0 father"
                         @mouseover="changeForm(3)">
                         <div class="border-2 border-transparent p-2">
                             <svg class="w-16 h-12 text-gray-200 dark:text-gray-600" aria-hidden="true"
@@ -81,14 +82,14 @@
                         <div class="flex gap-1 edit items-center relative transition duration-500">
                             <div class="flex flex-col gap-2 ">
                                 <div class="flex flex-col gap-2 mb-2 border-2 border-transparent p-2">
-                                    <div class="ml-4 h-2.5 bg-black rounded-full w-56"></div>
-                                    <div class="ml-4 h-2.5 bg-black rounded-full w-48"></div>
+                                    <div class="ml-4 h-2.5 bg-black rounded-full w-56 son"></div>
+                                    <div class="ml-4 h-2.5 bg-black rounded-full w-48 son"></div>
                                 </div>
                                 <div class="flex flex-col gap-1 border-2 border-transparent p-2">
-                                    <div class="ml-4 h-1 bg-black rounded-full w-48"></div>
-                                    <div class="ml-4 h-1 bg-black rounded-full w-36"></div>
-                                    <div class="ml-4 h-1 bg-black rounded-full w-40"></div>
-                                    <div class="ml-4 h-1 bg-black rounded-full w-44"></div>
+                                    <div class="ml-4 h-1 bg-black rounded-full w-48 son"></div>
+                                    <div class="ml-4 h-1 bg-black rounded-full w-36 son"></div>
+                                    <div class="ml-4 h-1 bg-black rounded-full w-40 son"></div>
+                                    <div class="ml-4 h-1 bg-black rounded-full w-44 son"></div>
                                 </div>
                             </div>
                         </div>
@@ -98,17 +99,17 @@
 
             <v-form class="w-full flex flex-col gap-1 bg-white p-10 rounded-lg max-sm:px-1">
                 <p
-                    class="font-semibold text-xl underline underline-offset-2 decoration-4 decoration-maingreen text-center">
+                    class="font-semibold text-xl py-4 underline underline-offset-2 decoration-4 decoration-maingreen text-center">
                     Em edição: Card {{ currentForm }}
                 </p>
-                <v-text-field v-model="newAdvantages.differential" :counter="10" :rules="[rules.text]"
+                <v-text-field v-model="newAdvantages.differential" :rules="[rules.text]"
                     class="text-maingreen" color="#2F9E40" :label="'Título do card ' + currentForm"></v-text-field>
 
-                <v-text-field v-model="newAdvantages.description" :counter="10" :rules="[rules.text]"
+                <v-text-field v-model="newAdvantages.description" :rules="[rules.text]"
                     class="text-maingreen" color="#2F9E40" :label="'Resumo Card ' + currentForm "></v-text-field>
 
                 <v-file-input accept="image/*" color="#2F9E40" :label="'Ícone do Card ' + currentForm "
-                    @change="onFileChanged($event)"></v-file-input>
+                    @change="onImageChange($event)"></v-file-input>
 
                 <hr class="bg-maingreen h-1 mb-5" />
 
@@ -134,6 +135,7 @@
     import { updateAdvantages } from '@/services/AdvantagesService.js'
     import { updateImage } from '@/services/ImageService.js'
     import { mapMutations, mapActions } from "vuex";
+    import Alert from '@/components/alert/TOTOAlert.vue';
 
     export default {
         name: 'EditAdvantagesCard',
@@ -207,32 +209,25 @@
 
                     updateAdvantages(this.newAdvantages).then((response) => {
                         console.log(response)
-                    }).finally(() => {
-                        router.push('/').then(() => {
-                            window.location.reload()
-                        });
-                    })
-                } else {
-                    this.$store.commit('setAlert', true)
-                    this.$nextTick(() => {
-                        this.alertMissingFields()
                     })
                 }
 
                 if (this.bannerImage.code !== undefined) {
                     updateImage(this.bannerImage).then((response) => {
                         console.log(response)
-                    }).finally(() => {
-                        router.push('/').then(() => {
-                            window.location.reload()
-                        });
                     })
                 }
-            },
-        },
+
+                router.push('/').then(() => {
+                    window.location.reload()
+                });
+            }
+        }
     }
 </script>
 
 <style scoped>
-
+.father:hover .son {
+    background-color: white;
+}
 </style>

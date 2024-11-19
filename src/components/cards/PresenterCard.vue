@@ -47,7 +47,7 @@ export default {
     pointer-events: none;
 }
 
-.edit{
+.edit, .user {
     background-color: white;
 }
 
@@ -59,7 +59,7 @@ export default {
 }
 
 .edit:hover > div {
-    color: rgb(75,85,99);
+    color: rgb(75, 85, 99);
     z-index: 10;
     pointer-events: none;
 }
@@ -69,6 +69,6 @@ export default {
 }
 
 .edit:hover > div > div {
-    color: rgb(75,85,99);
+    color: rgb(75, 85, 99);
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-	<section class="border border-maingreen rounded-lg">
+	<section class="border-2 border-maingreen rounded-lg">
 
 		<!-- Título da notícia -->
 		<div class="p-4 flex flex-col gap-1">
@@ -428,18 +428,20 @@
 				this.$store.commit('setAlert', false)
 			},
 			createNew() {
-				createNew(this.newNew).then((response) => {
-					this.$store.commit('setAlert', true)
-					this.$nextTick(() => {
-						this.showCreateSuccess()
+				if(this.newNew.title != '' && this.newNew.code != null){
+					createNew(this.newNew).then((response) => {
+						this.$store.commit('setAlert', true)
+						this.$nextTick(() => {
+							this.showCreateSuccess()
+						})
+					}).finally(() => {
+						setInterval(() => {
+							router.push('/blog').then(() => {
+								window.location.reload();
+							});
+						}, 2500)
 					})
-				}).finally(() => {
-					setInterval(() => {
-						router.push('/blog').then(() => {
-							window.location.reload();
-						});
-					}, 2500)
-				})
+				}
 			},
 			updateLink(value) {
 				if (!value) {

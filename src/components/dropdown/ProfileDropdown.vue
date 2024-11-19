@@ -1,14 +1,16 @@
 <template lang="">
     <section class="bg-white h-full">
-        <SignOutSuccess />
-        <button v-if="!isLoggedIn" class="p-4 rounded-lg">
+        <TOTOAlert :id="'alert-logout'" v-if="showLogoutSuccess" :title="'Saiu!'"
+            :message="'Logout efetuado com sucesso!'" :bg_color="'bg-maingreen'" :duration="3000" />
+            
+        <button v-if="!isLoggedIn" class="h-full flex items-center gap-2 text-lg font-medium  bg-white hover:text-maingreen transition duration-200 px-4">
             <router-link to="/login"
                 class="p-4 transition duration-200 text-maingreen tracking-wide text-sm hover:underline">LOGIN</router-link>
         </button>
         <v-menu location="start" v-if="loaded" transition="slide-x-transition">
             <template v-slot:activator="{ props }">
-                <v-btn v-if="isLoggedIn" v-bind="props" rounded="0"
-                    class="h-full flex items-center gap-2 text-lg font-medium  bg-white hover:text-maingreen transition duration-200"
+                <button v-if="isLoggedIn" v-bind="props" rounded="0"
+                    class="h-full flex items-center gap-2 text-lg font-medium  bg-white hover:text-maingreen transition duration-200 px-4"
                     type="button">
                     <div v-if="loadImg">
                         <img :src="info.img.code" class="w-10 h-10 rounded-full" alt="">
@@ -21,7 +23,7 @@
                                 d="m1 1 4 4 4-4" />
                         </svg>
                     </div>
-                </v-btn>
+                </button>
             </template>
 
             <v-list class="mt-4 divide-y-2 divide-maingreen">
@@ -60,7 +62,7 @@
 </template>
 
 <script>
-    import SignOutSuccess from "@/components/alert/SignOutSuccess.vue";
+    import TOTOAlert from "@/components/alert/TOTOAlert.vue";
     import router from '@/router/index.js'
     import { mapMutations } from "vuex";
     import { getUserInfo } from '@/services/UserService'
@@ -78,19 +80,20 @@
                 }).catch((e) => {
                     if (e.status == 403) {
                         console.log(e)
-                        this.logOut()
+                        //this.logOut()
                     }
                 })
             }
         },
         components: {
-            SignOutSuccess
+            TOTOAlert
         },
         data() {
             return {
                 isLoggedIn: this.$store.getters.isLoggedIn,
                 isAdmin: this.$store.getters.isAdmin,
                 user: this.$store.getters.getUser,
+                showLogoutSuccess: false,
                 info: null,
                 loaded: false,
                 loadImg: false,
@@ -132,10 +135,6 @@
                 "setRole",
                 "setAlert"
             ]),
-            showSignOutSuccess() {
-                let div = document.getElementById("success-logout-alert")
-                div.style.display = "flex"
-            },
             logOut() {
                 this.setUser(null);
                 this.setToken(null);
@@ -145,15 +144,12 @@
                 document.cookie = `refresh_token = ${null}`
 
                 this.$store.commit('setAlert', true)
-                this.$nextTick(() => {
-                    this.showSignOutSuccess()
-                    setInterval(() => {
-                        router.push("/").then(() => {
-                            this.$store.commit('setAlert', false)
-                            window.location.reload()
-                        })
-                    }, 3000)
-                })
+                this.showLogoutSuccess = true
+                setInterval(() => {
+                    this.showLogoutSuccess = false
+                    window.location.reload()
+                }, 4000)
+            
             }
         }
     }

@@ -1,5 +1,5 @@
 <template>
-	<v-card @click.prevent="goTo(1)" v-if="newBody != null" max-width="400">
+	<v-card @click.prevent="goTo(1)" v-if="newBody != null" max-width="400" class="bg-white shadow-lg shadow-transparent hover:shadow-maingreen transition duration-200 ">
 		<v-img v-if="img1 != null" height="200px" :src="img1" cover></v-img>
 		<div class="p-4">
 			<h1 class="text-xl">{{ title }}</h1>

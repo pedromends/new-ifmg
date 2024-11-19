@@ -1,6 +1,6 @@
 <template lang="">
 	<section title="Abrir Modal" class="flex justify-center">
-        <button  @click="isActive.value = true"  class="bg-gradient-to-r from-maingreen to-transparent pl-1 pb-1 rounded-lg flex items-center shadow-lg shadow-transparent hover:shadow-maingreen transition duration-200"
+        <button  @click="isActive.value = true"  class="bg-gradient-to-r from-maingreen to-transparent shadow-lg shadow-transparent hover:shadow-maingreen transition duration-200 pl-1 pb-1 rounded-lg flex items-center"
             type="button">
             <img :src="img" class="py-5 rounded-lg bg-white shadow-lg self-center px-10 eauto" alt="#" :class="extraClass"/>
         </button>

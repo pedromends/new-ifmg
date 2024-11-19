@@ -1,5 +1,5 @@
 <template lang="">
-    <main class="px-10 pt-6 max-sm:mt-20 max-sm:px-0" id="main-edition">
+    <main class="px-10 max-sm:mt-20 max-sm:px-0" id="main-edition">
         <div class="flex items-center gap-2 px-5">
             <img class="w-6" :src="require('@/assets/icons/house2.svg')" alt="">
             <router-link to="/blog" class="text-maingreen hover:underline">Home</router-link>

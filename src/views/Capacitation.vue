@@ -41,9 +41,9 @@
                             </div>
                             <v-card-actions>
                                 <v-spacer></v-spacer>
-                                <button
-                                    class="text-white bg-maingreen hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
-                                    @click="updateParag()">Salvar</button>
+                                <v-btn class="me-4" color="#2F9E40" type="submit" dark @click.prevent="updateParag()">
+                                    Salvar
+                                </v-btn>
                                 <v-btn text="Fechar" @click="isActive.value = false"></v-btn>
                             </v-card-actions>
                         </v-card>
@@ -91,6 +91,7 @@
             updateParag() {
                 updateParag(this.newParag).then((response) => {
                     console.log(response.data)
+                    this.isActive.value = false
                 }).catch((error) => console.log(error))
             }
         }

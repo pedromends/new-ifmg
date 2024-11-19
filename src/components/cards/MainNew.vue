@@ -10,7 +10,7 @@
                         <a href="#" class="text-xs text-maingreen hover:underline">Ler Mais -></a>
                     </div>
                 </div>
-                <img class="h-116 rounded-r-xl" :src="img"/>
+                <img class="h-116 rounded-r-2xl mr-2" :src="img"/>
             </div>
         </div>
     </section>
