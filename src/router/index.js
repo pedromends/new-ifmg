@@ -41,7 +41,7 @@ const routes = [
 		component: HomePage
 	},
 	{
-		path: '/institucional',
+		path: '/institutional',
 		component: Institutional
 	},
 	{
@@ -105,7 +105,7 @@ const routes = [
 		component: ResearchersProfile
 	},
 	{
-		path: '/notificacoes',
+		path: '/notifications',
 		component: Notifications
 	},
 	{

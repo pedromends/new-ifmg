@@ -1,5 +1,11 @@
 <template lang="">
     <section class="flex flex-col gap-4 m-4">
+        <TOTOAlert :id="'alert-saved'" v-if="showSuccessAlert" :title="'Salvo com sucesso!'"
+            :message="'Alterações aplicadas'" :bg_color="'bg-maingreen'" :duration="3000" />
+
+        <TOTOAlert :id="'alert-error'" v-if="showErrorAlert" :title="'Erro na operação!'"
+            :message="'Não foi possível completar sua solicitação'" :bg_color="'bg-red-600'" :duration="3000" />
+
         <div class="flex flex-col items-center gap-5 pt-10 max-sm:mb-12">
             <div class="flex justify-between w-full">
                 <p
@@ -88,7 +94,7 @@
                 @change="onFileChanged($event)"></v-file-input>
 
             <div class="flex justify-center gap-4">
-                <v-btn class="me-4" color="#2F9E40" type="submit" dark @click="updateCard()">
+                <v-btn class="me-4" color="#2F9E40" dark @click.prevent="update()" type="submit">
                     Salvar
                 </v-btn>
 
@@ -105,13 +111,19 @@
     import { updateCard } from '@/services/PresenterCardService.js'
     import { updateImage } from '@/services/ImageService.js'
     import { mapMutations, mapActions } from "vuex";
-
+    import TOTOAlert from '@/components/alert/TOTOAlert.vue'
+    
     export default {
         name: 'EditPresenterCard',
+        components: {
+            TOTOAlert
+        },
         data() {
             return {
                 bool: false,
                 cardToUpdate: 1,
+                showSuccessAlert: false,
+                showErrorAlert: false,
                 newCard: {
                     num: null,
                     text: '',
@@ -140,43 +152,30 @@
             ...mapActions([
                 "isAlertFired"
             ]),
-            updateCard() {
+            update() {
                 this.newCard.id = this.cardToUpdate
-
-                if (this.newCard.num != null && this.newCard.text.length > 5) {
+                console.log(this.newCard)
+                if(this.newCard.num != null && this.newCard.text !== ''){
                     updateCard(this.newCard).then((response) => {
                         console.log(response)
-                    }).finally(() => {
-                        router.push('/').then(() => {
-                            var element = document.getElementById("navbar");
-                            element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
-                        });
-                    })
-                } else {
-                    this.$store.commit('setAlert', true)
-                    this.$nextTick(() => {
-                        this.alertMissingFields()
+                        this.showSuccessAlert = true
+                    }).catch((error) => {
+                        console.log(error)
+                        this.showErrorAlert = true
                     })
                 }
 
                 if (this.background.code != null) {
                     updateImage(this.background).then((response) => {
                         console.log(response.data)
-                    }).finally(() => {
-                        router.push('/').then(() => {
-                            var element = document.getElementById("navbar");
-                            element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
-                        });
                     })
                 }
-            },
-            alertMissingFields() {
-                let div = document.getElementById("alert-missing-fields")
-                div.style.display = "flex"
-                setInterval(() => {
-                    this.$store.commit('setAlert', false)
-                }, 2000)
-
+                
+                // setInterval(() => {
+                //     router.push('/')
+                //     window.location.reload()
+                // }, 4000)
+                
             },
             setCard(card) {
                 this.cardToUpdate = card
@@ -188,8 +187,8 @@
                 reader.onload = e => {
                     this.background.code = e.target.result;
                 };
-            },
-        },
+            }
+        }
     }
 </script>
 

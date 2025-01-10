@@ -1,5 +1,10 @@
 <template lang="">
     <section class="flex flex-col justify-center bg-lightgray gap-10 pt-10">
+        <TOTOAlert :id="'alert-saved'" v-if="showSuccessAlert" :title="'Salvo com sucesso!'"
+            :message="'Alterações aplicadas'" :bg_color="'bg-maingreen'" :duration="3000" />
+
+        <TOTOAlert :id="'alert-error'" v-if="showErrorAlert" :title="'Erro na operação!'"
+            :message="'Não foi possível completar sua solicitação'" :bg_color="'bg-red-600'" :duration="3000" />
         <p class="font-semibold text-2xl underline underline-offset-2 decoration-4 decoration-maingreen self-start">
             Sobre Nós</p>
         <div role="status" class="animate-pulse flex bg-white py-10">
@@ -86,13 +91,19 @@
     import { updateWhoWeAre } from '@/services/WhoWeAreService.js'
     import { updateImage } from '@/services/ImageService.js'
     import { mapMutations, mapActions } from "vuex";
+    import TOTOAlert from '@/components/alert/TOTOAlert.vue'
 
     export default {
         name: 'EditAboutUs',
+        components: {
+            TOTOAlert
+        },
         data() {
             return {
                 bool: false,
                 newTitle: null,
+                showSuccessAlert: false,
+                showErrorAlert: false,
                 newImage: {
                     id: 36,
                     code: undefined
@@ -140,16 +151,23 @@
                 if (this.newAboutUs.title !== '' && this.newAboutUs.parag !== '') {
                     updateWhoWeAre(this.newAboutUs).then((response) => {
                         console.log(response)
-                    })
+                    }).catch((error) => {
+                        console.log(error)
+                        this.showErrorAlert = true
+                    }).finally(setInterval(()=>{
+                        router.push('/')
+                    },4000))
                 }
                 if (this.newImage.code !== undefined) {
                     updateImage(this.newImage).then((response) => {
                         console.log(response)
                     })
                 }
-                router.push('/').then(() => {
-                    window.location.reload()
-                });
+               setInterval(() => {
+                    router.push('/').then(() => {
+                        window.location.reload()
+                    });
+               }, 4000)
             }
         }
     }

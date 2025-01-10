@@ -1,6 +1,6 @@
 <template>
 	<div v-if="isVisible" :class="bg_color"
-		class="fixed top-36 left-1/2 transform -translate-x-1/2 max-w-sm w-full text-white p-4 rounded-lg shadow-lg z-30">
+		class="fixed top-36 left-1/2 transform -translate-x-1/2 max-w-sm w-full text-white p-4 rounded-lg shadow-lg z-50">
 
 		<div class="flex justify-between items-center mb-2">
 			<span class="font-semibold">{{ title }}</span>

@@ -80,7 +80,7 @@
                 }).catch((e) => {
                     if (e.status == 403) {
                         console.log(e)
-                        //this.logOut()
+                        this.logOut()
                     }
                 })
             }

@@ -1,5 +1,7 @@
 <template lang="">
-    <main class="px-10 max-sm:mt-20 max-sm:px-0" id="main-edition">
+    <section class="px-10 max-sm:mt-20 max-sm:px-0" id="main-edition">
+
+
         <div class="flex items-center gap-2 px-5">
             <img class="w-6" :src="require('@/assets/icons/house2.svg')" alt="">
             <router-link to="/blog" class="text-maingreen hover:underline">Home</router-link>
@@ -15,7 +17,8 @@
         <div class="flex flex-col gap-10 p-4">
             <div class="flex items-center gap-2 mt-3">
                 <img :src="require('@/assets/icons/components.svg')" class="w-10 h-10 mt-1" alt="">
-                <h1 class="text-3xl max-sm:text-xl font-semibold underline decoration-maingreen decoration-4">Edição de Componentes</h1>
+                <h1 class="text-3xl max-sm:text-xl font-semibold underline decoration-maingreen decoration-4">Edição de
+                    Componentes</h1>
             </div>
             <div class="flex max-sm:flex-col gap-5 rounded-2xl">
                 <div class="flex flex-col">
@@ -36,30 +39,34 @@
                 </div>
             </div>
         </div>
-    </main>
+    </section>
 </template>
 
 <script>
-import router from '@/router/index.js'
+    import router from '@/router/index.js'
 
-export default {
-    name: 'MainEdition',
-    beforeCreate() {
-        if(!this.$store.getters.isAdmin){
-            router.push('/').then(() => {
-                window.location.reload();
-            });
+    export default {
+        name: 'MainEdition',
+        beforeCreate() {
+            if (!this.$store.getters.isAdmin) {
+                router.push('/').then(() => {
+                    window.location.reload();
+                });
+            }
+        },
+        data() {
+            return {
+                linkCss: 'transition duration-200 hover:bg-maingreen px-3 py-1 rounded-lg text-maingreen hover:text-white font-medium',
+                isAdmin: this.$store.getters.isAdmin,
+
+            }
+        },
+        methods: {
+
         }
-    },
-    data() {
-        return {
-            linkCss: 'transition duration-200 hover:bg-maingreen px-3 py-1 rounded-lg text-maingreen hover:text-white font-medium',
-            isAdmin: this.$store.getters.isAdmin,
-        }  
-    },
-}
+    }
 </script>
 
 <style>
-    
+
 </style>

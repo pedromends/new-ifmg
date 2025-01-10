@@ -19,7 +19,7 @@
                     color="#2F9E40" label="Email"></v-text-field>
 
                 <v-text-field v-model="login.password" :rules="[rules.password]" clearable class="text-maingreen"
-                    color="#2F9E40" label="Senha"></v-text-field>
+                    color="#2F9E40" label="Senha" ></v-text-field>
 
                 <v-btn class="me-4" color="#2F9E40" dark @click="requestLogin()">
                     Entrar
@@ -232,11 +232,8 @@
                         this.showSuccessLogin = true
 
                         setInterval(() => {
-                            router.push("/").then(() => {
-                                window.location.reload()
-                                this.showSuccessLogin = false
-                            })
-                        }, 4500)
+                            window.location.reload()
+                        }, 4000)
                     }
                 }).catch((e) => {
                     this.showWrongCredentials = true
